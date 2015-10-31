@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>بسم الله الرحمن الرحیم</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="js/leaflet.css" />
+<style type="text/css">
+body {
+	padding: 0;
+	margin: 0;
+}
+html, body, #map {
+	height: 100%;
+}
+.leaflet-control-layers-overlays label {
+  direction: rtl;
+  font-family:tahoma;
+  font-size:13px;
+  padding:4px 6px;
+}
+.leaflet-control-attribution.leaflet-control a{display:none;}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script src="js/leaflet.1.0.js"></script>
+<!---->
+<script>
+	ACCESS_TOKEN = 'pk.eyJ1IjoibWFwYm94IiwiYSI6IjZjNmRjNzk3ZmE2MTcwOTEwMGY0MzU3YjUzOWFmNWZhIn0.Y8bhBaUMqFiPrDRW9hieoQ';
+	MB_ATTR = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+		'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+		'Imagery © <a href="http://mapbox.com">Mapbox</a>';
+	MB_URL = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + ACCESS_TOKEN;
+	OSM_URL = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+	OSM_ATTRIB = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+</script>
+<script>
+	var icon_style = L.Icon.extend({
+		options: {
+			iconSize:     [33, 44], // size of the icon
+			iconAnchor:   [16,44], // point of the icon which will correspond to marker's location
+			popupAnchor:  [0, -44] // point from which the popup should open relative to the iconAnchor
+		}
+	});
+	var transport		= new icon_style({iconUrl: '../map-icon/transport.png',}),
+		shopping		= new icon_style({iconUrl: '../map-icon/shopping.png'}),
+		restaurants		= new icon_style({iconUrl: '../map-icon/restaurants.png'});
+		
+	var cities = new L.LayerGroup();
+	var cities2 = new L.LayerGroup();
+	
+    L.marker([32.61618,44.03405], {icon: shopping}).bindPopup('بسم الله الرحمن الرحیم').addTo(cities),
+    L.marker([32.615,44.035], {icon: shopping}).bindPopup('بسم الله الرحمن الرحیم 1').addTo(cities),
+    L.marker([32.616,44.036], {icon: shopping}).bindPopup('بسم الله الرحمن الرحیم 2').addTo(cities),
+    L.marker([32.617,44.037], {icon: shopping}).bindPopup('بسم الله الرحمن الرحیم 3').addTo(cities);
+	
+    L.marker([32.618,44.038], {icon: transport}).bindPopup('بسم الله الرحمن الرحیم 4').addTo(cities2),
+    L.marker([32.619,44.039], {icon: transport}).bindPopup('بسم الله الرحمن الرحیم 5').addTo(cities2),
+    L.marker([32.620,44.040], {icon: transport}).bindPopup('بسم الله الرحمن الرحیم 6').addTo(cities2),
+    L.marker([32.621,44.041], {icon: transport}).bindPopup('بسم الله الرحمن الرحیم 7').addTo(cities2);
+
+
+	var map = L.map('map', {
+		center: [32.61618,44.03405],
+		zoom: 15,
+	});
+	L.tileLayer('images/MapQuest/{z}/{x}/{y}.jpg', {
+		maxZoom: 17,
+		//attribution: 'بسم الحرمن الرحیم',
+	}).addTo(map);
+	
+
+	var baseLayers = {};
+
+	var overlays = {
+		"عمود ها": cities,
+		"موکب ها": cities2
+	};
+
+	L.control.layers(baseLayers, overlays).addTo(map);
+	
+	function onLocationFound(e) {
+		var radius = e.accuracy / 2;
+
+		L.marker(e.latlng).addTo(map)
+			.bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+		L.circle(e.latlng, radius).addTo(map);
+	}
+
+	map.on('locationfound', onLocationFound);
+	function onLocationError(e) {
+		alert(e.message);
+	}
+
+	map.on('locationerror', onLocationError);
+</script>
+<!---->
+<!--
+<script>
+	var map = L.map('map').setView([32.61618,44.03405], 15);
+	L.tileLayer('images/MapQuest/{z}/{x}/{y}.jpg', {
+		maxZoom: 17			
+	}).addTo(map);
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	var icon_style = L.Icon.extend({
+		options: {
+			iconSize:     [33, 44], // size of the icon
+			iconAnchor:   [16,44], // point of the icon which will correspond to marker's location
+			popupAnchor:  [0, -44] // point from which the popup should open relative to the iconAnchor
+		}
+	});
+	var transport		= new icon_style({iconUrl: '../map-icon/transport.png',}),
+		shopping		= new icon_style({iconUrl: '../map-icon/shopping.png'}),
+		restaurants		= new icon_style({iconUrl: '../map-icon/restaurants.png'});
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+//				L.marker([36.31, 59.59], {icon: shopping}).addTo(map).bindPopup("I am a red leaf.");
+var littleton = L.marker([32.61618,44.03405], {icon: transport}).bindPopup('This is Littleton, CO.'),
+    denver    = L.marker([32.620,44.03405], {icon: transport}).bindPopup('This is Littleton, CO.00000'),
+    aurora    = L.marker([32.616,44.036], {icon: shopping}).bindPopup('This is Aurora, CO.'),
+    golden    = L.marker([32.616,44.036], {icon: shopping}).bindPopup('This is Golden, CO.');
+	
+
+	
+var shopping = L.layerGroup([littleton, denver]);
+var transport = L.layerGroup([aurora, golden]);
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+var baseLayers = {};
+var overlayMaps = {
+    "مرکز خرید": shopping,
+    "حمل و نقل": transport
+};
+
+//L.control.layers(baseMaps, overlayMaps).addTo(map);
+L.control.layers(baseLayers,overlayMaps).addTo(map);
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	function onLocationFound(e) {
+		var radius = e.accuracy / 2;
+
+		L.marker(e.latlng).addTo(map)
+			.bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+		L.circle(e.latlng, radius).addTo(map);
+	}
+
+	map.on('locationfound', onLocationFound);
+</script>
+-->
+</body>
+</html>

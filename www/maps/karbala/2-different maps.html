@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>بسم الله الرحمن الرحیم</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="js/leaflet.css" />
+<style type="text/css">
+body {
+	padding: 0;
+	margin: 0;
+}
+html, body, #map {
+	height: 100%;
+}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<script src="js/leaflet.1.0.js"></script> 
+<script>
+	ACCESS_TOKEN = 'pk.eyJ1IjoibWFwYm94IiwiYSI6IjZjNmRjNzk3ZmE2MTcwOTEwMGY0MzU3YjUzOWFmNWZhIn0.Y8bhBaUMqFiPrDRW9hieoQ';
+	MB_ATTR = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+		'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+		'Imagery © <a href="http://mapbox.com">Mapbox</a>';
+	MB_URL = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + ACCESS_TOKEN;
+	OSM_URL = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+	OSM_ATTRIB = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+</script>
+<script>
+	var cities = new L.LayerGroup();
+	var cities2 = new L.LayerGroup();
+
+    L.marker([39.61, -105.02]).bindPopup('This is Littleton, CO.').addTo(cities),
+	L.marker([39.74, -104.99]).bindPopup('This is Denver, CO.').addTo(cities),
+	L.marker([39.73, -104.8]).bindPopup('This is Aurora, CO.').addTo(cities),
+	L.marker([39.77, -105.23]).bindPopup('This is Golden, CO.').addTo(cities);
+	
+	
+    L.marker([39.63, -105.02]).bindPopup('This is Littleton, CO.').addTo(cities2),
+	L.marker([39.76, -104.99]).bindPopup('This is Denver, CO.').addTo(cities2),
+	L.marker([39.78, -104.8]).bindPopup('This is Aurora, CO.').addTo(cities2),
+	L.marker([39.71, -105.23]).bindPopup('This is Golden, CO.').addTo(cities2);
+
+    var grayscale = L.tileLayer(MB_URL, {attribution: MB_ATTR, id: 'mapbox.light'}),
+	    streets = L.tileLayer(MB_URL, {attribution: MB_ATTR, id: 'mapbox.streets'});
+
+	var map = L.map('map', {
+		center: [32.61618,44.03405],
+		zoom: 15,
+	});
+	L.tileLayer('images/MapQuest/{z}/{x}/{y}.jpg', {
+		maxZoom: 17			
+	}).addTo(map);
+	
+	
+	var baseLayers = {
+		"Grayscale": grayscale,
+		"Streets": streets
+	};
+
+	var overlays = {
+		"Cities": cities,
+		"Cities2": cities2
+	};
+
+	L.control.layers(baseLayers, overlays).addTo(map);
+</script><!--
+<script>
+	var map = L.map('map').setView([36.3183, 59.5547], 12);
+	L.tileLayer('images/MapQuest/{z}/{x}/{y}.jpg', {
+		maxZoom: 18			
+	}).addTo(map);
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	var icon_style = L.Icon.extend({
+		options: {
+			iconSize:     [33, 44], // size of the icon
+			iconAnchor:   [16,44], // point of the icon which will correspond to marker's location
+			popupAnchor:  [0, -44] // point from which the popup should open relative to the iconAnchor
+		}
+	});
+	var transport		= new icon_style({iconUrl: '../map-icon/transport.png',}),
+		shopping		= new icon_style({iconUrl: '../map-icon/shopping.png'}),
+		restaurants		= new icon_style({iconUrl: '../map-icon/restaurants.png'});
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+//				L.marker([36.31, 59.59], {icon: shopping}).addTo(map).bindPopup("I am a red leaf.");
+var littleton = L.marker([36.32, 59.60], {icon: transport}).bindPopup('This is Littleton, CO.'),
+    denver    = L.marker([36.33, 59.61], {icon: transport}).bindPopup('This is Denver, CO.'),
+    aurora    = L.marker([36.34, 59.62], {icon: shopping}).bindPopup('This is Aurora, CO.'),
+    golden    = L.marker([36.35, 59.63], {icon: shopping}).bindPopup('This is Golden, CO.');
+	
+var clean = L.layerGroup();
+var shopping = L.layerGroup([littleton, denver]);
+var transport = L.layerGroup([aurora, golden]);
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+var overlayMaps = {
+    "پاکسازی صفحه": clean,
+    "مرکز خرید": shopping,
+    "حمل و نقل": transport
+};
+
+//L.control.layers(baseMaps, overlayMaps).addTo(map);
+L.control.layers(overlayMaps).addTo(map);
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	function onLocationFound(e) {
+		var radius = e.accuracy / 2;
+
+		L.marker(e.latlng).addTo(map)
+			.bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+		L.circle(e.latlng, radius).addTo(map);
+	}
+
+	map.on('locationfound', onLocationFound);
+</script>-->
+</body>
+</html>
