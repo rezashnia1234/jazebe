@@ -62,6 +62,31 @@ html, body, #map {
 		
 		
 	}
+
+	function onDeviceReady() {
+		navigator.geolocation.getCurrentPosition(onSuccess, onError);     
+	}
+
+	function onSuccess(position) {
+		alert("longitude : " + position.coords.longitude);
+		alert("latitude  : " + position.coords.latitude );
+		
+		//var radius = position.coords.accuracy / 2;
+		//var my_location_marker = L.marker([position.coords.latitude,position.coords.longitude], {icon: user_location_icon}).addTo(map).bindPopup("شما در شعاع " + radius + " متری این نقطه هستید");//.openPopup();
+		//var my_location_circle = L.circle([position.coords.latitude,position.coords.longitude], radius).addTo(map);
+	}
+	
+	function onError(error) { 
+		// your callback here
+	}
+/**/
+</script>
+
+</head>
+<body onload="init();">
+<div id="findbox" style="display:none;"></div>
+<div id="map"></div>
+<script>
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 // START Map :////////////////////////////////////////////////////////////////
@@ -123,7 +148,7 @@ html, body, #map {
 		zoom: 5,
 	});
 	//map.locate({setView: true, maxZoom: 16});
-	//map.locate();
+	map.locate();
 /*	
 	L.tileLayer('images/MapQuest/{z}/{x}/{y}.jpg', {
 		maxZoom: 17,
@@ -181,28 +206,6 @@ html, body, #map {
 // END Map ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
-	function onDeviceReady() {
-		navigator.geolocation.getCurrentPosition(onSuccess, onError);     
-	}
-
-	function onSuccess(position) {
-		alert("longitude : " + position.coords.longitude);
-		alert("latitude  : " + position.coords.latitude );
-		
-		var radius = position.coords.accuracy / 2;
-		var my_location_marker = L.marker([position.coords.latitude,position.coords.longitude], {icon: user_location_icon}).addTo(map).bindPopup("شما در شعاع " + radius + " متری این نقطه هستید");//.openPopup();
-		var my_location_circle = L.circle([position.coords.latitude,position.coords.longitude], radius).addTo(map);
-	}
-	
-	function onError(error) { 
-		// your callback here
-	}
-/**/
 </script>
-
-</head>
-<body onload="init();">
-<div id="findbox" style="display:none;"></div>
-<div id="map"></div>
 </body>
 </html>
