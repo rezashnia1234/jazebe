@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>بسم الله الرحمن الرحیم</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../phonegap.js"></script>
+<script src="../js/fastclick.js"></script>
+<script src="../js/back_btn.js"></script>
+<script src="js/leaflet.1.0.js"></script>
+<script src="js/leaflet-search.min.js"></script> 
+
+<link rel="stylesheet" href="js/leaflet.css" />
+<link rel="stylesheet" href="js/leaflet-search.css" />
+<style type="text/css">
+body {
+	padding: 0;
+	margin: 0;
+}
+html, body, #map {
+	height: 100%;
+}
+.leaflet-control-layers-overlays label {
+  direction: rtl;
+  font-family:tahoma;
+  font-size:13px;
+  padding:4px 6px;
+}
+.leaflet-popup-content {
+  direction: rtl;
+  font-family:tahoma;
+  font-size:13px;
+}
+.leaflet-control-attribution.leaflet-control a{display:none;}
+#findbox {
+	background: #eee;
+	border-radius:.125em;
+	border:2px solid #1978cf;
+	box-shadow: 0 0 8px #999;	
+	margin-bottom: 10px;
+	padding: 2px 0;
+	width: 600px;
+	height: 26px;
+}
+.search-tooltip {
+	width: 200px;
+}
+.leaflet-control-search .search-cancel {
+	position: static;
+	float: left;
+	margin-left: -22px;
+}
+</style>
+
+<script>
+
+	function init() {		
+		//console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
+		document.addEventListener("deviceready", onDeviceReady, false);
+		
+		
+	}
+	
+	function onDeviceReady() {
+		navigator.geolocation.getCurrentPosition(onSuccess, onError);     
+	}
+
+	function onSuccess(position) {
+		alert("longitude : " + position.coords.longitude);
+		alert("latitude  : " + position.coords.latitude );
+	}
+	
+	function onError(error) { 
+		// your callback here
+	}
+/**/
+</script>
+
+</head>
+<body onload="init();">
+<div id="findbox" style="display:none;"></div>
+<div id="map"></div>
+<script>
+
+
+</script>
+
+</body>
+</html>
