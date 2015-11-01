@@ -55,6 +55,7 @@ html, body, #map {
 </style>
 
 <script>
+/*
 	function init() {		
 		//console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
 		document.addEventListener("deviceready", onDeviceReady, false);
@@ -68,8 +69,8 @@ html, body, #map {
 
 	function onSuccess(position) {
 		// your callback here
-		//alert("longitude : " + position.coords.longitude);
-		//alert("latitude  : " + position.coords.latitude );
+		alert("longitude : " + position.coords.longitude);
+		alert("latitude  : " + position.coords.latitude );
 		
 		//var user_location_icon	= new icon_style_user_location({iconUrl: 'map-icon/user_location.png',iconRetinaUrl: 'map-icon/user_location@2x.png',});
 		//var radius = position.coords.accuracy / 2;
@@ -80,6 +81,7 @@ html, body, #map {
 	function onError(error) { 
 		// your callback here
 	}
+*/
 </script>
 
 </head>
@@ -145,7 +147,7 @@ html, body, #map {
 		zoom: 5,
 	});
 	//map.locate({setView: true, maxZoom: 16});
-	map.locate();
+	//map.locate();
 /*	
 	L.tileLayer('images/MapQuest/{z}/{x}/{y}.jpg', {
 		maxZoom: 17,
@@ -186,7 +188,7 @@ html, body, #map {
 	L.control.layers(baseLayers, overlays).addTo(map);
 
 
-	/**/
+	/*
 	function onLocationFound(e) {
 		var radius = e.accuracy / 2;
 		L.marker(e.latlng, {icon: user_location_icon}).addTo(map).bindPopup("شما در شعاع " + radius + " متری این نقطه هستید");//.openPopup();
@@ -199,7 +201,7 @@ html, body, #map {
 
 	map.on('locationfound', onLocationFound);
 	map.on('locationerror', onLocationError);
-	
+	*/
 </script>
 
 </body>
