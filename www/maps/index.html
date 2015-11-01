@@ -4,6 +4,14 @@
 <title>بسم الله الرحمن الرحیم</title>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<script src="../js/jquery-1.11.0.min.js"></script>
+<script src="../phonegap.js"></script>
+<script src="../js/fastclick.js"></script>
+<script src="../js/back_btn.js"></script>
+<script src="js/leaflet.1.0.js"></script>
+<script src="js/leaflet-search.min.js"></script> 
+
 <link rel="stylesheet" href="js/leaflet.css" />
 <link rel="stylesheet" href="js/leaflet-search.css" />
 <style type="text/css">
@@ -45,13 +53,33 @@ html, body, #map {
 	margin-left: -22px;
 }
 </style>
+
+<script>
+	function init() {		
+		//console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
+		document.addEventListener("deviceready", onDeviceReady, false);
+		
+		
+	}
+	
+	function onDeviceReady() {
+		navigator.geolocation.getCurrentPosition(onSuccess, onError);     
+	}
+
+	function onSuccess(position) {
+		// your callback here 
+		map.locate();
+	}
+
+	function onError(error) { 
+		// your callback here
+	}
+</script>
+
 </head>
-<body>
+<body onload="init();">
 <div id="findbox" style="display:none;"></div>
 <div id="map"></div>
-<script src="js/leaflet.1.0.js"></script>
-<script src="js/leaflet-search.min.js"></script> 
-
 <script>
 	var icon_style = L.Icon.extend({
 		options: {
@@ -111,7 +139,7 @@ html, body, #map {
 		zoom: 5,
 	});
 	//map.locate({setView: true, maxZoom: 16});
-	map.locate();
+	
 /*	
 	L.tileLayer('images/MapQuest/{z}/{x}/{y}.jpg', {
 		maxZoom: 17,
