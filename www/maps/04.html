@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>بسم الله الرحمن الرحیم</title>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="js/leaflet.css" />
+<link rel="stylesheet" href="js/leaflet-search.css" />
+<style type="text/css">
+body {
+	padding: 0;
+	margin: 0;
+}
+html, body, #map {
+	height: 100%;
+}
+.leaflet-control-layers-overlays label {
+  direction: rtl;
+  font-family:tahoma;
+  font-size:13px;
+  padding:4px 6px;
+}
+.leaflet-popup-content {
+  direction: rtl;
+  font-family:tahoma;
+  font-size:13px;
+}
+.leaflet-control-attribution.leaflet-control a{display:none;}
+#findbox {
+	background: #eee;
+	border-radius:.125em;
+	border:2px solid #1978cf;
+	box-shadow: 0 0 8px #999;	
+	margin-bottom: 10px;
+	padding: 2px 0;
+	width: 600px;
+	height: 26px;
+}
+.search-tooltip {
+	width: 200px;
+}
+.leaflet-control-search .search-cancel {
+	position: static;
+	float: left;
+	margin-left: -22px;
+}
+</style>
+</head>
+<body>
+<div id="findbox"></div>
+<div id="map"></div>
+<script src="js/leaflet.1.0.js"></script>
+<script src="js/leaflet-search.min.js"></script> 
+<!---->
+<script>
+	ACCESS_TOKEN = 'pk.eyJ1IjoibWFwYm94IiwiYSI6IjZjNmRjNzk3ZmE2MTcwOTEwMGY0MzU3YjUzOWFmNWZhIn0.Y8bhBaUMqFiPrDRW9hieoQ';
+	MB_ATTR = 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, ' +
+		'<a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, ' +
+		'Imagery © <a href="http://mapbox.com">Mapbox</a>';
+	MB_URL = 'https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=' + ACCESS_TOKEN;
+	OSM_URL = 'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png';
+	OSM_ATTRIB = '&copy; <a href="http://openstreetmap.org/copyright">OpenStreetMap</a> contributors';
+</script>
+<script>
+	var icon_style = L.Icon.extend({
+		options: {
+			iconSize:     [33, 44], // size of the icon
+			iconAnchor:   [16,44], // point of the icon which will correspond to marker's location
+			popupAnchor:  [0, -44] // point from which the popup should open relative to the iconAnchor
+		}
+	});
+	var icon_style_user_location = L.Icon.extend({
+		options: {
+			iconSize:     [44, 59], // size of the icon
+			iconAnchor:   [22,59], // point of the icon which will correspond to marker's location
+			popupAnchor:  [0, -59] // point from which the popup should open relative to the iconAnchor
+		}
+	});
+	    
+	var transport_icon		= new icon_style({iconUrl: 'map-icon/transport.png',iconRetinaUrl: '../map-icon/transport@2x.png',}),
+		shopping_icon		= new icon_style({iconUrl: 'map-icon/shopping.png',iconRetinaUrl: '../map-icon/shopping@2x.png',}),
+		restaurants_icon	= new icon_style({iconUrl: 'map-icon/restaurants.png',iconRetinaUrl: '../map-icon/restaurants@2x.png',});
+		user_location_icon	= new icon_style_user_location({iconUrl: 'map-icon/user_location.png',iconRetinaUrl: '../map-icon/user_location@2x.png',});
+	
+	var ziyarati	= new L.LayerGroup();
+	var bimarestan	= new L.LayerGroup();
+	var darmani		= new L.LayerGroup();
+	var mukeb		= new L.LayerGroup();
+	var mukeb_irani	= new L.LayerGroup();
+	var bazresi		= new L.LayerGroup();
+	var amud		= new L.LayerGroup();
+	var transport	= new L.LayerGroup();
+	
+    L.marker([32.6171,44.0362], {icon: shopping_icon}).bindPopup('حرم مطهر امام حسین علیه السلام').addTo(ziyarati),
+    L.marker([32.6163,44.0322], {icon: shopping_icon}).bindPopup('حرم مطهر حضرت اباالفضل علیه السلام').addTo(ziyarati),
+    L.marker([32.6510,43.9850], {icon: shopping_icon}).bindPopup('مرقد حر بن یزید ریاحی').addTo(ziyarati),
+    L.marker([31.9958,44.3146], {icon: shopping_icon}).bindPopup('حرم مطهر امیرالمونین علیه السلام').addTo(ziyarati);
+	
+    L.marker([31.9899,44.4043], {icon: transport_icon}).bindPopup('فرودگاه نجف').addTo(transport);
+	
+    L.marker([32.618,44.038], {icon: transport_icon}).bindPopup('بسم الله الرحمن الرحیم 4').addTo(mukeb_irani),
+    L.marker([32.619,44.039], {icon: transport_icon}).bindPopup('بسم الله الرحمن الرحیم 5').addTo(bazresi),
+    L.marker([32.620,44.040], {icon: transport_icon}).bindPopup('بسم الله الرحمن الرحیم 6').addTo(amud),
+    L.marker([32.621,44.041], {icon: transport_icon}).bindPopup('بسم الله الرحمن الرحیم 7').addTo(amud);
+
+
+	var map = L.map('map', {
+		center: [32.61618,44.03405],
+		zoom: 16,
+	});
+	//map.locate({setView: true, maxZoom: 16});
+	map.locate();
+	
+	L.tileLayer('images/MapQuest/{z}/{x}/{y}.jpg', {
+		maxZoom: 17,
+		//attribution: 'بسم الحرمن الرحیم',
+	}).addTo(map);
+	
+	/**/
+	map.addControl( new L.Control.Search({
+		container: 'findbox',
+		layer: ziyarati,
+		initial: false,
+		collapsed: false
+	}) );
+	
+	//inizialize search control
+
+	var baseLayers = {};
+
+	var overlays = {
+		"مکان های زیارتی": ziyarati,
+		"بیمارستان ها": bimarestan,
+		"مراکز درمانی": darmani,
+		"موکب ، حسینیه": mukeb,
+		"موکب های در اختیار ایرانی ها": mukeb_irani,
+		"ایست و بازرسی": bazresi,
+		"عمود ها": amud,
+		"حمل و نقل": transport
+	};
+
+	L.control.layers(baseLayers, overlays).addTo(map);
+
+
+	
+	function onLocationFound(e) {
+		var radius = e.accuracy / 2;
+		L.marker(e.latlng, {icon: user_location_icon}).addTo(map).bindPopup("شما در شعاع " + radius + " متری این نقطه هستید");//.openPopup();
+		L.circle(e.latlng, radius*4).addTo(map);
+	}
+
+	function onLocationError(e) {
+		alert(e.message);
+	}
+
+	map.on('locationfound', onLocationFound);
+	map.on('locationerror', onLocationError);
+	
+</script>
+<!---->
+<!--
+<script>
+	var map = L.map('map').setView([32.61618,44.03405], 15);
+	L.tileLayer('images/MapQuest/{z}/{x}/{y}.jpg', {
+		maxZoom: 17			
+	}).addTo(map);
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+
+	var icon_style = L.Icon.extend({
+		options: {
+			iconSize:     [33, 44], // size of the icon
+			iconAnchor:   [16,44], // point of the icon which will correspond to marker's location
+			popupAnchor:  [0, -44] // point from which the popup should open relative to the iconAnchor
+		}
+	});
+	var transport		= new icon_style({iconUrl: '../map-icon/transport.png',}),
+		shopping		= new icon_style({iconUrl: '../map-icon/shopping.png'}),
+		restaurants		= new icon_style({iconUrl: '../map-icon/restaurants.png'});
+
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+//				L.marker([36.31, 59.59], {icon: shopping}).addTo(map).bindPopup("I am a red leaf.");
+var littleton = L.marker([32.61618,44.03405], {icon: transport}).bindPopup('This is Littleton, CO.'),
+    denver    = L.marker([32.620,44.03405], {icon: transport}).bindPopup('This is Littleton, CO.00000'),
+    aurora    = L.marker([32.616,44.036], {icon: shopping}).bindPopup('This is Aurora, CO.'),
+    golden    = L.marker([32.616,44.036], {icon: shopping}).bindPopup('This is Golden, CO.');
+	
+
+	
+var shopping = L.layerGroup([littleton, denver]);
+var transport = L.layerGroup([aurora, golden]);
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+var baseLayers = {};
+var overlayMaps = {
+    "مرکز خرید": shopping,
+    "حمل و نقل": transport
+};
+
+//L.control.layers(baseMaps, overlayMaps).addTo(map);
+L.control.layers(baseLayers,overlayMaps).addTo(map);
+	
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////
+	function onLocationFound(e) {
+		var radius = e.accuracy / 2;
+
+		L.marker(e.latlng).addTo(map)
+			.bindPopup("You are within " + radius + " meters from this point").openPopup();
+
+		L.circle(e.latlng, radius).addTo(map);
+	}
+
+	map.on('locationfound', onLocationFound);
+</script>
+-->
+</body>
+</html>
