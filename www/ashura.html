@@ -16,9 +16,8 @@
     <script src="js/fastclick.js"></script>
     <script src="js/jquery.md5.js"></script>
     <script src="js/back_btn.js"></script>
-    <script src="js/jquery.touchSwipe.min.js"></script>
+    <!--<script src="js/jquery.touchSwipe.min.js"></script>-->
     <script src="js/query-string.js"></script>
-	<script src="PushNotification.js" type="text/javascript" ></script>
 	
 	<script>
 		function init() {		
@@ -29,7 +28,7 @@
 		}
 
 		function onDeviceReady() {
-			/**/
+			/*
 			$("body").swipe({
 				swipe:function(event, direction, distance, duration, fingerCount){
 					//$(this).text("You swiped " + direction + " for " + distance + "px" );
@@ -44,7 +43,7 @@
 				},
 				threshold:100
 			});
-				
+			*/
 			FastClick.attach(document.getElementById('container'));
 			
 			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
