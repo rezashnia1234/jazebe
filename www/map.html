@@ -189,7 +189,7 @@ html, body, #map {
 		alert("longitude : " + position.coords.longitude);
 		alert("latitude  : " + position.coords.latitude );
 		
-		var radius = position.coords..accuracy / 2;
+		var radius = position.coords.accuracy / 2;
 		var my_location_marker = L.marker([position.coords.latitude,position.coords.longitude], {icon: user_location_icon}).addTo(map).bindPopup("شما در شعاع " + radius + " متری این نقطه هستید");//.openPopup();
 		var my_location_circle = L.circle([position.coords.latitude,position.coords.longitude], radius).addTo(map);
 	}
