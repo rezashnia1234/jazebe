@@ -14,94 +14,9 @@
 
 <link rel="stylesheet" href="maps/js/leaflet.css" />
 <link rel="stylesheet" href="maps/js/leaflet-search.css" />
+<link rel="stylesheet" href="maps/js/style.css" />
 <style type="text/css">
-body {
-	padding: 0;
-	margin: 0;
-}
-html, body, #map {
-	height: 100%;
-}
-.leaflet-control-layers-overlays label {
-  direction: rtl;
-  font-family:tahoma;
-  font-size:13px;
-  padding:4px 6px;
-}
-.leaflet-popup-content {
-  direction: rtl;
-  font-family:tahoma;
-  font-size:13px;
-}
-.leaflet-control-attribution.leaflet-control a{display:none;}
-#findbox {
-	background: #eee;
-	border-radius:.125em;
-	border:2px solid #1978cf;
-	box-shadow: 0 0 8px #999;	
-	margin-bottom: 10px;
-	padding: 2px 0;
-	width: 600px;
-	height: 26px;
-}
-.search-tooltip {
-	width: 200px;
-}
-.leaflet-control-search .search-cancel {
-	position: static;
-	float: left;
-	margin-left: -22px;
-}
-.leaflet-control-container .leaflet-top.leaflet-left .leaflet-control-zoom.leaflet-bar.leaflet-control{
-	top:105px;
-}
-#button{
-	position:fixed;
-	top:7px;
-	left:0;
-	z-index:999999;
-}
-#back{
-	position:absolute;
-	top:0;
-	left:10px;
-	background:red;
-	width:70px;
-	height:30px;
-}
-#add_to_favorites{
-	position:absolute;
-	top:35px;
-	left:10px;
-	background:green;
-	width:70px;
-	height:30px;
-}
-#share_location{
-	position:absolute;
-	top:70px;
-	left:10px;
-	background:blue;
-	width:70px;
-	height:30px;
-}
-#add_to_favorites.disabled{
-	opacity:0.5;
-}
-#popup0 {
-  background: #fff none repeat scroll 0 0;
-  border-radius: 0.25em 0.25em 0.4em 0.4em;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
-  margin: 4em auto;
-  max-width: 400px;
-  position: fixed;
-  text-align: center;
-  transform: translateY(-40px);
-  transition-duration: 0.3s;
-  transition-property: transform;
-  width: 90%;
-  bottom:40px;
-}
+
 </style>
 
 <script>
@@ -119,13 +34,14 @@ html, body, #map {
 	function onDeviceReady() {
 		(function(){
 			navigator.geolocation.getCurrentPosition(onSuccess, onError);
-			setTimeout(arguments.callee, 8000);
+			setTimeout(arguments.callee, 5000);
 		})();
 	}
-	function add_to_favorites() {
+	function add_to_favorites_open() {
 		if(add_to_favorites_popup==false)
 		{
 			$("#add_to_favorites").addClass("disabled");
+			$(".cd-popup").addClass("is-visible");
 			add_to_favorites_popup = true;
 			new_favorite_marker_icon	= new icon_style_favorites_new({iconUrl: 'maps/map-icon/marker-icon.png',iconRetinaUrl: 'maps/map-icon/marker-icon@2x.png',shadowUrl: 'maps/map-icon/marker-shadow.png',});
 			new_favorite_marker = L.marker(map.getCenter(), {icon: new_favorite_marker_icon,setZIndexOffset: 1000,draggable:true}).addTo(map).bindPopup("لطفا این مارکر را در موقعیت دلخواه قرار دهید.").openPopup();
@@ -133,12 +49,36 @@ html, body, #map {
 		else
 		{
 			$("#add_to_favorites").removeClass("disabled");
+			$(".cd-popup").removeClass("is-visible");
 			add_to_favorites_popup = false;
 			new_favorite_marker.remove();
 		}
 	}
+	function add_to_favorites() {
+		temp_array_lat	 = JSON.parse(window.localStorage.getItem('favorites_lat'));
+		temp_array_long	 = JSON.parse(window.localStorage.getItem('favorites_long'));
+		temp_array_title = JSON.parse(window.localStorage.getItem('favorites_title'));
+		temp_new_title	 = $("#favorite_title");
+		
+		temp_array_lat.push(new_favorite_marker.getLatLng().lat);
+		temp_array_long.push(new_favorite_marker.getLatLng().lng);
+		temp_array_title.push(temp_new_title.val());
+		
+		window.localStorage.setItem('favorites_lat',JSON.stringify(temp_array_lat));
+		window.localStorage.setItem('favorites_long',JSON.stringify(temp_array_long));
+		window.localStorage.setItem('favorites_title',JSON.stringify(temp_array_title));
+		
+		new_favorite_marker.remove();
+		L.marker([new_favorite_marker.getLatLng().lat,new_favorite_marker.getLatLng().lng], {icon: favorites_icon}).bindPopup(temp_new_title.val()).addTo(favorites);
+		L.marker([new_favorite_marker.getLatLng().lat,new_favorite_marker.getLatLng().lng], {icon: favorites_icon}).bindPopup(temp_new_title.val()).addTo(map);
+		
+		temp_new_title.val("");
+		add_to_favorites_popup = false;
+		$(".cd-popup").removeClass("is-visible");
+		$("#add_to_favorites").removeClass("disabled");
+	}
 	function share_location() {
-	
+
 	}
 	function onSuccess(position) {
 		//alert("longitude : " + position.coords.longitude);
@@ -169,12 +109,23 @@ html, body, #map {
 	<div id="findbox" style="display:none;"></div>
 	<div id="button">
 		<div id="back" onclick="parent.history.back();">back</div>
-		<div id="add_to_favorites"	onclick="add_to_favorites();">favorites</div>
+		<div id="add_to_favorites"	onclick="add_to_favorites_open();">favorites</div>
 		<div id="share_location"	onclick="share_location();">location</div>
 	</div>
-	<div id="popup">
 	
-	</div>
+	
+<div class="cd-popup is-visible0" role="alert">
+	<div class="cd-popup-container">
+		<p><input id="favorite_title" id="favorite_title" placeholder="عنوان نقطه جدید" /></p>
+		<ul class="cd-buttons">
+			<li><a href="#" onclick="add_to_favorites();">تاید</a></li>
+			<li><a href="#" onclick="add_to_favorites_open();">لغو</a></li>
+		</ul>
+		<!--<a href="#0" class="cd-popup-close img-replace">Close</a>-->
+	</div> <!-- cd-popup-container -->
+</div> <!-- cd-popup -->
+
+
 	<div id="map"></div>
 <script>
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -241,6 +192,27 @@ html, body, #map {
     L.marker([32.620,44.040], {icon: transport_icon}).bindPopup('بسم الله الرحمن الرحیم 6').addTo(amud),
     L.marker([32.621,44.041], {icon: transport_icon}).bindPopup('بسم الله الرحمن الرحیم 7').addTo(amud);
 
+//////////////////////////////////////////////////
+//////favorite////////////////////////////////////
+	if(window.localStorage.getItem('favorites_lat') == null)
+	{
+		window.localStorage.setItem('favorites_lat',JSON.stringify([""]));
+		window.localStorage.setItem('favorites_long',JSON.stringify([""]));
+		window.localStorage.setItem('favorites_title',JSON.stringify([""]));
+	}
+	else
+	{
+		temp_array_lat	 = JSON.parse(window.localStorage.getItem('favorites_lat'));
+		temp_array_long	 = JSON.parse(window.localStorage.getItem('favorites_long'));
+		temp_array_title = JSON.parse(window.localStorage.getItem('favorites_title'));
+		$.each(temp_array_lat, function(i, val) {
+			//alert(i + ":" + val);
+			//alert(temp_array_long[i]);
+			L.marker([temp_array_lat[i],temp_array_long[i]], {icon: favorites_icon}).bindPopup(temp_array_title[i]).addTo(favorites);
+		});
+	}
+//////favorite////////////////////////////////////
+//////////////////////////////////////////////////
 
 	var map = L.map('map', {
 		center: [32.61618,44.03405],
