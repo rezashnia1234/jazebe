@@ -66,7 +66,10 @@ html, body, #map {
 	}
 
 	function onDeviceReady() {
-		navigator.geolocation.getCurrentPosition(onSuccess, onError);   
+		(function(){
+			navigator.geolocation.getCurrentPosition(onSuccess, onError);
+			setTimeout(arguments.callee, 8000);
+		})();
 	}
 
 	function onSuccess(position) {
@@ -85,10 +88,6 @@ html, body, #map {
 		
 		//test = L.marker([32.6072,44.0264], {icon: transport_icon}).bindPopup('test').addTo(map);
 		//test.setLatLng([32.5986,44.0156]);
-		(function(){
-			navigator.geolocation.getCurrentPosition(onSuccess, onError);
-			setTimeout(arguments.callee, 8000);
-		})();
 	}
 	
 	function onError(error) { 
@@ -161,7 +160,7 @@ html, body, #map {
 	var map = L.map('map', {
 		center: [32.61618,44.03405],
 		zoom: 13,
-		maxZoom: 16,//17
+		maxZoom: 5,//17
 		minZoom:1,
 	});
 	//map.locate({setView: true, maxZoom: 16});
