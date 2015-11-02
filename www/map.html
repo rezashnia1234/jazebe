@@ -53,18 +53,18 @@ html, body, #map {
 	margin-left: -22px;
 }
 .leaflet-control-container .leaflet-top.leaflet-left .leaflet-control-zoom.leaflet-bar.leaflet-control{
-	top:75px;
+	top:105px;
 }
 #button{
 	position:fixed;
-	top:0;
+	top:7px;
 	left:0;
 	z-index:999999;
 }
 #back{
 	position:absolute;
 	top:0;
-	left:0;
+	left:10px;
 	background:red;
 	width:70px;
 	height:30px;
@@ -72,13 +72,35 @@ html, body, #map {
 #add_to_favorites{
 	position:absolute;
 	top:35px;
-	left:0;
+	left:10px;
 	background:green;
 	width:70px;
 	height:30px;
 }
+#share_location{
+	position:absolute;
+	top:70px;
+	left:10px;
+	background:blue;
+	width:70px;
+	height:30px;
+}
 #add_to_favorites.disabled{
-	opacity:0.3;
+	opacity:0.5;
+}
+#popup0 {
+  background: #fff none repeat scroll 0 0;
+  border-radius: 0.25em 0.25em 0.4em 0.4em;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  margin: 4em auto;
+  max-width: 400px;
+  position: fixed;
+  text-align: center;
+  transform: translateY(-40px);
+  transition-duration: 0.3s;
+  transition-property: transform;
+  width: 90%;
+  bottom:40px;
 }
 </style>
 
@@ -87,6 +109,7 @@ html, body, #map {
 	function init() {		
 		//console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
 		document.addEventListener("deviceready", onDeviceReady, false);
+		add_to_favorites_popup = false;
 		
 		radius = 0;
 		my_location_marker = L.marker([36.2879,59.6157], {icon: user_location_icon,setZIndexOffset: 999}).addTo(map);
@@ -100,23 +123,35 @@ html, body, #map {
 		})();
 	}
 	function add_to_favorites() {
-		//alert("786");
-		$("#add_to_favorites").addClass("disabled");
-		new_favorite_marker_icon	= new icon_style_favorites_new({iconUrl: 'maps/map-icon/marker-icon.png',iconRetinaUrl: 'maps/map-icon/marker-icon@2x.png',shadowUrl: 'maps/map-icon/marker-shadow.png',});
-		new_favorite_marker = L.marker(map.getCenter(), {icon: new_favorite_marker_icon,setZIndexOffset: 1000,draggable:true}).addTo(map).bindPopup("لطفا این مارکر را در موقعیت دلخواه قرار دهید.").openPopup();
+		if(add_to_favorites_popup==false)
+		{
+			$("#add_to_favorites").addClass("disabled");
+			add_to_favorites_popup = true;
+			new_favorite_marker_icon	= new icon_style_favorites_new({iconUrl: 'maps/map-icon/marker-icon.png',iconRetinaUrl: 'maps/map-icon/marker-icon@2x.png',shadowUrl: 'maps/map-icon/marker-shadow.png',});
+			new_favorite_marker = L.marker(map.getCenter(), {icon: new_favorite_marker_icon,setZIndexOffset: 1000,draggable:true}).addTo(map).bindPopup("لطفا این مارکر را در موقعیت دلخواه قرار دهید.").openPopup();
+		}
+		else
+		{
+			$("#add_to_favorites").removeClass("disabled");
+			add_to_favorites_popup = false;
+			new_favorite_marker.remove();
+		}
+	}
+	function share_location() {
+	
 	}
 	function onSuccess(position) {
 		//alert("longitude : " + position.coords.longitude);
 		//alert("latitude  : " + position.coords.latitude );
 		
 		user_location_icon	= new icon_style_user_location({iconUrl: 'maps/map-icon/user_location.png',iconRetinaUrl: 'maps/map-icon/user_location@2x.png',});
-		radius = position.coords.accuracy / 2;
+		radius = (position.coords.accuracy / 2) * 1;
 		//my_location_marker = L.marker([position.coords.latitude,position.coords.longitude], {icon: user_location_icon}).addTo(map).bindPopup("شما در شعاع " + radius + " متری این نقطه هستید");//.openPopup();
 		//my_location_circle = L.circle([position.coords.latitude,position.coords.longitude], radius).addTo(map);
 		my_location_marker.setLatLng([position.coords.latitude,position.coords.longitude]);
 		my_location_marker.bindPopup("شما در شعاع " + radius + " متری این نقطه هستید");
 		my_location_circle.setLatLng([position.coords.latitude,position.coords.longitude]);
-		my_location_circle.getRadius(radius);
+		my_location_circle.setRadius(radius);
 		
 		
 		//test = L.marker([32.6072,44.0264], {icon: transport_icon}).bindPopup('test').addTo(map);
@@ -133,8 +168,12 @@ html, body, #map {
 <body onload="init();">
 	<div id="findbox" style="display:none;"></div>
 	<div id="button">
-		<div id="back" onclick="parent.history.back();"></div>
-		<div id="add_to_favorites" onclick="add_to_favorites();"></div>
+		<div id="back" onclick="parent.history.back();">back</div>
+		<div id="add_to_favorites"	onclick="add_to_favorites();">favorites</div>
+		<div id="share_location"	onclick="share_location();">location</div>
+	</div>
+	<div id="popup">
+	
 	</div>
 	<div id="map"></div>
 <script>
