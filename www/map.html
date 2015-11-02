@@ -69,11 +69,11 @@ html, body, #map {
 
 	function onSuccess(position) {
 		alert("longitude : " + position.coords.longitude);
-		alert("latitude  : " + position.coords.latitude );
+		//alert("latitude  : " + position.coords.latitude );
 		
-		//var radius = position.coords.accuracy / 2;
-		//var my_location_marker = L.marker([position.coords.latitude,position.coords.longitude], {icon: user_location_icon}).addTo(map).bindPopup("شما در شعاع " + radius + " متری این نقطه هستید");//.openPopup();
-		//var my_location_circle = L.circle([position.coords.latitude,position.coords.longitude], radius).addTo(map);
+		var radius = position.coords.accuracy / 2;
+		var my_location_marker = L.marker([position.coords.latitude,position.coords.longitude], {icon: user_location_icon}).addTo(map).bindPopup("شما در شعاع " + radius + " متری این نقطه هستید");//.openPopup();
+		var my_location_circle = L.circle([position.coords.latitude,position.coords.longitude], radius).addTo(map);
 	}
 	
 	function onError(error) { 
@@ -148,7 +148,7 @@ html, body, #map {
 		zoom: 5,
 	});
 	//map.locate({setView: true, maxZoom: 16});
-	map.locate();
+	//map.locate();
 /*	
 	L.tileLayer('images/MapQuest/{z}/{x}/{y}.jpg', {
 		maxZoom: 17,
@@ -189,7 +189,7 @@ html, body, #map {
 	L.control.layers(baseLayers, overlays).addTo(map);
 
 
-	/**/
+	/*
 	function onLocationFound(e) {
 		var radius = e.accuracy / 2;
 		L.marker(e.latlng, {icon: user_location_icon}).addTo(map).bindPopup("شما در شعاع " + radius + " متری این نقطه هستید");//.openPopup();
@@ -202,7 +202,7 @@ html, body, #map {
 
 	map.on('locationfound', onLocationFound);
 	map.on('locationerror', onLocationError);
-	
+	*/
 // END Map ///////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
