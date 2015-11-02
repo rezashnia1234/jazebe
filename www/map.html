@@ -55,25 +55,40 @@ html, body, #map {
 </style>
 
 <script>
+	
 	function init() {		
 		//console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
 		document.addEventListener("deviceready", onDeviceReady, false);
 		
-		
+		radius = 0;
+		my_location_marker = L.marker([36.2879,59.6157], {icon: user_location_icon,setZIndexOffset: 1000}).addTo(map);
+		my_location_circle = L.circle([36.2879,59.6157], radius).addTo(map);
 	}
 
 	function onDeviceReady() {
-		navigator.geolocation.getCurrentPosition(onSuccess, onError);     
+		navigator.geolocation.getCurrentPosition(onSuccess, onError);   
 	}
 
 	function onSuccess(position) {
 		alert("longitude : " + position.coords.longitude);
 		//alert("latitude  : " + position.coords.latitude );
 		
-		var user_location_icon	= new icon_style_user_location({iconUrl: 'maps/map-icon/user_location.png',iconRetinaUrl: 'maps/map-icon/user_location@2x.png',});
-		var radius = position.coords.accuracy / 2;
-		var my_location_marker = L.marker([position.coords.latitude,position.coords.longitude], {icon: user_location_icon}).addTo(map).bindPopup("شما در شعاع " + radius + " متری این نقطه هستید");//.openPopup();
-		var my_location_circle = L.circle([position.coords.latitude,position.coords.longitude], radius).addTo(map);
+		user_location_icon	= new icon_style_user_location({iconUrl: 'maps/map-icon/user_location.png',iconRetinaUrl: 'maps/map-icon/user_location@2x.png',});
+		radius = position.coords.accuracy / 2;
+		//my_location_marker = L.marker([position.coords.latitude,position.coords.longitude], {icon: user_location_icon}).addTo(map).bindPopup("شما در شعاع " + radius + " متری این نقطه هستید");//.openPopup();
+		//my_location_circle = L.circle([position.coords.latitude,position.coords.longitude], radius).addTo(map);
+		my_location_marker.setLatLng([position.coords.latitude,position.coords.longitude]);
+		my_location_marker.bindPopup("شما در شعاع " + radius + " متری این نقطه هستید");
+		my_location_circle.setLatLng([position.coords.latitude,position.coords.longitude]);
+		my_location_circle.getRadius(radius);
+		
+		
+		//test = L.marker([32.6072,44.0264], {icon: transport_icon}).bindPopup('test').addTo(map);
+		//test.setLatLng([32.5986,44.0156]);
+		(function(){
+			navigator.geolocation.getCurrentPosition(onSuccess, onError);
+			setTimeout(arguments.callee, 8000);
+		})();
 	}
 	
 	function onError(error) { 
@@ -145,9 +160,9 @@ html, body, #map {
 
 	var map = L.map('map', {
 		center: [32.61618,44.03405],
-		zoom: 5,
-		maxZoom: 7,//17
-		minZoom:4,
+		zoom: 13,
+		maxZoom: 16,//17
+		minZoom:1,
 	});
 	//map.locate({setView: true, maxZoom: 16});
 	//map.locate();
