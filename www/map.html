@@ -85,6 +85,10 @@
 			['میخواهم موقعیت خود را ارسال کنم','دوستم موقعیت خود را برای من ارسال کرده است']         // buttonLabels
 		);
 	}
+	function onConfirm(buttonIndex) {
+		alert('You selected button ' + buttonIndex);
+	}
+
 	function onSuccess(position) {
 		//alert("longitude : " + position.coords.longitude);
 		//alert("latitude  : " + position.coords.latitude );

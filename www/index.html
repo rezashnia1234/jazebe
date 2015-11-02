@@ -311,12 +311,20 @@ function onConfirm(buttonIndex) {
 // Show a custom confirmation dialog
 //
 function showConfirm() {
+/*
     navigator.notification.confirm(
         'You are the winner!', // message
          onConfirm,            // callback to invoke with index of button pressed
         'Game Over',           // title
         ['Restart','Exit']         // buttonLabels
     );
+*/
+	navigator.notification.confirm(
+		'لطفا گزینه مورد نظر را انتخاب نمایید', // message
+		 onConfirm,            // callback to invoke with index of button pressed
+		'اشتراک گذاری موقعیت',           // title
+		['میخواهم موقعیت خود را ارسال کنم','دوستم موقعیت خود را برای من ارسال کرده است']         // buttonLabels
+	);
 }
 
 
