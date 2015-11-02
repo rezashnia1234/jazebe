@@ -82,11 +82,28 @@
 			'لطفا گزینه مورد نظر را انتخاب نمایید', // message
 			 onConfirm,            // callback to invoke with index of button pressed
 			'اشتراک گذاری موقعیت',           // title
-			['میخواهم موقعیت خود را ارسال کنم','دوستم موقعیت خود را برای من ارسال کرده است']         // buttonLabels
+			['میخواهم موقعیت خود را ارسال کنم','دوستم موقعیت خود را برای من ارسال کرده است','لغو درخواست']         // buttonLabels
 		);
-	}
-	function onConfirm(buttonIndex) {
-		alert('You selected button ' + buttonIndex);
+		function onConfirm1th(buttonIndex) {
+			if(buttonIndex==1)
+			{//send
+				alert("sms:?body=latlong:" + my_location_marker.getLatLng() + "---");
+				window.location.href = "sms:?body=latlong:" + my_location_marker.getLatLng() + "---";
+			}
+			else if(buttonIndex==2)
+			{//recive
+				navigator.notification.prompt(
+					'لطفا متن پیامکی که سامانه برای شما ارسال کرده است را وارد نمایید',  // message
+					onPrompt,                  // callback to invoke
+					'موقعیت مخاطب',            // title
+					['ثبت','لغو درخواست'],             // buttonLabels
+					''                 // defaultText
+				);
+				function onPrompt(results) {
+					alert("You selected button number " + results.buttonIndex + " and entered " + results.input1);
+				}
+			}
+		}
 	}
 
 	function onSuccess(position) {
