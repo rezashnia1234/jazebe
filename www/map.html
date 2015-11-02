@@ -78,7 +78,12 @@
 		$("#add_to_favorites").removeClass("disabled");
 	}
 	function share_location() {
-
+		navigator.notification.confirm(
+			'لطفا گزینه مورد نظر را انتخاب نمایید', // message
+			 onConfirm,            // callback to invoke with index of button pressed
+			'اشتراک گذاری موقعیت',           // title
+			['میخواهم موقعیت خود را ارسال کنم','دوستم موقعیت خود را برای من ارسال کرده است']         // buttonLabels
+		);
 	}
 	function onSuccess(position) {
 		//alert("longitude : " + position.coords.longitude);
