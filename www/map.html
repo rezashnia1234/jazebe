@@ -90,8 +90,8 @@
 	function onConfirm(buttonIndex) {
 		if(buttonIndex==1)
 		{//send
-			alert("sms:?body=latlong:" + my_location_marker.getLatLng() + "---");
-			window.location.href = "sms:?body=latlong:" + my_location_marker.getLatLng() + "---";
+			alert("sms:?body=" + my_location_marker.getLatLng());
+			window.location.href = "sms:/**/?body=" + my_location_marker.getLatLng();
 		}
 		else if(buttonIndex==2)
 		{//recive
@@ -100,7 +100,7 @@
 				onPrompt,                  // callback to invoke
 				'موقعیت مخاطب',            // title
 				['ثبت','لغو درخواست'],             // buttonLabels
-				''                 // defaultText
+				'LatLng(...,...)'                 // defaultText
 			);
 		}
 	}
