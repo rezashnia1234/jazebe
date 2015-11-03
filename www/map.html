@@ -122,9 +122,9 @@
 		   else
 			  return(false);
 		}
-		if(CheckLatLong(results.input1.trim()))
+		if(CheckLatLong(results.input1.trim().replace(" ","")	))
 		{
-			latlong = results.input1.trim().replace("LatLng(","").replace("latlng(","").replace(")","").split(",");
+			latlong = results.input1.trim().replace(" ","").replace("LatLng(","").replace("latlng(","").replace(")","").split(",");
 			my_location_marker_friend.setLatLng([latlong[0],latlong[1]]);
 			my_location_marker_friend.openPopup();
 		}
