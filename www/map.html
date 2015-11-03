@@ -27,8 +27,10 @@
 		add_to_favorites_popup = false;
 		
 		radius = 0;
-		my_location_marker = L.marker([36.2879,59.6157], {icon: user_location_icon,setZIndexOffset: 999}).addTo(map);
+		my_location_marker = L.marker([36.2879,59.6157], {icon: user_location_icon,zIndexOffset: 999}).addTo(map);
 		my_location_circle = L.circle([36.2879,59.6157], radius).addTo(map);
+		my_location_marker_friend = L.marker([36.2879,59.6157], {icon: user_location_icon_friend,zIndexOffset: 998}).addTo(map);
+		my_location_marker_friend.bindPopup("موقعیت دوست شما");
 	}
 
 	function onDeviceReady() {
@@ -90,8 +92,8 @@
 	function onConfirm(buttonIndex) {
 		if(buttonIndex==1)
 		{//send
-			alert("sms:?body=" + my_location_marker.getLatLng());
-			window.location.href = "sms:0915?body=lll" + my_location_marker.getLatLng();
+			//alert("sms:?body=" + my_location_marker.getLatLng());
+			window.location.href = "sms:&body=" + my_location_marker.getLatLng();
 		}
 		else if(buttonIndex==2)
 		{//recive
@@ -105,7 +107,39 @@
 		}
 	}
 	function onPrompt(results) {
-		alert("You selected button number " + results.buttonIndex + " and entered " + results.input1);
+		//alert("You selected button number " + results.buttonIndex + " and entered " + results.input1);
+		//var count = (results.input1.trim().match(/\,/g) || []).length;
+		//if(results.buttonIndex==2 && results.input1.trim().substring(0,7)=="LatLng("  && results.input1.trim().substring(results.input1.trim().length-1,results.input1.trim().length)==")" &&  count==1 && $.isNumeric(results.input1.trim().replace("LatLng(","").replace(")","").replace(",",""))	)
+		function CheckLatLong(teststring)
+		{
+			var teststring = teststring.toLowerCase(); 
+			var re= new RegExp('^(latlng)[\(][0-9]+(\.)[0-9]+(\,)[0-9]+(\.)[0-9]+[\)]$');
+		   // Test string for existence of regular expression.
+		   var found = re.test(teststring)
+
+		   if (found)
+			  return(true);
+		   else
+			  return(false);
+		}
+		if(CheckLatLong(results.input1.trim()))
+		{
+			latlong = results.input1.trim().replace("LatLng(","").replace("latlng(","").replace(")","").split(",");
+			my_location_marker_friend.setLatLng([latlong[0],latlong[1]]);
+			my_location_marker_friend.openPopup();
+		}
+		else
+		{
+			navigator.notification.alert(
+				'اطلاعات ورودی شما ، با الگوی مورد نظر نرم افزار همخوانی ندارد.',  // message
+				alertDismissed,         // callback
+				'اخطار',            // title
+				'لغو درخواست'                  // buttonName
+			);
+		}
+	}
+	function alertDismissed() {
+		// do something
 	}
 //////share location//////////////////////////////
 //////////////////////////////////////////////////
@@ -129,7 +163,7 @@
 		//alert("longitude : " + position.coords.longitude);
 		//alert("latitude  : " + position.coords.latitude );
 		
-		user_location_icon	= new icon_style_user_location({iconUrl: 'maps/map-icon/user_location.png',iconRetinaUrl: 'maps/map-icon/user_location@2x.png',});
+		//user_location_icon	= new icon_style_user_location({iconUrl: 'maps/map-icon/user_location.png',iconRetinaUrl: 'maps/map-icon/user_location@2x.png',});
 		radius = (position.coords.accuracy / 2) * 1;
 		//my_location_marker = L.marker([position.coords.latitude,position.coords.longitude], {icon: user_location_icon}).addTo(map).bindPopup("شما در شعاع " + radius + " متری این نقطه هستید");//.openPopup();
 		//my_location_circle = L.circle([position.coords.latitude,position.coords.longitude], radius).addTo(map);
@@ -212,6 +246,7 @@
 	var lost_icon			= new icon_style({iconUrl: 'maps/map-icon/blank.png',iconRetinaUrl: 'maps/map-icon/blank@2x.png',});
 	var console_icon		= new icon_style({iconUrl: 'maps/map-icon/blank.png',iconRetinaUrl: 'maps/map-icon/blank@2x.png',});
 	var	user_location_icon	= new icon_style_user_location({iconUrl: 'maps/map-icon/user_location.png',iconRetinaUrl: 'maps/map-icon/user_location@2x.png',});
+	var	user_location_icon_friend	= new icon_style_user_location({iconUrl: 'maps/map-icon/user_location_friend.png',iconRetinaUrl: 'maps/map-icon/user_location_friend@2x.png',});
 
 	var ziyarati	= new L.LayerGroup();
 	var bimarestan	= new L.LayerGroup();
