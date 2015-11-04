@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    <title>بسم الله الرحمن الرحیم</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css" />
+    
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/console.log.js"></script>
+    <script src="phonegap.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script src="js/jquery.md5.js"></script>
+    <script src="js/back_btn.js"></script>
+    <script src="js/query-string.js"></script>
+	
+	<script>
+		function init() {		
+			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
+			document.addEventListener("deviceready", onDeviceReady, false);
+			
+			//onDeviceReady();
+		}
+
+		function onDeviceReady() {
+			//FastClick.attach(document.getElementById('container'));
+			FastClick.attach(document.body);
+			
+			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+				document.addEventListener("backbutton", go_back, false);
+			}
+			
+		}
+		function uniqueDeviceIDsuccess_index(uuid)
+		{
+			window.localStorage.setItem('uuid',uuid);
+		};
+		function uniqueDeviceIDfail_index(uuid)
+		{
+			//alert("uniqueDeviceIDfail" + uuid);
+		};
+		
+		function loadcompeleted() {
+			$(".mypreload").html("");
+		}
+		$(window).load(function() {
+			$(".mypreload").html("");
+		});
+
+	</script>	
+
+		
+		
+<style>
+.doa_text{line-height:200%;text-align:justify;direction:rtl;}
+.doa_titr{font-weight:bold;font-size:18px;}
+.arabic{font-family:Droid_Arabic_Kufi;padding:12px 0;}
+.persian{background-color:#f2f2f2;padding:12px 0;}
+</style>
+		
+</head>
+<body onload="init();">
+		<div class="container " id="container" >
+				<div id="ajax" class="mypreload">
+					<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
+					<div style="z-index: 1011; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 28%; left: 0%; text-align: center;border: medium none;overflow:visible;" class="blockUI blockMsg blockPage"><img src="images/preloader.gif"></div>
+					<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading.png" width="70%"></div>
+				</div>
+				<div id="main">
+
+<div id="smgroup_audio_player">
+        <span id="audioTimer" >00:00</span> / 
+        <span id="durationTimer" >01:00</span>
+        <div id="audioPosition" >
+            <input type="range" name="slider" id="slider" value="0" min="0" max="60" style="padding:0;margin:0;" />
+        </div>
+        <div>
+            <input type="button" id="play" value="Play" />
+			<input type="button" id="play2" value="Play" />
+            <input type="button" id="pause" value="Pause" disabled="true"  />
+            <input type="button" id="stop" value="Stop" />
+        </div>
+</div>
+<style>
+#smgroup_audio_player,#smgroup_audio_player *,#smgroup_audio_player span{
+	direction:ltr !important;
+}
+#play2 {
+    display:none;
+}
+
+</style>
+<script>
+	init_audio();
+	var audio_Timer = $("#audioTimer");
+	var duration_Timer = $("#durationTimer");
+
+	function init_audio(){
+		// Phonegap is loaded and can be used
+		var play_btn = $("#play");
+		var play2_btn = $("#play2");
+		var pause_btn = $("#pause");
+		var stop_btn = $("#stop");
+		var slider_range = $("#slider");
+		
+		play_btn.click(function(){		
+			play_btn.css("display","none");
+			play2_btn.css("display","block");
+			$(this).prop("disabled",true);
+			play2_btn.prop("disabled",true);
+			pause_btn.prop("disabled",false);
+			
+			playAudio("audio/salame.mp3");
+		});
+
+		slider_range.on("change", function(){
+			play_btn.prop("disabled",false);
+			play2_btn.prop("disabled",false);
+			pause_btn.prop("disabled",true);
+
+			pausePos = slider_range.val();
+			formatTime(pausePos,audio_Timer);
+			pauseAudio();
+		});
+		
+		pause_btn.click(function(){		
+			play_btn.prop("disabled",false);
+			play2_btn.prop("disabled",false);
+			pause_btn.prop("disabled",true);
+			pauseAudio();
+		});
+		
+		play2_btn.click(function(){			
+			play_btn.prop("disabled",true);
+			play2_btn.prop("disabled",true);
+			pause_btn.prop("disabled",false);
+			
+			PausePlayAudio();
+		});
+		
+		stop_btn.click(function(){
+			// reset slider
+			play_btn.css("display","block");
+			play2_btn.css("display","none");
+			play_btn.prop("disabled",false);
+			play2_btn.prop("disabled",false);
+			pause_btn.prop("disabled",true);
+			$("#slider").val(0);
+			//$("#slider").slider("refresh");
+			stopAudio();
+		});
+		
+	}
+
+
+	var audio = null;
+	var audioTimer = null;
+	var pausePos = 0;
+
+
+	function playAudio(file){
+		audio = new Media(file, function(){ // success callback
+			console.log("playAudio():Audio Success");
+		}, function(error){ // error callback
+			//alert("code: "    + error.code    + "\n" + 
+			//	  "message: " + error.message + "\n");
+		});
+		
+		// get audio duration
+		var duration = audio.getDuration();
+		var duration_show = false;
+		
+		// set slider data
+		if( duration > 0 ){
+			formatTime(duration,duration_Timer);
+			$("#slider").attr( "max", Math.round(duration) );
+			$("#slider").slider("refresh");
+			duration_show = true;
+		}
+
+		
+		// play audio
+		audio.play({ playAudioWhenScreenIsLocked : true });
+
+		audio.seekTo(pausePos*1000);
+			
+		// update audio position every second
+		if (audioTimer == null) {
+			audioTimer = setInterval(function() {
+				// get audio position
+				audio.getCurrentPosition(
+					function(position) { // get position success
+						if (position > -1) {
+							setAudioPosition(position);
+						}
+					}, function(e) { // get position error
+						alert("Error getting pos=" + e);
+						//setAudioPosition(duration);
+					}
+				);
+				if(!duration_show){
+					duration = audio.getDuration();
+					if( duration > 0 ){
+						formatTime(duration,duration_Timer);
+						$("#slider").attr( "max", Math.round(duration) );
+						//$("#slider").slider("refresh");
+						duration_show = true;
+					}
+				}
+			}, 1000);
+		}
+	}
+
+
+	function pauseAudio() {
+		if (audio) {
+			audio.pause();
+		}
+	}
+	
+	function PausePlayAudio() {
+		if (audio) {
+			audio.pause();
+			audio.seekTo(pausePos*1000);
+			audio.play();
+		}
+	}
+
+
+	function stopAudio() {
+		if (audio) {
+			audio.stop();
+			audio.release();
+		}
+		clearInterval(audioTimer);
+		audioTimer = null;
+		pausePos = 0;
+		formatTime(0,audio_Timer);
+	}
+
+
+	function setAudioPosition(position) {
+		pausePos = position;
+		position = Math.round(position);
+		$("#slider").val(position);
+		formatTime(position,audio_Timer);
+		$("#slider").slider("refresh");
+	}
+
+	function formatTime(seconds,Timer) {
+		if (seconds <= 0)
+		{
+			Timer.html("00:00");
+			return;
+		}	
+		var minutes = Math.floor(seconds / 60);
+		
+		if (minutes < 10)
+			minutes = "0" + minutes;
+
+		seconds = seconds % 60;
+		if (seconds < 10)
+			seconds = "0" + seconds;
+		seconds = Math.round(seconds);
+		
+		Timer.html(minutes + ":" + seconds);
+	};
+</script>
+				</div>
+		</div>
+</body>
+</html>
