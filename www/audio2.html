@@ -76,6 +76,8 @@
 
 <script>
 	playAudio("audio/salame.mp3");
+
+	
 	function playAudio(file){
 		audio = new Media(file, function(){ // success callback
 			console.log("playAudio():Audio Success");
@@ -86,6 +88,7 @@
 		// play audio
 		//audio.play({ playAudioWhenScreenIsLocked : false });
 		audio.play();
+		audio.seekTo(0);
 	}
 </script>
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
