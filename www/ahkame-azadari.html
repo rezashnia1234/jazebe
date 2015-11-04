@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    <title>بسم الله الرحمن الرحیم</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css" />
+    
+	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/console.log.js"></script>
+    <script src="phonegap.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script src="js/jquery.md5.js"></script>
+    <script src="js/back_btn.js"></script>
+    <script src="js/query-string.js"></script>
+	
+	<script>
+		function init() {		
+			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
+			document.addEventListener("deviceready", onDeviceReady, false);
+			
+			//onDeviceReady();
+		}
+
+		function onDeviceReady() {
+			//FastClick.attach(document.getElementById('container'));
+			FastClick.attach(document.body);
+			
+			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+				document.addEventListener("backbutton", go_back, false);
+			}
+			
+		}
+		function uniqueDeviceIDsuccess_index(uuid)
+		{
+			window.localStorage.setItem('uuid',uuid);
+		};
+		function uniqueDeviceIDfail_index(uuid)
+		{
+			//alert("uniqueDeviceIDfail" + uuid);
+		};
+		
+		function loadcompeleted() {
+			$(".mypreload").html("");
+		}
+		$(window).load(function() {
+			$(".mypreload").html("");
+		});
+
+	</script>	
+
+		
+		
+<style>
+.doa_text{line-height:200%;text-align:justify;direction:rtl;}
+.doa_titr{font-weight:bold;font-size:18px;}
+.arabic{font-family:Droid_Arabic_Kufi;padding:12px 0;}
+.persian{background-color:#f2f2f2;padding:12px 0;}
+</style>
+		
+</head>
+<body onload="init();">
+		<div class="container " id="container" >
+				<div id="ajax" class="mypreload">
+					<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
+					<div style="z-index: 1011; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 28%; left: 0%; text-align: center;border: medium none;overflow:visible;" class="blockUI blockMsg blockPage"><img src="images/preloader.gif"></div>
+					<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading.png" width="70%"></div>
+				</div>
+				<div id="main">
+در مراسم عزاداری لازم است نکات زیر رعایت شود:<br/>١. باید از کارهایی که موجب تضعیف دین و سوء استفاده دشمنان دین می‌شود، مثل قمه زنی، پرهیز کرد؛ حتی در خفا. <br/><br/>٢. از کارهایی که برای بدن ضرر قابل توجه دارد پرهیز شود. <br/><br/>٣. از دروغ گفتن و نسبت ناروا دادن به ساحت ائمه(علیهم السلام) و بزرگان دین یا روضه های دروغ پرهیز شود؛ مگر اینکه به زبان حال، و به حسب برداشت متکلم باشد و علم به خلاف بودن آن نداشته باشد. <br/><br/>٤. از کارهایی که موجب اذیت و مزاحمت برای دیگران می گردد پرهیز شود.<br/><br/>٥. عزاداری نباید با موسیقی حرام یا خواندنی همراه باشد که مناسب مجلس لهو و لعب، یا مهیج شهوت است.<br/><br/>استفتائات:<br/><br/>س: استفاده از زنجیرهایى که داراى تیغ هستند در مجالس و دسته هاى عزادارى چه حکمى دارد؟<br/><br/>ج: اگر استفاده از زنجیرهاى مزبور موجب وهن مذهب در برابر مردم شود و یا باعث ضرر بدنى قابل توجهى گردد، جایز نیست .<br/><br/>س: اگر بعضى از واجبات از مکلّف به سبب شرکت در مجالس عزادارى فوت شود مثلاً نماز صبح قضا شود، آیا بهتر است بعد از این در این مجالس شرکت نکند یا اینکه عدم شرکت او باعث دورى از اهل بیت(علیهم‌السلام) مى شود؟<br/><br/>ج: بدیهى است که نمازِ واجب، مقدم بر فضیلت شرکت در مجالس عزادارى اهل بیت(علیهم‌السلام) است و ترک نماز و فوت شدن آن به بهانه شرکت در عزادارى امام حسین(علیه‌السلام) جایز نیست، ولى شرکت در عزادارى به‌گونه اى که مزاحم نماز نباشد ممکن و از مستحبات مؤکد است. <br/><br/>س: آیا قمه زدن به‌طور مخفى حلال است یا اینکه فتواى شریف حضرت عالى عمومیت دارد؟<br/><br/>ج: قمه زنى علاوه بر اینکه از نظر عرفى از مظاهر حزن و اندوه محسوب نمى شود و سابقه اى در عصر ائمه(علیهم‌السلام) و زمانهاى بعد از آن ندارد و تأییدى هم به شکل خاص یا عام از معصوم(علیه‌السلام) در مورد آن نرسیده است، در زمان حاضر موجب وهن و بدنام شدن مذهب مى شود بنا بر این در هیچ حالتى جایز نیست. <br/><br/>س: معیار شرعى ضرر اعم از جسمى یا روحى چیست؟<br/><br/>ج: معیار، ضررى است که در نظر عرف، قابل توّجه و معتنابه باشد. <br/><br/>س:آیا خوردن نذری هایی که داده می شود و نمی دانیم حلال است یا نه و اینکه نمی دانیم خمس آن داده شده یا نه اشکال دارد؟<br/><br/>ج:اشکال ندارد.<br/><br/>س: آیا اگر شک داشته باشیم که چیزی نجس است یا نه حکم چیست؟<br/><br/>ج:تمام اشیاء محکوم به طهارت هستند مگر آنهایی که شارع ،حکم به نجاستشان کرده است . <br/><br/>س:آیا اگربه میزان خیلی کم خون از بدن بیاید نجس است و در چه صورتی خون زخم برای نماز خواندن بخشیده شده است؟(مثلا خونی که از پا می آید بر اثر پیاده روی زیاد)<br/><br/>ج: بله خون به هر مقدار که باشد  نجس است. ولی در دوصورت نماز خواندن با آن اشکال ندارد:<br/><br/>١. خون زخم و جراحات مادامی که زخم التیام نیافته و تطهیر بدن و لباس یا تعویض آن برای عموم یا خود شخص حرجی باشد می تواند با آن نماز بخواند.<br/><br/>٢. خونی که در بدن یا لباس نمازگزار باشد و از مقدار بند انگشت سبابه کمتر باشد.<br/><br/>س ١٤٥٠: آیا آنچه متداول شده که به عنوان عزادارى براى امام حسین(علیه‌السلام) گوشت بدن را سوراخ کرده و قفل و سنگ کیلو به آن آویزان مى کنند، جایز است؟<br/><br/>ج: این گونه اعمال که موجب وهن مذهب مى شوند جایز نیست. <br/><br/>س ١٤٥٥: آیا جایز است زنان با حفظ حجاب و پوشیدن لباس خاصى که بدن آنان را بپوشاند، در دسته هاى سینه‌زنى و زنجیرزنى شرکت کنند؟<br/><br/>ج: شرکت زنان در دسته هاى سینه زنى و زنجیر زنى شایسته نیست. <br/><br/>س ١٤٥٦: اگر قمه زدن در عزادارى ائمه(علیهم‌السلام) موجب مرگ شخص شود، آیا این عمل خودکشى محسوب مى شود؟<br/><br/>ج: اگر این عمل عادتا منجر به فوت نمى شود حکم خودکشى را ندارد ولى اگر از همان ابتدا خوف خطر جانى براى او وجود داشته و در عین حال این کار را انجام داده و منجر به فوت وى شده است، حکم خودکشى را دارد<br/><br/>س ١٤٦٠: در روز عاشورا مراسمى مانند قمه زنى و پابرهنه وارد آتش و ذغال روشن شدن برگزار مى شود که علاوه بر اینکه باعث بدنام شدن مذهب شیعه اثنى عشرى در انظار علما و پیروان مذاهب اسلامى و مردم جهان مى شود، ضررهاى جسمى و روحى هم به این اشخاص وارد مى کند و همچنین موجب توهین به مذهب مى گردد، نظر شریف حضرتعالى در این‌باره چیست؟<br/><br/>ج: هر کارى که براى انسان ضرر داشته و یا باعث وهن دین و مذهب گردد حرام است و مؤمنین باید از آن اجتناب کنند و مخفى نیست که بیشتر این امور باعث بدنامى و وهن مذهب اهل بیت(علیهم‌السلام) مى شود و این از بزرگترین ضررها و خسارتهاست. <br/><br/>س ١٤٦٣: زنجیرزدن به بدن همانگونه که بعضى از مسلمانان انجام مى دهند، چه حکمى دارد؟<br/><br/>ج: اگر به نحو متعارف و به‌گونه اى باشد که از نظر عرفى از مظاهر حزن و اندوه در عزادارى محسوب شود اشکال ندارد.
+				</div>
+		</div>
+</body>
+</html>
