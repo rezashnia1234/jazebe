@@ -152,7 +152,8 @@
 				
 			}
 			window.sessionStorage.setItem('we_are_in',"index");
-			FastClick.attach(document.getElementById('container'));
+			//FastClick.attach(document.getElementById('container'));
+			FastClick.attach(document.body);
 			
 			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
 				document.addEventListener("backbutton", go_back_index, false);
@@ -276,82 +277,9 @@
 			<br/>0<br/>0<br/>
 			<a href="map.html">map</a><br/><br/>
 			<a href="ashura.html">ashura</a><br/><br/>
-			<div onclick='navigator.notification.prompt("message", promptCallback, "title", ["OK","Cancel"], "defaultText");'>prompt</div><br/><br/>
-			<div onclick='showPrompt();'>showPrompt()</div><br/><br/>
-			<div onclick='showConfirm();'>showConfirm()</div><br/><br/>
-			<div onclick='showAlert();'>showAlert()</div><br/><br/>
 			<br/>0<br/>0<br/><br/>0<br/>0<br/><br/>0<br/>0<br/><br/>0<br/>0<br/>
 <script>
-function promptCallback() {
 
-}
-function showPrompt() {
-    navigator.notification.prompt(
-        'Please enter your name',  // message
-        onPrompt,                  // callback to invoke
-        'Registration',            // title
-        ['Ok','Exit'],             // buttonLabels
-        'Jane Doe'                 // defaultText
-    );
-}
-function onPrompt(results) {
-    alert("You selected button number " + results.buttonIndex + " and entered " + results.input1);
-}
-
-
-
-
-
-
-// process the confirmation dialog result
-function onConfirm(buttonIndex) {
-    alert('You selected button ' + buttonIndex);
-}
-
-// Show a custom confirmation dialog
-//
-function showConfirm() {
-/*
-    navigator.notification.confirm(
-        'You are the winner!', // message
-         onConfirm,            // callback to invoke with index of button pressed
-        'Game Over',           // title
-        ['Restart','Exit']         // buttonLabels
-    );
-*/
-	navigator.notification.confirm(
-		'لطفا گزینه مورد نظر را انتخاب نمایید', // message
-		 onConfirm,            // callback to invoke with index of button pressed
-		'اشتراک گذاری موقعیت',           // title
-		['میخواهم موقعیت خود را ارسال کنم','دوستم موقعیت خود را برای من ارسال کرده است']         // buttonLabels
-	);
-}
-
-
-
-
-
-
-
-
-
-
-
-// alert dialog dismissed
-function alertDismissed() {
-	// do something
-}
-
-// Show a custom alertDismissed
-//
-function showAlert() {
-	navigator.notification.alert(
-		'You are the winner!',  // message
-		alertDismissed,         // callback
-		'Game Over',            // title
-		'Done'                  // buttonName
-	);
-}
 
 
 </script>

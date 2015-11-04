@@ -34,6 +34,9 @@
 	}
 
 	function onDeviceReady() {
+		//FastClick.attach(document.body);
+		FastClick.attach(document.getElementById('button'));
+		
 		(function(){
 			navigator.geolocation.getCurrentPosition(onSuccess, onError);
 			setTimeout(arguments.callee, 5000);
@@ -100,7 +103,7 @@
 			else
 			{
 				navigator.notification.alert(
-					'متاسفانه دستگاه موقعیت جغرافیایی شما پیدا نکرده است.\nلطفا دقایقی دیگر، مجددا تلاش نمایید.',  // message
+					'متاسفانه دستگاه موقعیت جغرافیایی شما پیدا نکرده است.\nلطفا از روشن بودن GPS اطمینان حاصل کنید و دقایقی دیگر ، مجددا تلاش نمایید.',  // message
 					alertDismissed,         // callback
 					'اخطار',            // title
 					'تائید'                  // buttonName

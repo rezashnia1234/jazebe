@@ -23,14 +23,54 @@
 			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
 			document.addEventListener("deviceready", onDeviceReady, false);
 			
-			//onDeviceReady();
+			onDeviceReady();
 		}
 
 		function onDeviceReady() {
-			FastClick.attach(document.getElementById('container'));
+			//FastClick.attach(document.getElementById('container'));
+			FastClick.attach(document.body);
 			
-			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
-				document.addEventListener("backbutton", go_back, false);
+	//		if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+	//			document.addEventListener("backbutton", go_back, false);
+	//		}
+
+
+			$( ".list li" ).click(function() {
+				List = JSON.parse(window.localStorage.getItem("List"));
+				$(this).addClass("active");
+				List[$(this).index()] = 1;
+				window.localStorage.setItem('List',JSON.stringify(List));
+			});
+			
+			if(window.localStorage.getItem('List') == null){
+				listCount =  $(".list li").size();
+				var val = 0;
+				var List = new Array(listCount);
+
+				//window.localStorage.setItem('list','value')
+				function setAll(a, v) {
+					var i, n = a.length;
+					for (i = 0; i < n; ++i) {
+						a[i] = v;
+					}
+				}
+				setAll(List, 0);
+				window.localStorage.setItem('List',JSON.stringify(List));
+				console.log("done");
+			}
+			else
+			{
+				console.log("not");
+				temp_array = JSON.parse(window.localStorage.getItem("List"));
+				$.each(temp_array, function(i,val) {
+				//alert(val);
+				/**/
+					if(val==1){
+						$(".list li").eq(i).addClass("active");
+					
+					}
+				
+				});
 			}
 			
 			
@@ -69,7 +109,11 @@
 */
 	</script>	
 
-		
+	<style>
+		.active{
+			color:red;
+		}
+	</style>	
 </head>
 <body onload="init();">
 		<div class="container " id="container" >
@@ -80,6 +124,24 @@
 				</div>
 				<div id="main">
 
+				<ul class="list" id="list">
+					<li >شماره 0</li>
+					<li >شماره 1</li>
+					<li >شماره 2</li>
+					<li >شماره 3</li>
+					<li >شماره 4</li>
+					<li >شماره 5</li>
+					<li >شماره 6</li>
+					<li >شماره 7</li>
+					<li >شماره 8</li>
+					<li >شماره 9</li>
+				</ul>
+				
+				
+				
+				
+				
+				
 				</div>
 		</div>
 </body>

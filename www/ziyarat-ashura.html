@@ -27,7 +27,8 @@
 		}
 
 		function onDeviceReady() {
-			FastClick.attach(document.getElementById('container'));
+			//FastClick.attach(document.getElementById('container'));
+			FastClick.attach(document.body);
 			
 			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
 				document.addEventListener("backbutton", go_back, false);
