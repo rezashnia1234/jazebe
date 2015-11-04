@@ -9,8 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/font.css" />
-    
-	<script src="js/jquery-1.11.0.min.js"></script>
+	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/console.log.js"></script>
     <script src="phonegap.js"></script>
     <script src="js/fastclick.js"></script>
@@ -177,7 +176,8 @@
 		if( duration > 0 ){
 			formatTime(duration,duration_Timer);
 			$("#slider").attr( "max", Math.round(duration) );
-			$("#slider").slider("refresh");
+			//$("#slider").slider("refresh");
+			$("#slider").val(0);
 			duration_show = true;
 		}
 
@@ -247,7 +247,8 @@
 		position = Math.round(position);
 		$("#slider").val(position);
 		formatTime(position,audio_Timer);
-		$("#slider").slider("refresh");
+		//$("#slider").slider("refresh");
+		$("#slider").val(0);
 	}
 
 	function formatTime(seconds,Timer) {
