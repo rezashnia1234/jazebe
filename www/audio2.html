@@ -76,19 +76,19 @@
 
 <script>
 	playAudio("audio/salame.mp3");
-	var audio = null;
 	function playAudio(file){
 		audio = new Media(file, function(){ // success callback
 			console.log("playAudio():Audio Success");
 		}, function(error){ // error callback
-			//alert("code: "    + error.code    + "\n" + 
-			//	  "message: " + error.message + "\n");
+			alert("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
 		});
 		
 		// play audio
-		audio.play({ playAudioWhenScreenIsLocked : false });
+		//audio.play({ playAudioWhenScreenIsLocked : false });
+		audio.play();
 	}
 </script>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 				</div>
 		</div>
 </body>

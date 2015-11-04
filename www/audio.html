@@ -157,7 +157,7 @@
 	}
 
 
-	var audio = null;
+	audio = null;
 	var audioTimer = null;
 	var pausePos = 0;
 
@@ -166,8 +166,7 @@
 		audio = new Media(file, function(){ // success callback
 			console.log("playAudio():Audio Success");
 		}, function(error){ // error callback
-			//alert("code: "    + error.code    + "\n" + 
-			//	  "message: " + error.message + "\n");
+			alert("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
 		});
 		
 		// get audio duration
@@ -270,6 +269,7 @@
 		Timer.html(minutes + ":" + seconds);
 	};
 </script>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 				</div>
 		</div>
 </body>
