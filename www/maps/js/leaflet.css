@@ -307,10 +307,12 @@
 	background-image: url(images/layers.png);
 	width: 36px;
 	height: 36px;
+	border: none;
 	}
 .leaflet-retina .leaflet-control-layers-toggle {
 	background-image: url(images/layers.png);
 	background-size: 36px 36px;
+	border: none;
 	}
 .leaflet-touch .leaflet-control-layers-toggle {
 	width: 44px;
