@@ -79,7 +79,7 @@
 <script>
 	function playAudio(file){
 		if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
-			file = "/android_asset/" + file;
+			file = "/android_asset/www/" + file;
 		}
 		alert(file);
 		
