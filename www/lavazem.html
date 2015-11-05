@@ -24,16 +24,8 @@
 			document.addEventListener("deviceready", onDeviceReady, false);
 			
 			//onDeviceReady();
-		}
-
-		function onDeviceReady() {
-			//FastClick.attach(document.getElementById('container'));
-			FastClick.attach(document.body);
 			
-	//		if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
-	//			document.addEventListener("backbutton", go_back, false);
-	//		}
-
+			
 
 			$( ".list li" ).click(function() {
 				List = JSON.parse(window.localStorage.getItem("List"));
@@ -72,6 +64,17 @@
 				
 				});
 			}
+		}
+
+		function onDeviceReady() {
+			//FastClick.attach(document.getElementById('container'));
+			FastClick.attach(document.body);
+			
+	//		if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+	//			document.addEventListener("backbutton", go_back, false);
+	//		}
+
+
 			
 			
 			

@@ -70,7 +70,7 @@ footer, header, hgroup, menu, nav, section {
 *:focus { outline: none; }*/
 *::-moz-focus-inner ,
 *::-o-focus-inner{ border: none;}
-
+/*
 *{
     -webkit-touch-callout: none !important;
     -webkit-user-select: none !important;
@@ -81,4 +81,5 @@ footer, header, hgroup, menu, nav, section {
     user-select: none !important;
 	outline-style:none !important;
 }
+*/
  /*-------------- END reset ------------------ */

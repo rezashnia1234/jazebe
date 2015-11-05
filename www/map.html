@@ -20,7 +20,6 @@
 </style>
 
 <script>
-	
 	function init() {		
 		//console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
 		document.addEventListener("deviceready", onDeviceReady, false);
@@ -180,7 +179,7 @@
 		if (unit=="K") { dist = dist * 1.609344 }
 		if (unit=="M") { dist = dist * 1.609344 * 1000 }
 		if (unit=="N") { dist = dist * 0.8684 }
-		return dist
+		return dist;
 	}
 //////share location//////////////////////////////
 //////////////////////////////////////////////////
@@ -228,9 +227,9 @@
 <body onload="init();">
 	<div id="findbox" style="display:none;"></div>
 	<div id="button">
-		<div id="back" onclick="parent.history.back();">back</div>
-		<div id="add_to_favorites"	onclick="add_to_favorites_open();">favorites</div>
-		<div id="share_location"	onclick="share_location();">location</div>
+		<div id="back" onclick="parent.history.back();"><!--back--></div>
+		<div id="add_to_favorites"	onclick="add_to_favorites_open();"><!--favorites--></div>
+		<div id="share_location"	onclick="share_location();"><!--location--></div>
 	</div>
 	
 	
@@ -275,19 +274,19 @@
 		}
 	});
 	    
-	var ziyarati_icon		= new icon_style({iconUrl: 'maps/map-icon/blank.png',iconRetinaUrl: 'maps/map-icon/blank@2x.png',});
-	var bimarestan_icon		= new icon_style({iconUrl: 'maps/map-icon/blank.png',iconRetinaUrl: 'maps/map-icon/blank@2x.png',});
-	var darmani_icon		= new icon_style({iconUrl: 'maps/map-icon/blank.png',iconRetinaUrl: 'maps/map-icon/blank@2x.png',});
-	var mukeb_icon			= new icon_style({iconUrl: 'maps/map-icon/blank.png',iconRetinaUrl: 'maps/map-icon/blank@2x.png',});
-	var mukeb_irani_icon	= new icon_style({iconUrl: 'maps/map-icon/blank.png',iconRetinaUrl: 'maps/map-icon/blank@2x.png',});
+	var ziyarati_icon		= new icon_style({iconUrl: 'maps/map-icon/zearati.png',iconRetinaUrl: 'maps/map-icon/zearati@2x.png',});
+	var bimarestan_icon		= new icon_style({iconUrl: 'maps/map-icon/hospetal.png',iconRetinaUrl: 'maps/map-icon/hospetal@2x.png',});
+	var darmani_icon		= new icon_style({iconUrl: 'maps/map-icon/darmangah.png',iconRetinaUrl: 'maps/map-icon/darmangah@2x.png',});
+	var mukeb_icon			= new icon_style({iconUrl: 'maps/map-icon/mukeb.png',iconRetinaUrl: 'maps/map-icon/mukeb@2x.png',});
+	var mukeb_irani_icon	= new icon_style({iconUrl: 'maps/map-icon/mukeb-iran.png',iconRetinaUrl: 'maps/map-icon/mukeb-iran@2x.png',});
 	var bazresi_icon		= new icon_style({iconUrl: 'maps/map-icon/blank.png',iconRetinaUrl: 'maps/map-icon/blank@2x.png',});
-	var amud_icon			= new icon_style({iconUrl: 'maps/map-icon/blank.png',iconRetinaUrl: 'maps/map-icon/blank@2x.png',});
-	var transport_icon		= new icon_style({iconUrl: 'maps/map-icon/blank.png',iconRetinaUrl: 'maps/map-icon/blank@2x.png',});
-	var favorites_icon		= new icon_style({iconUrl: 'maps/map-icon/blank.png',iconRetinaUrl: 'maps/map-icon/blank@2x.png',});
-	var lost_icon			= new icon_style({iconUrl: 'maps/map-icon/blank.png',iconRetinaUrl: 'maps/map-icon/blank@2x.png',});
-	var console_icon		= new icon_style({iconUrl: 'maps/map-icon/blank.png',iconRetinaUrl: 'maps/map-icon/blank@2x.png',});
-	var	user_location_icon	= new icon_style_user_location({iconUrl: 'maps/map-icon/user_location.png',iconRetinaUrl: 'maps/map-icon/user_location@2x.png',});
-	var	user_location_icon_friend	= new icon_style_user_location({iconUrl: 'maps/map-icon/user_location_friend.png',iconRetinaUrl: 'maps/map-icon/user_location_friend@2x.png',});
+	var amud_icon			= new icon_style({iconUrl: 'maps/map-icon/mil.png',iconRetinaUrl: 'maps/map-icon/mil@2x.png',});
+	var transport_icon		= new icon_style({iconUrl: 'maps/map-icon/hamlonaghl.png',iconRetinaUrl: 'maps/map-icon/hamlonaghl@2x.png',});
+	var favorites_icon		= new icon_style({iconUrl: 'maps/map-icon/fav.png',iconRetinaUrl: 'maps/map-icon/fav@2x.png',});
+	var lost_icon			= new icon_style({iconUrl: 'maps/map-icon/gomshodeghan.png',iconRetinaUrl: 'maps/map-icon/gomshodeghan@2x.png',});
+	var console_icon		= new icon_style({iconUrl: 'maps/map-icon/konsulgari@2x.png',iconRetinaUrl: 'maps/map-icon/konsulgari@2x@2x.png',});
+	var	user_location_icon	= new icon_style_user_location({iconUrl: 'maps/map-icon/user_location.png',iconRetinaUrl: 'maps/map-icon/makane-man@2x.png',});
+	var	user_location_icon_friend	= new icon_style_user_location({iconUrl: 'maps/map-icon/user_location_friend.png',iconRetinaUrl: 'maps/map-icon/makane-dust@2x.png',});
 
 	var ziyarati	= new L.LayerGroup();
 	var bimarestan	= new L.LayerGroup();
@@ -301,18 +300,54 @@
 	var lost		= new L.LayerGroup();
 	var console		= new L.LayerGroup();
 	
-    L.marker([32.6171,44.0362], {icon: ziyarati_icon}).bindPopup('حرم مطهر امام حسین علیه السلام').addTo(ziyarati),
-    L.marker([32.6163,44.0322], {icon: ziyarati_icon}).bindPopup('حرم مطهر حضرت اباالفضل علیه السلام').addTo(ziyarati),
-    L.marker([32.6510,43.9850], {icon: ziyarati_icon}).bindPopup('مرقد حر بن یزید ریاحی').addTo(ziyarati),
-    L.marker([31.9958,44.3146], {icon: ziyarati_icon}).bindPopup('حرم مطهر امیرالمونین علیه السلام').addTo(ziyarati);
+	L.marker([32.6171,44.0362], {icon: ziyarati_icon}).bindPopup('حرم مطهر امام حسین علیه السلام').addTo(ziyarati),
+	L.marker([32.6163,44.0322], {icon: ziyarati_icon}).bindPopup('حرم مطهر حضرت اباالفضل علیه السلام').addTo(ziyarati),
+	L.marker([32.6510,43.9850], {icon: ziyarati_icon}).bindPopup('مرقد حر بن یزید ریاحی').addTo(ziyarati),
+	L.marker([31.9958,44.3146], {icon: ziyarati_icon}).bindPopup('حرم مطهر امیرالمونین علیه السلام').addTo(ziyarati);
 	
-    L.marker([31.9899,44.4043], {icon: transport_icon}).bindPopup('فرودگاه نجف').addTo(transport);
-	
-    L.marker([32.618,44.038], {icon: transport_icon}).bindPopup('بسم الله الرحمن الرحیم 4').addTo(mukeb_irani),
-    L.marker([32.619,44.039], {icon: transport_icon}).bindPopup('بسم الله الرحمن الرحیم 5').addTo(bazresi),
-    L.marker([32.620,44.040], {icon: transport_icon}).bindPopup('بسم الله الرحمن الرحیم 6').addTo(amud),
-    L.marker([32.621,44.041], {icon: transport_icon}).bindPopup('بسم الله الرحمن الرحیم 7').addTo(amud);
+L.marker([31.9899,44.4043], {icon: transport_icon}).bindPopup('فرودگاه نجف').addTo(transport);
 
+L.marker([32.06145077,44.31901018], {icon: amud_icon}).bindPopup('عمود 1').addTo(amud);
+L.marker([32.08367882,44.32090625], {icon: amud_icon}).bindPopup('عمود 50').addTo(amud);
+L.marker([32.10639998,44.3232189], {icon: amud_icon}).bindPopup('عمود 100').addTo(amud);
+L.marker([32.12939951,44.32526032], {icon: amud_icon}).bindPopup('عمود 150').addTo(amud);
+L.marker([32.15117209,44.32204485], {icon: amud_icon}).bindPopup('عمود 200').addTo(amud);
+L.marker([32.17316084,44.31384165], {icon: amud_icon}).bindPopup('عمود 250').addTo(amud);
+L.marker([32.1950076,44.30660983], {icon: amud_icon}).bindPopup('عمود 300').addTo(amud);
+L.marker([32.21640131,44.29940089], {icon: amud_icon}).bindPopup('عمود 350').addTo(amud);
+L.marker([32.23855779,44.29175952], {icon: amud_icon}).bindPopup('عمود 400').addTo(amud);
+L.marker([32.25947617,44.28469073], {icon: amud_icon}).bindPopup('عمود 450').addTo(amud);
+L.marker([32.28275171,44.27999661], {icon: amud_icon}).bindPopup('عمود 500').addTo(amud);
+L.marker([32.30518268,44.2744001], {icon: amud_icon}).bindPopup('عمود 550').addTo(amud);
+L.marker([32.32410114,44.26459453], {icon: amud_icon}).bindPopup('عمود 600').addTo(amud);
+L.marker([32.34161505,44.24762252], {icon: amud_icon}).bindPopup('عمود 650').addTo(amud);
+L.marker([32.36021692,44.23273777], {icon: amud_icon}).bindPopup('عمود 700').addTo(amud);
+L.marker([32.37965439,44.21877184], {icon: amud_icon}).bindPopup('عمود 750').addTo(amud);
+L.marker([32.39897241,44.20488018], {icon: amud_icon}).bindPopup('عمود 800').addTo(amud);
+L.marker([32.41915226,44.19098449], {icon: amud_icon}).bindPopup('عمود 850').addTo(amud);
+L.marker([32.43750745,44.17765374], {icon: amud_icon}).bindPopup('عمود 900').addTo(amud);
+L.marker([32.45751053,44.16551532], {icon: amud_icon}).bindPopup('عمود 950').addTo(amud);
+L.marker([32.47790948,44.15314967], {icon: amud_icon}).bindPopup('عمود 1000').addTo(amud);
+L.marker([32.49824901,44.13906916], {icon: amud_icon}).bindPopup('عمود 1050').addTo(amud);
+L.marker([32.51525581,44.12360547], {icon: amud_icon}).bindPopup('عمود 1100').addTo(amud);
+L.marker([32.53346943,44.10718541], {icon: amud_icon}).bindPopup('عمود 1150').addTo(amud);
+L.marker([32.54784607,44.08603837], {icon: amud_icon}).bindPopup('عمود 1200').addTo(amud);
+L.marker([32.55963849,44.06856344], {icon: amud_icon}).bindPopup('عمود 1250').addTo(amud);
+L.marker([32.56815115,44.0544717], {icon: amud_icon}).bindPopup('عمود 1290').addTo(amud);
+L.marker([32.570875,44.05040459], {icon: amud_icon}).bindPopup('عمود 1300').addTo(amud);
+L.marker([32.57864068,44.03668983], {icon: amud_icon}).bindPopup('عمود 1340').addTo(amud);
+L.marker([32.58109046,44.03231423], {icon: amud_icon}).bindPopup('عمود 1350').addTo(amud);
+L.marker([32.58567667,44.02494779], {icon: amud_icon}).bindPopup('عمود 1375').addTo(amud);
+L.marker([32.59531398,44.03057773], {icon: amud_icon}).bindPopup('عمود 1400').addTo(amud);
+L.marker([32.59800815,44.03128786], {icon: amud_icon}).bindPopup('عمود 1406').addTo(amud);
+L.marker([32.61535202,44.03570274], {icon: amud_icon}).bindPopup('عمود 1450').addTo(amud);
+L.marker([32.61614266,44.03589881], {icon: amud_icon}).bindPopup('عمود 1452').addTo(amud);
+L.marker([32.02714431,44.32390337], {icon: amud_icon}).bindPopup('عمود 100N ').addTo(amud);
+L.marker([32.03864202,44.32212557], {icon: amud_icon}).bindPopup('عمود 130N ').addTo(amud);
+L.marker([32.04792271,44.32073493], {icon: amud_icon}).bindPopup('عمود 150n ').addTo(amud);
+		
+
+	
 //////////////////////////////////////////////////
 //////favorite////////////////////////////////////
 	if(window.localStorage.getItem('favorites_lat') == null)
@@ -343,17 +378,23 @@
 	});
 	//map.locate({setView: true, maxZoom: 16});
 	//map.locate();
-/*	
-	L.tileLayer('images/MapQuest/{z}/{x}/{y}.jpg', {
+
+
+	L.tileLayer('maps/mapquest/{z}/{x}/{y}.png', {
+		maxZoom: 21,
+	}).addTo(map);
+/*
+	L.tileLayer('images/mapquest/{z}/{x}/{y}.jpg', {
 		maxZoom: 17,
 	}).addTo(map);
 */
+/*
 	L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6IjZjNmRjNzk3ZmE2MTcwOTEwMGY0MzU3YjUzOWFmNWZhIn0.Y8bhBaUMqFiPrDRW9hieoQ', {
 		maxZoom: 18,
 		attribution: '',
 		id: 'mapbox.streets'
 	}).addTo(map);
-	
+*/
 	
 	map.addControl( new L.Control.Search({
 		container: 'findbox',
@@ -400,5 +441,75 @@
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 </script>
+<style>
+
+
+.leaflet-control-container .leaflet-top.leaflet-left .leaflet-control-zoom.leaflet-bar.leaflet-control{
+	top:105px;
+	display:none;
+}
+#button{
+	position:fixed;
+	top:10px;
+	left:10px;
+	z-index:999999;
+    background-image: url(maps/js/images/botton.png);
+    width: 65.5px;
+    height: 189.5px;
+    background-size: contain;	
+	background-repeat:no-repeat
+}
+#back{
+    position: absolute;
+    top: 18px;
+    left: -2px;
+    background-image: url(maps/js/images/back.png);
+    width: 70px;
+    height: 30px;
+    background-size: 10px 17.5px;
+    background-repeat: no-repeat;
+    background-position: center center;
+	}
+#add_to_favorites{
+    position: absolute;
+    top: 63px;
+    left: -1px;
+    background-image: url(maps/js/images/favorite.png);
+    width: 70px;
+    height: 30px;
+    background-size: 22.5px 21px;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+#share_location{
+	position: absolute;
+    top: 112px;
+    left: -2px;
+    background-image: url(maps/js/images/location.png);
+    width: 70px;
+    height: 30px;
+    background-size: 29px 20.5px;
+    background-repeat: no-repeat;
+    background-position: center center;
+	}
+.leaflet-control-layers-toggle {
+    width: 50px;
+    background-size: 50px 50px;
+    height: 50px;
+}
+.leaflet-control-layers {
+    box-shadow: none;
+    border-radius: 0;
+	background-color:transparent;
+}
+.leaflet-control-layers.leaflet-control.leaflet-control-layers-expanded {
+    background-color: #eeeeee;
+    background-image: url(maps/js/images/list_top_bg.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: top;
+    padding-top: 55px;
+}
+</style>
 </body>
 </html>

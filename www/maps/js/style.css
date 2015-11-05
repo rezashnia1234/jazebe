@@ -38,6 +38,7 @@ html, body, #map {
 .leaflet-control-container .leaflet-top.leaflet-left .leaflet-control-zoom.leaflet-bar.leaflet-control{
 	top:105px;
 }
+/*
 #button{
 	position:fixed;
 	top:7px;
@@ -71,7 +72,7 @@ html, body, #map {
 #add_to_favorites.disabled{
 	opacity:0.5;
 }
-
+*/
 
 
 
