@@ -23,6 +23,8 @@
 			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
 			document.addEventListener("deviceready", onDeviceReady, false);
 			
+			$("#main").height($("#warper").height()-($("#header").height()*1.5));
+			$("#container").height($("#warper").height()-$("#header").height());
 			//onDeviceReady();
 		}
 
@@ -33,7 +35,7 @@
 			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
 				document.addEventListener("backbutton", go_back, false);
 			}
-			
+		
 		}
 		function uniqueDeviceIDsuccess_index(uuid)
 		{
@@ -60,7 +62,7 @@
 .doa_text{line-height:200%;text-align:justify;direction:rtl;}
 .doa_titr{font-weight:bold;font-size:18px;}
 .arabic{font-family:Droid_Arabic_Kufi;padding:12px 0;}
-.persian{background-color:#f2f2f2;padding:12px 0;}
+.persian{padding:12px 0;}
 
 
 
@@ -92,8 +94,7 @@ body0{overflow:hidden;width:100%;}
   bottom: 0;
   height: 100%;
   left: 7%;
-  overflow-x: auto;
-  overflow-y: hidden;
+  overflow: hidden;
   position: fixed;
   width: 86%;
   z-index: 3;
@@ -107,6 +108,15 @@ body0{overflow:hidden;width:100%;}
 	background-position: center bottom;
 	background-repeat: no-repeat;
 	background-size: cover;
+	width: 100%;
+}
+#container #main {
+  box-sizing: border-box;
+  margin: 0 3%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  padding: 0 1%;
+  width: 94%;
 }
 /*
 #main {
