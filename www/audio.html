@@ -162,6 +162,9 @@
 
 
 	function playAudio(file){
+		if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+			file = "file:///android_assets/www/" + file;
+		}
 		audio = new Media(file, function(){ // success callback
 			console.log("playAudio():Audio Success");
 		}, function(error){ // error callback
