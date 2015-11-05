@@ -165,7 +165,6 @@
 		if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
 			file = "/android_asset/www/" + file;
 		}
-		alert(file);
 		
 		audio = new Media(file, function(){ // success callback
 			console.log("playAudio():Audio Success");
