@@ -110,11 +110,14 @@ function playAudioBackground(file){
 
 
 
-//init_audio();
+//init_audio("audio/salame.mp3");
 //var audio_Timer = $("#audioTimer");
 //var duration_Timer = $("#durationTimer");
+//audio = null;
+//var audioTimer = null;
+//var pausePos = 0;
 
-function init_audio(){
+function init_audio(my_file){
 	// Phonegap is loaded and can be used
 	var play_btn = $("#play");
 	var play2_btn = $("#play2");
@@ -129,7 +132,7 @@ function init_audio(){
 		play2_btn.prop("disabled",true);
 		pause_btn.prop("disabled",false);
 		
-		playAudio("audio/salame.mp3");
+		playAudio(my_file);
 	});
 
 	slider_range.on("change", function(){
@@ -170,12 +173,6 @@ function init_audio(){
 	});
 	
 }
-
-
-audio = null;
-var audioTimer = null;
-var pausePos = 0;
-
 
 function playAudio(file){
 	if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
