@@ -29,6 +29,15 @@
 		}
 
 		function onDeviceReady() {
+			init_audio("audio/salame.mp3");
+			var audio_Timer = $("#audioTimer");
+			var duration_Timer = $("#durationTimer");
+			audio = null;
+			var audioTimer = null;
+			var pausePos = 0;
+		
+		
+		
 			//FastClick.attach(document.getElementById('container'));
 			FastClick.attach(document.body);
 			
@@ -206,8 +215,8 @@ body0{overflow:hidden;width:100%;}
 <div id="controls_size">
 	<div id="css_style"></div>
 	<div id="controls_over"></div>
-	<a href="#" id="small" >قلم</a>
-	<a href="#" id="medium" class="selected">قلم</a>
+	<a href="#" id="small" class="selected">قلم</a>
+	<a href="#" id="medium">قلم</a>
 	<a href="#" id="large">قلم</a>
 </div>
 </body>
