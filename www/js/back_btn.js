@@ -28,3 +28,268 @@
 	
 	
 	
+////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+////Font Size///////////////////////////////////////////////////////////////////////////////////
+$(document).ready(function(){
+	$("#controls_size #small").click(function(event){
+		event.preventDefault();
+		$("#controls_size a").removeClass("selected");
+		$(this).addClass("selected");
+		$("#controls_size").removeClass("opened");
+		$("#controls_over").css("position","relative");
+		var font_style = "<style>";
+			font_style = font_style + "#main p{font-size:" + "14" + "px !important;}";
+			font_style = font_style + "#main h2{font-size:" + "14" + "px !important;}";
+			font_style = font_style + "#main *{font-size:" + "14" + "px !important;}";
+			font_style = font_style + "</style>";
+		$("#controls_size #css_style").html(font_style);
+	});	
+	$("#controls_size #medium").click(function(event){
+		event.preventDefault();
+		if ($("#controls_size").hasClass("opened")) {
+			$("#controls_size a").removeClass("selected");
+			$(this).addClass("selected");
+			$("#controls_size").removeClass("opened");
+			$("#controls_over").css("position","relative");
+			var font_style = "<style>";
+			font_style = font_style + "#main p{font-size:" + "16" + "px !important;}";
+			font_style = font_style + "#main h2{font-size:" + "16" + "px !important;}";
+			font_style = font_style + "#main *{font-size:" + "16" + "px !important;}";
+			font_style = font_style + "</style>";
+			$("#controls_size #css_style").html(font_style);
+		}
+		else
+		{
+			$("#controls_over").css("position","fixed");
+			$("#controls_size").addClass("opened");
+		}
+	});
+	$("#controls_over").click(function(event){
+		event.preventDefault();
+		$("#controls_size").removeClass("opened");
+		$(this).css("position","relative");
+	});	
+	$("#controls_size #large").click(function(event){
+		event.preventDefault();
+		$("#controls_size a").removeClass("selected");
+		$(this).addClass("selected");
+		$("#controls_size").removeClass("opened");
+		$("#controls_over").css("position","relative");
+		var font_style = "<style>";
+			font_style = font_style + "#main p{font-size:" + "19" + "px !important;}";
+			font_style = font_style + "#main h2{font-size:" + "19" + "px !important;}";
+			font_style = font_style + "#main *{font-size:" + "19" + "px !important;}";
+			font_style = font_style + "</style>";
+		$("#controls_size #css_style").html(font_style);
+	});	
+});
+////Font Size///////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+////playAudio///////////////////////////////////////////////////////////////////////////////////
+function playAudioBackground(file){
+	if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+		file = "/android_asset/www/" + file;
+	}
+	
+	audio = new Media(file, function(){ // success callback
+		console.log("playAudio():Audio Success");
+	}, function(error){ // error callback
+		alert("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
+	});
+	
+	// play audio
+	//audio.play({ playAudioWhenScreenIsLocked : false });
+	audio.play();
+	audio.seekTo(0);
+}
+
+
+
+//init_audio();
+//var audio_Timer = $("#audioTimer");
+//var duration_Timer = $("#durationTimer");
+
+function init_audio(){
+	// Phonegap is loaded and can be used
+	var play_btn = $("#play");
+	var play2_btn = $("#play2");
+	var pause_btn = $("#pause");
+	var stop_btn = $("#stop");
+	var slider_range = $("#slider");
+	
+	play_btn.click(function(){		
+		play_btn.css("display","none");
+		play2_btn.css("display","block");
+		$(this).prop("disabled",true);
+		play2_btn.prop("disabled",true);
+		pause_btn.prop("disabled",false);
+		
+		playAudio("audio/salame.mp3");
+	});
+
+	slider_range.on("change", function(){
+		play_btn.prop("disabled",false);
+		play2_btn.prop("disabled",false);
+		pause_btn.prop("disabled",true);
+
+		pausePos = slider_range.val();
+		formatTime(pausePos,audio_Timer);
+		pauseAudio();
+	});
+	
+	pause_btn.click(function(){		
+		play_btn.prop("disabled",false);
+		play2_btn.prop("disabled",false);
+		pause_btn.prop("disabled",true);
+		pauseAudio();
+	});
+	
+	play2_btn.click(function(){			
+		play_btn.prop("disabled",true);
+		play2_btn.prop("disabled",true);
+		pause_btn.prop("disabled",false);
+		
+		PausePlayAudio();
+	});
+	
+	stop_btn.click(function(){
+		// reset slider
+		play_btn.css("display","block");
+		play2_btn.css("display","none");
+		play_btn.prop("disabled",false);
+		play2_btn.prop("disabled",false);
+		pause_btn.prop("disabled",true);
+		$("#slider").val(0);
+		//$("#slider").slider("refresh");
+		stopAudio();
+	});
+	
+}
+
+
+audio = null;
+var audioTimer = null;
+var pausePos = 0;
+
+
+function playAudio(file){
+	if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+		file = "/android_asset/www/" + file;
+	}
+	
+	audio = new Media(file, function(){ // success callback
+		console.log("playAudio():Audio Success");
+	}, function(error){ // error callback
+		alert("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
+	});
+	
+	// get audio duration
+	var duration = audio.getDuration();
+	var duration_show = false;
+	
+	// set slider data
+	if( duration > 0 ){
+		formatTime(duration,duration_Timer);
+		$("#slider").attr( "max", Math.round(duration) );
+		//$("#slider").slider("refresh");
+		$("#slider").val(0);
+		duration_show = true;
+	}
+
+	
+	// play audio
+	audio.play({ playAudioWhenScreenIsLocked : true });
+
+	audio.seekTo(pausePos*1000);
+		
+	// update audio position every second
+	if (audioTimer == null) {
+		audioTimer = setInterval(function() {
+			// get audio position
+			audio.getCurrentPosition(
+				function(position) { // get position success
+					if (position > -1) {
+						setAudioPosition(position);
+					}
+				}, function(e) { // get position error
+					alert("Error getting pos=" + e);
+					//setAudioPosition(duration);
+				}
+			);
+			if(!duration_show){
+				duration = audio.getDuration();
+				if( duration > 0 ){
+					formatTime(duration,duration_Timer);
+					$("#slider").attr( "max", Math.round(duration) );
+					//$("#slider").slider("refresh");
+					duration_show = true;
+				}
+			}
+		}, 1000);
+	}
+}
+
+
+function pauseAudio() {
+	if (audio) {
+		audio.pause();
+	}
+}
+
+function PausePlayAudio() {
+	if (audio) {
+		audio.pause();
+		audio.seekTo(pausePos*1000);
+		audio.play();
+	}
+}
+
+
+function stopAudio() {
+	if (audio) {
+		audio.stop();
+		audio.release();
+	}
+	clearInterval(audioTimer);
+	audioTimer = null;
+	pausePos = 0;
+	formatTime(0,audio_Timer);
+}
+
+
+function setAudioPosition(position) {
+	pausePos = position;
+	position = Math.round(position);
+	$("#slider").val(position);
+	formatTime(position,audio_Timer);
+	//$("#slider").slider("refresh");
+	$("#slider").val(0);
+}
+
+function formatTime(seconds,Timer) {
+	if (seconds <= 0)
+	{
+		Timer.html("00:00");
+		return;
+	}	
+	var minutes = Math.floor(seconds / 60);
+	
+	if (minutes < 10)
+		minutes = "0" + minutes;
+
+	seconds = seconds % 60;
+	if (seconds < 10)
+		seconds = "0" + seconds;
+	seconds = Math.round(seconds);
+	
+	Timer.html(minutes + ":" + seconds);
+};
+////playAudio///////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////////////////////////////////////////////////////////
+

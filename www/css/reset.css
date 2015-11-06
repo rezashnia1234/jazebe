@@ -42,11 +42,12 @@ body {
 a{
 	text-decoration:none;
 }
+/*
 * {
   transform: scale(1);
   transition: all 400ms ease 0s;
 }
-
+*/
 input
 {
    -webkit-appearance: none;

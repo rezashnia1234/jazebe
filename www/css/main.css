@@ -1,4 +1,125 @@
+/*786*/
+/*//START SLIDER////////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////////////////////////////////////////////////////*/
+    #slides {
+      display: none
+    }
 
+    #slides .slidesjs-navigation {
+      margin-top:3px;
+    }
+
+    #slides .slidesjs-previous {
+      margin-right: 5px;
+      float: left;
+    }
+
+    #slides .slidesjs-next {
+      margin-right: 5px;
+      float: left;
+    }
+
+    .slidesjs-pagination {
+      margin: 6px 0 6px 0;
+      list-style: none;
+    }
+	.slidesjs-pagination li {
+	  display: inline-block;
+	  margin: 0 1px;
+	}
+    .slidesjs-pagination li a {
+      display: block;
+      width: 13px;
+      height: 0;
+      padding-top: 13px;
+      background-image: url(../images/pagination.png);
+      background-position: 0 0;
+      float: left;
+      overflow: hidden;
+    }
+
+    .slidesjs-pagination li a.active,
+    .slidesjs-pagination li a:hover.active {
+      background-position: 0 -13px
+    }
+
+    .slidesjs-pagination li a:hover {
+      background-position: 0 -26px
+    }
+
+    #slides a:link,
+    #slides a:visited {
+      color: #333
+    }
+
+    #slides a:hover,
+    #slides a:active {
+      color: #9e2020
+    }
+
+    .navbar {
+      overflow: hidden
+    }
+/*//END SLIDER//////////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////////////////////////////////////////////////////*/
+/*//////////////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+
+#smgroup_audio_player,#smgroup_audio_player *,#smgroup_audio_player span{
+	direction:ltr !important;
+}
+#play2 {
+    display:none;
+}
+#controls_size {
+  background: none repeat scroll 0 0 #e91804;
+  bottom: 31px;
+  float: left;
+  left: 0px;
+  margin: 0 5px 5px -1px;
+  padding: 0;
+  position: fixed;
+  text-align: center;
+  z-index: 1000;
+}
+#controls_size a {
+  color: #c3c3c3 !important;
+  display: block;
+  font-family: Arial,Helvetica,sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0;
+  padding: 4px 4px 4px 0px;
+  text-decoration: none;
+  float:right;
+  box-sizing: border-box;
+  height: 39px;
+  width: 50px ;
+}
+#controls_size a:hover{
+	color:#fff;
+	background:#fb331f;
+}
+#controls_size a.selected{
+	background:#fb331f;
+    color:#fff !important;
+}
+#controls_size #small     {  font-size:12px !important;padding: 10px 5px 3px 0;}
+#controls_size #medium    {  font-size:19px !important;padding:7px 4px 10px 0;}
+#controls_size #large     {  font-size:23px  !important;padding: 2px 8px 17px 6px;}
+/*/////////////////////NEW STYLE///////////////////////*/
+#controls_over{position:relative;top:0;left:0;width:100%;height:100%;z-index: 900;}
+#controls_size {bottom: 46px;}
+#controls_size #small,#controls_size #large{display:none;}
+#controls_size #large,#controls_size #medium,#controls_size #small{color:#ffffff !important;border-radius: 0 11px 11px 0 !important;background-color:#fb331f;padding-left:4px;z-index: 1002 !important;position:absolute;bottom: 0;}
+#controls_size.opened #large,#controls_size.opened #medium,#controls_size.opened #small{display:block !important;}
+#controls_size.opened{border-radius: 0 11px 11px 0 !important;background-color:#fb331f;}
+#controls_size.opened #small{bottom: 76px;border-radius:0 11px 0 0 !important;padding-left: 3px;}
+#controls_size.opened #medium{bottom: 39px;border-radius:0 !important;padding-left: 3px;}
+#controls_size.opened #large{bottom: 0px;border-radius:0 0 11px 0 !important;}
+#controls_size.opened #large.selected,#controls_size.opened #medium.selected,#controls_size.opened #small.selected{background-color:#d11300 !important;}
 
 
 

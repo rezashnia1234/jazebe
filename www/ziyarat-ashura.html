@@ -7,9 +7,10 @@
     <title>بسم الله الرحمن الرحیم</title>
 	
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/font.css" />
-    
+	<link rel="stylesheet" type="text/css" href="css/simplebar.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/console.log.js"></script>
     <script src="phonegap.js"></script>
@@ -17,14 +18,13 @@
     <script src="js/jquery.md5.js"></script>
     <script src="js/back_btn.js"></script>
     <script src="js/query-string.js"></script>
+    <script src="js/simplebar.min.js"></script>
 	
 	<script>
 		function init() {		
 			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
 			document.addEventListener("deviceready", onDeviceReady, false);
 			
-			$("#main").height($("#warper").height()-($("#header").height()*1.5));
-			$("#container").height($("#warper").height()-$("#header").height());
 			//onDeviceReady();
 		}
 
@@ -46,11 +46,19 @@
 			//alert("uniqueDeviceIDfail" + uuid);
 		};
 		
-		function loadcompeleted() {
-			$(".mypreload").html("");
-		}
 		$(window).load(function() {
-			$(".mypreload").html("");
+			//$("#main").height($("#warper").height()-($("#header").height()*1.5));
+			//$("#container").height($("#warper").height()-$("#header").height());
+			//$(".mypreload").delay(100000).html("");
+		});
+		$(document).ready(function() {
+			setTimeout(function(){
+				$("#main").height($("#warper").height()-($("#header").height()*1.4));
+				$("#container").height($("#warper").height()-$("#header").height()*0.85);
+				$(".mypreload").html("");
+				$('#main').addClass("simplebar");
+				$('#main').simplebar({ autoHide: false });
+			}, 300);
 		});
 
 	</script>	
@@ -78,7 +86,7 @@ body0{overflow:hidden;width:100%;}
 	height:62%;
 	z-index:0;
 	left:0;
-	background:#4a4a4a url("images/top-bg.png");
+	background:#4a4a4a url("images/top-bg.png") repeat scroll 0 0 / 85px auto;
 }
 #bg-bottom{
 	position:fixed;
@@ -93,10 +101,10 @@ body0{overflow:hidden;width:100%;}
   background: transparent none repeat scroll 0 0;
   bottom: 0;
   height: 100%;
-  left: 7%;
+  left: 4%;
   overflow: hidden;
   position: fixed;
-  width: 86%;
+  width: 92%;
   z-index: 3;
 }
 #header {
@@ -108,25 +116,22 @@ body0{overflow:hidden;width:100%;}
 	background-position: center bottom;
 	background-repeat: no-repeat;
 	background-size: cover;
+	height:1200px;
 	width: 100%;
+	margin-top: -1.5%;
 }
 #container #main {
   box-sizing: border-box;
-  margin: 0 3%;
+  margin: -2.5% 3% 0 3%;
+  overflow: hidden;
+  /*
   overflow-x: hidden;
   overflow-y: scroll;
+  */
   padding: 0 1%;
   width: 94%;
 }
-/*
-#main {
-	background: #dfdfdf;
-	box-sizing: border-box;
-	margin: 0 auto;
-	padding: 10px 5%;
-	width: 100%;
-}
-*/
+
 </style>
 		
 </head>
@@ -138,8 +143,9 @@ body0{overflow:hidden;width:100%;}
 	<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading.png" width="70%"></div>
 </div>
 		<div id="warper" >
-				<div id="header"><img src="images/zarurat-header.png" style="width:100%;"></div>
+				<div id="header"><img src="images/zarurat-header.png" style="width: 100%; margin-top: 4.5%;"></div>
 				<div id="container">
+					<img src="images/zarurat-header-2.png" style="width: 100%;margin-top: -20%;" />
 					<div id="main">
 <div class="doa_text arabic">اَلسَّلاَمُ عَلَیْکَ یَا أَبَا عَبْدِ اللَّهِ السَّلاَمُ عَلَیْکَ یَا ابْنَ رَسُولِ اللَّهِ  (السَّلاَمُ عَلَیْکَ یَا خِیَرَةَ اللَّهِ وَ ابْنَ خِیَرَتِهِ) السَّلاَمُ عَلَیْکَ یَا ابْنَ أَمِیرِ الْمُؤْمِنِینَ وَ ابْنَ سَیِّدِ الْوَصِیِّینَ  السَّلاَمُ عَلَیْکَ یَا ابْنَ فَاطِمَةَ سَیِّدَةِ نِسَاءِ الْعَالَمِینَ  السَّلاَمُ عَلَیْکَ یَا ثَارَ اللَّهِ وَ ابْنَ ثَارِهِ وَ الْوِتْرَ الْمَوْتُورَ السَّلاَمُ عَلَیْکَ وَ عَلَى الْأَرْوَاحِ الَّتِی حَلَّتْ بِفِنَائِکَ عَلَیْکُمْ مِنِّی جَمِیعاً سَلاَمُ اللَّهِ أَبَداً مَا بَقِیتُ وَ بَقِیَ اللَّیْلُ وَ النَّهَارُ یَا أَبَا عَبْدِ اللَّهِ</div>
 <div class="doa_text persian">سلام بر تو اى ابا عبد اللّه، سلام بر تو اى فرزند رسول خدا، سلام بر تو اى فرزند امیر مؤمنان، و فرزند سرور جانشیان، سلام بر تو اى فرزند فاطمه سرور بانوان جهانیان، سلام بر تو اى خون خدا، و فرزند خون خدا و اى تنهاى مظلوم، سلام بر تو و جان‌هایى که به درگاهت فرود آمدند، از جانب من بر همگى شما سلام خدا براى همیشه،تا هستم و تا شب و روز باقى است،</div>
@@ -170,6 +176,35 @@ body0{overflow:hidden;width:100%;}
 <div class="doa_text doa_titr">سپس به سجده می روی و می گوئی:</div>
 <div class="doa_text arabic">اللَّهُمَّ لَکَ الْحَمْدُ حَمْدَ الشَّاکِرِینَ لَکَ عَلَى مُصَابِهِمْ الْحَمْدُ لِلَّهِ عَلَى عَظِیمِ رَزِیَّتِی  اللَّهُمَّ ارْزُقْنِی شَفَاعَةَ الْحُسَیْنِ یَوْمَ الْوُرُودِ وَ ثَبِّتْ لِی قَدَمَ صِدْقٍ عِنْدَکَ مَعَ الْحُسَیْنِ وَ أَصْحَابِ الْحُسَیْنِ الَّذِینَ بَذَلُوا مُهَجَهُمْ دُونَ الْحُسَیْنِ علیه السلام </div>
 <div class="doa_text persian">سپس به سجده میروى و میگویى: خدایا سپاس تو را سپاس شکرگزاران بر مصیبت زدگى آنان، خداى را سپاس بر بزرگى عزایم، خدایا شفاعت حسین را در روز ورود [به قیامت] نصیبم کن، و ثابت بدار قدم صدق مرا نزد خود به همراه حسین  و یاران حسین، آنان که جانشان را در دفاع از حسین (درود بر او) بخشیدند.</div>
+
+
+
+
+
+<div id="controls_size">
+	<div id="css_style"></div>
+	<div id="controls_over"></div>
+	<a href="#" id="small" >قلم</a>
+	<a href="#" id="medium" class="selected">قلم</a>
+	<a href="#" id="large">قلم</a>
+</div>
+
+
+
+<div id="smgroup_audio_player">
+        <span id="audioTimer" >00:00</span> / 
+        <span id="durationTimer" >01:00</span>
+        <div id="audioPosition" >
+            <input type="range" name="slider" id="slider" value="0" min="0" max="60" style="padding:0;margin:0;" />
+        </div>
+        <div>
+            <input type="button" id="play" value="Play" />
+			<input type="button" id="play2" value="Play" />
+            <input type="button" id="pause" value="Pause" disabled="true"  />
+            <input type="button" id="stop" value="Stop" />
+        </div>
+</div>
+
 					</div>
 				</div>
 		</div>
