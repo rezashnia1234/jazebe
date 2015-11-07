@@ -18,7 +18,7 @@
     <script src="js/jquery.md5.js"></script>
     <script src="js/back_btn.js"></script>
     <script src="js/query-string.js"></script>
-    <script src="js/simplebar.min.js"></script>
+    <!--<script src="js/simplebar.min.js"></script>-->
 	
 	<script>
 		function init() {		
@@ -52,16 +52,16 @@
 			//alert($(window).height());
 			//alert($(document).height()); 
 			//alert($("#warper").height());
-			$("#main").height($(window).height() - $("#header").height() - $("#footer").height() - 0);
+			$("#main").height($(window).height() - $("#header").height() - $("#footer").height() - 70);
 			//$("#container").height($("#warper").height()-$("#header").height());
 			//$(".mypreload").delay(100000).html("");
 		});
 		$(document).ready(function() {
-			setTimeout(function(){
+			//setTimeout(function(){
 				$(".mypreload").html("");
-				$('#main').addClass("simplebar");
-				$('#main').simplebar({ autoHide: false });
-			}, 300);
+				//$('#main').addClass("simplebar");
+				//$('#main').simplebar({ autoHide: false });
+			//}, 300);
 		});
 
 	</script>	
@@ -145,6 +145,7 @@
   margin-top: 160px;
   /*padding:0 20px;*/
 }
+/*
 #warper #container #main{
   width:100%;
   box-sizing: border-box;
@@ -155,6 +156,14 @@
   padding:0 5px 0px 5px;
 
 }
+*/
+#warper #container #main {
+  box-sizing: border-box;
+  overflow-x: hidden;
+  padding: 0 16px;
+  width: 100%;
+}
+
 </style>
 <!--footer-bg-center.png-->
 </head>
@@ -419,7 +428,7 @@
 </script>
 
 
-						<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+						<br/><br/>
 					</div>
 				</div>
 		</div>
