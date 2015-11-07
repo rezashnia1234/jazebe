@@ -134,7 +134,11 @@
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 		function onDeviceReady() {
-			playAudioBackground("audio/salame.mp3");
+			if(window.sessionStorage.getItem('session_rand') == null)
+			{
+				playAudioBackground("audio/salame.mp3");
+				window.sessionStorage.setItem('session_rand',Math.random());				
+			}
 
 			/*
 			$("body").swipe({
