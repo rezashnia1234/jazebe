@@ -18,7 +18,7 @@
     <script src="js/jquery.md5.js"></script>
     <script src="js/back_btn.js"></script>
     <script src="js/query-string.js"></script>
-    <!--<script src="js/simplebar.min.js"></script>-->
+    <script src="js/simplebar.min.js"></script>
 	
 	<script>
 		function init() {		
@@ -57,11 +57,11 @@
 			//$(".mypreload").delay(100000).html("");
 		});
 		$(document).ready(function() {
-			//setTimeout(function(){
+			setTimeout(function(){
 				$(".mypreload").html("");
-				//$('#main').addClass("simplebar");
-				//$('#main').simplebar({ autoHide: false });
-			//}, 300);
+				$('#main').addClass("simplebar");
+				$('#main').simplebar({ autoHide: false });
+			}, 300);
 		});
 
 	</script>	
@@ -69,7 +69,6 @@
 		
 		
 <style>
-
 .doa_text{line-height:200%;text-align:justify;direction:rtl;}
 .doa_titr{font-weight:bold;font-size:18px;}
 .arabic{font-family:Droid_Arabic_Kufi;padding:12px 0;}
@@ -85,7 +84,6 @@
 	z-index: 786;
 }
 #header-bg {
-  background: transparent url("images/header-bg.png") no-repeat scroll right 0 / auto 70px;
   bottom: -33px;
   height: 70px;
   position: absolute;
@@ -97,23 +95,16 @@
   height: 70px;
   width: 85px;
   position: absolute;
-  left: 19px;
-  top:0px;
+  left: 0;
+  top:-52px;
   cursor:pointer;
 }
 #header-text {
   position: absolute;
-  right: 93px;
-  top: -8px;
-}
-#header-text-1th{
-  background: transparent url("images/header-text-1th.png") no-repeat scroll right 0 / auto 86px;
-  height: 86px;
-  width: 19px;
-  float:right;
+  right: 5px;
+  top: -55px;
 }
 #header-text-2th {
-  background: transparent url("images/header-text-2th.png") repeat-x scroll right 0 / auto 86px;
   color: white;
   float: right;
   font-size: 21px;
@@ -122,12 +113,6 @@
   line-height: 83px;
   padding: 0 8px;
   width: auto;
-}
-#header-text-3th{
-  background: transparent url("images/header-text-3th.png") no-repeat scroll right 0 / auto 86px;
-  height: 86px;
-  width: 42px;
-  float:right;
 }
 #footer{
 	position:fixed;
@@ -151,19 +136,17 @@
   box-sizing: border-box;
   padding: 0 16px;
 }
-#warper #container #main .simplebar-content{
-  padding2:0 20px 70px 15px;
-  padding:0 5px 0px 5px;
-
-}
 */
+#warper #container #main .simplebar-content{
+	padding:0 5px 0px 5px;
+}
+
 #warper #container #main {
   box-sizing: border-box;
   overflow-x: hidden;
   padding: 0 16px;
   width: 100%;
 }
-
 </style>
 <!--footer-bg-center.png-->
 </head>
