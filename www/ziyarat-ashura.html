@@ -171,7 +171,7 @@
 						<div id="back-btn" onclick="parent.history.back();" ></div>
 						<div id="header-text">
 							<div id="header-text-1th" ></div>
-							<div id="header-text-2th" >زیارت عاشورا</div>
+							<div id="header-text-2th" >بسم الله الرحمن الرحیم</div><!--زیارت عاشورا-->
 							<div id="header-text-3th" ></div>
 						</div>
 					</div>
@@ -236,16 +236,18 @@
 </div>
 <script>
 	init_audio("audio/salame.mp3");
-	var audio_Timer = $("#audioTimer");
-	var duration_Timer = $("#durationTimer");
+	audio_Timer = $("#audioTimer");
+	duration_Timer = $("#durationTimer");
+	slider_Timer = $("#slider");
 
 	function init_audio(my_file){
 		// Phonegap is loaded and can be used
-		var play_btn = $("#play");
-		var play2_btn = $("#play2");
-		var pause_btn = $("#pause");
-		var stop_btn = $("#stop");
-		var slider_range = $("#slider");
+		play_btn = $("#play");
+		play2_btn = $("#play2");
+		pause_btn = $("#pause");
+		stop_btn = $("#stop");
+		slider_Timer = $("#slider");
+		slider_range = slider_Timer;
 		
 		play_btn.click(function(){		
 			play_btn.css("display","none");
@@ -257,12 +259,12 @@
 			playAudio(my_file);
 		});
 
-		slider_range.on("change", function(){
+		slider_Timer.on("change", function(){
 			play_btn.prop("disabled",false);
 			play2_btn.prop("disabled",false);
 			pause_btn.prop("disabled",true);
 
-			pausePos = slider_range.val();
+			pausePos = slider_Timer.val();
 			formatTime(pausePos,audio_Timer);
 			pauseAudio();
 		});
@@ -289,8 +291,8 @@
 			play_btn.prop("disabled",false);
 			play2_btn.prop("disabled",false);
 			pause_btn.prop("disabled",true);
-			$("#slider").val(0);
-			//$("#slider").slider("refresh");
+			slider_Timer.val(0);
+			//slider_Timer.slider("refresh");
 			stopAudio();
 		});
 		
@@ -298,8 +300,8 @@
 
 
 	audio = null;
-	var audioTimer = null;
-	var pausePos = 0;
+	audioTimer = null;
+	pausePos = 0;
 
 
 	function playAudio(file){
@@ -320,9 +322,9 @@
 		// set slider data
 		if( duration > 0 ){
 			formatTime(duration,duration_Timer);
-			$("#slider").attr( "max", Math.round(duration) );
-			//$("#slider").slider("refresh");
-			$("#slider").val(0);
+			slider_Timer.attr( "max", Math.round(duration) );
+			//slider_Timer.slider("refresh");
+			slider_Timer.val(0);
 			duration_show = true;
 		}
 
@@ -350,8 +352,8 @@
 					duration = audio.getDuration();
 					if( duration > 0 ){
 						formatTime(duration,duration_Timer);
-						$("#slider").attr( "max", Math.round(duration) );
-						//$("#slider").slider("refresh");
+						slider_Timer.attr( "max", Math.round(duration) );
+						//slider_Timer.slider("refresh");
 						duration_show = true;
 					}
 				}
@@ -390,10 +392,10 @@
 	function setAudioPosition(position) {
 		pausePos = position;
 		position = Math.round(position);
-		$("#slider").val(position);
+		slider_Timer.val(position);
 		formatTime(position,audio_Timer);
-		//$("#slider").slider("refresh");
-		$("#slider").val(0);
+		//slider_Timer.slider("refresh");
+		//slider_Timer.val(0);
 	}
 
 	function formatTime(seconds,Timer) {
@@ -417,7 +419,7 @@
 </script>
 
 
-						<br/><br/><br/><br/><br/>
+						<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
 					</div>
 				</div>
 		</div>
