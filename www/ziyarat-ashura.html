@@ -72,6 +72,17 @@
 			$('#play').on('click', function() {
 				$('#play').hide();
 				$('#pause').css('display','block');
+				
+				
+				play_btn.css("display","none");
+				//play2_btn.css("display","block");
+				pause_btn.css("display","block");
+				$(this).prop("disabled",true);
+				play2_btn.prop("disabled",true);
+				pause_btn.prop("disabled",false);
+				
+				playAudio(my_file);
+				//alert("2");
 			});
 			$('.fontsize').on('click', function() {
 				$('#smgroup_audio_player').hide();
@@ -165,7 +176,7 @@
         </div>
         <div class="audio_btn">
             <input type="button" id="play" value="" />
-			<input type="button" id="play2" value="" />
+			<input type="button" id="play2" value="" disabled="true" />
             <input type="button" id="pause" value="" disabled="true"  />
             <input type="button" id="stop" value="Stop" />
         </div>
@@ -180,12 +191,13 @@
 		// Phonegap is loaded and can be used
 		play_btn = $("#play");
 		play2_btn = $("#play2");
-		pause_btn = $("# ");
+		pause_btn = $("#pause");
 		stop_btn = $("#stop");
 		slider_Timer = $("#slider");
 		slider_range = slider_Timer;
-		
-		play_btn.click(function(){		
+/*
+		play_btn.click(function(){	
+			alert("1");
 			play_btn.css("display","none");
 			//play2_btn.css("display","block");
 			pause_btn.css("display","block");
@@ -195,7 +207,7 @@
 			
 			playAudio(my_file);
 		});
-
+*/
 		slider_Timer.on("change", function(){
 			play_btn.prop("disabled",false);
 			play2_btn.prop("disabled",false);
