@@ -54,11 +54,15 @@
 			//alert($(window).height());
 			//alert($(document).height()); 
 			//alert($("#warper").height());
-			$("#main").height($(window).height() - $("#header").height() - $("#footer").height() - 70);
+			$("#main").height($(window).height() - $("#header").height() - $("#footer").height()-30);
 			//$("#container").height($("#warper").height()-$("#header").height());
 			//$(".mypreload").delay(100000).html("");
 		});
 		$(document).ready(function() {
+			$('.fontsize').on('click', function() {
+				$("#controls_size").addClass('opened');
+				$("#controls_over").css('position','fixed');
+			});
 			setTimeout(function(){
 				$(".mypreload").html("");
 				$('#main').addClass("simplebar");
@@ -72,89 +76,14 @@
 		
 <style>
 
-.doa_text{line-height:200%;text-align:justify;direction:rtl;}
-.doa_titr{font-weight:bold;font-size:18px;}
-.arabic{font-family:Droid_Arabic_Kufi;padding:12px 0;}
-.persian{padding:12px 0;}
 
-#header{
-	position:fixed;
-	top:0;
-	left:0;
-	height:100px;
-	width:100%;
-	background:#4a4a4a url("images/top-bg.png") repeat scroll 0 0 / 85px auto;
-	z-index: 786;
-}
-#header-bg {
-  bottom: -33px;
-  height: 70px;
-  position: absolute;
-  right: 0;
-  width: 100%;
-}
-#back-btn{
-  background: transparent url("images/back-btn.png") no-repeat scroll right 0 / auto 70px;
-  height: 70px;
-  width: 85px;
-  position: absolute;
-  left: 0;
-  top:-52px;
-  cursor:pointer;
-}
-#header-text {
-  position: absolute;
-  right: 5px;
-  top: -55px;
-}
-#header-text-2th {
-  color: white;
-  float: right;
-  font-size: 21px;
-  font-weight: bold;
-  height: 86px;
-  line-height: 83px;
-  padding: 0 8px;
-  width: auto;
-}
-#footer{
-	position:fixed;
-	bottom:0;
-	left:0;
-	height:74px;
-	width:100%;
-	background-image: url("images/footer-bg-center.png"), url("images/footer-bg.png");
-	background-position:center top, left top;
-	background-size:auto 74px,auto 74px;
-	background-repeat:no-repeat,repeat-x;
-	z-index: 786;
-}
-#warper #container {
-  margin-top: 160px;
-  /*padding:0 20px;*/
-}
-/*
-#warper #container #main{
-  width:100%;
-  box-sizing: border-box;
-  padding: 0 16px;
-}
-*/
-#warper #container #main .simplebar-content{
-	padding:0 5px 0px 5px;
-}
 
-#warper #container #main {
-  box-sizing: border-box;
-  overflow-x: hidden;
-  padding: 0 16px;
-  width: 100%;
-}
+
 
 </style>
 <!--footer-bg-center.png-->
 </head>
-<body onload="init();" style="overflow:hidden;width:100%;">
+<body class="tarjome sound" onload="init();" style="overflow:hidden;width:100%;">
 <div id="bg-top"></div><div id="bg-bottom"></div>
 <div id="ajax" class="mypreload">
 	<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
@@ -163,18 +92,16 @@
 </div>
 		<div id="warper" >
 				<div id="header">
-					<div id="header-bg">
-						<div id="back-btn" onclick="parent.history.back();" ></div>
-						<div id="header-text">
-							<div id="header-text-1th" ></div>
-							<div id="header-text-2th" >بسم الله الرحمن الرحیم</div><!--زیارت عاشورا-->
-							<div id="header-text-3th" ></div>
-						</div>
-					</div>
+					<div id="back-btn" onclick="parent.history.back();"></div>
+					<div id="header-text-2th">عربی در سفر</div>
+					<div class="center"></div>
 				</div>
 				<div id="footer">
 					<div id="footer-bg">
-
+						<button class="dw_bottun fontsize">قلم</button>	
+						<button class="dw_bottun audio"></button>	
+						<button class="dw_bottun translate">ترجمه</button>
+						<a class="back_to_top" href="#translate_list" style="display: block; position: absolute; left: 10px; top: 33px; color: black;">TOP</a>
 					</div>
 				</div>
 				<div id="container">
@@ -186,6 +113,7 @@
 					
 <script>
 $(document).ready(function() {
+/*
 	$('.data_table0').DataTable( {
 		"order": [[ 3, "desc" ]]
 	} );
@@ -196,7 +124,7 @@ $(document).ready(function() {
 			"sZeroRecords": "درکمال تاسف ، هیچ مطلبی یافت نشد",
 			"sInfo": "نمایش _START_ تا _END_ از _TOTAL_ مطلب",
 			"sInfoEmpty": "هیچ گزینه ای یافت نشد",
-			"sSearch": "جستجو",
+			"sSearch": "",
 			"sInfoFiltered": "(مطالب گزیده شده از مجموع  _MAX_ عدد)",
 			"oPaginate": {
 				"sFirst":    "اولین",
@@ -211,535 +139,687 @@ $(document).ready(function() {
 		"order": [[ 3, "desc" ]]
 		
 	});
-
+*/
 	var oTable_dataset_inner = $('.data_table').dataTable({
-	"oLanguage": {
-		"sProcessing": "درحال پردازش اطلاعات",
-		"sLengthMenu": "نمایش _MENU_ مطلب در هر صفحه",
-		"sZeroRecords": "درکمال تاسف ، هیچ مطلبی یافت نشد",
-		"sInfo": "نمایش _START_ تا _END_ از _TOTAL_ مطلب",
-		"sInfoEmpty": "هیچ گزینه ای یافت نشد",
-		"sSearch": "جستجو",
-		"sInfoFiltered": "(مطالب گزیده شده از مجموع  _MAX_ عدد)",
-		"oPaginate": {
-			"sFirst":    "اولین",
-			"sPrevious": "قبلی",
-			"sNext":     "بعدی",
-			"sLast":     "آخرین"
-		}
-	},
-	"iDisplayLength" : -1,
-	"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "همه"]],
-	"sDom": 'fCl<"clear">rtip',
-	"sPaginationType": "full_numbers",
-	"aaSorting": [],
-		"order": [[ 0, "desc" ]]
+		"oLanguage": {
+			"sProcessing": "درحال پردازش اطلاعات",
+			"sLengthMenu": "نمایش _MENU_ کلمه در هر صفحه",
+			"sZeroRecords": "درکمال تاسف ، هیچ کلمهی یافت نشد",
+			"sInfo": "نمایش _START_ تا _END_ از _TOTAL_ کلمه",
+			"sInfoEmpty": "هیچ گزینه ای یافت نشد",
+			"sSearch": "",
+			"sInfoFiltered": "(کلمات گزیده شده از مجموع  _MAX_ کلمه)",
+			"oPaginate": {
+				"sFirst":    "اولین",
+				"sPrevious": "قبلی",
+				"sNext":     "بعدی",
+				"sLast":     "آخرین"
+			}
+		},
+		"iDisplayLength" : -1,
+		"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "همه"]],
+		"sDom": 'fCl<"clear">rtip',
+		"sPaginationType": "full_numbers",
+		"aoColumns": [{ "bSortable": false },{ "bSortable": false }],
+		"bSort" : false,
+		"aaSorting": [],
+		//"order": [[ 0, "desc" ]]
 	});
-	
-	
+	search_input = $('#data_table_filter').find('input');
+	search_input.attr("placeholder", "جستجو");
+	$('#data_table_filter').css("top",$("#header").height());
+	search_input.focus(function() {
+		$('#footer').css("display","none");
+		$('#translate_list').css("display","none");
+        $('.simplebar-scroll-content').animate({
+          scrollTop: 0
+        }, 0);
+	});
+	search_input.blur(function() {
+		$('#footer').css("display","block");
+		if(search_input.val().trim()=="")
+		{
+			$('#translate_list').css("display","block");
+		}
+	});
 });
 </script>
-					
-			<table id="data_table" class="display data_table" cellspacing="0" width="100%" style="direction:rtl;" >
+<div id="translate_list">
+	<a href="#time">time</a><br/>
+	<a href="#days">days</a><br/>
+	<a href="#sesons">sesons</a><br/>
+	<a href="#relative">relative</a><br/>
+	<a href="#color">color</a><br/>
+	<a href="#number">number</a><br/>
+	<a href="#number-tarjib">number-tarjib</a><br/>
+	<a href="#number-kasr">number-kasr</a><br/>
+	<a href="#body">body</a><br/>
+	<a href="#bazar">bazar</a><br/>
+	<a href="#kharid">kharid</a><br/>
+	<a href="#restaurant">restaurant</a><br/>
+	<a href="#fruit">fruit</a><br/>
+	<a href="#animal">animal</a><br/>
+	<a href="#post">post</a><br/>
+	<a href="#masjed">masjed</a><br/>
+	<a href="#city">city</a><br/>
+	<a href="#hotel">hotel</a><br/>
+	<a href="#safar">safar</a><br/>
+	<a href="#politic">politic</a><br/>
+</div>
+			<table id="data_table" class="display data_table tarjome" cellspacing="0" width="100%" style="direction:rtl;" >
 				<thead>
 					<tr>
-						<th>Name</th>
-						<th>Position</th>
-						<th>Office</th>
-						<th>Age</th>
-						<th>Start date</th>
-						<th>Salary</th>
+						<th>عربی</th>
+						<th>فارسی</th>
 					</tr>
 				</thead>
 
 				<tfoot>
 					<tr>
-						<th>Name</th>
-						<th>Position</th>
-						<th>Office</th>
-						<th>Age</th>
-						<th>Start date</th>
-						<th>Salary</th>
+						<th>عربی</th>
+						<th>فارسی</th>
 					</tr>
 				</tfoot>
 
 				<tbody>
-					<tr>
-						<td>Tiger Nixon</td>
-						<td>System Architect</td>
-						<td>Edinburgh</td>
-						<td>61</td>
-						<td>2011/04/25</td>
-						<td>$320,800</td>
-					</tr>
-					<tr>
-						<td>Garrett Winters</td>
-						<td>Accountant</td>
-						<td>Tokyo</td>
-						<td>63</td>
-						<td>2011/07/25</td>
-						<td>$170,750</td>
-					</tr>
-					<tr>
-						<td>Ashton Cox</td>
-						<td>Junior Technical Author</td>
-						<td>San Francisco</td>
-						<td>66</td>
-						<td>2009/01/12</td>
-						<td>$86,000</td>
-					</tr>
-					<tr>
-						<td>Cedric Kelly</td>
-						<td>Senior Javascript Developer</td>
-						<td>Edinburgh</td>
-						<td>22</td>
-						<td>2012/03/29</td>
-						<td>$433,060</td>
-					</tr>
-					<tr>
-						<td>Airi Satou</td>
-						<td>Accountant</td>
-						<td>Tokyo</td>
-						<td>33</td>
-						<td>2008/11/28</td>
-						<td>$162,700</td>
-					</tr>
-					<tr>
-						<td>Brielle Williamson</td>
-						<td>Integration Specialist</td>
-						<td>New York</td>
-						<td>61</td>
-						<td>2012/12/02</td>
-						<td>$372,000</td>
-					</tr>
-					<tr>
-						<td>Herrod Chandler</td>
-						<td>Sales Assistant</td>
-						<td>San Francisco</td>
-						<td>59</td>
-						<td>2012/08/06</td>
-						<td>$137,500</td>
-					</tr>
-					<tr>
-						<td>Rhona Davidson</td>
-						<td>Integration Specialist</td>
-						<td>Tokyo</td>
-						<td>55</td>
-						<td>2010/10/14</td>
-						<td>$327,900</td>
-					</tr>
-					<tr>
-						<td>Colleen Hurst</td>
-						<td>Javascript Developer</td>
-						<td>San Francisco</td>
-						<td>39</td>
-						<td>2009/09/15</td>
-						<td>$205,500</td>
-					</tr>
-					<tr>
-						<td>Sonya Frost</td>
-						<td>Software Engineer</td>
-						<td>Edinburgh</td>
-						<td>23</td>
-						<td>2008/12/13</td>
-						<td>$103,600</td>
-					</tr>
-					<tr>
-						<td>Jena Gaines</td>
-						<td>Office Manager</td>
-						<td>London</td>
-						<td>30</td>
-						<td>2008/12/19</td>
-						<td>$90,560</td>
-					</tr>
-					<tr>
-						<td>Quinn Flynn</td>
-						<td>Support Lead</td>
-						<td>Edinburgh</td>
-						<td>22</td>
-						<td>2013/03/03</td>
-						<td>$342,000</td>
-					</tr>
-					<tr>
-						<td>Charde Marshall</td>
-						<td>Regional Director</td>
-						<td>San Francisco</td>
-						<td>36</td>
-						<td>2008/10/16</td>
-						<td>$470,600</td>
-					</tr>
-					<tr>
-						<td>Haley Kennedy</td>
-						<td>Senior Marketing Designer</td>
-						<td>London</td>
-						<td>43</td>
-						<td>2012/12/18</td>
-						<td>$313,500</td>
-					</tr>
-					<tr>
-						<td>Tatyana Fitzpatrick</td>
-						<td>Regional Director</td>
-						<td>London</td>
-						<td>19</td>
-						<td>2010/03/17</td>
-						<td>$385,750</td>
-					</tr>
-					<tr>
-						<td>Michael Silva</td>
-						<td>Marketing Designer</td>
-						<td>London</td>
-						<td>66</td>
-						<td>2012/11/27</td>
-						<td>$198,500</td>
-					</tr>
-					<tr>
-						<td>Paul Byrd</td>
-						<td>Chief Financial Officer (CFO)</td>
-						<td>New York</td>
-						<td>64</td>
-						<td>2010/06/09</td>
-						<td>$725,000</td>
-					</tr>
-					<tr>
-						<td>Gloria Little</td>
-						<td>Systems Administrator</td>
-						<td>New York</td>
-						<td>59</td>
-						<td>2009/04/10</td>
-						<td>$237,500</td>
-					</tr>
-					<tr>
-						<td>Bradley Greer</td>
-						<td>Software Engineer</td>
-						<td>London</td>
-						<td>41</td>
-						<td>2012/10/13</td>
-						<td>$132,000</td>
-					</tr>
-					<tr>
-						<td>Dai Rios</td>
-						<td>Personnel Lead</td>
-						<td>Edinburgh</td>
-						<td>35</td>
-						<td>2012/09/26</td>
-						<td>$217,500</td>
-					</tr>
-					<tr>
-						<td>Jenette Caldwell</td>
-						<td>Development Lead</td>
-						<td>New York</td>
-						<td>30</td>
-						<td>2011/09/03</td>
-						<td>$345,000</td>
-					</tr>
-					<tr>
-						<td>Yuri Berry</td>
-						<td>Chief Marketing Officer (CMO)</td>
-						<td>New York</td>
-						<td>40</td>
-						<td>2009/06/25</td>
-						<td>$675,000</td>
-					</tr>
-					<tr>
-						<td>Caesar Vance</td>
-						<td>Pre-Sales Support</td>
-						<td>New York</td>
-						<td>21</td>
-						<td>2011/12/12</td>
-						<td>$106,450</td>
-					</tr>
-					<tr>
-						<td>Doris Wilder</td>
-						<td>Sales Assistant</td>
-						<td>Sidney</td>
-						<td>23</td>
-						<td>2010/09/20</td>
-						<td>$85,600</td>
-					</tr>
-					<tr>
-						<td>Angelica Ramos</td>
-						<td>Chief Executive Officer (CEO)</td>
-						<td>London</td>
-						<td>47</td>
-						<td>2009/10/09</td>
-						<td>$1,200,000</td>
-					</tr>
-					<tr>
-						<td>Gavin Joyce</td>
-						<td>Developer</td>
-						<td>Edinburgh</td>
-						<td>42</td>
-						<td>2010/12/22</td>
-						<td>$92,575</td>
-					</tr>
-					<tr>
-						<td>Jennifer Chang</td>
-						<td>Regional Director</td>
-						<td>Singapore</td>
-						<td>28</td>
-						<td>2010/11/14</td>
-						<td>$357,650</td>
-					</tr>
-					<tr>
-						<td>Brenden Wagner</td>
-						<td>Software Engineer</td>
-						<td>San Francisco</td>
-						<td>28</td>
-						<td>2011/06/07</td>
-						<td>$206,850</td>
-					</tr>
-					<tr>
-						<td>Fiona Green</td>
-						<td>Chief Operating Officer (COO)</td>
-						<td>San Francisco</td>
-						<td>48</td>
-						<td>2010/03/11</td>
-						<td>$850,000</td>
-					</tr>
-					<tr>
-						<td>Shou Itou</td>
-						<td>Regional Marketing</td>
-						<td>Tokyo</td>
-						<td>20</td>
-						<td>2011/08/14</td>
-						<td>$163,000</td>
-					</tr>
-					<tr>
-						<td>Michelle House</td>
-						<td>Integration Specialist</td>
-						<td>Sidney</td>
-						<td>37</td>
-						<td>2011/06/02</td>
-						<td>$95,400</td>
-					</tr>
-					<tr>
-						<td>Suki Burks</td>
-						<td>Developer</td>
-						<td>London</td>
-						<td>53</td>
-						<td>2009/10/22</td>
-						<td>$114,500</td>
-					</tr>
-					<tr>
-						<td>Prescott Bartlett</td>
-						<td>Technical Author</td>
-						<td>London</td>
-						<td>27</td>
-						<td>2011/05/07</td>
-						<td>$145,000</td>
-					</tr>
-					<tr>
-						<td>Gavin Cortez</td>
-						<td>Team Leader</td>
-						<td>San Francisco</td>
-						<td>22</td>
-						<td>2008/10/26</td>
-						<td>$235,500</td>
-					</tr>
-					<tr>
-						<td>Martena Mccray</td>
-						<td>Post-Sales support</td>
-						<td>Edinburgh</td>
-						<td>46</td>
-						<td>2011/03/09</td>
-						<td>$324,050</td>
-					</tr>
-					<tr>
-						<td>Unity Butler</td>
-						<td>Marketing Designer</td>
-						<td>San Francisco</td>
-						<td>47</td>
-						<td>2009/12/09</td>
-						<td>$85,675</td>
-					</tr>
-					<tr>
-						<td>Howard Hatfield</td>
-						<td>Office Manager</td>
-						<td>San Francisco</td>
-						<td>51</td>
-						<td>2008/12/16</td>
-						<td>$164,500</td>
-					</tr>
-					<tr>
-						<td>Hope Fuentes</td>
-						<td>Secretary</td>
-						<td>San Francisco</td>
-						<td>41</td>
-						<td>2010/02/12</td>
-						<td>$109,850</td>
-					</tr>
-					<tr>
-						<td>Vivian Harrell</td>
-						<td>Financial Controller</td>
-						<td>San Francisco</td>
-						<td>62</td>
-						<td>2009/02/14</td>
-						<td>$452,500</td>
-					</tr>
-					<tr>
-						<td>Timothy Mooney</td>
-						<td>Office Manager</td>
-						<td>London</td>
-						<td>37</td>
-						<td>2008/12/11</td>
-						<td>$136,200</td>
-					</tr>
-					<tr>
-						<td>Jackson Bradshaw</td>
-						<td>Director</td>
-						<td>New York</td>
-						<td>65</td>
-						<td>2008/09/26</td>
-						<td>$645,750</td>
-					</tr>
-					<tr>
-						<td>Olivia Liang</td>
-						<td>Support Engineer</td>
-						<td>Singapore</td>
-						<td>64</td>
-						<td>2011/02/03</td>
-						<td>$234,500</td>
-					</tr>
-					<tr>
-						<td>Bruno Nash</td>
-						<td>Software Engineer</td>
-						<td>London</td>
-						<td>38</td>
-						<td>2011/05/03</td>
-						<td>$163,500</td>
-					</tr>
-					<tr>
-						<td>Sakura Yamamoto</td>
-						<td>Support Engineer</td>
-						<td>Tokyo</td>
-						<td>37</td>
-						<td>2009/08/19</td>
-						<td>$139,575</td>
-					</tr>
-					<tr>
-						<td>Thor Walton</td>
-						<td>Developer</td>
-						<td>New York</td>
-						<td>61</td>
-						<td>2013/08/11</td>
-						<td>$98,540</td>
-					</tr>
-					<tr>
-						<td>Finn Camacho</td>
-						<td>Support Engineer</td>
-						<td>San Francisco</td>
-						<td>47</td>
-						<td>2009/07/07</td>
-						<td>$87,500</td>
-					</tr>
-					<tr>
-						<td>Serge Baldwin</td>
-						<td>Data Coordinator</td>
-						<td>Singapore</td>
-						<td>64</td>
-						<td>2012/04/09</td>
-						<td>$138,575</td>
-					</tr>
-					<tr>
-						<td>Zenaida Frank</td>
-						<td>Software Engineer</td>
-						<td>New York</td>
-						<td>63</td>
-						<td>2010/01/04</td>
-						<td>$125,250</td>
-					</tr>
-					<tr>
-						<td>Zorita Serrano</td>
-						<td>Software Engineer</td>
-						<td>San Francisco</td>
-						<td>56</td>
-						<td>2012/06/01</td>
-						<td>$115,000</td>
-					</tr>
-					<tr>
-						<td>Jennifer Acosta</td>
-						<td>Junior Javascript Developer</td>
-						<td>Edinburgh</td>
-						<td>43</td>
-						<td>2013/02/01</td>
-						<td>$75,650</td>
-					</tr>
-					<tr>
-						<td>Cara Stevens</td>
-						<td>Sales Assistant</td>
-						<td>New York</td>
-						<td>46</td>
-						<td>2011/12/06</td>
-						<td>$145,600</td>
-					</tr>
-					<tr>
-						<td>Hermione Butler</td>
-						<td>Regional Director</td>
-						<td>London</td>
-						<td>47</td>
-						<td>2011/03/21</td>
-						<td>$356,250</td>
-					</tr>
-					<tr>
-						<td>Lael Greer</td>
-						<td>Systems Administrator</td>
-						<td>London</td>
-						<td>21</td>
-						<td>2009/02/27</td>
-						<td>$103,500</td>
-					</tr>
-					<tr>
-						<td>Jonas Alexander</td>
-						<td>Developer</td>
-						<td>San Francisco</td>
-						<td>30</td>
-						<td>2010/07/14</td>
-						<td>$86,500</td>
-					</tr>
-					<tr>
-						<td>Shad Decker</td>
-						<td>Regional Director</td>
-						<td>Edinburgh</td>
-						<td>51</td>
-						<td>2008/11/13</td>
-						<td>$183,000</td>
-					</tr>
-					<tr>
-						<td>Michael Bruce</td>
-						<td>Javascript Developer</td>
-						<td>Singapore</td>
-						<td>29</td>
-						<td>2011/06/27</td>
-						<td>$183,000</td>
-					</tr>
-					<tr>
-						<td>Donna Snider</td>
-						<td>Customer Support</td>
-						<td>New York</td>
-						<td>27</td>
-						<td>2011/01/25</td>
-						<td>$112,000</td>
-					</tr>
+				
+					<tr id="time" class="title"><td>زمان</td><td></td></tr>
+					<tr><td>لحظة</td><td>لحظه</td></tr>
+					<tr><td>ثانیة</td><td>ثانیه</td></tr>
+					<tr><td>دقیقة</td><td>دقیقه</td></tr>
+					<tr><td>ساعة</td><td>ساعت</td></tr>
+					<tr><td>نهار</td><td>روز</td></tr>
+					<tr><td>لیل</td><td>شب</td></tr>
+					<tr><td>لیالی</td><td>شب ها</td></tr>
+					<tr><td>فجر</td><td>سپیده¬دم</td></tr>
+					<tr><td>یوم</td><td>روز</td></tr>
+					<tr><td>ایّام</td><td>روزها</td></tr>
+					<tr><td>الیوم</td><td>امروز</td></tr>
+					<tr><td>أَمس</td><td>دیروز</td></tr>
+					<tr><td>قبل أَمس</td><td>پریروز</td></tr>
+					<tr><td>البارحة</td><td>دیشب</td></tr>
+					<tr><td>اولة البارحة</td><td>پریشب</td></tr>
+					<tr><td>غداً - بکره</td><td>فردا</td></tr>
+					<tr><td>بعد غدٍ</td><td>پس¬فردا</td></tr>
+					<tr><td>اُسبُوع</td><td>هفته</td></tr>
+					<tr><td>شهر</td><td>ماه</td></tr>
+					<tr><td>شهور</td><td>ماهها</td></tr>
+					<tr><td>سنة</td><td>سال</td></tr>
+					<tr><td>سنتین</td><td>دو سال</td></tr>
+					<tr><td>سنین</td><td>سال ها</td></tr>
+
+					<tr id="days" class="title"><td>روزهای هفته</td><td></td></tr>
+					<tr><td>السَّبت</td><td>شنبه</td></tr>
+					<tr><td>الأحَد</td><td>یکشنبه</td></tr>
+					<tr><td>الإثنَین</td><td>دوشنبه</td></tr>
+					<tr><td>الثَلاثاء</td><td>سه¬شنبه</td></tr>
+					<tr><td>الأربعاء</td><td>چهارشنبه</td></tr>
+					<tr><td>الخَمیس</td><td>پنجشنبه</td></tr>
+					<tr><td>الجُمْعه</td><td>جمعه</td></tr>
+
+					<tr id="sesons" class="title"><td>فصول چهارگانه</td><td></td></tr>
+					<tr><td>الرَبیع</td><td>بهار</td></tr>
+					<tr><td>الصّیف</td><td>تابستان</td></tr>
+					<tr><td>الخریف</td><td>پاییز</td></tr>
+					<tr><td>الشتاء</td><td>زمستان</td></tr>
+
+					<tr id="relative" class="title"><td>خیشاوندی</td><td></td></tr>
+					<tr><td>أب</td><td>پدر</td></tr>
+					<tr><td>أُمْ</td><td>مادر</td></tr>
+					<tr><td>أخ</td><td>برادر</td></tr>
+					<tr><td>إِخوان</td><td>برادران</td></tr>
+					<tr><td>أخت</td><td>خواهر</td></tr>
+					<tr><td>أخَوات</td><td>خواهران</td></tr>
+					<tr><td>رَجُل</td><td>مرد</td></tr>
+					<tr><td>رِجال</td><td>مردان</td></tr>
+					<tr><td>اِمرَأة</td><td>زن</td></tr>
+					<tr><td>نِسوان</td><td>زنان</td></tr>
+					<tr><td>اِبن</td><td>پسر</td></tr>
+					<tr><td>اَبناء</td><td>پسران</td></tr>
+					<tr><td>بنت</td><td>دختر</td></tr>
+					<tr><td>بَنات</td><td>دختران</td></tr>
+					<tr><td>خال</td><td>دایی</td></tr>
+					<tr><td>خالة</td><td>خاله</td></tr>
+					<tr><td>عمّ</td><td>عمو</td></tr>
+					<tr><td>عمّة</td><td>عمه</td></tr>
+					<tr><td>نِسَة</td><td>دوشیزه</td></tr>
+					<tr><td>الجَد</td><td>پدربزرگ</td></tr>
+					<tr><td>الجَدّة</td><td>مادربزرگ</td></tr>
+					<tr><td>الزّوج</td><td>شوهر،مرد</td></tr>
+					<tr><td>الزّوجة</td><td>همسر،زن</td></tr>
+					<tr><td>إبنُ العمّ</td><td>پسرعمو</td></tr>
+					<tr><td>بِنتُ العمّ</td><td>دخترعمو</td></tr>
+					<tr><td>أخت الزّوج</td><td>خواهرشوهر</td></tr>
+					<tr><td>الحَفید</td><td>نوه پسر</td></tr>
+					<tr><td>الحفیدة</td><td>نوه دختر</td></tr>
+					<tr><td>الکنّة (عریس)</td><td>عروس</td></tr>
+					<tr><td>الصّهر</td><td>داماد</td></tr>
+					<tr><td>زوج الأخت</td><td>شوهرخواهر</td></tr>
+					<tr><td>زوجة الأخ</td><td>زن برادر</td></tr>
+					<tr><td>غیرشَقیق</td><td>ناتنی</td></tr>
+					<tr><td>الأقرباء</td><td>بستگان</td></tr>
+					<tr><td>الأُسرة</td><td>خانواده</td></tr>
+					<tr><td>الأرحام</td><td>ارحام</td></tr>
+
+					<tr id="color" class="title"><td>رنگ</td><td></td></tr>
+					<tr><td>أخضَر</td><td>سبز</td></tr>
+					<tr><td>أحمَر</td><td>قرمز</td></tr>
+					<tr><td>أصفَر</td><td>زرد</td></tr>
+					<tr><td>أبیض</td><td>سفید</td></tr>
+					<tr><td>أسوَد</td><td>سیاه</td></tr>
+					<tr><td>أزرَق</td><td>آبی</td></tr>
+					<tr><td>بُنی</td><td>قهوه¬ای</td></tr>
+					<tr><td>بَنفسَجی</td><td>بنفش</td></tr>
+					<tr><td>رَمادی</td><td>خاکستری</td></tr>
+					<tr><td>وَردی</td><td>صورتی</td></tr>
+					<tr><td>بُرتقالی</td><td>نارنجی</td></tr>
+					<tr><td>حُمُّصی</td><td>کِرم، نخودی</td></tr>
+					<tr><td>ذهبی</td><td>طلایی</td></tr>
+					<tr><td>فِضَی</td><td>نقره¬ای</td></tr>
+					<tr><td>رَصاصی</td><td>سربی</td></tr>
+					<tr><td>کُحلی</td><td>سرمه¬ای</td></tr>
+					<tr><td>فاتح</td><td>روشن</td></tr>
+					<tr><td>غامق</td><td>تیره</td></tr>
+
+					<tr id="number" class="title"><td>اعداد</td><td></td></tr>
+					<tr><td>واحد</td><td>1</td></tr>
+					<tr><td>إثنین</td><td>2</td></tr>
+					<tr><td>ثلاثة</td><td>3</td></tr>
+					<tr><td>أربعة</td><td>4</td></tr>
+					<tr><td>خمسة</td><td>5</td></tr>
+					<tr><td>ستّة</td><td>6</td></tr>
+					<tr><td>سبعة</td><td>7</td></tr>
+					<tr><td>ثمانیة</td><td>8</td></tr>
+					<tr><td>تسعة</td><td>9</td></tr>
+					<tr><td>عشرة</td><td>10</td></tr>
+					<tr><td>ااَحد عشر</td><td>11</td></tr>
+					<tr><td>إثنی عشر</td><td>12</td></tr>
+					<tr><td>ثلاثة عشر</td><td>13</td></tr>
+					<tr><td>اربعة عشر</td><td>14</td></tr>
+					<tr><td>خمسة -عشر</td><td>15</td></tr>
+					<tr><td>ستّة عشر</td><td>16</td></tr>
+					<tr><td>سبعة عشر</td><td>17</td></tr>
+					<tr><td>ثمانیة¬ عشر</td><td>18</td></tr>
+					<tr><td>تسعة عشر</td><td>19</td></tr>
+					<tr><td>عشرون</td><td>20</td></tr>
+					<tr><td>واحد وعشرین</td><td>21</td></tr>
+					<tr><td>ثلاثین</td><td>30</td></tr>
+					<tr><td>أربعین</td><td>40</td></tr>
+					<tr><td>خمسین</td><td>50</td></tr>
+					<tr><td>ستیّن</td><td>60</td></tr>
+					<tr><td>سبعین</td><td>70</td></tr>
+					<tr><td>ثمانین</td><td>80</td></tr>
+					<tr><td>تسعین</td><td>90</td></tr>
+					<tr><td>مِأة</td><td>100</td></tr>
+					<tr><td>مِأتین</td><td>200</td></tr>
+					<tr><td>ثلاثمأة</td><td>300</td></tr>
+					<tr><td>اَربعمأة</td><td>400</td></tr>
+					<tr><td>خمسمأة</td><td>500</td></tr>
+					<tr><td>ستمأة</td><td>600</td></tr>
+					<tr><td>سبعمأة</td><td>700</td></tr>
+					<tr><td>ثمانمأة</td><td>800</td></tr>
+					<tr><td>تسعمأة</td><td>900</td></tr>
+					<tr><td>اَلف</td><td>1000</td></tr>
+					<tr><td>اَلفین</td><td>2000</td></tr>
+					<tr><td>ثلاثة الاف</td><td>3000</td></tr>
+					<tr><td>ملایین</td><td>میلیونها</td></tr>
+					<tr><td>خمسین بالمأة</td><td>50%</td></tr>
+
+					<tr id="number-tarjib" class="title"><td>اعداد ترکیبی</td><td></td></tr>
+					<tr><td>الأول</td><td>یکُم</td></tr>
+					<tr><td>الثّانی</td><td>دوّم</td></tr>
+					<tr><td>الثّالث</td><td>سوُّم</td></tr>
+					<tr><td>الرّابع</td><td>چهارم</td></tr>
+					<tr><td>الخامس</td><td>پنجم</td></tr>
+					<tr><td>السّادس</td><td>ششم</td></tr>
+					<tr><td>السّابع</td><td>هفتم</td></tr>
+					<tr><td>الثّامن</td><td>هشتم</td></tr>
+					<tr><td>التّاسع</td><td>نهم</td></tr>
+					<tr><td>العاشر</td><td>دهم</td></tr>
+					<tr><td>الحادی¬عشر</td><td>یازدهم</td></tr>
+					<tr><td>الثّانی¬عشر</td><td>دوازدهم</td></tr>
+
+					<tr id="number-kasr" class="title"><td>کسر اعداد</td><td></td></tr>
+					<tr><td>ضِعف</td><td>دوبرابر</td></tr>
+					<tr><td>نصف</td><td>نیم</td></tr>
+					<tr><td>ثُلث</td><td>یک¬سِوُم</td></tr>
+					<tr><td>رُبع</td><td>رُبع</td></tr>
+					<tr><td>ثلاثة أرباع</td><td>سِه¬رُبع</td></tr>
+					<tr><td>خُمس</td><td>یِک-پَنجُم</td></tr>
+					<tr><td>سُدس</td><td>یِک-شُشم</td></tr>
+					<tr><td>عُشر</td><td>یِک دَهُم</td></tr>
+
+					<tr id="body" class="title"><td>اعضای بدن</td><td></td></tr>
+					<tr><td>جسم</td><td>بدن</td></tr>
+					<tr><td>رأس</td><td>سر</td></tr>
+					<tr><td>شَعر</td><td>مو</td></tr>
+					<tr><td>لسان</td><td>زبان</td></tr>
+					<tr><td>وجه</td><td>صورت-رو</td></tr>
+					<tr><td>جَبین</td><td>پیشانی</td></tr>
+					<tr><td>عین</td><td>چشم</td></tr>
+					<tr><td>أنف</td><td>بینی</td></tr>
+					<tr><td>أذُن</td><td>گوش</td></tr>
+					<tr><td>فَم</td><td>دهان</td></tr>
+					<tr><td>شفة</td><td>لب</td></tr>
+					<tr><td>حَلق</td><td>حلق</td></tr>
+					<tr><td>خَدْ</td><td>گونه</td></tr>
+					<tr><td>رقبة</td><td>گردن</td></tr>
+					<tr><td>ذَقن</td><td>چانه</td></tr>
+					<tr><td>أسنان</td><td>دندان</td></tr>
+					<tr><td>شارب</td><td>سبیل</td></tr>
+					<tr><td>لِحیة</td><td>ریش</td></tr>
+					<tr><td>یَد</td><td>دست</td></tr>
+					<tr><td>إصبع</td><td>انگشت</td></tr>
+					<tr><td>ظُفر</td><td>ناخن</td></tr>
+					<tr><td>رسغ</td><td>مُچ</td></tr>
+					<tr><td>ذِراع</td><td>بازو</td></tr>
+					<tr><td>کوع</td><td>آرنج</td></tr>
+					<tr><td>کتف</td><td>شانه</td></tr>
+					<tr><td>فَخذ</td><td>ران</td></tr>
+					<tr><td>ساق</td><td>ساق پا</td></tr>
+					<tr><td>رُکبة</td><td>زانو</td></tr>
+					<tr><td>قدم</td><td>پا</td></tr>
+					<tr><td>جِلد</td><td>پوست</td></tr>
+					<tr><td>دَم</td><td>خون</td></tr>
+					<tr><td>ظَهر</td><td>پشت</td></tr>
+					<tr><td>صدر</td><td>سینه</td></tr>
+					<tr><td>بطن</td><td>شکم</td></tr>
+					<tr><td>الطبیب</td><td>پزشک</td></tr>
+					<tr><td>ضغط-الدّم</td><td>فشارخون</td></tr>
+					<tr><td>صیدلیة</td><td>داروخانه</td></tr>
+					<tr><td>ضمادة</td><td>باند</td></tr>
+					<tr><td>لَزقة</td><td>چسب-زخم</td></tr>
+					<tr><td>أرقد هنا</td><td>اینجا¬ دراز -بکش</td></tr>
+					<tr><td>إفتح فمک</td><td>دهانت را باز کن</td></tr>
+					<tr><td>إسعل</td><td>سرفه کن</td></tr>
+
+					<tr id="bazar" class="title"><td>در بازار</td><td></td></tr>
+					<tr><td>سُوق</td><td>بازار</td></tr>
+					<tr><td>بَدلَه	کُت¬و</td><td>شَلوار</td></tr>
+					<tr><td>قمیص</td><td>پیراهن</td></tr>
+					<tr><td>تَنُورَه</td><td>دامن</td></tr>
+					<tr><td>حزام</td><td>کمربند</td></tr>
+					<tr><td>سِروال-قصیر</td><td>شلوارک</td></tr>
+					<tr><td>بَنطُلون</td><td>شلوار</td></tr>
+					<tr><td>سِروال-داخلی</td><td>شورت</td></tr>
+					<tr><td>جوراب</td><td>جوراب</td></tr>
+					<tr><td>رجالی</td><td>مردانه</td></tr>
+					<tr><td>نسانی</td><td>زنانه</td></tr>
+					<tr><td>قُبّعة</td><td>کلاه</td></tr>
+					<tr><td>ربطه</td><td>روسری</td></tr>
+					<tr><td>قُطن</td><td>پنبه</td></tr>
+					<tr><td>صُوف</td><td>پشم</td></tr>
+					<tr><td>کتان</td><td>کتان</td></tr>
+					<tr><td>حریر</td><td>ابریشم</td></tr>
+					<tr><td>قِماش</td><td>پارچه</td></tr>
+					<tr><td>مِنشَفَه</td><td>حوله</td></tr>
+					<tr><td>لعبة</td><td>اسباب¬بازی</td></tr>
+					<tr><td>شَمسیّه</td><td>چتر</td></tr>
+					<tr><td>سادج</td><td>ساده</td></tr>
+					<tr><td>مُنقط</td><td>خالدار</td></tr>
+					<tr><td>مُخطط	راه</td><td>راه</td></tr>
+					<tr><td>مُربّعات</td><td>چهارخانه</td></tr>
+					<tr><td>ساعة¬ید</td><td>ساعت¬مچی</td></tr>
+					<tr><td>ثِیاب</td><td>لباس</td></tr>
+					<tr><td>نَظَاره</td><td>عینک</td></tr>
+
+					<tr id="kharid" class="title"><td>خرید</td><td></td></tr>
+					<tr><td>بیع</td><td>فروش</td></tr>
+					<tr><td>شِراء</td><td>خرید</td></tr>
+					<tr><td>سِعر</td><td>نرخ</td></tr>
+					<tr><td>نوعیّةجیّدة</td><td>جنس¬خوب</td></tr>
+					<tr><td>نوعیّة¬سیّئة</td><td>جنس بد</td></tr>
+					<tr><td>عالی</td><td>عالی</td></tr>
+					<tr><td>منخفض</td><td>پایین</td></tr>
+					<tr><td>غال</td><td>گران</td></tr>
+					<tr><td>رَخیص</td><td>ارزان</td></tr>
+					<tr><td>معقول</td><td>مناسب</td></tr>
+					<tr><td>تِذکار</td><td>یادگاری</td></tr>
+					<tr><td>إکرامیّة</td><td>انعام</td></tr>
+					<tr><td>تخفیضات</td><td>تخفیف</td></tr>
+
+					<tr id="restaurant" class="title"><td>رستوران</td><td></td></tr>
+					<tr><td>مَطعم</td><td>رستوران</td></tr>
+					<tr><td>لائحة-الطعام</td><td>لیست¬¬غذا</td></tr>
+					<tr><td>وَجبة-طعام</td><td>پُرس¬غذا</td></tr>
+					<tr><td>مِلح</td><td>نمک</td></tr>
+					<tr><td>لبن</td><td>دوغ</td></tr>
+					<tr><td>زبادی</td><td>ماست</td></tr>
+					<tr><td>حلیب</td><td>شیر</td></tr>
+					<tr><td>جِبنة</td><td>پنیر</td></tr>
+					<tr><td>شای</td><td>چای</td></tr>
+					<tr><td>سُکر</td><td>شکر</td></tr>
+					<tr><td>مُربّی</td><td>مربّا</td></tr>
+					<tr><td>لَحم</td><td>گوشت</td></tr>
+					<tr><td>دِجاج</td><td>مرغ</td></tr>
+					<tr><td>بَیض</td><td>تخم-مرغ</td></tr>
+					<tr><td>سمک</td><td>ماهی</td></tr>
+					<tr><td>مَقلیة</td><td>سرخ¬کرده</td></tr>
+					<tr><td>زَیت</td><td>روغن¬مایع</td></tr>
+					<tr><td>خُبْز</td><td>نان</td></tr>
+					<tr><td>سَلَطَة</td><td>سالاد</td></tr>
+					<tr><td>شوربة</td><td>سوپ</td></tr>
+					<tr><td>ماءساخن</td><td>آبجوش</td></tr>
+					<tr><td>مُرطَبات</td><td>نوشیدنی</td></tr>
+					<tr><td>صَحن</td><td>بشقاب</td></tr>
+					<tr><td>مِلعَقَه</td><td>قاشق</td></tr>
+					<tr><td>شَوکة</td><td>چنگال</td></tr>
+					<tr><td>سِکین</td><td>چاقو</td></tr>
+					<tr><td>وَلاَعة</td><td>فندک</td></tr>
+					<tr><td>ثِقاب</td><td>کبریت</td></tr>
+					<tr><td>سَلة</td><td>سبد</td></tr>
+					<tr><td>کأس</td><td>لیوان</td></tr>
+					<tr><td>إبریق</td><td>پارچ</td></tr>
+					<tr><td>ثَلاجة</td><td>یخچال</td></tr>
+					<tr><td>حَنَفیة</td><td>شیرِ آب</td></tr>
+
+					<tr id="fruit" class="title"><td>میوه</td><td></td></tr>
+					<tr><td>خُضرَه</td><td>سبزی</td></tr>
+					<tr><td>عنب</td><td>انگور</td></tr>
+					<tr><td>تُفَاح</td><td>سیب</td></tr>
+					<tr><td>بُرتقال</td><td>پرتقال</td></tr>
+					<tr><td>موز</td><td>موز</td></tr>
+					<tr><td>بطیخ</td><td>خربزه- طالبی</td></tr>
+					<tr><td>رَگی</td><td>هندوانه</td></tr>
+					<tr><td>کَرِز</td><td>گیلاس</td></tr>
+					<tr><td>مشمش</td><td>زردآلو</td></tr>
+					<tr><td>خَوخ</td><td>آلو-هلو</td></tr>
+					<tr><td>عرموط</td><td>گلابی</td></tr>
+					<tr><td>تین</td><td>انجیر</td></tr>
+					<tr><td>فاکهة</td><td>میوه</td></tr>
+					<tr><td>طازج</td><td>تازه</td></tr>
+					<tr><td>عصیر</td><td>آبمیوه</td></tr>
+					<tr><td>بطاطا</td><td>سیب¬زمینی</td></tr>
+					<tr><td>توم</td><td>سیر</td></tr>
+					<tr><td>بازلاء</td><td>نخودفرنگی</td></tr>
+					<tr><td>جِزر</td><td>هویج</td></tr>
+					<tr><td>خَسّ</td><td>کاهو</td></tr>
+					<tr><td>بُصل</td><td>پیاز</td></tr>
+					<tr><td>خیار</td><td>خیار</td></tr>
+					<tr><td>شَمَندُور</td><td>چغندر</td></tr>
+					<tr><td>فِجِل</td><td>ترب</td></tr>
+					<tr><td>قَرنَبیط</td><td>گل¬کلم</td></tr>
+					<tr><td>کزَبرة</td><td>گشنیز</td></tr>
+					<tr><td>سِمسِم</td><td>کنجد</td></tr>
+
+					<tr id="animal" class="title"><td>حیوانات</td><td></td></tr>
+					<tr><td>أسد</td><td>شیر</td></tr>
+					<tr><td>بقرة</td><td>گاو ماده</td></tr>
+					<tr><td>ثُعبان</td><td>مار</td></tr>
+					<tr><td>ثَور</td><td>گاو نر</td></tr>
+					<tr><td>جمل</td><td>شتر</td></tr>
+					<tr><td>حمامه</td><td>کبوتر</td></tr>
+					<tr><td>دُجاجة</td><td>مرغ</td></tr>
+					<tr><td>سَمکة</td><td>ماهی</td></tr>
+					<tr><td>عُصفُور</td><td>گنجشگ</td></tr>
+					<tr><td>خَروف</td><td>گوسفند</td></tr>
+					<tr><td>قَط</td><td>گربه</td></tr>
+					<tr><td>نافة</td><td>شترماده</td></tr>
+					<tr><td>نحلة</td><td>زنبورعسل</td></tr>
+					<tr><td>نملة</td><td>مورچه</td></tr>
+
+					<tr id="post" class="title"><td>پست</td><td></td></tr>
+					<tr><td>رسالة</td><td>نامه</td></tr>
+					<tr><td>طابع¬برید</td><td>تمبر</td></tr>
+					<tr><td>بریدسریع</td><td>پیشتاز</td></tr>
+					<tr><td>عنوان</td><td>آدرس</td></tr>
+					<tr><td>المُرسل</td><td>فرستنده</td></tr>
+					<tr><td>المرسَل¬إلیه</td><td>گیرنده</td></tr>
+
+					<tr id="masjed" class="title"><td>در حرم و مسجد</td><td></td></tr>
+					<tr><td>جامع،مصلّی</td><td>مسجد</td></tr>
+					<tr><td>صلاة قصر</td><td>نمازشکسته</td></tr>
+					<tr><td>تِجاهَ-القبلة</td><td>روبه قبله</td></tr>
+					<tr><td>تُربَة</td><td>مُهر</td></tr>
+					<tr><td>مسبحه</td><td>تسبیح</td></tr>
+					<tr><td>سجّاد</td><td>جانماز</td></tr>
+					<tr><td>کیشوانیه</td><td>کفشداری</td></tr>
+					<tr><td>حافی</td><td>پابرهنه</td></tr>
+					<tr><td>مُکبّرات¬الصّوت</td><td>بلندگو</td></tr>
+					<tr><td>جهر</td><td>صدای¬بلند</td></tr>
+					<tr><td>إخفات</td><td>صدای¬آهسته</td></tr>
+
+					<tr id="city" class="title"><td>در شهر</td><td></td></tr>
+					<tr><td>بَلَد</td><td>کشور</td></tr>
+					<tr><td>مُحافَظَة</td><td>استان</td></tr>
+					<tr><td>مَدینة</td><td>شهرستان</td></tr>
+					<tr><td>قضاء</td><td>شهر</td></tr>
+					<tr><td>قَریة</td><td>روستا</td></tr>
+					<tr><td>بَرید</td><td>پُست</td></tr>
+					<tr><td>مَتحَف</td><td>موزه</td></tr>
+					<tr><td>مُستَشفی</td><td>بیمارستان</td></tr>
+					<tr><td>مُستوصف</td><td>درمانگاه</td></tr>
+
+					<tr id="hotel" class="title"><td>هتل</td><td></td></tr>
+					<tr><td>فُندُق</td><td>هتل</td></tr>
+					<tr><td>عِمارَة</td><td>ساختمان</td></tr>
+					<tr><td>باب</td><td>در</td></tr>
+					<tr><td>نافِذَة،شبّاک</td><td>پنجره</td></tr>
+					<tr><td>غُرفَة</td><td>اتاق</td></tr>
+					<tr><td>شُقة</td><td>سوئیت،آپارتمان</td></tr>
+					<tr><td>مَطعَم</td><td>رستوران</td></tr>
+					<tr><td>سَریر</td><td>تختخواب</td></tr>
+					<tr><td>وسادة</td><td>متکا</td></tr>
+					<tr><td>نسیج</td><td>منسوجات</td></tr>
+					<tr><td>إکسسوارات</td><td>لوازم یدکی</td></tr>
+					<tr><td>خِیوط</td><td>نَخ</td></tr>
+					<tr><td>مراحیض،مرافق</td><td>توالت</td></tr>
+					<tr><td>مَقعد</td><td>جای نشستن</td></tr>
+					<tr><td>کُرسی</td><td>صندلی</td></tr>
+					<tr><td>إبرة</td><td>سوزن</td></tr>
+					<tr><td>أثاث</td><td>اسباب و اثاثیه</td></tr>
+					<tr><td>بساط</td><td>قالیچه</td></tr>
+					<tr><td>مِنشقَة وَجه</td><td>حوله</td></tr>
+					<tr><td>سریر</td><td>تخت</td></tr>
+					<tr><td>مکنسة</td><td>جارو</td></tr>
+					<tr><td>کهربائیة</td><td>برقی</td></tr>
+					<tr><td>طاولة</td><td>میز</td></tr>
+					<tr><td>علاّقة</td><td>پاکت دسته¬دار</td></tr>
+					<tr><td>فِرِن غاز</td><td>اجاق¬گاز</td></tr>
+					<tr><td>فرشاة¬اسنان</td><td>مسواک</td></tr>
+					<tr><td>معجون¬أسنان</td><td>خمیردندان</td></tr>
+					<tr><td>مِدفأة</td><td>بخاری</td></tr>
+					<tr><td>مِرأة</td><td>آیینه</td></tr>
+					<tr><td>مِشط</td><td>شانه</td></tr>
+					<tr><td>مِفتاح</td><td>کلید</td></tr>
+					<tr><td>مَقَص</td><td>قیچی</td></tr>
+					<tr><td>مِکواة</td><td>اتو</td></tr>
+					<tr><td>مِمسحة¬أرض</td><td>زمین¬شور</td></tr>
+					<tr><td>قناة</td><td>ماهواره</td></tr>
+					<tr><td>لَوحة</td><td>تابلو</td></tr>
+					<tr><td>مَصعَد</td><td>آسانسور</td></tr>
+					<tr><td>استعلامات</td><td>اطّلاعات</td></tr>
+					<tr><td>توقیع</td><td>امضاء</td></tr>
+					<tr><td>خربان</td><td>خراب</td></tr>
+					<tr><td>إستماره</td><td>فرم</td></tr>
+
+					<tr id="safar" class="title"><td>سفر</td><td></td></tr>
+					<tr><td>ذهاب</td><td>رفت</td></tr>
+					<tr><td>إیاب</td><td>برگشت</td></tr>
+					<tr><td>سَیّارة</td><td>اتومبیل</td></tr>
+					<tr><td>سیّارات</td><td>اتومبیلها</td></tr>
+					<tr><td>باص</td><td>اتوبوس</td></tr>
+					<tr><td>قطار</td><td>قطار</td></tr>
+					<tr><td>سُکک¬حدیدیه</td><td>راه¬آهن</td></tr>
+					<tr><td>سائِق</td><td>راننده</td></tr>
+					<tr><td>طائرة</td><td>هواپیما</td></tr>
+					<tr><td>مطار</td><td>فرودگاه</td></tr>
+					<tr><td>شارع</td><td>خیابان</td></tr>
+					<tr><td>زَفاق،فَرع</td><td>کوچه</td></tr>
+					<tr><td>ساحة،دوَار</td><td>میدان</td></tr>
+					<tr><td>طَریق</td><td>راه</td></tr>
+					<tr><td>طَریق¬مُشاة</td><td>پیاده¬رو</td></tr>
+					<tr><td>طریق¬مسدود</td><td>راه¬بسته</td></tr>
+					<tr><td>خَریطة</td><td>نقشه</td></tr>
+					<tr><td>مَوقِف</td><td>ایستگاه</td></tr>
+					<tr><td>مَحطَة</td><td>جایگاه</td></tr>
+					<tr><td>جِسر</td><td>پُل</td></tr>
+					<tr><td>سُلَم-درجه</td><td>راه¬پله</td></tr>
+					<tr><td>جوازسفر</td><td>گذرنامه</td></tr>
+					<tr><td>بطاقة،تذکرة</td><td>بلیط</td></tr>
+					<tr><td>درجة-أولی</td><td>درجه¬ی یک</td></tr>
+					<tr><td>درجة-ثانیة</td><td>درجه¬ی دو</td></tr>
+					<tr><td>الأجرة	کرایه¬ی</td><td>مسافر</td></tr>
+					<tr><td>بطاقه</td><td>کارت</td></tr>
+					<tr><td>هَویه</td><td>شناسایی</td></tr>
+					<tr><td>متأخّر</td><td>دیرکرده</td></tr>
+					<tr><td>یصل</td><td>می-رسد</td></tr>
+					<tr><td>یرحل	روانه</td><td> می¬شود</td></tr>
+					<tr><td>یتوقف</td><td>می-ایستد</td></tr>
+					<tr><td>افتَح</td><td>بازکن</td></tr>
+					<tr><td>فَکّر</td><td>ببند</td></tr>
+					<tr><td>أمتعة</td><td>بار سفر</td></tr>
+					<tr><td>الباخرة</td><td>کشتی</td></tr>
+					<tr><td>شاحنة،لاری</td><td>کامیون</td></tr>
+					<tr><td>إلی-الیمین</td><td>بطرف راست</td></tr>
+					<tr><td>إلی-الیَسار</td><td>بطرف چپ</td></tr>
+					<tr><td>علی طول</td><td>مستقیم</td></tr>
+					<tr><td>باب-القدام</td><td>در جلو</td></tr>
+					<tr><td>باب-الخلفی</td><td>در عقب</td></tr>
+
+					<tr id="politic" class="title"><td>سیاست</td><td></td></tr>
+					<tr><td>شعار</td><td>آرم</td></tr>
+					<tr><td>إحصاء</td><td>شمردن</td></tr>
+					<tr><td>أنباء</td><td>اخبار</td></tr>
+					<tr><td>جیش</td><td>ارتش</td></tr>
+					<tr><td>العُملة</td><td>ارز</td></tr>
+					<tr><td>الکُتلَة</td><td>اقلیت</td></tr>
+					<tr><td>ثَورة</td><td>انقلاب</td></tr>
+					<tr><td>إنقلاب</td><td>کودتا</td></tr>
+					<tr><td>أزمة</td><td>بحران</td></tr>
+					<tr><td>تَشحین</td><td>شارژ کردن</td></tr>
+					<tr><td>مُفَتِّش</td><td>بازرس</td></tr>
+					<tr><td>میناء</td><td>بندر</td></tr>
+					<tr><td>میزانیة</td><td>بودجه</td></tr>
+					<tr><td>مُعَسکَر</td><td>پادگان</td></tr>
+					<tr><td>مُلَف</td><td>پرونده</td></tr>
+					<tr><td>وطنی</td><td>ملی</td></tr>
+					<tr><td>خریطة</td><td>نقشه</td></tr>
+					<tr><td>مُوَحّد</td><td>یکپارچه</td></tr>
+					<tr><td>قَصف	بمباران</td><td>کردن</td></tr>
+					<tr><td>إالتجاء	پناهنده</td><td>شدن</td></tr>
+					<tr><td>سَیطَرَة</td><td>ایست-بازرسی</td></tr>
+					<tr><td>باحِث</td><td>پژوهشگر</td></tr>
+					<tr><td>لافِتَه</td><td>پلاکارد</td></tr>
+					<tr><td>مَلجأ</td><td>پناهگاه</td></tr>
+					<tr><td>مقرّ،قاعدة</td><td>پایگاه</td></tr>
+					<tr><td>جنسیة</td><td>تابعیت</td></tr>
+					<tr><td>إقتراح</td><td>پیشنهاد</td></tr>
+					<tr><td>مُقاطعة</td><td>تحریم</td></tr>
+					<tr><td>تَدمیر</td><td>واژگونی</td></tr>
+					<tr><td>إرهابی</td><td>تروریست</td></tr>
+					<tr><td>نَوَویُة</td><td>هسته¬ای</td></tr>
+					<tr><td>بُندُقیّة</td><td>تفتگ</td></tr>
+					<tr><td>تَضخَم</td><td>تورم</td></tr>
+					<tr><td>مُوامَرة</td><td>فتنه¬گری</td></tr>
+					<tr><td>إنتاج</td><td>تولید</td></tr>
+					<tr><td>مَهَرجان</td><td>جشنواره</td></tr>
+					<tr><td>مزیف</td><td>جعلی</td></tr>
+					<tr><td>شباب</td><td>جوانان</td></tr>
+					<tr><td>مُواطن</td><td>هموطن</td></tr>
+					<tr><td>إنذار</td><td>هشدار</td></tr>
+					<tr><td>وَفد</td><td>گروه</td></tr>
+					<tr><td>مذکرة</td><td>یادداشت</td></tr>
+					<tr><td>إعتقال</td><td>دستگیرکردن</td></tr>
+					<tr><td>دَعم</td><td>حمایت</td></tr>
+					<tr><td>خَلُوق</td><td>خوش اخلاق</td></tr>
+					<tr><td>مُراسل</td><td>خبرنگار</td></tr>
+					<tr><td>سری</td><td>محرمانه</td></tr>
+					<tr><td>مُدّعی</td><td>دادستان</td></tr>
+					<tr><td>مُحامی</td><td>وکیل</td></tr>
+					<tr><td>علاقة</td><td>رابطه</td></tr>
+					<tr><td>تَصویت</td><td>رأی دادن</td></tr>
+					<tr><td>ناخب</td><td>رأی دهنده</td></tr>
+					<tr><td>انکماش</td><td>رکود</td></tr>
+					<tr><td>رقم-قیاسی</td><td>رکورد</td></tr>
+					<tr><td>مسار</td><td>روند</td></tr>
+					<tr><td>مساوم</td><td>سازشکار</td></tr>
+					<tr><td>مُنَظمَة</td><td>سازمان</td></tr>
+					<tr><td>اِشتِباک</td><td>درگیری</td></tr>
+					<tr><td>مَجال</td><td>زمینه</td></tr>
+					<tr><td>سِجن</td><td>زندان</td></tr>
+					<tr><td>صاروخ</td><td>موشک</td></tr>
+					<tr><td>قلق</td><td>نگرانی</td></tr>
+					<tr><td>معرض</td><td>نمایشگاه</td></tr>
+					<tr><td>متناسق</td><td>هماهنگ</td></tr>
+					<tr><td>تعایش</td><td>همزیستی</td></tr>
+					<tr><td>هزیمة</td><td>شکست</td></tr>
+					<tr><td>تعذیب</td><td>شکنجه</td></tr>
+					<tr><td>قضاء</td><td>شهرستان</td></tr>
+					<tr><td>مصیری</td><td>سرنوشت-ساز</td></tr>
+					<tr><td>دیمقراطیة</td><td>دموکراسی</td></tr>
+					<tr><td>أبریاء</td><td>غیرنظامی</td></tr>
+					<tr><td>کارثة</td><td>فاجعه</td></tr>
+					<tr><td>شامل</td><td>فراگیر</td></tr>
+					<tr><td>أنتهازی</td><td>فرصت-طلب</td></tr>
+					<tr><td>أنهیار</td><td>فروپاشی</td></tr>
+					<tr><td>ثِقافة</td><td>فرهنگ</td></tr>
+					<tr><td>أتفاقیّة</td><td>قرارداد</td></tr>
+					<tr><td>نهب</td><td>غارت-کردن</td></tr>
+					<tr><td>طاریّ</td><td>غیرعادی</td></tr>
+					<tr><td>الدَّستُور</td><td>قانون-اساسی</td></tr>
+					<tr><td>صراع</td><td>کشمکش</td></tr>
+					<tr><td>مجزرة</td><td>کشتارگاه</td></tr>
+					<tr><td>قُنصُلیة</td><td>کنسولگری</td></tr>
+					<tr><td>قناة</td><td>کانال-ماهواره</td></tr>
+					<tr><td>قمرصناعی</td><td>ماهواره</td></tr>
+					<tr><td>تَحَکّم¬مِن-بَعید</td><td>ریموت</td></tr>
+					<tr><td>السُّلطة-القَضائِیّة</td><td>قوه-قضائیه</td></tr>
+					<tr><td>السُّلطة-التَنفذیّة</td><td>قوه-مقنّنه</td></tr>
+					<tr><td>السُّلطة-التَشریعیّة</td><td>قوه-مجریّه</td></tr>
+					<tr><td>صلیب¬الأحمر</td><td>صلیب-سرخ</td></tr>
+					<tr><td>لغة-رسمیة</td><td>زبان ملی</td></tr>
+					<tr><td>امانة-العامة</td><td>دبیرخانه</td></tr>
+					<tr><td>أمین-العام</td><td>دبیرکل</td></tr>
+					<tr><td>مِخفَرشُرطة</td><td>پاسگاه-پلیس</td></tr>
+					<tr><td>مِخفَرحُدودی</td><td>پاسگاه-مرزی</td></tr>
+					<tr><td>شارع رئیسی</td><td>بزرگراه</td></tr>
+					<tr><td>اِعادَة بِناء</td><td>بازسازی</td></tr>
+					<tr><td>السُّوق-الحُرة</td><td>بازار آزاد</td></tr>
+					<tr><td>الضوء-الأخضر</td><td>چراغ سبز</td></tr>
+					<tr><td>الشرق-الأوسط</td><td>خاورمیانه</td></tr>
+					<tr><td>إکتفاء ذاتی</td><td>خودکفایی</td></tr>
+					<tr><td>رَمی-بالّرصاص</td><td>تیرباران، شلیک تیر</td></tr>
+					<tr><td>رئیس-الوزراء</td><td>نخست-وزیر</td></tr>
+					<tr><td>عنصری</td><td>نژادپرست</td></tr>
+					<tr><td>نَشید وطنی</td><td>سرودملّی</td></tr>
+					<tr><td>استعراض-عسکری</td><td>رژه-نظامی</td></tr>
+					<tr><td>بطاقة هویة</td><td>کارت-شناسایی</td></tr>
+
 				</tbody>
 			</table>
-
-
-
-
-
-
-
-						<br/><br/>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+						<br/><br/><br/>
 					</div>
 				</div>
 		</div>
 		
+		
 <div id="controls_size">
 	<div id="css_style"></div>
 	<div id="controls_over"></div>
-	<a href="#" id="small" class="selected">قلم</a>
-	<a href="#" id="medium">قلم</a>
 	<a href="#" id="large">قلم</a>
+	<a href="#" id="medium">قلم</a>
+	<a href="#" id="small" class=>قلم</a>
 </div>
 </body>
 </html>
