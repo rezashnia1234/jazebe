@@ -67,9 +67,9 @@ footer, header, hgroup, menu, nav, section {
 }
 
 /** { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
-*:focus { outline: none; }
+*:focus { outline: none; }*/
 *::-moz-focus-inner ,
-*::-o-focus-inner{ border: none;}*/
+*::-o-focus-inner{ border: none;}
 /*
 *{
     -webkit-touch-callout: none !important;
