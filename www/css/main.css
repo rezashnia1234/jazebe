@@ -576,13 +576,17 @@ outline:none
     background-repeat: no-repeat;
     background-size: 10px;
 }
-.sound .audio{
+.sound_disable .audio{
 	display:none;
 }
-.sound #smgroup_audio_player{
+.sound_disable #smgroup_audio_player{
 	display:none
 }
-.tarjome .translate {
+.tarjome_disable .translate {
+    display: none;
+}
+
+.fontsize_disable .fontsize {
     display: none;
 }
 /*///////////////////////////////////////////////////////////////////////////////////////*/

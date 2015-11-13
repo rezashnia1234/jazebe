@@ -18,7 +18,7 @@
     <script src="js/jquery.md5.js"></script>
     <script src="js/back_btn.js"></script>
     <script src="js/query-string.js"></script>
-    <!--<script src="js/simplebar.min.js"></script>-->
+    <script src="js/simplebar.min.js"></script>
 	
 	<script>
 		function init() {		
@@ -52,17 +52,53 @@
 			//alert($(window).height());
 			//alert($(document).height()); 
 			//alert($("#warper").height());
-			$("#main").height($(window).height() - $("#header").height() - $("#footer").height() - 70);
+			$("#main").height($(window).height() - $("#header").height() - $("#footer").height()-30);
 			//$("#container").height($("#warper").height()-$("#header").height());
 			//$(".mypreload").delay(100000).html("");
 		});
 		$(document).ready(function() {
-			//setTimeout(function(){
+			$('.translate').on('click', function() {
+				$('.persian').toggle();
+				$(this).toggleClass('active');
+			});	
+			$('.fontsize').on('click', function() {
+				$("#controls_size").addClass('opened');
+				$("#controls_over").css('position','fixed');
+			});
+			$('.audio').on('click', function() {
+				$('#smgroup_audio_player').toggle();
+				$('#smgroup_audio_player').addClass('active');
+			});
+/*
+			$('#play').on('click', function() {
+				$('#play').hide();
+				$('#pause').css('display','block');
+				
+				
+				play_btn.css("display","none");
+				//play2_btn.css("display","block");
+				pause_btn.css("display","block");
+				$(this).prop("disabled",true);
+				play2_btn.prop("disabled",true);
+				pause_btn.prop("disabled",false);
+				
+				playAudio(my_file);
+				//alert("2");
+			});
+*/
+			$('.fontsize').on('click', function() {
+				$('#smgroup_audio_player').hide();
+			});
+		
+		
+			setTimeout(function(){
 				$(".mypreload").html("");
-				//$('#main').addClass("simplebar");
-				//$('#main').simplebar({ autoHide: false });
-			//}, 300);
+				$('#main').addClass("simplebar");
+				$('#main').simplebar({ autoHide: false });
+			}, 300);
 		});
+
+			
 
 	</script>	
 
@@ -70,104 +106,11 @@
 		
 <style>
 
-.doa_text{line-height:200%;text-align:justify;direction:rtl;}
-.doa_titr{font-weight:bold;font-size:18px;}
-.arabic{font-family:Droid_Arabic_Kufi;padding:12px 0;}
-.persian{padding:12px 0;}
-
-#header{
-	position:fixed;
-	top:0;
-	left:0;
-	height:100px;
-	width:100%;
-	background:#4a4a4a url("images/top-bg.png") repeat scroll 0 0 / 85px auto;
-	z-index: 786;
-}
-#header-bg {
-  background: transparent url("images/header-bg.png") no-repeat scroll right 0 / auto 70px;
-  bottom: -33px;
-  height: 70px;
-  position: absolute;
-  right: 0;
-  width: 100%;
-}
-#back-btn{
-  background: transparent url("images/back-btn.png") no-repeat scroll right 0 / auto 70px;
-  height: 70px;
-  width: 85px;
-  position: absolute;
-  left: 19px;
-  top:0px;
-  cursor:pointer;
-}
-#header-text {
-  position: absolute;
-  right: 93px;
-  top: -8px;
-}
-#header-text-1th{
-  background: transparent url("images/header-text-1th.png") no-repeat scroll right 0 / auto 86px;
-  height: 86px;
-  width: 19px;
-  float:right;
-}
-#header-text-2th {
-  background: transparent url("images/header-text-2th.png") repeat-x scroll right 0 / auto 86px;
-  color: white;
-  float: right;
-  font-size: 21px;
-  font-weight: bold;
-  height: 86px;
-  line-height: 83px;
-  padding: 0 8px;
-  width: auto;
-}
-#header-text-3th{
-  background: transparent url("images/header-text-3th.png") no-repeat scroll right 0 / auto 86px;
-  height: 86px;
-  width: 42px;
-  float:right;
-}
-#footer{
-	position:fixed;
-	bottom:0;
-	left:0;
-	height:74px;
-	width:100%;
-	background-image: url("images/footer-bg-center.png"), url("images/footer-bg.png");
-	background-position:center top, left top;
-	background-size:auto 74px,auto 74px;
-	background-repeat:no-repeat,repeat-x;
-	z-index: 786;
-}
-#warper #container {
-  margin-top: 160px;
-  /*padding:0 20px;*/
-}
-/*
-#warper #container #main{
-  width:100%;
-  box-sizing: border-box;
-  padding: 0 16px;
-}
-#warper #container #main .simplebar-content{
-  padding2:0 20px 70px 15px;
-  padding:0 5px 0px 5px;
-
-}
-*/
-#warper #container #main {
-  box-sizing: border-box;
-  overflow-x: hidden;
-  padding: 0 16px;
-  width: 100%;
-}
 
 </style>
 <!--footer-bg-center.png-->
 </head>
-<body onload="init();" style="overflow:hidden;width:100%;">
+<body class="tarjome_disable" onload="init();" style="overflow:hidden;width:100%;">
 <div id="bg-top"></div><div id="bg-bottom"></div>
 <div id="ajax" class="mypreload">
 	<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
@@ -176,58 +119,84 @@
 </div>
 		<div id="warper" >
 				<div id="header">
-					<div id="header-bg">
-						<div id="back-btn" onclick="parent.history.back();" ></div>
-						<div id="header-text">
-							<div id="header-text-1th" ></div>
-							<div id="header-text-2th" >بسم الله الرحمن الرحیم</div><!--زیارت عاشورا-->
-							<div id="header-text-3th" ></div>
-						</div>
-					</div>
+					<div id="back-btn" onclick="parent.history.back();"></div>
+					<div id="header-text-2th">روضه</div>
+					<div class="center"></div>
 				</div>
 				<div id="footer">
 					<div id="footer-bg">
-
+						<button class="dw_bottun fontsize">قلم</button>	
+						<button class="dw_bottun audio">0</button>	
+						<button class="dw_bottun translate">ترجمه</button>	
 					</div>
 				</div>
 				<div id="container">
-					<div id="main">
+					<div id="main" class="">
 						<ul class="big_list">
-							<li >گفتگوی امام و عمر سعد</li>
-							<li>گفتگوی امام و حضرت زینب سلام الله علیها</li>
-							<li>شهادت غلام امام حسین علیه السلام</li>
-							<li>شهادت عبدالله بن الحسن علیه السلام</li>
-							<li>شهادت قاسم ابن‌الحسن علیه السلام</li>
-							<li>شهادت حضرت علی‌اصغر علیه السلام</li>
-							<li>شهادت حضرت علی‌‌اکبر علیه السلام</li>
-							<li>شهادت حضرت عباس علیه السلام</li>
+							<li onclick='$("#smgroup_audio_player").show();init_audio("audio/salame.mp3");' >گفتگوی امام و عمر سعد</li>
+							<li onclick='$("#smgroup_audio_player").show();init_audio("audio/besmella.mp3");' >گفتگوی امام و حضرت زینب سلام الله علیها</li>
+							<li onclick='$("#smgroup_audio_player").show();init_audio("audio/salame.mp3");' >شهادت غلام امام حسین علیه السلام</li>
+							<li onclick='$("#smgroup_audio_player").show();init_audio("audio/besmella.mp3");' >شهادت عبدالله بن الحسن علیه السلام</li>
+							<li onclick='$("#smgroup_audio_player").show();init_audio("audio/salame.mp3");' >شهادت قاسم ابن‌الحسن علیه السلام</li>
+							<li onclick='$("#smgroup_audio_player").show();init_audio("audio/besmella.mp3");' >شهادت حضرت علی‌اصغر علیه السلام</li>
+							<li onclick='$("#smgroup_audio_player").show();init_audio("audio/salame.mp3");' >شهادت حضرت علی‌‌اکبر علیه السلام</li>
+							<li onclick='$("#smgroup_audio_player").show();init_audio("audio/besmella.mp3");' >شهادت حضرت عباس علیه السلام</li>
 						</ul>
 
+					</div>
+				</div>
+		</div>
 
 
 
-
-
-<div id="smgroup_audio_player">
-        <span id="audioTimer" >00:00</span> / 
-        <span id="durationTimer" >01:00</span>
+		
+		
+		
+		
+		
+		
+<div id="smgroup_audio_player" >
+        <span id="audioTimer" >00:00</span>&nbsp 
+        <span id="durationTimer" >00:00</span>
         <div id="audioPosition" >
-            <input type="range" name="slider" id="slider" value="0" min="0" max="60" style="padding:0;margin:0;" />
+            <input type="range" name="slider" id="slider" disabled="disabled" value="0" min="0" max="60" style="padding:0;margin:0;" />
         </div>
-        <div>
-            <input type="button" id="play" value="Play" />
-			<input type="button" id="play2" value="Play" />
-            <input type="button" id="pause" value="Pause" disabled="true"  />
+        <div class="audio_btn">
+            <input type="button" id="play" value="" />
+			<input type="button" id="play2" value="" />
+            <input type="button" id="pause" value="" />
             <input type="button" id="stop" value="Stop" />
         </div>
+</div>
+<div id="controls_size">
+	<div id="css_style"></div>
+	<div id="controls_over"></div>
+	<a href="#" id="large">قلم</a>
+	<a href="#" id="medium">قلم</a>
+	<a href="#" id="small" class=>قلم</a>
+	<div id="controls_bg"></div>
 </div>
 <script>
 	init_audio("audio/salame.mp3");
 	audio_Timer = $("#audioTimer");
 	duration_Timer = $("#durationTimer");
 	slider_Timer = $("#slider");
-
+	
+	audio = null;
+	audioTimer = null;
+	pausePos = 0;
+	
 	function init_audio(my_file){
+		/*
+		if (audio) {
+			play_btn.css("display","block");
+			play2_btn.css("display","none");
+			pause_btn.css("display","none");
+			
+			slider_Timer.val(0);
+			stopAudio();
+		}
+		*/
 		// Phonegap is loaded and can be used
 		play_btn = $("#play");
 		play2_btn = $("#play2");
@@ -236,59 +205,78 @@
 		slider_Timer = $("#slider");
 		slider_range = slider_Timer;
 		
-		play_btn.click(function(){		
+		play_btn.click(function(){	
 			play_btn.css("display","none");
-			play2_btn.css("display","block");
+			pause_btn.css("display","block");
+			slider_Timer.prop("disabled",false);
+			playAudio(my_file);
+		});
+/*
+		$('#play').on('click', function() {
+			$('#play').hide();
+			$('#pause').css('display','block');
+			
+			
+			play_btn.css("display","none");
+			//play2_btn.css("display","block");
+			pause_btn.css("display","block");
+			$(this).prop("disabled",true);
+			play2_btn.prop("disabled",true);
+			pause_btn.prop("disabled",false);
+			
+			playAudio(my_file);
+			//alert("2");
+		});
+*/
+/*
+		play_btn.click(function(){	
+			alert("1");
+			play_btn.css("display","none");
+			//play2_btn.css("display","block");
+			pause_btn.css("display","block");
 			$(this).prop("disabled",true);
 			play2_btn.prop("disabled",true);
 			pause_btn.prop("disabled",false);
 			
 			playAudio(my_file);
 		});
-
+*/
 		slider_Timer.on("change", function(){
-			play_btn.prop("disabled",false);
-			play2_btn.prop("disabled",false);
-			pause_btn.prop("disabled",true);
-
+			//play_btn.prop("disabled",false);
+			//play2_btn.prop("disabled",false);
+			//pause_btn.prop("disabled",true);
+			play2_btn.css("display","block");
+			pause_btn.css("display","none");
+			
 			pausePos = slider_Timer.val();
 			formatTime(pausePos,audio_Timer);
 			pauseAudio();
 		});
 		
-		pause_btn.click(function(){		
-			play_btn.prop("disabled",false);
-			play2_btn.prop("disabled",false);
-			pause_btn.prop("disabled",true);
+		pause_btn.click(function(){	
+			play2_btn.css("display","block");
+			pause_btn.css("display","none");
+
 			pauseAudio();
 		});
 		
-		play2_btn.click(function(){			
-			play_btn.prop("disabled",true);
-			play2_btn.prop("disabled",true);
-			pause_btn.prop("disabled",false);
+		play2_btn.click(function(){	
+			pause_btn.css("display","block");
+			play2_btn.css("display","none");		
 			
 			PausePlayAudio();
 		});
 		
 		stop_btn.click(function(){
-			// reset slider
 			play_btn.css("display","block");
 			play2_btn.css("display","none");
-			play_btn.prop("disabled",false);
-			play2_btn.prop("disabled",false);
-			pause_btn.prop("disabled",true);
+			pause_btn.css("display","none");
+			
 			slider_Timer.val(0);
-			//slider_Timer.slider("refresh");
 			stopAudio();
 		});
 		
 	}
-
-
-	audio = null;
-	audioTimer = null;
-	pausePos = 0;
 
 
 	function playAudio(file){
@@ -298,8 +286,14 @@
 		
 		audio = new Media(file, function(){ // success callback
 			console.log("playAudio():Audio Success");
+			play_btn.css("display","block");
+			play2_btn.css("display","none");
+			pause_btn.css("display","none");
+			
+			slider_Timer.val(0);
+			stopAudio();
 		}, function(error){ // error callback
-			alert("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
+			//alert("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
 		});
 		
 		// get audio duration
@@ -404,19 +398,5 @@
 		Timer.html(minutes + ":" + seconds);
 	};
 </script>
-
-
-						
-					</div>
-				</div>
-		</div>
-		
-<div id="controls_size">
-	<div id="css_style"></div>
-	<div id="controls_over"></div>
-	<a href="#" id="small" class="selected">قلم</a>
-	<a href="#" id="medium">قلم</a>
-	<a href="#" id="large">قلم</a>
-</div>
 </body>
 </html>

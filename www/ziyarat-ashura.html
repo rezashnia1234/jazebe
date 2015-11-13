@@ -110,7 +110,7 @@
 </style>
 <!--footer-bg-center.png-->
 </head>
-<body class="" onload="init();" style="overflow:hidden;width:100%;">
+<body class="tarjome_disable00 sound_disable00 fontsize_disable000" onload="init();" style="overflow:hidden;width:100%;">
 <div id="bg-top"></div><div id="bg-bottom"></div>
 <div id="ajax" class="mypreload">
 	<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
@@ -165,11 +165,17 @@
 					</div>
 				</div>
 		</div>
+		
+		
+		
+		
+		
+		
 <div id="smgroup_audio_player">
         <span id="audioTimer" >00:00</span>&nbsp 
         <span id="durationTimer" >00:00</span>
         <div id="audioPosition" >
-            <input type="range" name="slider" id="slider" value="0" min="0" max="60" style="padding:0;margin:0;" />
+            <input type="range" name="slider" id="slider" disabled="disabled" value="0" min="0" max="60" style="padding:0;margin:0;" />
         </div>
         <div class="audio_btn">
             <input type="button" id="play" value="" />
@@ -218,6 +224,7 @@
 		play_btn.click(function(){	
 			play_btn.css("display","none");
 			pause_btn.css("display","block");
+			slider_Timer.prop("disabled",false);
 			playAudio(my_file);
 		});
 /*
