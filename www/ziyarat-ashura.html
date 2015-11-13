@@ -69,6 +69,7 @@
 				$('#smgroup_audio_player').toggle();
 				$('#smgroup_audio_player').addClass('active');
 			});
+/*
 			$('#play').on('click', function() {
 				$('#play').hide();
 				$('#pause').css('display','block');
@@ -84,6 +85,7 @@
 				playAudio(my_file);
 				//alert("2");
 			});
+*/
 			$('.fontsize').on('click', function() {
 				$('#smgroup_audio_player').hide();
 			});
@@ -124,7 +126,7 @@
 				<div id="footer">
 					<div id="footer-bg">
 						<button class="dw_bottun fontsize">قلم</button>	
-						<button class="dw_bottun audio"></button>	
+						<button class="dw_bottun audio">0</button>	
 						<button class="dw_bottun translate">ترجمه</button>	
 					</div>
 				</div>
@@ -176,8 +178,8 @@
         </div>
         <div class="audio_btn">
             <input type="button" id="play" value="" />
-			<input type="button" id="play2" value="" disabled="true" />
-            <input type="button" id="pause" value="" disabled="true"  />
+			<input type="button" id="play2" value="" />
+            <input type="button" id="pause" value="" />
             <input type="button" id="stop" value="Stop" />
         </div>
 </div>
@@ -195,6 +197,29 @@
 		stop_btn = $("#stop");
 		slider_Timer = $("#slider");
 		slider_range = slider_Timer;
+		
+		play_btn.click(function(){	
+			play_btn.css("display","none");
+			pause_btn.css("display","block");
+			playAudio(my_file);
+		});
+/*
+		$('#play').on('click', function() {
+			$('#play').hide();
+			$('#pause').css('display','block');
+			
+			
+			play_btn.css("display","none");
+			//play2_btn.css("display","block");
+			pause_btn.css("display","block");
+			$(this).prop("disabled",true);
+			play2_btn.prop("disabled",true);
+			pause_btn.prop("disabled",false);
+			
+			playAudio(my_file);
+			//alert("2");
+		});
+*/
 /*
 		play_btn.click(function(){	
 			alert("1");
@@ -219,36 +244,24 @@
 		});
 		
 		pause_btn.click(function(){	
-
 			play2_btn.css("display","block");
 			pause_btn.css("display","none");
 
-			play_btn.prop("disabled",false);
-			play2_btn.prop("disabled",false);
-			pause_btn.prop("disabled",true);
 			pauseAudio();
 		});
 		
 		play2_btn.click(function(){	
-
 			pause_btn.css("display","block");
 			play2_btn.css("display","none");		
-			play_btn.prop("disabled",true);
-			play2_btn.prop("disabled",true);
-			pause_btn.prop("disabled",false);
 			
 			PausePlayAudio();
 		});
 		
 		stop_btn.click(function(){
-			// reset slider
 			play_btn.css("display","block");
 			play2_btn.css("display","none");
-			play_btn.prop("disabled",false);
-			play2_btn.prop("disabled",false);
-			pause_btn.prop("disabled",true);
+
 			slider_Timer.val(0);
-			//slider_Timer.slider("refresh");
 			stopAudio();
 		});
 		
