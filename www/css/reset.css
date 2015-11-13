@@ -48,12 +48,14 @@ a{
   transition: all 400ms ease 0s;
 }
 */
+/*
 input
 {
    -webkit-appearance: none;
    -moz-appearance: none;
    appearance: none;
 }
+*/
 *{
 	font-size:14px;
 	font-family:"Iranian_Sans",Tahoma !important;
