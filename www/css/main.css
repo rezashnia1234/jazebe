@@ -247,7 +247,7 @@ input[type=range]:focus::-ms-fill-upper {
     height: 29px;
     width: 61px;
     position: absolute;
-    left: 40px;
+    left: 20px;
     margin: auto;
     cursor: pointer;
     bottom: 0;
@@ -268,7 +268,7 @@ input[type=range]:focus::-ms-fill-upper {
  color: white;
     float: right;
     font-size: 21px;
-    right: 40px;
+    right: 20px;
     font-weight: bold;
     height: 80px;
     line-height:80px;
@@ -339,10 +339,6 @@ input[type=range]:focus::-ms-fill-upper {
 
 div#footer-bg {
     text-align: center;
-}
-button.dw_bottun.audio {
-    border-left: 1px solid white;
-    border-right: 1px solid white;
 }
 #controls_size.opened #large, #controls_size.opened #medium, #controls_size.opened #small {
 text-align: center;
@@ -445,7 +441,12 @@ a#small {
 	margin:24px 0px 20px 0px;
 	top:0px;
     height: 30px;
-
+}
+button.dw_bottun.audio {
+    border-left: 1px solid white;
+}
+button.dw_bottun.translate {
+    border-left: 1px solid white;
 }
 #smgroup_audio_player {
     display: none;
@@ -626,6 +627,7 @@ table .title *
   padding-top: 0.755em;
   text-align:center;
 }
+/*
 #data_table_filter{
   background-color: #d7d7d7;
   position: fixed !important;
@@ -634,6 +636,7 @@ table .title *
   z-index: 97;
   padding:10px 0;
 }
+*/
 /* Tarjome START/////////////////////////////////////////////////////////////////////////*/
 /*///////////////////////////////////////////////////////////////////////////////////////*/
 /*///////////////////////////////////////////////////////////////////////////////////////*/
