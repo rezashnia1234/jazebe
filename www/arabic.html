@@ -166,10 +166,15 @@ $(document).ready(function() {
 		"aaSorting": [],
 		//"order": [[ 0, "desc" ]]
 	});
-//	search_input = $('#data_table_filter').find('input');
-//	search_input.attr("placeholder", "جستجو");
+	search_input = $('#data_table_filter').find('input');
+	search_input.attr("placeholder", "جستجو");
 	//$('#data_table_filter').css("top",$("#header").height());
-/*
+
+	
+	
+	$("#goto_search").on('click', function() {
+		search_input.focus();
+	});
 	search_input.focus(function() {
 		$('#footer').css("display","none");
 		$('#translate_list').css("display","none");
@@ -187,10 +192,11 @@ $(document).ready(function() {
 			$('#translate_list').css("display","block");
 		}
 	});
-*/
+
 });
 </script>
 <div id="translate_list">
+	<span id="goto_search">جستجو</span><br/>
 	<span>دسته‎‌بندی لغات</span><br/>
 	<a href="#time">time</a><br/>
 	<a href="#days">days</a><br/>
