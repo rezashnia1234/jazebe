@@ -118,21 +118,28 @@
 				<div id="container">
 					<div id="main" class="">
 						<ul class="big_list">
-							<li onclick='playAudio("audio/salame.mp3");playAudio("audio/salame.mp3");' >گفتگوی امام و عمر سعد</li>
-							<li onclick='playAudio("audio/besmella.mp3");playAudio("audio/besmella.mp3");' >گفتگوی امام و حضرت زینب سلام الله علیها</li>
-							<li onclick='playAudio("audio/salame.mp3");playAudio("audio/salame.mp3");' >شهادت غلام امام حسین علیه السلام</li>
-							<li onclick='playAudio("audio/besmella.mp3");playAudio("audio/besmella.mp3");' >شهادت عبدالله بن الحسن علیه السلام</li>
-							<li onclick='playAudio("audio/salame.mp3");playAudio("audio/salame.mp3");' >شهادت قاسم ابن‌الحسن علیه السلام</li>
-							<li onclick='playAudio("audio/besmella.mp3");playAudio("audio/besmella.mp3");' >شهادت حضرت علی‌اصغر علیه السلام</li>
-							<li onclick='playAudio("audio/salame.mp3");playAudio("audio/salame.mp3");' >شهادت حضرت علی‌‌اکبر علیه السلام</li>
-							<li onclick='playAudio("audio/besmella.mp3");playAudio("audio/besmella.mp3");' >شهادت حضرت عباس علیه السلام</li>
+							<li onclick='playAudio_new("audio/salame.mp3");' >گفتگوی امام و عمر سعد</li>
+							<li onclick='playAudio_new("audio/besmella.mp3");' >گفتگوی امام و حضرت زینب سلام الله علیها</li>
+							<li onclick='playAudio_new("audio/salame.mp3");' >شهادت غلام امام حسین علیه السلام</li>
+							<li onclick='playAudio_new("audio/besmella.mp3");' >شهادت عبدالله بن الحسن علیه السلام</li>
+							<li onclick='playAudio_new("audio/salame.mp3");' >شهادت قاسم ابن‌الحسن علیه السلام</li>
+							<li onclick='playAudio_new("audio/besmella.mp3");' >شهادت حضرت علی‌اصغر علیه السلام</li>
+							<li onclick='playAudio_new("audio/salame.mp3");' >شهادت حضرت علی‌‌اکبر علیه السلام</li>
+							<li onclick='playAudio_new("audio/besmella.mp3");' >شهادت حضرت عباس علیه السلام</li>
 						</ul>
 
 					</div>
 				</div>
 		</div>
 
-
+<script>
+	function playAudio_new(filename) {
+		playAudio(filename);
+		setTimeout(function(){
+			playAudio(filename);
+		}, 300);
+	}
+</script>
 
 		
 		
