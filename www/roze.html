@@ -69,23 +69,7 @@
 				$('#smgroup_audio_player').toggle();
 				$('#smgroup_audio_player').addClass('active');
 			});
-/*
-			$('#play').on('click', function() {
-				$('#play').hide();
-				$('#pause').css('display','block');
-				
-				
-				play_btn.css("display","none");
-				//play2_btn.css("display","block");
-				pause_btn.css("display","block");
-				$(this).prop("disabled",true);
-				play2_btn.prop("disabled",true);
-				pause_btn.prop("disabled",false);
-				
-				playAudio(my_file);
-				//alert("2");
-			});
-*/
+
 			$('.fontsize').on('click', function() {
 				$('#smgroup_audio_player').hide();
 			});
@@ -134,14 +118,14 @@
 				<div id="container">
 					<div id="main" class="">
 						<ul class="big_list">
-							<li onclick='$("#smgroup_audio_player").show();audio.stop();audio.release();init_audio("audio/salame.mp3");play_btn.css("display","none");pause_btn.css("display","block");slider_Timer.prop("disabled",false);playAudio("audio/salame.mp3");' >گفتگوی امام و عمر سعد</li>
-							<li onclick='$("#smgroup_audio_player").show();audio.stop();audio.release();init_audio("audio/besmella.mp3");play_btn.css("display","none");pause_btn.css("display","block");slider_Timer.prop("disabled",false);playAudio("audio/besmella.mp3");' >گفتگوی امام و حضرت زینب سلام الله علیها</li>
-							<li onclick='$("#smgroup_audio_player").show();audio.stop();audio.release();init_audio("audio/salame.mp3");play_btn.css("display","none");pause_btn.css("display","block");slider_Timer.prop("disabled",false);playAudio("audio/salame.mp3");' >شهادت غلام امام حسین علیه السلام</li>
-							<li onclick='$("#smgroup_audio_player").show();audio.stop();audio.release();init_audio("audio/besmella.mp3");play_btn.css("display","none");pause_btn.css("display","block");slider_Timer.prop("disabled",false);playAudio("audio/besmella.mp3");' >شهادت عبدالله بن الحسن علیه السلام</li>
-							<li onclick='$("#smgroup_audio_player").show();audio.stop();audio.release();init_audio("audio/salame.mp3");play_btn.css("display","none");pause_btn.css("display","block");slider_Timer.prop("disabled",false);playAudio("audio/salame.mp3");' >شهادت قاسم ابن‌الحسن علیه السلام</li>
-							<li onclick='$("#smgroup_audio_player").show();audio.stop();audio.release();init_audio("audio/besmella.mp3");play_btn.css("display","none");pause_btn.css("display","block");slider_Timer.prop("disabled",false);playAudio("audio/besmella.mp3");' >شهادت حضرت علی‌اصغر علیه السلام</li>
-							<li onclick='$("#smgroup_audio_player").show();audio.stop();audio.release();init_audio("audio/salame.mp3");play_btn.css("display","none");pause_btn.css("display","block");slider_Timer.prop("disabled",false);playAudio("audio/salame.mp3");' >شهادت حضرت علی‌‌اکبر علیه السلام</li>
-							<li onclick='$("#smgroup_audio_player").show();audio.stop();audio.release();init_audio("audio/besmella.mp3");play_btn.css("display","none");pause_btn.css("display","block");slider_Timer.prop("disabled",false);playAudio("audio/besmella.mp3");' >شهادت حضرت عباس علیه السلام</li>
+							<li onclick='$("#smgroup_audio_player").show();play_btn.css("display","none");play2_btn.css("display","none");pause_btn.css("display","block");slider_Timer.prop("disabled",false);playAudio("audio/salame.mp3");' >گفتگوی امام و عمر سعد</li>
+							<li onclick='$("#smgroup_audio_player").show();play_btn.css("display","none");play2_btn.css("display","none");pause_btn.css("display","block");slider_Timer.prop("disabled",false);playAudio("audio/besmella.mp3");' >گفتگوی امام و حضرت زینب سلام الله علیها</li>
+							<li onclick='$("#smgroup_audio_player").show();play_btn.css("display","none");play2_btn.css("display","none");pause_btn.css("display","block");slider_Timer.prop("disabled",false);playAudio("audio/salame.mp3");' >شهادت غلام امام حسین علیه السلام</li>
+							<li onclick='$("#smgroup_audio_player").show();play_btn.css("display","none");play2_btn.css("display","none");pause_btn.css("display","block");slider_Timer.prop("disabled",false);playAudio("audio/besmella.mp3");' >شهادت عبدالله بن الحسن علیه السلام</li>
+							<li onclick='$("#smgroup_audio_player").show();play_btn.css("display","none");play2_btn.css("display","none");pause_btn.css("display","block");slider_Timer.prop("disabled",false);playAudio("audio/salame.mp3");' >شهادت قاسم ابن‌الحسن علیه السلام</li>
+							<li onclick='$("#smgroup_audio_player").show();play_btn.css("display","none");play2_btn.css("display","none");pause_btn.css("display","block");slider_Timer.prop("disabled",false);playAudio("audio/besmella.mp3");' >شهادت حضرت علی‌اصغر علیه السلام</li>
+							<li onclick='$("#smgroup_audio_player").show();play_btn.css("display","none");play2_btn.css("display","none");pause_btn.css("display","block");slider_Timer.prop("disabled",false);playAudio("audio/salame.mp3");' >شهادت حضرت علی‌‌اکبر علیه السلام</li>
+							<li onclick='$("#smgroup_audio_player").show();play_btn.css("display","none");play2_btn.css("display","none");pause_btn.css("display","block");slider_Timer.prop("disabled",false);playAudio("audio/besmella.mp3");' >شهادت حضرت عباس علیه السلام</li>
 						</ul>
 
 					</div>
@@ -178,7 +162,8 @@
 	<div id="controls_bg"></div>
 </div>
 <script>
-	init_audio("audio/salame.mp3");
+	//init_audio("audio/salame.mp3");
+	init_audio();
 	audio_Timer = $("#audioTimer");
 	duration_Timer = $("#durationTimer");
 	slider_Timer = $("#slider");
@@ -205,41 +190,12 @@
 		stop_btn = $("#stop");
 		slider_Timer = $("#slider");
 		slider_range = slider_Timer;
-		
-		play_btn.click(function(){
+/*
+		play_btn.click(function(e){
 			e.preventDefault();
 			play_btn.css("display","none");
 			pause_btn.css("display","block");
 			slider_Timer.prop("disabled",false);
-			playAudio(my_file);
-		});
-/*
-		$('#play').on('click', function() {
-			$('#play').hide();
-			$('#pause').css('display','block');
-			
-			
-			play_btn.css("display","none");
-			//play2_btn.css("display","block");
-			pause_btn.css("display","block");
-			$(this).prop("disabled",true);
-			play2_btn.prop("disabled",true);
-			pause_btn.prop("disabled",false);
-			
-			playAudio(my_file);
-			//alert("2");
-		});
-*/
-/*
-		play_btn.click(function(){	
-			alert("1");
-			play_btn.css("display","none");
-			//play2_btn.css("display","block");
-			pause_btn.css("display","block");
-			$(this).prop("disabled",true);
-			play2_btn.prop("disabled",true);
-			pause_btn.prop("disabled",false);
-			
 			playAudio(my_file);
 		});
 */
@@ -282,22 +238,23 @@
 
 
 	function playAudio(file){
+		alert(file);
 		if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
 			file = "/android_asset/www/" + file;
 		}
-		
+		alert("2");
 		audio = new Media(file, function(){ // success callback
 			console.log("playAudio():Audio Success");
 			play_btn.css("display","block");
 			play2_btn.css("display","none");
 			pause_btn.css("display","none");
-			
+		
 			slider_Timer.val(0);
 			stopAudio();
 		}, function(error){ // error callback
-			//alert("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
+			alert("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
 		});
-		
+		alert("3");
 		// get audio duration
 		var duration = audio.getDuration();
 		var duration_show = false;
@@ -314,8 +271,8 @@
 		
 		// play audio
 		audio.play({ playAudioWhenScreenIsLocked : true });
-
-		audio.seekTo(pausePos*1000);
+		
+		audio.seekTo(0);
 			
 		// update audio position every second
 		if (audioTimer == null) {
