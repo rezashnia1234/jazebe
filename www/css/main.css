@@ -454,10 +454,22 @@ button.dw_bottun.audio {
 button.dw_bottun.translate {
     border-left: 1px solid white;
 }
+/*
 #smgroup_audio_player {
     display: none;
     position: fixed;
     bottom: 74px;
+    width: 100%;
+    padding: 0;
+    left: 0;
+    background-color: #38ab99;
+	height: 76px;
+}
+*/
+#smgroup_audio_player {
+    display: none;
+    position: relative;
+    bottom: 71px;
     width: 100%;
     padding: 0;
     left: 0;
@@ -536,10 +548,10 @@ button,input{
 outline:none
 }
 #audioTimer {
-position: absolute;
+	position: absolute;
     margin: auto;
     width: 50px;
-    left: 115px;
+    left: 82px;
     top: 12px;
     color: #f4e0b9;
 }

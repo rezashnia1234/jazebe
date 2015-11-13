@@ -170,19 +170,7 @@
 
 
 
-<div id="smgroup_audio_player">
-        <span id="audioTimer" >00:00</span>&nbsp 
-        <span id="durationTimer" >00:00</span>
-        <div id="audioPosition" >
-            <input type="range" name="slider" id="slider" value="0" min="0" max="60" style="padding:0;margin:0;" />
-        </div>
-        <div class="audio_btn">
-            <input type="button" id="play" value="" />
-			<input type="button" id="play2" value="" />
-            <input type="button" id="pause" value="" />
-            <input type="button" id="stop" value="Stop" />
-        </div>
-</div>
+
 <script>
 	init_audio("audio/salame.mp3");
 	audio_Timer = $("#audioTimer");
@@ -409,7 +397,19 @@
 					</div>
 				</div>
 		</div>
-		
+<div id="smgroup_audio_player">
+        <span id="audioTimer" >00:00</span>&nbsp 
+        <span id="durationTimer" >00:00</span>
+        <div id="audioPosition" >
+            <input type="range" name="slider" id="slider" value="0" min="0" max="60" style="padding:0;margin:0;" />
+        </div>
+        <div class="audio_btn">
+            <input type="button" id="play" value="" />
+			<input type="button" id="play2" value="" />
+            <input type="button" id="pause" value="" />
+            <input type="button" id="stop" value="Stop" />
+        </div>
+</div>
 <div id="controls_size">
 	<div id="css_style"></div>
 	<div id="controls_over"></div>
