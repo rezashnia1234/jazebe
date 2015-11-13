@@ -1,34 +1,6 @@
 ﻿ /*-------------- reset ------------------ */
 
-html, body, div, span, applet, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-a, abbr, acronym, address, big, cite, code,
-del, dfn, em, font, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
-b, u, i, center,
-dl, dt, dd, ol, ul, li,
-fieldset, form, label, legend{
-	margin: 0;
-	padding: 0;
-	border: 0;
-	outline: 0;
-	/*font-size: 100%;*/
-	vertical-align: baseline;
-	background: transparent;
-	/*line-height:170%;*/
-}
-table, caption, tbody, tfoot, thead, tr, th, td {
-	margin: 0;
-	outline: 0;
-	/*font-size: 100%;*/
-	vertical-align: baseline;
-	background: transparent;
-	/*line-height:170%;*/
-}
-th, td{
- text-align: right;
- vertical-align: top;
-}
+
 div{
  position:relative;
 }
@@ -38,9 +10,7 @@ input,textarea,select{
 	direction:rtl;
 }
 */
-body {
-	text-align:right;
-}
+
 a{
 	text-decoration:none;
 }
@@ -68,22 +38,6 @@ input
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
-}
-
-/** { -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; }
-*:focus { outline: none; }*/
-*::-moz-focus-inner ,
-*::-o-focus-inner{ border: none;}
-/**/
-*{
-    -webkit-touch-callout: none !important;
-    -webkit-user-select: none !important;
-    -khtml-user-select: none !important;
-    -moz-user-select: none !important;
-    -ms-user-select: none !important;
-    -o-user-select: none !important;
-    user-select: none !important;
-	outline-style:none !important;
 }
 
  /*-------------- END reset ------------------ */

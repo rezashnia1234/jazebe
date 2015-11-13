@@ -232,6 +232,7 @@ input[type=range]:focus::-ms-fill-upper {
 .doa_titr{font-weight:bold;font-size:18px;}
 .arabic{font-family:Droid_Arabic_Kufi;padding:12px 0;}
 .persian{padding:12px 0;}
+.persian{border-bottom:1px solid #ffffff;border-top:1px solid #ffffff;}
 
 #header{
 	position:fixed;
