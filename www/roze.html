@@ -238,11 +238,17 @@
 
 
 	function playAudio(file){
-		alert(file);
+		//alert(file);
 		if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
 			file = "/android_asset/www/" + file;
 		}
-		alert("2");
+		console.log("2");
+		if (audio) {
+			console.log("3");
+			audio.stop();
+			audio.release();
+		}
+		console.log("4");
 		audio = new Media(file, function(){ // success callback
 			console.log("playAudio():Audio Success");
 			play_btn.css("display","block");
@@ -252,9 +258,10 @@
 			slider_Timer.val(0);
 			stopAudio();
 		}, function(error){ // error callback
-			alert("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
+			//alert("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
+			console.log("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
 		});
-		alert("3");
+		//alert("3");
 		// get audio duration
 		var duration = audio.getDuration();
 		var duration_show = false;
