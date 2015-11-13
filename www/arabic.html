@@ -173,7 +173,10 @@ $(document).ready(function() {
 		$('#footer').css("display","none");
 		$('#translate_list').css("display","none");
         $('.simplebar-scroll-content').animate({
-          scrollTop: 0
+			scrollTop: 0
+        }, 0);
+        $('#main').animate({
+			scrollTop: 0
         }, 0);
 	});
 	search_input.blur(function() {
@@ -186,6 +189,7 @@ $(document).ready(function() {
 });
 </script>
 <div id="translate_list">
+	<span>دسته‎‌بندی لغات</span><br/>
 	<a href="#time">time</a><br/>
 	<a href="#days">days</a><br/>
 	<a href="#sesons">sesons</a><br/>

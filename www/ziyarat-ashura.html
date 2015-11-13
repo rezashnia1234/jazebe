@@ -172,7 +172,7 @@
 
 <div id="smgroup_audio_player">
         <span id="audioTimer" >00:00</span>&nbsp 
-        <span id="durationTimer" >01:00</span>
+        <span id="durationTimer" >00:00</span>
         <div id="audioPosition" >
             <input type="range" name="slider" id="slider" value="0" min="0" max="60" style="padding:0;margin:0;" />
         </div>
@@ -190,6 +190,14 @@
 	slider_Timer = $("#slider");
 
 	function init_audio(my_file){
+		if (audio) {
+			play_btn.css("display","block");
+			play2_btn.css("display","none");
+			pause_btn.css("display","none");
+			
+			slider_Timer.val(0);
+			stopAudio();
+		}
 		// Phonegap is loaded and can be used
 		play_btn = $("#play");
 		play2_btn = $("#play2");
@@ -234,10 +242,12 @@
 		});
 */
 		slider_Timer.on("change", function(){
-			play_btn.prop("disabled",false);
-			play2_btn.prop("disabled",false);
-			pause_btn.prop("disabled",true);
-
+			//play_btn.prop("disabled",false);
+			//play2_btn.prop("disabled",false);
+			//pause_btn.prop("disabled",true);
+			play2_btn.css("display","block");
+			pause_btn.css("display","none");
+			
 			pausePos = slider_Timer.val();
 			formatTime(pausePos,audio_Timer);
 			pauseAudio();
@@ -260,7 +270,8 @@
 		stop_btn.click(function(){
 			play_btn.css("display","block");
 			play2_btn.css("display","none");
-
+			pause_btn.css("display","none");
+			
 			slider_Timer.val(0);
 			stopAudio();
 		});
@@ -280,8 +291,14 @@
 		
 		audio = new Media(file, function(){ // success callback
 			console.log("playAudio():Audio Success");
+			play_btn.css("display","block");
+			play2_btn.css("display","none");
+			pause_btn.css("display","none");
+			
+			slider_Timer.val(0);
+			stopAudio();
 		}, function(error){ // error callback
-			alert("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
+			//alert("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
 		});
 		
 		// get audio duration
@@ -398,6 +415,7 @@
 	<a href="#" id="large">قلم</a>
 	<a href="#" id="medium">قلم</a>
 	<a href="#" id="small" class=>قلم</a>
+	<div id="controls_bg"></div>
 </div>
 </body>
 </html>
