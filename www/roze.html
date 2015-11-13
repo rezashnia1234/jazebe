@@ -134,10 +134,10 @@
 
 <script>
 	function playAudio_new(filename) {
-		playAudio(filename);
+		audio.stop();
 		setTimeout(function(){
 			playAudio(filename);
-		}, 300);
+		}, 600);
 	}
 </script>
 
@@ -241,6 +241,17 @@
 			stopAudio();
 		});
 		
+		
+		file = "audio/salame.mp3";
+		if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+			file = "/android_asset/www/" + file;
+		}
+		audio = new Media(file, function(){ // success callback
+
+		}, function(error){ // error callback
+			//alert("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
+			console.log("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
+		});
 	}
 
 
