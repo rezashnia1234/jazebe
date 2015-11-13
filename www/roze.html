@@ -135,6 +135,9 @@
 
 <script>
 	function playAudio_new(filename) {
+		$("#durationTimer").html("00:00");
+		$("#audioTimer").html("00:00");
+		
 		audio.stop();
 		setTimeout(function(){
 			playAudio(filename);
