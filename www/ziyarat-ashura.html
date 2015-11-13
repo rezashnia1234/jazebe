@@ -188,7 +188,11 @@
 	audio_Timer = $("#audioTimer");
 	duration_Timer = $("#durationTimer");
 	slider_Timer = $("#slider");
-
+	
+	audio = null;
+	audioTimer = null;
+	pausePos = 0;
+	
 	function init_audio(my_file){
 		if (audio) {
 			play_btn.css("display","block");
@@ -277,11 +281,6 @@
 		});
 		
 	}
-
-
-	audio = null;
-	audioTimer = null;
-	pausePos = 0;
 
 
 	function playAudio(file){
