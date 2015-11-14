@@ -281,118 +281,75 @@
 			}
 		}
 	</script>	
-
-		
-		
-		
-		
-</head>
-<body onload="init();" style="background-color:#cfcfcf;text-align:center;overflow:hidden;width:100%;">
-		<div class="container " id="container" >
-			<div id="ajax" class="mypreload">
-				<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
-				<div style="z-index: 1011; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 28%; left: 0%; text-align: center;border: medium none;overflow:visible;" class="blockUI blockMsg blockPage"><img src="images/preloader.gif"></div>
-				<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading.png" width="70%"></div>
-			</div>
+<style>
+*{
+    -webkit-touch-callout: none !important;
+    -webkit-user-select: none !important;
+    -khtml-user-select: none !important;
+    -moz-user-select: none !important;
+    -ms-user-select: none !important;
+    -o-user-select: none !important;
+    user-select: none !important;
+	outline-style:none !important;
+}
+html {
+  background-color: transparent;
+}
+body{
+	background-color:#313131;text-align:center;overflow:hidden;width:100%;
+}
+#index_bg{
+	width:100%;
+}
+.btn{
+	position:absolute;
+	width:100%;
+	cursor:pointer;
+}
+.btn1{
+	position:absolute;
+	width:100%;
+	height:12%;
+	left:0%;
+	top:52%;
+}
+.btn2{
+	position:absolute;
+	width:100%;
+	height:12%;
+	left:0%;
+	top:68%;
+}
+.btn3{
+	position:absolute;
+	width:100%;
+	height:12%;
+	left:0%;
+	top:84%;
+}
+</style>
 <script>
 $(document).ready(function() {
-	$(".slide_navigator").css("top",$(window).height() - 110);
-	$(".slide_navigatorssssss").click(function(e) {
-		//alert();
-		e.preventDefault();
-		//a.stop(!0);
-		return a.next(a.options.navigation.effect)
-	});
+	setTimeout(function(){
+		$("#index_menu").css("margin-top",(($(window).height() - $("#index_bg").height())/2)*0.8	);
+		$(".mypreload").html("");
+	}, 300);
 });
 </script>
-<style>
-/*
-#slides,.slidesjs-container{
-  overflow-x: visible !important;
-  overflow-y: auto !important;
-}
-*/
-
-</style>
-<!--
-قبل سفر:
-	پیشینه
-	فضیلت زیارت
-	کوله پشتی
-	آداب و احکام
-	مومنانه
-
-در سفر:
-	اخبار مرز
-	نقشه
-	زیارات
-		روضه
-	بعثت خون
-	بی خواص
-	شاعرانه
-	حسینیه
-	لغات پرکاربرد
-	
-	نائب الزیاره
--->
-			<div id="slides">
-				<div class="silde_frame slide5th" >
-					<img src="images/slider/gh05.jpg" style="width:100%;" onclick="window.location.href='audio.html';" />
-					<div class="slide_navigator">
-						<div class="slide_navigator_bg"></div>
-						<div class="slide_navigator_next slidesjs-next">پیشینه <img src="images/slider/next-btn.png"></div>
-						<div class="slide_navigator_link">مومنانه</div>
-						<div class="slide_navigator_previous slidesjs-previous">آداب و احکام <img src="images/slider/previous-btn.png"></div>
-					</div>
-				</div>
-				<div class="silde_frame slide1th" >
-					<img src="images/slider/gh01.jpg" style="width:100%;" onclick="window.location.href='map.html';" />
-					<div class="slide_navigator">
-						<div class="slide_navigator_bg"></div>
-						<div class="slide_navigator_next slidesjs-next">فضیلت زیارت <img src="images/slider/next-btn.png"></div>
-						<div class="slide_navigator_link">پیشینه</div>
-						<div class="slide_navigator_previous slidesjs-previous">مومنانه <img src="images/slider/previous-btn.png"></div>
-					</div>
-				</div>
-				<div class="silde_frame slide2th" >
-					<img src="images/slider/gh02.jpg" style="width:100%;" onclick="window.location.href='ziyarat-ashura.html';" />
-					<div class="slide_navigator">
-						<div class="slide_navigator_bg"></div>
-						<div class="slide_navigator_next slidesjs-next">کوله پشتی <img src="images/slider/next-btn.png"></div>
-						<div class="slide_navigator_link">فضیلت زیارت</div>
-						<div class="slide_navigator_previous slidesjs-previous">پیشینه <img src="images/slider/previous-btn.png"></div>
-					</div>
-				</div>
-				<div class="silde_frame slide3th" >
-					<img src="images/slider/gh03.jpg" style="width:100%;" onclick="window.location.href='roze.html';" />
-					<div class="slide_navigator">
-						<div class="slide_navigator_bg"></div>
-						<div class="slide_navigator_next slidesjs-next">آداب و احکام <img src="images/slider/next-btn.png"></div>
-						<div class="slide_navigator_link">کوله پشتی</div>
-						<div class="slide_navigator_previous slidesjs-previous">فضیلت زیارت <img src="images/slider/previous-btn.png"></div>
-					</div>
-				</div>
-				<div class="silde_frame slide4th" >
-					<img src="images/slider/gh04.jpg" style="width:100%;" onclick="window.location.href='arabic.html';" />
-					<div class="slide_navigator">
-						<div class="slide_navigator_bg"></div>
-						<div class="slide_navigator_next slidesjs-next">مومنانه <img src="images/slider/next-btn.png"></div>
-						<div class="slide_navigator_link">آداب و احکام</div>
-						<div class="slide_navigator_previous slidesjs-previous">کوله پشتی <img src="images/slider/previous-btn.png"></div>
-					</div>
-				</div>
-				<a href="#" class="slidesjs-previous slidesjs-navigation"><i class="icon-chevron-left icon-large"></i></a>
-				<a href="#" class="slidesjs-next slidesjs-navigation"><i class="icon-chevron-right icon-large"></i></a>
+</head>
+<body onload="init();" >
+		<div class="container " id="container" >
+			<div id="ajax" class="mypreload">
+				<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #313131; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
+				<div style="z-index: 1011; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 28%; left: 0%; text-align: center;border: medium none;overflow:visible;" class="blockUI blockMsg blockPage"><img src="images/preloader2.gif"></div>
+				<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading2.png" width="70%"></div>
+			</div>
+			<div id="index_menu">
+				<img src="images/index.png" id="index_bg">
+				<div class="btn btn1" onclick="window.location.href='ghable_safar.html';" ></div>
+				<div class="btn btn2" onclick="window.location.href='dar_safar.html';" ></div>
+				<div class="btn btn3" onclick="loadURL('http://khamenei.ir');"></div>
 			</div>
 		</div>
-<!--
-				<img src="images/slider/01.png" onclick="window.location.href='map.html';" />
-				<img src="images/slider/02.png" onclick="window.location.href='ziyarat-ashura.html';" />
-				<img src="images/slider/03.png" onclick="window.location.href='roze.html';" />
-				<img src="images/slider/04.png" onclick="window.location.href='arabic.html';" />
-				<img src="images/slider/05.png" onclick="window.location.href='audio.html';" />
-				<img src="images/slider/06.png" />
-				<img src="images/slider/07.png" />
--->
 </body>
 </html>
