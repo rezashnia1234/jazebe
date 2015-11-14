@@ -674,9 +674,9 @@ table .title *
 	width:100%;
 	text-align:center;
 }
-/*  color: transparent !important; */
+/*  color: transparent #ffffff !important; */
 #slides .slidesjs-navigation {
-  color: #ffffff !important;
+  color: transparent !important;
   float: none !important;
   margin-top: 3px;
   position: fixed;
