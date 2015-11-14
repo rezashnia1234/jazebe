@@ -14,12 +14,12 @@ html{
       margin-top:3px;
     }
 
-    #slides .slidesjs-previous {
+    #slides .slidesjs-navigation.slidesjs-previous {
       margin-right: 5px;
       float: left;
     }
 
-    #slides .slidesjs-next {
+    #slides .slidesjs-navigation.slidesjs-next {
       margin-right: 5px;
       float: left;
     }
@@ -663,10 +663,99 @@ table .title *
   padding:10px 0;
 }
 */
-/* Tarjome START/////////////////////////////////////////////////////////////////////////*/
+/* Tarjome END///////////////////////////////////////////////////////////////////////////*/
 /*///////////////////////////////////////////////////////////////////////////////////////*/
 /*///////////////////////////////////////////////////////////////////////////////////////*/
 
+/*///////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////*/
+/* Slider START///////////////////////////////////////////////////////////////////////////*/
+.silde_frame{
+	width:100%;
+	text-align:center;
+}
+#slides .slidesjs-navigation {
+  color: transparent !important;
+  float: none !important;
+  margin-top: 3px;
+  position: fixed;
+  top: 0;
+  z-index: 2147483647;
+}
+.slidesjs-navigation.slidesjs-previous{
+	left:0;
+}
+.slidesjs-navigation.slidesjs-next{
+	right:0;
+}
+.slide_navigator{
+	width:100%;
+	position:fixed;
+	top:0;
+	background-color:#039c84;
+	height:110px;
+	z-index: 2147483647;
+}
+.slide_navigator div {
+	box-sizing: border-box;
+	float: right;
+	margin: 50px 0 0 0;
+	color:#ffffff;
+}
+.slider_placeholder{
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	z-index:0;
+}
+.slide_navigator .slide_navigator_next{
+	text-align:left;
+	width:20%;
+	color:transparent;
+}
+.slide_navigator .slide_navigator_previous{
+	text-align:right;
+	width:20%;
+	color:transparent;
+}
+.slide_navigator_previous.slidesjs-previous > img {
+  position: absolute;
+  left: 10px;
+  top: -1px;
+  width: 13px;
+}
+.slide_navigator_next.slidesjs-next > img {
+  position: absolute;
+  right: 10px;
+  top: -1px;
+  width: 13px;
+}
+.slide_navigator_link {
+  font-size: 25px;
+  font-weight: bold;
+  top: -6px;
+  text-align:center;
+  width:60%;
+}
+.slide_navigator_bg {
+  background-image: url("../images/slider/footer-bg2.png"), url("../images/slider/footer-bg.png");
+  background-position: center top, left bottom;
+  background-repeat: no-repeat, repeat-x;
+  background-size: auto 74px, auto 47px;
+  float: none;
+  height: 74px;
+  left: 0;
+  margin: 0 !important;
+  position: absolute;
+  top: -47px;
+  width: 100%;
+  z-index: 786;
+}
+/* Slider END///////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////*/
+/*///////////////////////////////////////////////////////////////////////////////////////*/
 
 
 

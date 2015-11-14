@@ -13,6 +13,10 @@
 			parent.history.back();
 		}
 	}
+	function go_back_to_index() {
+		window.sessionStorage.setItem('go_to_first',"false");
+		window.location.href = "index.html";
+	}
 	
 	function exit() {
 		console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    Exit the app! command');
