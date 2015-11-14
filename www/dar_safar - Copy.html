@@ -37,7 +37,7 @@
 				},
 				effect: {
 					fade: {
-						speed: 600
+						speed: 800
 					}
 				},
 				play: { auto: false},
@@ -97,22 +97,10 @@
 		});
 		
 		$(document).ready(function() {
-			//$(".slide_navigator").css("top",$(window).height() - 110);
+			$(".slide_navigator").css("top",$(window).height() - 110);
 		});
 	</script>	
-<style>
-.silde_frame {
-    width: 100%;
-    text-align: center;
-    height: 100%;
-}
-#container {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-}
-</style>
+
 		
 		
 		
@@ -150,30 +138,84 @@
 			<div id="slides">
 				<div class="silde_frame slide9th" >
 					<img src="images/slider/h09.jpg" style="width:100%;" onclick="window.location.href='audio.html';" />
+					<div class="slide_navigator">
+						<div class="slide_navigator_bg"></div>
+						<div class="slide_navigator_next slidesjs-next">اخبار مرز <img src="images/slider/next-btn.png"></div>
+						<div class="slide_navigator_link">لغات پرکاربرد</div>
+						<div class="slide_navigator_previous slidesjs-previous">آداب و احکام <img src="images/slider/previous-btn.png"></div>
+					</div>
 				</div>
 				<div class="silde_frame slide1th" >
 					<img src="images/slider/h01.jpg" style="width:100%;" onclick="window.location.href='map.html';" />
+					<div class="slide_navigator">
+						<div class="slide_navigator_bg"></div>
+						<div class="slide_navigator_next slidesjs-next">نقشه <img src="images/slider/next-btn.png"></div>
+						<div class="slide_navigator_link">اخبار مرز</div>
+						<div class="slide_navigator_previous slidesjs-previous">مومنانه <img src="images/slider/previous-btn.png"></div>
+					</div>
 				</div>
 				<div class="silde_frame slide2th" >
 					<img src="images/slider/h02.jpg" style="width:100%;" onclick="window.location.href='map.html';" />
+					<div class="slide_navigator">
+						<div class="slide_navigator_bg"></div>
+						<div class="slide_navigator_next slidesjs-next">لغات پرکاربرد <img src="images/slider/next-btn.png"></div>
+						<div class="slide_navigator_link">نقشه</div>
+						<div class="slide_navigator_previous slidesjs-previous">اخبار مرز <img src="images/slider/previous-btn.png"></div>
+					</div>
 				</div>
 				<div class="silde_frame slide3th" >
 					<img src="images/slider/h03.jpg" style="width:100%;" onclick="window.location.href='ziyarat-ashura.html';" />
+					<div class="slide_navigator">
+						<div class="slide_navigator_bg"></div>
+						<div class="slide_navigator_next slidesjs-next">روضه <img src="images/slider/next-btn.png"></div>
+						<div class="slide_navigator_link">زیارات</div>
+						<div class="slide_navigator_previous slidesjs-previous">نقشه <img src="images/slider/previous-btn.png"></div>
+					</div>
 				</div>
 				<div class="silde_frame slide4th" >
 					<img src="images/slider/h04.jpg" style="width:100%;" onclick="window.location.href='roze.html';" />
+					<div class="slide_navigator">
+						<div class="slide_navigator_bg"></div>
+						<div class="slide_navigator_next slidesjs-next">بعثت خون <img src="images/slider/next-btn.png"></div>
+						<div class="slide_navigator_link">روضه</div>
+						<div class="slide_navigator_previous slidesjs-previous">زیارات <img src="images/slider/previous-btn.png"></div>
+					</div>
 				</div>
 				<div class="silde_frame slide5th" >
 					<img src="images/slider/h05.jpg" style="width:100%;" onclick="window.location.href='arabic.html';" />
+					<div class="slide_navigator">
+						<div class="slide_navigator_bg"></div>
+						<div class="slide_navigator_next slidesjs-next">بی خواص <img src="images/slider/next-btn.png"></div>
+						<div class="slide_navigator_link">بعثت خون</div>
+						<div class="slide_navigator_previous slidesjs-previous">روضه <img src="images/slider/previous-btn.png"></div>
+					</div>
 				</div>
 				<div class="silde_frame slide6th" >
 					<img src="images/slider/h06.jpg" style="width:100%;" onclick="window.location.href='arabic.html';" />
+					<div class="slide_navigator">
+						<div class="slide_navigator_bg"></div>
+						<div class="slide_navigator_next slidesjs-next">شاعرانه <img src="images/slider/next-btn.png"></div>
+						<div class="slide_navigator_link">بی خواص</div>
+						<div class="slide_navigator_previous slidesjs-previous">بعثت خون<img src="images/slider/previous-btn.png"></div>
+					</div>
 				</div>
 				<div class="silde_frame slide7th" >
 					<img src="images/slider/h07.jpg" style="width:100%;" onclick="window.location.href='arabic.html';" />
+					<div class="slide_navigator">
+						<div class="slide_navigator_bg"></div>
+						<div class="slide_navigator_next slidesjs-next">حسینیه <img src="images/slider/next-btn.png"></div>
+						<div class="slide_navigator_link">شاعرانه</div>
+						<div class="slide_navigator_previous slidesjs-previous">بی خواص<img src="images/slider/previous-btn.png"></div>
+					</div>
 				</div>
 				<div class="silde_frame slide8th" >
 					<img src="images/slider/h08.jpg" style="width:100%;" onclick="window.location.href='arabic.html';" />
+					<div class="slide_navigator">
+						<div class="slide_navigator_bg"></div>
+						<div class="slide_navigator_next slidesjs-next">مومنانه <img src="images/slider/next-btn.png"></div>
+						<div class="slide_navigator_link">حسینیه</div>
+						<div class="slide_navigator_previous slidesjs-previous">شاعرانه<img src="images/slider/previous-btn.png"></div>
+					</div>
 				</div>
 				<a href="#" class="slidesjs-previous slidesjs-navigation"><i class="icon-chevron-left icon-large"></i></a>
 				<a href="#" class="slidesjs-next slidesjs-navigation"><i class="icon-chevron-right icon-large"></i></a>
