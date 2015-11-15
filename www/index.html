@@ -34,6 +34,7 @@
 			window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, 
 				function(fs) {
 					fileSystem = fs;
+					console.log("onDeviceReady 4444444444" + fs.root.toURL());
 				}, function(e) {
 					alert('failed to get fs');
 					alert(JSON.stringify(e));
@@ -41,7 +42,6 @@
 			);
 			console.log(device.platform);
 			console.log("onDeviceReady 333333333333");
-			console.log("onDeviceReady 4444444444" + fileSystem.root.toURL());
 			download_address = fileSystem.root.toURL() + "/";
 			console.log("onDeviceReady 555555555" + download_address);
 			if (device.platform == 'iOS')
