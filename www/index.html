@@ -21,31 +21,23 @@
 		console.log("onDeviceReady");
 		
 		if(window.localStorage.getItem('downloaded_files') == null){
-			console.log("onDeviceReady 0000000000000000");
 			window.localStorage.setItem('downloaded_files',JSON.stringify(["786","110"]));	
 		}
 		
-		console.log("onDeviceReady 1111111");
 		
 		if(window.localStorage.getItem('download_address') == null){
-			console.log("onDeviceReady 22222222222");
 			
 			window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, 
 				function(fs) {
 					window.localStorage.setItem('download_address',fs.root.toURL());
-					console.log("onDeviceReady 4444444444" + fs.root.toURL());
 				}, function(e) {
 					alert('failed to get fs');
 					alert(JSON.stringify(e));
 				}
 			);
-			console.log(device.platform);
-			console.log("onDeviceReady 333333333333");
 			if (device.platform == 'iOS')
 			{
-				console.log("onDeviceReady 666666666666");
 				downloadPath = "cdvfile://localhost/persistent/";
-				window.localStorage.setItem('download_address',downloadPath);
 			}
 		}
 		
@@ -136,7 +128,8 @@
 
 			
             <p>
-            <button id="startDl" onclick="console.log('clicked on play_or_download');play_or_download('http://dlsmgroup.ir/temp/salameee.mp3,'mp3');" >Click to Download and Play</button>
+            <button id="startDl" onclick="play_or_download('http://dlsmgroup.ir/temp/salameee.mp3,'mp3');" >Click to Download and Play</button>
+            <button id="startDl" onclick="console.log('clicked on 22222222222222222222');" >Click to 22222222</button>
             </p>
         </div>
 		
