@@ -7,9 +7,10 @@
     <title>بسم الله الرحمن الرحیم</title>
 	
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/font.css" />
-    
+	<link rel="stylesheet" type="text/css" href="css/simplebar.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/console.log.js"></script>
     <script src="phonegap.js"></script>
@@ -17,6 +18,7 @@
     <script src="js/jquery.md5.js"></script>
     <script src="js/back_btn.js"></script>
     <script src="js/query-string.js"></script>
+    <script src="js/simplebar.min.js"></script>
 	
 	<script>
 		function init() {		
@@ -27,13 +29,14 @@
 		}
 
 		function onDeviceReady() {
+
 			//FastClick.attach(document.getElementById('container'));
 			FastClick.attach(document.body);
 			
 			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
 				document.addEventListener("backbutton", go_back, false);
 			}
-			
+		
 		}
 		function uniqueDeviceIDsuccess_index(uuid)
 		{
@@ -44,35 +47,102 @@
 			//alert("uniqueDeviceIDfail" + uuid);
 		};
 		
-		function loadcompeleted() {
-			$(".mypreload").html("");
-		}
 		$(window).load(function() {
-			$(".mypreload").html("");
+			//alert($(window).height());
+			//alert($(window).height());
+			//alert($(document).height()); 
+			//alert($("#warper").height());
+			$("#main").height($(window).height() - $("#header").height() - $("#footer").height()-30);
+			//$("#container").height($("#warper").height()-$("#header").height());
+			//$(".mypreload").delay(100000).html("");
 		});
+		$(document).ready(function() {
+			$('.translate').on('click', function() {
+				$('.persian').toggle();
+				$(this).toggleClass('active');
+			});	
+			$('.fontsize').on('click', function() {
+				$("#controls_size").addClass('opened');
+				$("#controls_over").css('position','fixed');
+			});
+			$('.audio').on('click', function() {
+				$('#smgroup_audio_player').toggle();
+				$('#smgroup_audio_player').addClass('active');
+			});
+/*
+			$('#play').on('click', function() {
+				$('#play').hide();
+				$('#pause').css('display','block');
+				
+				
+				play_btn.css("display","none");
+				//play2_btn.css("display","block");
+				pause_btn.css("display","block");
+				$(this).prop("disabled",true);
+				play2_btn.prop("disabled",true);
+				pause_btn.prop("disabled",false);
+				
+				playAudio(my_file);
+				//alert("2");
+			});
+*/
+		
+		
+			setTimeout(function(){
+				$(".mypreload").html("");
+				$('#main').addClass("simplebar");
+				$('#main').simplebar({ autoHide: false });
+			}, 300);
+		});
+
+			
 
 	</script>	
 
 		
 		
 <style>
-.doa_text{line-height:200%;text-align:justify;direction:rtl;}
-.doa_titr{font-weight:bold;font-size:18px;}
-.arabic{font-family:Droid_Arabic_Kufi;padding:12px 0;}
-.persian{background-color:#f2f2f2;padding:12px 0;}
+
+
 </style>
-		
+<!--footer-bg-center.png-->
 </head>
-<body onload="init();">
-		<div class="container " id="container" >
-				<div id="ajax" class="mypreload">
-					<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
-					<div style="z-index: 1011; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 28%; left: 0%; text-align: center;border: medium none;overflow:visible;" class="blockUI blockMsg blockPage"><img src="images/preloader.gif"></div>
-					<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading.png" width="70%"></div>
+<body class="tarjome_disable sound_disable" onload="init();" style="overflow:hidden;width:100%;">
+	<div id="bg-top"></div><div id="bg-bottom"></div>
+	<div id="ajax" class="mypreload">
+		<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
+		<div style="z-index: 1011; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 28%; left: 0%; text-align: center;border: medium none;overflow:visible;" class="blockUI blockMsg blockPage"><img src="images/preloader.gif"></div>
+		<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading.png" width="70%"></div>
+	</div>
+	<div id="warper" >
+			<div id="header">
+				<div id="back-btn" onclick="parent.history.back();"></div>
+				<div id="header-text-2th">احکام سفر زیارتی</div>
+				<div class="center"></div>
+			</div>
+			<div id="footer">
+				<div id="footer-bg">
+					<button class="dw_bottun fontsize">قلم</button>	
+					<button class="dw_bottun audio">0</button>	
+					<button class="dw_bottun translate">ترجمه</button>	
 				</div>
-				<div id="main">
+			</div>
+			<div id="container" >
+				<div id="main" >
+<div class="justify doa_text">
 مس اسامی خداوند متعال و پیامبران و امامان معصوم<br/>مس اسما و صفات مخصوص ذات باری تعالی بدون وضو حرام است، و به احتیاط (واجب) نامهای انبیای عظام و ائمه‌ی معصومین نیز حکم نامهای خداوند متعال را دارد<br/>همه جای بدن، مانند لب و صورت و غیره هم حکم دست را دارد. 	<br/><br/>نجس کردن مسجد<br/>نجس کردن زمین و سقف و دیوار و بام مسجدو مشاهد مشرفه و حرمهای مقدسه حرام است، و اگر نجس شد واجب است فوراً آن را تطهیر کنند.( مثلا اگر پای زائران عزیز خونی است قبل از ورود به مسجد یا حرم با آب تطهیر کنند)<br/><br/> نماز جماعت<br/>١. نماز جماعت از مهمترین مستحبات و از بزرگترین شعایر اسلامی است و دست کم با دو نفر (یک امام و یک مأموم) منعقد می‌شود.<br/><br/>٢. در اقتدا به امام جماعت، شناخت واقعی او شرط نیست بلکه همین که عدالت امام نزد مأموم به هر طریقی ثابت باشد، اقتدا به او جایز و نماز جماعت صحیح است.<br/><br/>٣. با دسترسی به روحانی، از اقتدا به غیر روحانی اجتناب شود.	<br/><br/>کارهایی که بر جنب حرام است<br/>کارهایی که بر جنب حرام است:<br/> ١. مس خط قرآن و اسما و صفات مخصوص ذات باری تعالی و همچنین به احتیاط واجب نامهای انبیای عظام و ایمه‌ی معصومین(ع). <br/><br/>٢. ورود به مسجد الحرام و مسجد النبی، هر چند از یک در داخل و از در دیگر خارج شود. <br/><br/>٣. توقف در مساجد دیگر، ولی اگر از یک در وارد و از در دیگر خارج شود مانع ندارد و بنابر احتیاط مشاهد مشرفه همین حکم را دارند .<br/><br/> ٤. گذاشتن چیزی در مسجد. <br/><br/>٥. خواندن خصوص آیات سجده از سوره هایی که سجده‌ی واجب دارند، ولی خواندن سایر آیات از این سوره‌ها اشکال ندارد. <br/><br/>توجه	<br/>• مراد از حرم، همان زیر گنبد مبارک و جایی است که به آن حرم و مشهد شریف گفته می‌شود، ولی ساختمان‌های ملحق به آن و شبستانها حکم حرم را ندارند و ورود جنب به آنجاها اشکال ندارد مگر جاهایی که عنوان مسجد را داشته باشد.<br/>	<br/>• ورود جنب به داخل حرم امام زادگان اشکالی ندارد. <br/>	<br/>• تکیه‌ها و حسینیه‌ها حکم مسجد را ندارند.	<br/><br/>• منظور از آیات سجده: آیه‌ی ١٥ از سوره‌ی ٣٢ (سجده) و آیه‌ی ٣٧ از سوره‌ی ٤١ (فصلت) و آیه‌ی ٦٢ از سوره‌ی ٥٣ (نجم) و آیه‌ی ١٩ از سوره‌ی ٩٦ (علق) می‌باشد که خواننده یا شنونده‌ی آنها واجب است سجده کند.<br/><br/>احکام حایض:<br/>١. تمام کارهایی که بر جنب حرام است بر زن حایض نیز حرام است<br/><br/>نماز مسافر<br/>١. وجوب قصر در سفر<br/>در سفر باید نماز چهار رکعتی را با شرایطی که ذکر خواهد شد قصر(دو رکعت) خواند. .<br/><br/>موارد تخییر بین شکسته و تمام:<br/> مسافردر چهارمحل اگر قصد اقامه نکرده باشد مخیر است بین قصر واتمام و آن چهار محل عبارتند از:<br/>١و٢. تمام شهر مکه ومدینه حتی محله های جدید<br/><br/>٣. مسجد کوفه(فعلی) <br/><br/>٤. حائر حسینی(اطراف ظریح مقدسو مسجد بالای سر و رواقها غیر از صحن )<br/><br/>ولی تمام خواندن افضل است.<br/><br/>نکته: <br/>مسجد سهله داخل در حکم تخییر بین شکسته و تمام نیست<br/>س٨٨. کسی که به جایی مسافرت کرده و نمی ‌داند چه مقدار در آن‌جا خواهد ماند، ده روز یا کمتر، چگونه باید نماز بخواند؟<br/>ج) وظیفه شخص مردد تا سی روز قصر است و از آن به بعد باید نمازش را تمام بخواند، هرچند در همان روز بخواهد برگردد.<br/><br/>س. آیا گرفتن روزه‌ های قضا، در سفر صحیح است؟<br/>ج) جایز نیست.<br/><br/>س. شخصی که مفطری انجام نداده، در سفر مثلاً در ساعت ده نذر می‌کند که امروز را روزه می‌گیرم، آیا نذر او صحیح است یا باید نذر قبل از سفر و قبل از طلوع فجر باشد؟<br/>ج) روزه مستحبی در سفر که با نذر صحیح است، باید قبل از طلوع فجر باشد و بنابر احتیاط مشروط است به این که نذر در حَضَر(غیر سفر) منعقد شده باشد<br/><br/>نماز تحیّت مسجد<br/>وقتی انسان به مسجد می‌رود، مستحب است دو رکعت نماز به قصد تحیّت و احترام مسجد بخواند و اگر نماز واجب یا مستحب دیگری هم بخواند، کافی است. <br/>	<br/>بیرون بردن مهر و قرآن از مسجد و حرم<br/>بیرون بردن مهر و قرآن و کتاب‌های دعای مساجد و حرم‌های مطهّر جایز نیست و چنانچه کسی عمداً یا سهواً برده باشد، باید به جای آن برگرداند. <br/><br/>حفظ حرمت مسجد و حرم<br/>١ . حفظ احترام مسجد و حرم واجب است و هر کاری که بی احترامی به آن اماکن مقدس باشد حرام است؛ مثل آب دهان انداختن یا با کفش وارد شدن. <br/>٢ . نجس کردن زمین و سقف و بام و طرف داخل دیوار حرام است.<br/><br/>تطهیر مسجد و حرم<br/>١ . برطرف کردن نجاست از مسجد و حرم واجب است و فرقی در این مسئله بین داخل و سقف و پشت بام و حتی طرف داخل دیوار مسجد و حرم نیست . یعنی هرجای مسجد یا حرم نجس شود باید تطهیر یا به گونه‌ای دیگر نجاست برطرف گردد. <br/>٢ . بنابر احتیاط واجب اگر طرف بیرون دیوار مسجد یا حرم نجس شود، بر طرف کردن نجاست از آن واجب است. <br/>		<br/>رفتن جنب و حائض به مسجد و حرم <br/>١ . توقف جنب و حائض و نفساء در حرم امامان معصوم (علیهم السلام) حرام است، ولی عبور از آن، به‌طوری که از یک در وارد و از در دیگر خارج شود اشکال ندارد و احتیاط مستحب است که در آن حال از داخل حرم عبور نکند، این حکم اختصاص به اطراف ضریح (روضه شریفه) و رواق‌ها دارد ولی صحن‌ها و حرم امامزاده‌ها این حکم را ندارد. <br/>		<br/>٢ . زن مستحاضه می‌تواند به مسجد یا حرم امامان معصوم (علیهم السلام) وارد و در آنجا توقف کند، حتی مستحاضه متوسطه و کثیره، ولی احتیاط مستحب است اگر غسل‌هایی را که برای نماز گفته شده انجام نداده در آنجا توقف نکند. <br/><br/>نماز قضا در سفر<br/>١ . نماز قضا را به جماعت می توان خواند، چه نماز جماعت ادا باشد یا قضا و لازم نیست هر دو، یک نماز را بخوانند؛ مثلاً اگر نماز قضای صبح را با نماز ظهر یا عصر امام جماعت بخواند اشکال ندارد. <br/>٢ . اگر انسان در سفر بخواهد نمازهایی را که در غیر سفر قضا شده بجا آورد باید نمازهای ظهر و عصر و عشا را چهار رکعتی قضا کند. <br/>٣ . نماز قضا را در هر وقت می توان به جا آورد؛ یعنی قضای صبح را می توان ظهر یا شب خواند. <br/><br/>شرکت مسافر در نماز جماعت<br/>١ ـ مسافری که نمازش شکسته است و پس از اتمام دو رکعت سلام می دهد و نمازش تمام می شود می تواند در دو رکعت دیگر امام جماعت، نماز دیگری ـ ادا یا قضا ـ اقتدا کند.<br/><br/>٢ ـ لازم نیست نماز امام و مأموم یکی باشد، پس مأموم می تواند نماز قضای ظهر را به نماز عشای امام اقتدا کند.<br/><br/>٣ ـ در دو رکعت آخر که مأموم مسافر نماز دیگری را اقتدا می کند لازم نیست، آن نماز دو رکعتی باشد، پس نماز سه رکعتی یا چهار رکعتی نیز می‌تواند اقتدا کند.
+	<br/><br/><br/>
+<div>
 				</div>
-		</div>
+			</div>
+	</div>
+	<div id="controls_size">
+		<div id="css_style"></div>
+		<div id="controls_over"></div>
+		<a href="#" id="large">قلم</a>
+		<a href="#" id="medium">قلم</a>
+		<a href="#" id="small" class=>قلم</a>
+		<div id="controls_bg"></div>
+	</div>
 </body>
 </html>

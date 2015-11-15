@@ -7,9 +7,10 @@
     <title>بسم الله الرحمن الرحیم</title>
 	
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/font.css" />
-    
+	<link rel="stylesheet" type="text/css" href="css/simplebar.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/console.log.js"></script>
     <script src="phonegap.js"></script>
@@ -17,6 +18,7 @@
     <script src="js/jquery.md5.js"></script>
     <script src="js/back_btn.js"></script>
     <script src="js/query-string.js"></script>
+    <script src="js/simplebar.min.js"></script>
 	
 	<script>
 		function init() {		
@@ -27,13 +29,14 @@
 		}
 
 		function onDeviceReady() {
+
 			//FastClick.attach(document.getElementById('container'));
 			FastClick.attach(document.body);
 			
 			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
 				document.addEventListener("backbutton", go_back, false);
 			}
-			
+		
 		}
 		function uniqueDeviceIDsuccess_index(uuid)
 		{
@@ -44,35 +47,102 @@
 			//alert("uniqueDeviceIDfail" + uuid);
 		};
 		
-		function loadcompeleted() {
-			$(".mypreload").html("");
-		}
 		$(window).load(function() {
-			$(".mypreload").html("");
+			//alert($(window).height());
+			//alert($(window).height());
+			//alert($(document).height()); 
+			//alert($("#warper").height());
+			$("#main").height($(window).height() - $("#header").height() - $("#footer").height()-30);
+			//$("#container").height($("#warper").height()-$("#header").height());
+			//$(".mypreload").delay(100000).html("");
 		});
+		$(document).ready(function() {
+			$('.translate').on('click', function() {
+				$('.persian').toggle();
+				$(this).toggleClass('active');
+			});	
+			$('.fontsize').on('click', function() {
+				$("#controls_size").addClass('opened');
+				$("#controls_over").css('position','fixed');
+			});
+			$('.audio').on('click', function() {
+				$('#smgroup_audio_player').toggle();
+				$('#smgroup_audio_player').addClass('active');
+			});
+/*
+			$('#play').on('click', function() {
+				$('#play').hide();
+				$('#pause').css('display','block');
+				
+				
+				play_btn.css("display","none");
+				//play2_btn.css("display","block");
+				pause_btn.css("display","block");
+				$(this).prop("disabled",true);
+				play2_btn.prop("disabled",true);
+				pause_btn.prop("disabled",false);
+				
+				playAudio(my_file);
+				//alert("2");
+			});
+*/
+		
+		
+			setTimeout(function(){
+				$(".mypreload").html("");
+				$('#main').addClass("simplebar");
+				$('#main').simplebar({ autoHide: false });
+			}, 300);
+		});
+
+			
 
 	</script>	
 
 		
 		
 <style>
-.doa_text{line-height:200%;text-align:justify;direction:rtl;}
-.doa_titr{font-weight:bold;font-size:18px;}
-.arabic{font-family:Droid_Arabic_Kufi;padding:12px 0;}
-.persian{background-color:#f2f2f2;padding:12px 0;}
+
+
 </style>
-		
+<!--footer-bg-center.png-->
 </head>
-<body onload="init();">
-		<div class="container " id="container" >
-				<div id="ajax" class="mypreload">
-					<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
-					<div style="z-index: 1011; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 28%; left: 0%; text-align: center;border: medium none;overflow:visible;" class="blockUI blockMsg blockPage"><img src="images/preloader.gif"></div>
-					<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading.png" width="70%"></div>
+<body class="tarjome_disable sound_disable" onload="init();" style="overflow:hidden;width:100%;">
+	<div id="bg-top"></div><div id="bg-bottom"></div>
+	<div id="ajax" class="mypreload">
+		<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
+		<div style="z-index: 1011; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 28%; left: 0%; text-align: center;border: medium none;overflow:visible;" class="blockUI blockMsg blockPage"><img src="images/preloader.gif"></div>
+		<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading.png" width="70%"></div>
+	</div>
+	<div id="warper" >
+			<div id="header">
+				<div id="back-btn" onclick="parent.history.back();"></div>
+				<div id="header-text-2th">احکام زیارت نیابتی</div>
+				<div class="center"></div>
+			</div>
+			<div id="footer">
+				<div id="footer-bg">
+					<button class="dw_bottun fontsize">قلم</button>	
+					<button class="dw_bottun audio">0</button>	
+					<button class="dw_bottun translate">ترجمه</button>	
 				</div>
-				<div id="main">
+			</div>
+			<div id="container" >
+				<div id="main" >
+<div class="justify doa_text">
 س: آیا در حیات کسى مى توان به نیابت از او اعمال خیر مثل اهداء قرآن به مساجد و ... انجام داد؟<br/>ج: انجام اعمال خیر به نیت احیاء و اموات اشکال ندارد.<br/> <br/>مسأله: در صحت نیابت شرط است که نائب قصد نیابت نماید و لازم نیست نام آن شخص را بر زبان آورد.
+	<br/><br/><br/>
+<div>
 				</div>
-		</div>
+			</div>
+	</div>
+	<div id="controls_size">
+		<div id="css_style"></div>
+		<div id="controls_over"></div>
+		<a href="#" id="large">قلم</a>
+		<a href="#" id="medium">قلم</a>
+		<a href="#" id="small" class=>قلم</a>
+		<div id="controls_bg"></div>
+	</div>
 </body>
 </html>

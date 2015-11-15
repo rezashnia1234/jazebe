@@ -7,9 +7,10 @@
     <title>بسم الله الرحمن الرحیم</title>
 	
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/main.css">
 	<link rel="stylesheet" type="text/css" href="css/font.css" />
-    
+	<link rel="stylesheet" type="text/css" href="css/simplebar.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/console.log.js"></script>
     <script src="phonegap.js"></script>
@@ -17,6 +18,7 @@
     <script src="js/jquery.md5.js"></script>
     <script src="js/back_btn.js"></script>
     <script src="js/query-string.js"></script>
+    <script src="js/simplebar.min.js"></script>
 	
 	<script>
 		function init() {		
@@ -27,13 +29,14 @@
 		}
 
 		function onDeviceReady() {
+
 			//FastClick.attach(document.getElementById('container'));
 			FastClick.attach(document.body);
 			
 			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
 				document.addEventListener("backbutton", go_back, false);
 			}
-			
+		
 		}
 		function uniqueDeviceIDsuccess_index(uuid)
 		{
@@ -44,33 +47,91 @@
 			//alert("uniqueDeviceIDfail" + uuid);
 		};
 		
-		function loadcompeleted() {
-			$(".mypreload").html("");
-		}
 		$(window).load(function() {
-			$(".mypreload").html("");
+			//alert($(window).height());
+			//alert($(window).height());
+			//alert($(document).height()); 
+			//alert($("#warper").height());
+			$("#main").height($(window).height() - $("#header").height() - $("#footer").height()-30);
+			//$("#container").height($("#warper").height()-$("#header").height());
+			//$(".mypreload").delay(100000).html("");
 		});
+		$(document).ready(function() {
+			$('.translate').on('click', function() {
+				$('.persian').toggle();
+				$(this).toggleClass('active');
+			});	
+			$('.fontsize').on('click', function() {
+				$("#controls_size").addClass('opened');
+				$("#controls_over").css('position','fixed');
+			});
+			$('.audio').on('click', function() {
+				$('#smgroup_audio_player').toggle();
+				$('#smgroup_audio_player').addClass('active');
+			});
+/*
+			$('#play').on('click', function() {
+				$('#play').hide();
+				$('#pause').css('display','block');
+				
+				
+				play_btn.css("display","none");
+				//play2_btn.css("display","block");
+				pause_btn.css("display","block");
+				$(this).prop("disabled",true);
+				play2_btn.prop("disabled",true);
+				pause_btn.prop("disabled",false);
+				
+				playAudio(my_file);
+				//alert("2");
+			});
+*/
+			$('.fontsize').on('click', function() {
+				$('#smgroup_audio_player').hide();
+			});
+		
+		
+			setTimeout(function(){
+				$(".mypreload").html("");
+				$('#main').addClass("simplebar");
+				$('#main').simplebar({ autoHide: false });
+			}, 300);
+		});
+
+			
 
 	</script>	
 
 		
 		
 <style>
-.doa_text{line-height:200%;text-align:justify;direction:rtl;}
-.doa_titr{font-weight:bold;font-size:18px;}
-.arabic{font-family:Droid_Arabic_Kufi;padding:12px 0;}
-.persian{background-color:#f2f2f2;padding:12px 0;}
+
+
 </style>
-		
+<!--footer-bg-center.png-->
 </head>
-<body onload="init();">
-		<div class="container " id="container" >
-				<div id="ajax" class="mypreload">
-					<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
-					<div style="z-index: 1011; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 28%; left: 0%; text-align: center;border: medium none;overflow:visible;" class="blockUI blockMsg blockPage"><img src="images/preloader.gif"></div>
-					<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading.png" width="70%"></div>
+<body class="tarjome_disable00 sound_disable00 fontsize_disable000" onload="init();" style="overflow:hidden;width:100%;">
+<div id="bg-top"></div><div id="bg-bottom"></div>
+<div id="ajax" class="mypreload">
+	<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
+	<div style="z-index: 1011; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 28%; left: 0%; text-align: center;border: medium none;overflow:visible;" class="blockUI blockMsg blockPage"><img src="images/preloader.gif"></div>
+	<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading.png" width="70%"></div>
+</div>
+		<div id="warper" >
+				<div id="header">
+					<div id="back-btn" onclick="parent.history.back();"></div>
+					<div id="header-text-2th">زیارت اربعین</div>
+					<div class="center"></div>
 				</div>
-				<div id="main">
+				<div id="footer">
+					<div id="footer-bg">
+						<button class="dw_bottun fontsize">قلم</button>	
+						<button class="dw_bottun audio">0</button>	
+						<button class="dw_bottun translate">ترجمه</button>	
+					</div>
+				</div>
+				<div id="container">
+					<div id="main" class="">
 <div class="doa_text arabic">السَّلامُ عَلَى وَلِیِّ اللَّهِ وَ حَبِیبِهِ السَّلامُ عَلَى خَلِیلِ اللَّهِ وَ نَجِیبِهِ السَّلامُ عَلَى صَفِیِّ اللَّهِ وَ ابْنِ صَفِیِّهِ السَّلامُ عَلَى الْحُسَیْنِ الْمَظْلُومِ الشَّهِیدِ السَّلامُ عَلَى أَسِیرِ الْکُرُبَاتِ وَ قَتِیلِ الْعَبَرَاتِ اللَّهُمَّ إِنِّی أَشْهَدُ أَنَّهُ وَلِیُّکَ وَ ابْنُ وَلِیِّکَ وَ صَفِیُّکَ وَ ابْنُ صَفِیِّکَ الْفَائِزُ بِکَرَامَتِکَ أَکْرَمْتَهُ بِالشَّهَادَةِ وَ حَبَوْتَهُ بِالسَّعَادَةِ وَ اجْتَبَیْتَهُ بِطِیبِ الْوِلادَةِ وَ جَعَلْتَهُ سَیِّدا مِنَ السَّادَةِ وَ قَائِدا مِنَ الْقَادَةِ وَ ذَائِدا مِنَ الذَّادَةِ وَ أَعْطَیْتَهُ مَوَارِیثَ الْأَنْبِیَاءِ وَ جَعَلْتَهُ حُجَّةً عَلَى خَلْقِکَ مِنَ الْأَوْصِیَاءِ فَأَعْذَرَ فِی الدُّعَاءِ وَ مَنَحَ النُّصْحَ وَ بَذَلَ مُهْجَتَهُ فِیکَ لِیَسْتَنْقِذَ عِبَادَکَ مِنَ الْجَهَالَةِ وَ حَیْرَةِ الضَّلالَةِ وَ قَدْ تَوَازَرَ عَلَیْهِ مَنْ غَرَّتْهُ الدُّنْیَا وَ بَاعَ حَظَّهُ بِالْأَرْذَلِ الْأَدْنَى وَ شَرَى آخِرَتَهُ بِالثَّمَنِ الْأَوْکَسِ وَ تَغَطْرَسَ وَ تَرَدَّى فِی هَوَاهُ وَ أَسْخَطَکَ وَ أَسْخَطَ نَبِیَّکَ ،</div>
 <div class="doa_text persian">سلام بر ولىّ خدا و حبیبش، سلام بر دوست خدا و نجیبش، سلام بر بنده‌ی  برگزیده خدا و فرزند برگزیده اش، سلام بر حسین مظلوم شهید، سلام بر آن دچار گرفتاریها و کشته اشکها، خدایا من گواهى مى دهم که حسین ولىّ تو و فرزند ولىّ تو، و فرزند برگزیده‌ی توست.  حسینى که به کرامتت رسیده، او را به شهادت گرامى داشتى، و به خوشبختى اختصاصش دادى، و به پاکى ولادت  برگزیدى، و او را آقایى از آقایان و پیشروى از پیشرویان و مدافعى از مدافعان حق قرار دادى و میراث‌هاى پیامبران را به او عطا فرمودى و او را از میان جانشینان حجّت بر بندگانت قرار دادى، و در دعوتش جاى  عذرى باقى نگذاشت، و از خیرخواهى دریغ نورزید، و جانش را در راه تو بذل کرد، تا بندگانت را از جهالت و سرگردانى گمراهى برهاند، درحالى که بر علیه او به کمک هم برخاستند، کسانى که دنیا مغرورشان کرد، و بهره واقعى خود را به فرومایه تر و پست ترین چیز فروختند، و آخرتشان را به کمترین بها به گردونه‌ی فروش گذاشتند، تکبّر کردند و خود را در دامن هواى نفس انداختند، تو را و پیامبرت را به خشم  آوردند.</div>
 <div class="doa_text arabic">وَ أَطَاعَ مِنْ عِبَادِکَ أَهْلَ الشِّقَاقِ وَ النِّفَاقِ وَ حَمَلَةَ الْأَوْزَارِ الْمُسْتَوْجِبِینَ النَّارَ [لِلنَّارِ] فَجَاهَدَهُمْ فِیکَ صَابِرا مُحْتَسِبا حَتَّى سُفِکَ فِی طَاعَتِکَ دَمُهُ وَ اسْتُبِیحَ حَرِیمُهُ اللَّهُمَّ فَالْعَنْهُمْ لَعْنا وَبِیلا وَ عَذِّبْهُمْ عَذَابا أَلِیما السَّلامُ عَلَیْکَ یَا ابْنَ رَسُولِ اللَّهِ السَّلامُ عَلَیْکَ یَا ابْنَ سَیِّدِ الْأَوْصِیَاءِ أَشْهَدُ أَنَّکَ أَمِینُ اللَّهِ وَ ابْنُ أَمِینِهِ عِشْتَ سَعِیدا وَ مَضَیْتَ حَمِیدا وَ مُتَّ فَقِیدا مَظْلُوما شَهِیدا وَ أَشْهَدُ أَنَّ اللَّهَ مُنْجِزٌ مَا وَعَدَکَ وَ مُهْلِکٌ مَنْ خَذَلَکَ وَ مُعَذِّبٌ مَنْ قَتَلَکَ وَ أَشْهَدُ أَنَّکَ وَفَیْتَ بِعَهْدِ اللَّهِ وَ جَاهَدْتَ فِی سَبِیلِهِ حَتَّى أَتَاکَ الْیَقِینُ فَلَعَنَ اللَّهُ مَنْ قَتَلَکَ وَ لَعَنَ اللَّهُ مَنْ ظَلَمَکَ وَ لَعَنَ اللَّهُ أُمَّةً سَمِعَتْ بِذَلِکَ فَرَضِیَتْ بِهِ،</div>
@@ -80,7 +141,258 @@
 
 <div class="doa_text persian">خداى من، تو را شاهد مى گیرم که من دوستم با آنان که او را دوست دارند، و دشمن با آنان  که با او دشمنند، پدر و مادرم فدایت اى فرزند رسول خدا، گواهى مى دهم که تو در صلب‌هاى بلند مرتبه و رحم‌هاى پاک نورى بودى، جاهلیت با ناپاکی‌هایش تو را آلوده نکرد، و از جامه هاى تیره و تارش  به تو نپوشاند، و گواهى مى دهم که تو از ستون‌هاى دین، و پایه هاى مسلمانان، و پناهگاه مردم مؤمنى، و گواهى مى دهم که پیشواى نیکوکار، با تقوا، راضى به مقدرات حق، پاکیزه، هدایت کننده، و هدایت شده اى، و گواهى مى دهم که امامان  از فرزندانت، اصل تقوا، و نشانه هاى هدایت، و دستگیره محکم، و حجّت بر اهل دنیا هستند و گواهى مى دهم که من به یقین مؤمن به شمایم، و به بازگشتتان یقین دارم، براساس قوانین دینم، و عواقب عملم، و قبلم با قلبتان در صلح، و کارم پیرو کارتان، و یارى ام براى شما آماده است، تا خدا به شما اجازه دهد، پس با شمایم نه با دشمنانتان، درودهاى خدا بر شما، و بر ارواح و پیکرهایتان، و بر حاضر و غایبتان، و بر ظاهر و باطنتان، آمین اى پروردگار جهانیان.</div>
 <div class="doa_text persian">پس دو رکعت نماز مى خوانى، و به آنچه مى خواهى دعا مى کنى و برمى گردى. دوم: زیارتى است که از جابر روایت شده، و کیفیت آن  چنان است که از عطا [ظاهرا همان عطیه عوفى کوفى همسفر جابر در اربعین براى  زیارت حضرت امام حسین (علیه السّلام) است]نقل شده: در روز بیستم ماه صفر با جابر بن عبد اللّه انصارى بودم، چون به غاضریه رسیدیم ، در آب فرات غسل کرد، و پیراهن پاکیزه اى که با خود داشت پوشید، آنگاه به من گفت: آیا از بوى خوش چیزى، با تو هست  اى عطا؟ گفتم: سعد با من هست، قدرى از آن گرفت و بر سر و بدن پاشید، و پابرهنه روانه شد، تا نزد سر مبارک امام  حسین (علیه السّلام) ایستاد، و سه مرتبه اللّه اکبر گفت. پس افتاد و بیهوش شد، چون به هوش آمد، شنیدم مى گفت: «السّلام  علیکم یا آل اللّه...» که درست همان زیارت نیمه رجب است که قبلاً ذکر کردیم، و با آن جز در چند کلمه تفاوت ندارد، که  آن هم احتمالاً ناشى از اختلاف نسخه هاست، چنان که شیخ مرحوم احتمال داده. در هر صورت اگر کسى بخواهد آن را هم  بخواند، به زیارت نیمه رجب رجوع کند، و همان را بخواند.</div>
+
+					</div>
 				</div>
 		</div>
+		
+		
+		
+		
+		
+		
+<div id="smgroup_audio_player">
+        <span id="audioTimer" >00:00</span>&nbsp 
+        <span id="durationTimer" >00:00</span>
+        <div id="audioPosition" >
+            <input type="range" name="slider" id="slider" disabled="disabled" value="0" min="0" max="60" style="padding:0;margin:0;" />
+        </div>
+        <div class="audio_btn">
+            <input type="button" id="play" value="" />
+			<input type="button" id="play2" value="" />
+            <input type="button" id="pause" value="" />
+            <input type="button" id="stop" value="Stop" />
+        </div>
+</div>
+<div id="controls_size">
+	<div id="css_style"></div>
+	<div id="controls_over"></div>
+	<a href="#" id="large">قلم</a>
+	<a href="#" id="medium">قلم</a>
+	<a href="#" id="small" class=>قلم</a>
+	<div id="controls_bg"></div>
+</div>
+<script>
+	init_audio("audio/salame.mp3");
+	audio_Timer = $("#audioTimer");
+	duration_Timer = $("#durationTimer");
+	slider_Timer = $("#slider");
+	
+	audio = null;
+	audioTimer = null;
+	pausePos = 0;
+	
+	function init_audio(my_file){
+		/*
+		if (audio) {
+			play_btn.css("display","block");
+			play2_btn.css("display","none");
+			pause_btn.css("display","none");
+			
+			slider_Timer.val(0);
+			stopAudio();
+		}
+		*/
+		// Phonegap is loaded and can be used
+		play_btn = $("#play");
+		play2_btn = $("#play2");
+		pause_btn = $("#pause");
+		stop_btn = $("#stop");
+		slider_Timer = $("#slider");
+		slider_range = slider_Timer;
+		
+		play_btn.click(function(){	
+			play_btn.css("display","none");
+			pause_btn.css("display","block");
+			slider_Timer.prop("disabled",false);
+			playAudio(my_file);
+		});
+/*
+		$('#play').on('click', function() {
+			$('#play').hide();
+			$('#pause').css('display','block');
+			
+			
+			play_btn.css("display","none");
+			//play2_btn.css("display","block");
+			pause_btn.css("display","block");
+			$(this).prop("disabled",true);
+			play2_btn.prop("disabled",true);
+			pause_btn.prop("disabled",false);
+			
+			playAudio(my_file);
+			//alert("2");
+		});
+*/
+/*
+		play_btn.click(function(){	
+			alert("1");
+			play_btn.css("display","none");
+			//play2_btn.css("display","block");
+			pause_btn.css("display","block");
+			$(this).prop("disabled",true);
+			play2_btn.prop("disabled",true);
+			pause_btn.prop("disabled",false);
+			
+			playAudio(my_file);
+		});
+*/
+		slider_Timer.on("change", function(){
+			//play_btn.prop("disabled",false);
+			//play2_btn.prop("disabled",false);
+			//pause_btn.prop("disabled",true);
+			play2_btn.css("display","block");
+			pause_btn.css("display","none");
+			
+			pausePos = slider_Timer.val();
+			formatTime(pausePos,audio_Timer);
+			pauseAudio();
+		});
+		
+		pause_btn.click(function(){	
+			play2_btn.css("display","block");
+			pause_btn.css("display","none");
+
+			pauseAudio();
+		});
+		
+		play2_btn.click(function(){	
+			pause_btn.css("display","block");
+			play2_btn.css("display","none");		
+			
+			PausePlayAudio();
+		});
+		
+		stop_btn.click(function(){
+			play_btn.css("display","block");
+			play2_btn.css("display","none");
+			pause_btn.css("display","none");
+			
+			slider_Timer.val(0);
+			stopAudio();
+		});
+		
+	}
+
+
+	function playAudio(file){
+		if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+			file = "/android_asset/www/" + file;
+		}
+		
+		audio = new Media(file, function(){ // success callback
+			console.log("playAudio():Audio Success");
+			play_btn.css("display","block");
+			play2_btn.css("display","none");
+			pause_btn.css("display","none");
+			
+			slider_Timer.val(0);
+			stopAudio();
+		}, function(error){ // error callback
+			//alert("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
+		});
+		
+		// get audio duration
+		var duration = audio.getDuration();
+		var duration_show = false;
+		
+		// set slider data
+		if( duration > 0 ){
+			formatTime(duration,duration_Timer);
+			slider_Timer.attr( "max", Math.round(duration) );
+			//slider_Timer.slider("refresh");
+			slider_Timer.val(0);
+			duration_show = true;
+		}
+
+		
+		// play audio
+		audio.play({ playAudioWhenScreenIsLocked : true });
+
+		audio.seekTo(pausePos*1000);
+			
+		// update audio position every second
+		if (audioTimer == null) {
+			audioTimer = setInterval(function() {
+				// get audio position
+				audio.getCurrentPosition(
+					function(position) { // get position success
+						if (position > -1) {
+							setAudioPosition(position);
+						}
+					}, function(e) { // get position error
+						alert("Error getting pos=" + e);
+						//setAudioPosition(duration);
+					}
+				);
+				if(!duration_show){
+					duration = audio.getDuration();
+					if( duration > 0 ){
+						formatTime(duration,duration_Timer);
+						slider_Timer.attr( "max", Math.round(duration) );
+						//slider_Timer.slider("refresh");
+						duration_show = true;
+					}
+				}
+			}, 1000);
+		}
+	}
+
+
+	function pauseAudio() {
+		if (audio) {
+			audio.pause();
+		}
+	}
+	
+	function PausePlayAudio() {
+		if (audio) {
+			audio.pause();
+			audio.seekTo(pausePos*1000);
+			audio.play();
+		}
+	}
+
+
+	function stopAudio() {
+		if (audio) {
+			audio.stop();
+			audio.release();
+		}
+		clearInterval(audioTimer);
+		audioTimer = null;
+		pausePos = 0;
+		formatTime(0,audio_Timer);
+	}
+
+
+	function setAudioPosition(position) {
+		pausePos = position;
+		position = Math.round(position);
+		slider_Timer.val(position);
+		formatTime(position,audio_Timer);
+		//slider_Timer.slider("refresh");
+		//slider_Timer.val(0);
+	}
+
+	function formatTime(seconds,Timer) {
+		if (seconds <= 0)
+		{
+			Timer.html("00:00");
+			return;
+		}	
+		var minutes = Math.floor(seconds / 60);
+		
+		if (minutes < 10)
+			minutes = "0" + minutes;
+
+		seconds = seconds % 60;
+		if (seconds < 10)
+			seconds = "0" + seconds;
+		seconds = Math.round(seconds);
+		
+		Timer.html(minutes + ":" + seconds);
+	};
+</script>
 </body>
 </html>

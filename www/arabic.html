@@ -77,10 +77,81 @@
 		
 <style>
 /*.simplebar-content{padding-top:30px !important;}*/
+div#translate_list a {
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    position: relative;
+    float: right;
+    color: #3ba692;
+    padding-right: 10px;
+    border-bottom: 1px solid white;
+}
+div#translate_list a:first-child {
+    border: 0;
+    text-align: center;
+    background: #3ba692;
+    border-radius: 10px;
+    width: 95%;
+    margin: 0 auto;
+    color: white;
+    float: none !important;
+    display: block;
+}
+.title td:first-child {
+    background-image: url(images/naghsh.png);
+    background-repeat: no-repeat;
+    background-position: right center;
+    background-size: 31px;
+}
+table .title * {
+    background-color: transparent !important;
+}
+div#translate_list span {
+    color: #5b5b5b !important;
+    float: right;
+    height: 40px;
+    width: 100%;
+    line-height: 40px;
+    padding-right: 10px;
+    border-bottom: 1px solid #bdbdbd;
+}
+a.back_to_top {
+    background: transparent url(images/arrow_up.png) no-repeat;
+    background-position: center center;
+    width: 35px;
+    height: 35px;
+    background-size: 29px;
+    margin-top: -8px;
+}
 
-
-
-
+.title td:first-child {
+     background: url(images/naghsh.png);
+    background-position: right 4px center !important;
+    background-size: 26px;
+    background-repeat: no-repeat;
+    color: black !important;
+    padding-right: 29px;
+    background-color: #d7d7d7 !important;
+    width: auto;
+    float: right;
+    padding: 0 50px 0 19px;
+    height: 40px;
+    line-height: 40px;;
+}
+.title.odd td:first-child {
+    background-color: #CCCCCC !important;
+}
+.title.even td:first-child {
+    background-color: #E4E3E3 !important;
+}
+table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
+    background-color: none !important;
+}
+.title {
+    background-image: url(images/line.png);
+    background-position: center;
+}
 </style>
 <!--footer-bg-center.png-->
 </head>
@@ -102,7 +173,7 @@
 						<button class="dw_bottun fontsize">قلم</button>	
 						<button class="dw_bottun audio"></button>	
 						<button class="dw_bottun translate">ترجمه</button>
-						<a class="back_to_top" href="#translate_list" style="display: block; position: absolute; left: 10px; top: 33px; color: black;">TOP</a>
+						<a class="back_to_top" href="#translate_list" style="display: block; position: absolute; left: 10px; top: 33px; color: black;"></a>
 					</div>
 				</div>
 				<div id="container">
@@ -262,7 +333,7 @@ $(document).ready(function() {
 					<tr><td>سنتین</td><td>دو سال</td></tr>
 					<tr><td>سنین</td><td>سال ها</td></tr>
 
-					<tr id="days" class="title"><td>روزهای هفته</td><td></td></tr>
+					<tr id="days" class="title"><td>روزهای هفته</td><td></td><span class="khat"/></tr>
 					<tr><td>السَّبت</td><td>شنبه</td></tr>
 					<tr><td>الأحَد</td><td>یکشنبه</td></tr>
 					<tr><td>الإثنَین</td><td>دوشنبه</td></tr>
@@ -271,13 +342,13 @@ $(document).ready(function() {
 					<tr><td>الخَمیس</td><td>پنجشنبه</td></tr>
 					<tr><td>الجُمْعه</td><td>جمعه</td></tr>
 
-					<tr id="sesons" class="title"><td>فصول چهارگانه</td><td></td></tr>
+					<tr id="sesons" class="title"><td>فصول چهارگانه</td><td></td><span class="khat"/></tr>
 					<tr><td>الرَبیع</td><td>بهار</td></tr>
 					<tr><td>الصّیف</td><td>تابستان</td></tr>
 					<tr><td>الخریف</td><td>پاییز</td></tr>
 					<tr><td>الشتاء</td><td>زمستان</td></tr>
 
-					<tr id="relative" class="title"><td>خیشاوندی</td><td></td></tr>
+					<tr id="relative" class="title"><td>خیشاوندی</td><td></td><span class="khat"/></tr>
 					<tr><td>أب</td><td>پدر</td></tr>
 					<tr><td>أُمْ</td><td>مادر</td></tr>
 					<tr><td>أخ</td><td>برادر</td></tr>
@@ -315,7 +386,7 @@ $(document).ready(function() {
 					<tr><td>الأُسرة</td><td>خانواده</td></tr>
 					<tr><td>الأرحام</td><td>ارحام</td></tr>
 
-					<tr id="color" class="title"><td>رنگ</td><td></td></tr>
+					<tr id="color" class="title"><td>رنگ</td><td></td><span class="khat"/></tr>
 					<tr><td>أخضَر</td><td>سبز</td></tr>
 					<tr><td>أحمَر</td><td>قرمز</td></tr>
 					<tr><td>أصفَر</td><td>زرد</td></tr>
@@ -335,7 +406,7 @@ $(document).ready(function() {
 					<tr><td>فاتح</td><td>روشن</td></tr>
 					<tr><td>غامق</td><td>تیره</td></tr>
 
-					<tr id="number" class="title"><td>اعداد</td><td></td></tr>
+					<tr id="number" class="title"><td>اعداد</td><td></td><span class="khat"/></tr>
 					<tr><td>واحد</td><td>1</td></tr>
 					<tr><td>إثنین</td><td>2</td></tr>
 					<tr><td>ثلاثة</td><td>3</td></tr>
@@ -379,7 +450,7 @@ $(document).ready(function() {
 					<tr><td>ملایین</td><td>میلیونها</td></tr>
 					<tr><td>خمسین بالمأة</td><td>50%</td></tr>
 
-					<tr id="number-tarjib" class="title"><td>اعداد ترکیبی</td><td></td></tr>
+					<tr id="number-tarjib" class="title"><td>اعداد ترکیبی</td><td></td><span class="khat"/></tr>
 					<tr><td>الأول</td><td>یکُم</td></tr>
 					<tr><td>الثّانی</td><td>دوّم</td></tr>
 					<tr><td>الثّالث</td><td>سوُّم</td></tr>
@@ -393,7 +464,7 @@ $(document).ready(function() {
 					<tr><td>الحادی¬عشر</td><td>یازدهم</td></tr>
 					<tr><td>الثّانی¬عشر</td><td>دوازدهم</td></tr>
 
-					<tr id="number-kasr" class="title"><td>کسر اعداد</td><td></td></tr>
+					<tr id="number-kasr" class="title"><td>کسر اعداد</td><td></td><span class="khat"/></tr>
 					<tr><td>ضِعف</td><td>دوبرابر</td></tr>
 					<tr><td>نصف</td><td>نیم</td></tr>
 					<tr><td>ثُلث</td><td>یک¬سِوُم</td></tr>
@@ -403,7 +474,7 @@ $(document).ready(function() {
 					<tr><td>سُدس</td><td>یِک-شُشم</td></tr>
 					<tr><td>عُشر</td><td>یِک دَهُم</td></tr>
 
-					<tr id="body" class="title"><td>اعضای بدن</td><td></td></tr>
+					<tr id="body" class="title"><td>اعضای بدن</td><td></td><span class="khat"/></tr>
 					<tr><td>جسم</td><td>بدن</td></tr>
 					<tr><td>رأس</td><td>سر</td></tr>
 					<tr><td>شَعر</td><td>مو</td></tr>
@@ -447,7 +518,7 @@ $(document).ready(function() {
 					<tr><td>إفتح فمک</td><td>دهانت را باز کن</td></tr>
 					<tr><td>إسعل</td><td>سرفه کن</td></tr>
 
-					<tr id="bazar" class="title"><td>در بازار</td><td></td></tr>
+					<tr id="bazar" class="title"><td>در بازار</td><td></td><span class="khat"/></tr>
 					<tr><td>سُوق</td><td>بازار</td></tr>
 					<tr><td>بَدلَه	کُت¬و</td><td>شَلوار</td></tr>
 					<tr><td>قمیص</td><td>پیراهن</td></tr>
@@ -477,7 +548,7 @@ $(document).ready(function() {
 					<tr><td>ثِیاب</td><td>لباس</td></tr>
 					<tr><td>نَظَاره</td><td>عینک</td></tr>
 
-					<tr id="kharid" class="title"><td>خرید</td><td></td></tr>
+					<tr id="kharid" class="title"><td>خرید</td><td></td><span class="khat"/></tr>
 					<tr><td>بیع</td><td>فروش</td></tr>
 					<tr><td>شِراء</td><td>خرید</td></tr>
 					<tr><td>سِعر</td><td>نرخ</td></tr>
@@ -492,7 +563,7 @@ $(document).ready(function() {
 					<tr><td>إکرامیّة</td><td>انعام</td></tr>
 					<tr><td>تخفیضات</td><td>تخفیف</td></tr>
 
-					<tr id="restaurant" class="title"><td>رستوران</td><td></td></tr>
+					<tr id="restaurant" class="title"><td>رستوران</td><td></td><span class="khat"/></tr>
 					<tr><td>مَطعم</td><td>رستوران</td></tr>
 					<tr><td>لائحة-الطعام</td><td>لیست¬¬غذا</td></tr>
 					<tr><td>وَجبة-طعام</td><td>پُرس¬غذا</td></tr>
@@ -527,7 +598,7 @@ $(document).ready(function() {
 					<tr><td>ثَلاجة</td><td>یخچال</td></tr>
 					<tr><td>حَنَفیة</td><td>شیرِ آب</td></tr>
 
-					<tr id="fruit" class="title"><td>میوه</td><td></td></tr>
+					<tr id="fruit" class="title"><td>میوه</td><td></td><span class="khat"/></tr>
 					<tr><td>خُضرَه</td><td>سبزی</td></tr>
 					<tr><td>عنب</td><td>انگور</td></tr>
 					<tr><td>تُفَاح</td><td>سیب</td></tr>
@@ -556,7 +627,7 @@ $(document).ready(function() {
 					<tr><td>کزَبرة</td><td>گشنیز</td></tr>
 					<tr><td>سِمسِم</td><td>کنجد</td></tr>
 
-					<tr id="animal" class="title"><td>حیوانات</td><td></td></tr>
+					<tr id="animal" class="title"><td>حیوانات</td><td></td><span class="khat"/></tr>
 					<tr><td>أسد</td><td>شیر</td></tr>
 					<tr><td>بقرة</td><td>گاو ماده</td></tr>
 					<tr><td>ثُعبان</td><td>مار</td></tr>
@@ -572,7 +643,7 @@ $(document).ready(function() {
 					<tr><td>نحلة</td><td>زنبورعسل</td></tr>
 					<tr><td>نملة</td><td>مورچه</td></tr>
 
-					<tr id="post" class="title"><td>پست</td><td></td></tr>
+					<tr id="post" class="title"><td>پست</td><td></td><span class="khat"/></tr>
 					<tr><td>رسالة</td><td>نامه</td></tr>
 					<tr><td>طابع¬برید</td><td>تمبر</td></tr>
 					<tr><td>بریدسریع</td><td>پیشتاز</td></tr>
@@ -580,7 +651,7 @@ $(document).ready(function() {
 					<tr><td>المُرسل</td><td>فرستنده</td></tr>
 					<tr><td>المرسَل¬إلیه</td><td>گیرنده</td></tr>
 
-					<tr id="masjed" class="title"><td>در حرم و مسجد</td><td></td></tr>
+					<tr id="masjed" class="title"><td>در حرم و مسجد</td><td></td><span class="khat"/></tr>
 					<tr><td>جامع،مصلّی</td><td>مسجد</td></tr>
 					<tr><td>صلاة قصر</td><td>نمازشکسته</td></tr>
 					<tr><td>تِجاهَ-القبلة</td><td>روبه قبله</td></tr>
@@ -593,7 +664,7 @@ $(document).ready(function() {
 					<tr><td>جهر</td><td>صدای¬بلند</td></tr>
 					<tr><td>إخفات</td><td>صدای¬آهسته</td></tr>
 
-					<tr id="city" class="title"><td>در شهر</td><td></td></tr>
+					<tr id="city" class="title"><td>در شهر</td><td></td><span class="khat"/></tr>
 					<tr><td>بَلَد</td><td>کشور</td></tr>
 					<tr><td>مُحافَظَة</td><td>استان</td></tr>
 					<tr><td>مَدینة</td><td>شهرستان</td></tr>
@@ -604,7 +675,7 @@ $(document).ready(function() {
 					<tr><td>مُستَشفی</td><td>بیمارستان</td></tr>
 					<tr><td>مُستوصف</td><td>درمانگاه</td></tr>
 
-					<tr id="hotel" class="title"><td>هتل</td><td></td></tr>
+					<tr id="hotel" class="title"><td>هتل</td><td></td><span class="khat"/></tr>
 					<tr><td>فُندُق</td><td>هتل</td></tr>
 					<tr><td>عِمارَة</td><td>ساختمان</td></tr>
 					<tr><td>باب</td><td>در</td></tr>
@@ -647,7 +718,7 @@ $(document).ready(function() {
 					<tr><td>خربان</td><td>خراب</td></tr>
 					<tr><td>إستماره</td><td>فرم</td></tr>
 
-					<tr id="safar" class="title"><td>سفر</td><td></td></tr>
+					<tr id="safar" class="title"><td>سفر</td><td></td><span class="khat"/></tr>
 					<tr><td>ذهاب</td><td>رفت</td></tr>
 					<tr><td>إیاب</td><td>برگشت</td></tr>
 					<tr><td>سَیّارة</td><td>اتومبیل</td></tr>
@@ -691,7 +762,7 @@ $(document).ready(function() {
 					<tr><td>باب-القدام</td><td>در جلو</td></tr>
 					<tr><td>باب-الخلفی</td><td>در عقب</td></tr>
 
-					<tr id="politic" class="title"><td>سیاست</td><td></td></tr>
+					<tr id="politic" class="title"><td>سیاست</td><td></td><span class="khat"/></tr>
 					<tr><td>شعار</td><td>آرم</td></tr>
 					<tr><td>إحصاء</td><td>شمردن</td></tr>
 					<tr><td>أنباء</td><td>اخبار</td></tr>
