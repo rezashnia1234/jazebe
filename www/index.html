@@ -46,7 +46,7 @@
 			//downloadPath = "/android_asset/www/" + "/download.mp3";
 			downloadPath = "cdvfile://localhost/persistent/" + "/download.mp3";
 		}
-
+		
 		ft.onprogress = function(progressEvent) {
 			if (progressEvent.lengthComputable) {
 				var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
@@ -69,7 +69,9 @@
 			}
 			else
 			{
-				downloadPath = "/android_asset/www/" + "/download.mp3";
+				//downloadPath = "/android_asset/www/" + "/download.mp3";
+				downloadPath = entry.fullPath;
+				alert(JSON.stringify(entry));
 				//downloadPath = "cdvfile://localhost/persistent/" + "/download.mp3";
 			}
 			var media = new Media(downloadPath, null, function(e) { alert(JSON.stringify(e));});
