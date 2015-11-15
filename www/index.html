@@ -42,6 +42,7 @@
 		
 		alert("2:" + fileSystem.root.fullPath);
 		var downloadPath = fileSystem.root.fullPath + "/download.mp3";
+		downloadPath = "cdvfile://localhost/persistent/" + "/download.mp3";
 
 		ft.onprogress = function(progressEvent) {
 			if (progressEvent.lengthComputable) {
