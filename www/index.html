@@ -5,8 +5,10 @@
         <meta name = "format-detection" content = "telephone=no"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <title>FileTransfer Test</title>
+		<script src="phonegap.js"></script>
 <script>
 	function init() {
+		alert("init");
 		document.addEventListener("deviceready", onDeviceReady, false);
 	}
 	
@@ -88,8 +90,6 @@
         </div>
 		
 	<div id="status"></div>
-        
-		<script src="phonegap.js"></script>
-        <script type="text/javascript" src="js/index.js"></script>
+       
     </body>
 </html>
