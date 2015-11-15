@@ -114,6 +114,11 @@
 
 	
 	<access origin="*"/> <!-- allow local pages -->
+	<access origin="http://archive.org" subdomains="true" />
+	<allow-navigation href="http://*/*" />
+	<allow-navigation href="https://*/*" />
+	<allow-intent href="http://*/*" />
+	<allow-intent href="https://*/*" />
 	
 
 </widget>
