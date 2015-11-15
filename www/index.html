@@ -5,20 +5,19 @@
         <meta name = "format-detection" content = "telephone=no"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <title>FileTransfer Test</title>
+		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="phonegap.js"></script>
 <script>
-	function init() {
-		alert("init");
-		document.addEventListener("deviceready", onDeviceReady, false);
-	}
-	
-
 	var buttomDom;
 	var statusDom;
 	var fileSystem;
-
+	
+	function init() {
+		$('#status').html("Start");
+		document.addEventListener("deviceready", onDeviceReady, false);
+	}
+	
 	function onDeviceReady() {
-		alert('dv ready');
 	  
 		//step one is to request a file system	
 		window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, 
@@ -29,7 +28,6 @@
 				buttonDom.addEventListener('touchend', startDl, false);
 				buttonDom.removeAttribute("disabled");
 		
-				statusDom = document.querySelector('#status');
 			}, function(e) {
 				alert('failed to get fs');
 				alert(JSON.stringify(e));
@@ -37,7 +35,6 @@
 	}
 
 	function startDl() {
-		alert("startDl");
 		buttonDom.setAttribute("disabled","disabled");
 		
 		var ft = new FileTransfer();
@@ -49,13 +46,13 @@
 		ft.onprogress = function(progressEvent) {
 			if (progressEvent.lengthComputable) {
 				var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
-				statusDom.innerHTML = perc + "% loaded...";
+				$('#status').html(perc + "% loaded...");
 			} else {
-				if(statusDom.innerHTML == "") {
-					statusDom.innerHTML = "Loading";
-				} else {
-					statusDom.innerHTML += ".";
-				}
+				//if(statusDom.innerHTML == "") {
+				//	$('#status').html("Loading");
+				//} else {
+					$('#status').html($('#status').html() + ".");
+				//}
 			}
 		};
 							
@@ -63,13 +60,14 @@
 		function(entry) {
 			alert("3");
 			
-			statusDom.innerHTML = "";
+			$('#status').html("done");
 			var media = new Media(entry.fullPath, null, function(e) { alert(JSON.stringify(e));});
 			media.play();
 			
 		}, 
 		function(error) {
 			alert('Crap something went wrong...');	
+			alert(JSON.stringify(error));
 		});
 			
 		
@@ -89,7 +87,6 @@
             </p>
         </div>
 		
-	<div id="status">00000000000</div>
-       
+		<div id="status">status....</div>
     </body>
 </html>
