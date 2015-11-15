@@ -115,7 +115,5 @@
 	
 	<access origin="*"/> <!-- allow local pages -->
 	
-	
-	
 
 </widget>

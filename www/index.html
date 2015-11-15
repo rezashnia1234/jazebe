@@ -61,27 +61,29 @@
 		};
 							
 		ft.download(uri, downloadPath, 
-		function(entry) {	
-			$('#status').html("done");
-			if ( device.platform == 'iOS' ){//Android,iOS,win7=WinCE,win8=Win32NT
-				//downloadPath = "/android_asset/www/" + "/download.mp3";
-				downloadPath = "cdvfile://localhost/persistent/" + "/download.mp3";
-			}
-			else
-			{
-				//downloadPath = "/android_asset/www/" + "/download.mp3";
-				downloadPath = entry.fullPath;
-				alert(JSON.stringify(entry));
-				//downloadPath = "cdvfile://localhost/persistent/" + "/download.mp3";
-			}
-			var media = new Media(downloadPath, null, function(e) { alert(JSON.stringify(e));});
-			media.play();
-			
-		}, 
-		function(error) {
-			alert('Crap something went wrong...');	
-			alert(JSON.stringify(error));
-		});
+			function(entry) {	
+				$('#status').html("done");
+				if ( device.platform == 'iOS' ){//Android,iOS,win7=WinCE,win8=Win32NT
+					//downloadPath = "/android_asset/www/" + "/download.mp3";
+					downloadPath = "cdvfile://localhost/persistent/" + "/download.mp3";
+				}
+				else
+				{
+					//downloadPath = "/android_asset/www/" + "/download.mp3";
+					downloadPath = entry.fullPath;
+					alert(JSON.stringify(entry));
+					//downloadPath = "cdvfile://localhost/persistent/" + "/download.mp3";
+				}
+				var media = new Media(downloadPath, null, function(e) { alert(JSON.stringify(e));});
+				media.play();
+				
+			}, 
+			function(error) {
+				alert('Crap something went wrong...');	
+				alert(JSON.stringify(error));
+			},
+			true
+		);
 			
 		
 	}
