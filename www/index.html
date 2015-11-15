@@ -6,17 +6,20 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1">
         <title>FileTransfer Test</title>
 		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/console.log.js"></script>
 		<script src="js/jquery.md5.js"></script>
 		<script src="phonegap.js"></script>
 <script>
 
 	function init() {
+		console.log("init");
 		$('#status').html("Start");
 		//alert($.md5 (" String str  d"));
 		document.addEventListener("deviceready", onDeviceReady, false);
 	}
 	
 	function onDeviceReady() {
+		console.log("onDeviceReady");
 		if(window.localStorage.getItem('downloaded_files') == null){
 			window.localStorage.setItem('downloaded_files',JSON.stringify(["786","110"]));	
 		}
@@ -36,6 +39,9 @@
 			}
 			window.localStorage.setItem('download_address',downloadPath);
 		}
+		
+		console.log("window.localStorage.getItem('downloaded_files'):" + window.localStorage.getItem('downloaded_files'));
+		console.log("window.localStorage.getItem('downloaded_files'):" + window.localStorage.getItem('downloaded_files'));
 
 	}
 
@@ -44,21 +50,28 @@
 	
 	
 	function check_download(URL) {
+		console.log("check_download");
 		var temp_array = JSON.parse(window.localStorage.getItem('downloaded_files'));
 		if($.inArray($.md5(URL),temp_array) != -1)
 		{
+			console.log("check_download true");
 			return true;
 		}
 		else
 		{
+			console.log("check_download false");
 			return false;
 		}
 	}
 	
 	function start_download(URL,Extension) {
+		console.log("start_download");
+		
 		var FileTransfer = new FileTransfer();
 		var uri = encodeURI(URL);
 		downloadPath = window.localStorage.getItem('download_address') + $.md5(URL) + "." + Extension;
+		
+		console.log("start_download : " + downloadPath);
 		
 		FileTransfer.onprogress = function(progressEvent) {
 			if (progressEvent.lengthComputable) {
@@ -68,11 +81,11 @@
 				$('#status').html($('#status').html() + ".");
 			}
 		};
-							
+		
 		FileTransfer.download(uri, downloadPath, 
 			function(entry) {	
 				$('#status').html("done");
-				
+				console.log("start_download : done");
 				temp_array = JSON.parse(window.localStorage.getItem('downloaded_files'));
 				temp_array.push($.md5(URL));
 				window.localStorage.setItem('downloaded_files',JSON.stringify(temp_array));			
@@ -86,14 +99,18 @@
 	}
 	
 	function play_or_download(URL,Extension) {
+		console.log("play_or_download : ");
 		downloadPath = window.localStorage.getItem('download_address') + $.md5(URL) + "." + Extension;
+		console.log("play_or_download : " + downloadPath);
 		if(check_download(URL))
 		{
+			console.log("play_or_download : check_download");
 			var media = new Media(downloadPath, null, function(e) { alert(JSON.stringify(e));});
 			media.play();
 		}
 		else
 		{
+			console.log("play_or_download : start_download");
 			start_download(URL,Extension);
 		}
 	}
@@ -110,10 +127,12 @@
 
 			
             <p>
-            <button id="startDl" onclick="play_or_download('http://dlsmgroup.ir/temp/salameee.mp3,'mp3');" >Click to Download and Play</button>
+            <button id="startDl" onclick="console.log('clicked on play_or_download');play_or_download('http://dlsmgroup.ir/temp/salameee.mp3,'mp3');" >Click to Download and Play</button>
             </p>
         </div>
 		
 		<div id="status">status....</div>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
     </body>
 </html>
