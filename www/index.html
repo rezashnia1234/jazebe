@@ -38,12 +38,7 @@
 				}
 			);
 		}
-		if (device.platform == 'iOS')
-		{
-			downloadPath = "cdvfile://localhost/persistent/";
-			window.localStorage.setItem('download_address',downloadPath);
-		}
-		
+
 		console.log("window.localStorage.getItem('download_address'):" + window.localStorage.getItem('download_address'));
 		console.log("window.localStorage.getItem('downloaded_files'):" + window.localStorage.getItem('downloaded_files'));
 
@@ -52,6 +47,12 @@
 		console.log("play_or_download URL: " + URL);
 		console.log("play_or_download Extension: " + Extension);
 
+		if (device.platform == 'iOS')
+		{
+			downloadPath = "cdvfile://localhost/persistent/";
+			window.localStorage.setItem('download_address',downloadPath);
+		}
+		
 		downloadPath = window.localStorage.getItem('download_address') + $.md5(URL) + "." + Extension;
 		console.log("play_or_download : " + downloadPath);
 		if(check_download(URL))
@@ -75,7 +76,13 @@
 		
 		var FileTransfer_OBJ = new FileTransfer();
 		var uri = encodeURI(URL);
-
+		
+		if (device.platform == 'iOS')
+		{
+			downloadPath = "cdvfile://localhost/persistent/";
+			window.localStorage.setItem('download_address',downloadPath);
+		}
+		
 		downloadPath = window.localStorage.getItem('download_address') + $.md5(URL) + "." + Extension;
 		console.log("start_download : " + downloadPath);
 		
