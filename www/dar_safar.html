@@ -110,6 +110,13 @@
 		html{
 			background-color: #cfcfcf;
 		}
+		.slider_back_page_btn{
+			width:130px;
+			position:fixed;
+			top:0;
+			left:0;
+			z-index:9999999;
+		}
 	</style>
 </head>
 <body onload="init();" style="background-color:#cfcfcf;text-align:center;overflow:hidden;width:100%;">
@@ -226,6 +233,9 @@
 				<a href="#" class="slidesjs-previous slidesjs-navigation"><i class="icon-chevron-left icon-large"></i></a>
 				<a href="#" class="slidesjs-next slidesjs-navigation"><i class="icon-chevron-right icon-large"></i></a>
 			</div>
+			
+			<div class="slider_back_page_btn" onclick="parent.history.back();"><img src="images/slider/back-btn.png" style="width:100%;" ></div>
+
 		</div>
 </body>
 </html>
