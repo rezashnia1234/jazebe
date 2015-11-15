@@ -21,9 +21,22 @@
     <script src="js/jquery.slides.min.js"></script>
 	
 	<script>
+		function isHighDensity(){
+			return ((window.matchMedia && (window.matchMedia('only screen and (min-resolution: 124dpi), only screen and (min-resolution: 1.3dppx), only screen and (min-resolution: 48.8dpcm)').matches || window.matchMedia('only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 2.6/2), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3)').matches)) || (window.devicePixelRatio && window.devicePixelRatio > 1.3));
+		}
+		function isRetina(){
+			return ((window.matchMedia && (window.matchMedia('only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx), only screen and (min-resolution: 75.6dpcm)').matches || window.matchMedia('only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)').matches)) || (window.devicePixelRatio && window.devicePixelRatio >= 2)) && /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
+		}
+		
 		function init() {		
 			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
 			document.addEventListener("deviceready", onDeviceReady, false);
+			if(isHighDensity() || isRetina())
+			{
+				$('.silde_frame_image').each( function(i) {
+					$(this).attr('src', $(this).attr('retina')		);
+				});
+			}
 			$("#slides").slidesjs({
 				width: 400,
 				//height: 400,
@@ -148,17 +161,8 @@
 	نائب الزیاره
 -->
 			<div id="slides">
-				<div class="silde_frame slide5th" >
-					<img src="images/slider/gh05.jpg" style="width:100%;" onclick="window.location.href='momenane.html';" />
-					<div class="slide_navigator">
-						<div class="slide_navigator_bg"></div>
-						<div class="slide_navigator_next slidesjs-next">پیشینه <img src="images/slider/next-btn.png"></div>
-						<div class="slide_navigator_link" onclick="window.location.href='momenane.html';"  >مومنانه</div>
-						<div class="slide_navigator_previous slidesjs-previous">آداب و احکام <img src="images/slider/previous-btn.png"></div>
-					</div>
-				</div>
 				<div class="silde_frame slide1th" >
-					<img src="images/slider/gh01.jpg" style="width:100%;" onclick="window.location.href='pishine.html';" />
+					<img src="images/slider/gh01.jpg" class="silde_frame_image" style="width:100%;" onclick="window.location.href='pishine.html';" />
 					<div class="slide_navigator">
 						<div class="slide_navigator_bg"></div>
 						<div class="slide_navigator_next slidesjs-next">فضیلت زیارت <img src="images/slider/next-btn.png"></div>
@@ -167,7 +171,7 @@
 					</div>
 				</div>
 				<div class="silde_frame slide2th" >
-					<img src="images/slider/gh02.jpg" style="width:100%;" onclick="window.location.href='fazilate_ziyarat.html';" />
+					<img src="images/slider/gh02.jpg" class="silde_frame_image" style="width:100%;" onclick="window.location.href='fazilate_ziyarat.html';" />
 					<div class="slide_navigator">
 						<div class="slide_navigator_bg"></div>
 						<div class="slide_navigator_next slidesjs-next">کوله پشتی <img src="images/slider/next-btn.png"></div>
@@ -176,7 +180,7 @@
 					</div>
 				</div>
 				<div class="silde_frame slide3th" >
-					<img src="images/slider/gh03.jpg" style="width:100%;" onclick="window.location.href='kuleposhti.html';" />
+					<img src="images/slider/gh03.jpg" class="silde_frame_image" style="width:100%;" onclick="window.location.href='kuleposhti.html';" />
 					<div class="slide_navigator">
 						<div class="slide_navigator_bg"></div>
 						<div class="slide_navigator_next slidesjs-next">آداب و احکام <img src="images/slider/next-btn.png"></div>
@@ -185,12 +189,21 @@
 					</div>
 				</div>
 				<div class="silde_frame slide4th" >
-					<img src="images/slider/gh04.jpg" style="width:100%;" onclick="window.location.href='adab_ahkam.html';" />
+					<img src="images/slider/gh04.jpg" class="silde_frame_image" style="width:100%;" onclick="window.location.href='adab_ahkam.html';" />
 					<div class="slide_navigator">
 						<div class="slide_navigator_bg"></div>
 						<div class="slide_navigator_next slidesjs-next">مومنانه <img src="images/slider/next-btn.png"></div>
 						<div class="slide_navigator_link" onclick="window.location.href='adab_ahkam.html';"  >آداب و احکام</div>
 						<div class="slide_navigator_previous slidesjs-previous">کوله پشتی <img src="images/slider/previous-btn.png"></div>
+					</div>
+				</div>
+				<div class="silde_frame slide5th" >
+					<img src="images/slider/gh05.jpg" class="silde_frame_image" style="width:100%;" onclick="window.location.href='momenane.html';" />
+					<div class="slide_navigator">
+						<div class="slide_navigator_bg"></div>
+						<div class="slide_navigator_next slidesjs-next">پیشینه <img src="images/slider/next-btn.png"></div>
+						<div class="slide_navigator_link" onclick="window.location.href='momenane.html';"  >مومنانه</div>
+						<div class="slide_navigator_previous slidesjs-previous">آداب و احکام <img src="images/slider/previous-btn.png"></div>
 					</div>
 				</div>
 				<a href="#" class="slidesjs-previous slidesjs-navigation"><i class="icon-chevron-left icon-large"></i></a>
