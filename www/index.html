@@ -45,7 +45,24 @@
 		console.log("window.localStorage.getItem('downloaded_files'):" + window.localStorage.getItem('downloaded_files'));
 
 	}
-
+	function play_or_download(URL,Extension) {
+		console.log("play_or_download : ");
+		/*
+		downloadPath = window.localStorage.getItem('download_address') + $.md5(URL) + "." + Extension;
+		console.log("play_or_download : " + downloadPath);
+		if(check_download(URL))
+		{
+			console.log("play_or_download : check_download");
+			var media = new Media(downloadPath, null, function(e) { alert(JSON.stringify(e));});
+			media.play();
+		}
+		else
+		{
+			console.log("play_or_download : start_download");
+			start_download(URL,Extension);
+		}
+		*/
+	}
 	
 	
 	
@@ -99,22 +116,7 @@
 		);
 	}
 	
-	function play_or_download(URL,Extension) {
-		console.log("play_or_download : ");
-		downloadPath = window.localStorage.getItem('download_address') + $.md5(URL) + "." + Extension;
-		console.log("play_or_download : " + downloadPath);
-		if(check_download(URL))
-		{
-			console.log("play_or_download : check_download");
-			var media = new Media(downloadPath, null, function(e) { alert(JSON.stringify(e));});
-			media.play();
-		}
-		else
-		{
-			console.log("play_or_download : start_download");
-			start_download(URL,Extension);
-		}
-	}
+
 	
 	
 </script>
