@@ -37,11 +37,11 @@
 					alert(JSON.stringify(e));
 				}
 			);
-			if (device.platform == 'iOS')
-			{
-				downloadPath = "cdvfile://localhost/persistent/";
-				window.localStorage.setItem('download_address',downloadPath);
-			}
+		}
+		if (device.platform == 'iOS')
+		{
+			downloadPath = "cdvfile://localhost/persistent/";
+			window.localStorage.setItem('download_address',downloadPath);
 		}
 		
 		console.log("window.localStorage.getItem('download_address'):" + window.localStorage.getItem('download_address'));
