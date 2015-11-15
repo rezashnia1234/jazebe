@@ -20,10 +20,16 @@
 	
 	function onDeviceReady() {
 		console.log("onDeviceReady");
+		
 		if(window.localStorage.getItem('downloaded_files') == null){
+			console.log("onDeviceReady 0000000000000000");
 			window.localStorage.setItem('downloaded_files',JSON.stringify(["786","110"]));	
 		}
+		
+		console.log("onDeviceReady 1111111");
+		
 		if(window.localStorage.getItem('download_address') == null){
+			console.log("onDeviceReady 22222222222");
 			var fileSystem;
 			window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, 
 				function(fs) {
@@ -32,15 +38,17 @@
 					alert('failed to get fs');
 					alert(JSON.stringify(e));
 				}
-			);		
+			);
+			console.log("onDeviceReady 333333333333");
 			var download_address = fileSystem.root.toURL() + "/";
 			if ( device.platform == 'iOS' ){//Android,iOS,win7=WinCE,win8=Win32NT
+				console.log("onDeviceReady 444444444444444");
 				downloadPath = "cdvfile://localhost/persistent/";
 			}
 			window.localStorage.setItem('download_address',downloadPath);
 		}
 		
-		console.log("window.localStorage.getItem('downloaded_files'):" + window.localStorage.getItem('downloaded_files'));
+		console.log("window.localStorage.getItem('download_address'):" + window.localStorage.getItem('download_address'));
 		console.log("window.localStorage.getItem('downloaded_files'):" + window.localStorage.getItem('downloaded_files'));
 
 	}
