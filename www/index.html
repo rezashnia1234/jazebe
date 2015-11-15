@@ -41,6 +41,7 @@
 		var uri = encodeURI("http://archive.org/download/Kansas_Joe_Memphis_Minnie-When_Levee_Breaks/Kansas_Joe_and_Memphis_Minnie-When_the_Levee_Breaks.mp3");
 		
 		var downloadPath = fileSystem.root.fullPath + "/download.mp3";
+		downloadPath = fileSystem.root.toURL() + "/download.mp3";
 		
 		if ( device.platform == 'iOS' ){//Android,iOS,win7=WinCE,win8=Win32NT
 			//downloadPath = "/android_asset/www/" + "/download.mp3";
