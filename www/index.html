@@ -15,6 +15,8 @@
 		$('#status').html("Start");
 		//alert($.md5 (" String str  d"));
 		document.addEventListener("deviceready", onDeviceReady, false);
+		
+		//onDeviceReady();
 	}
 	
 	function onDeviceReady() {
@@ -46,8 +48,9 @@
 
 	}
 	function play_or_download(URL,Extension) {
-		console.log("play_or_download : ");
-		/*
+		console.log("play_or_download URL: " + URL);
+		console.log("play_or_download Extension: " + Extension);
+
 		downloadPath = window.localStorage.getItem('download_address') + $.md5(URL) + "." + Extension;
 		console.log("play_or_download : " + downloadPath);
 		if(check_download(URL))
@@ -61,29 +64,13 @@
 			console.log("play_or_download : start_download");
 			start_download(URL,Extension);
 		}
-		*/
 	}
 	
 	
-	
-	
-	function check_download(URL) {
-		console.log("check_download");
-		var temp_array = JSON.parse(window.localStorage.getItem('downloaded_files'));
-		if($.inArray($.md5(URL),temp_array) != -1)
-		{
-			console.log("check_download true");
-			return true;
-		}
-		else
-		{
-			console.log("check_download false");
-			return false;
-		}
-	}
 	
 	function start_download(URL,Extension) {
-		console.log("start_download");
+		console.log("start_download URL: " + URL);
+		console.log("start_download Extension: " + Extension);
 		
 		var FileTransfer = new FileTransfer();
 		var uri = encodeURI(URL);
@@ -116,7 +103,21 @@
 		);
 	}
 	
-
+	function check_download(URL) {
+		console.log("check_download URL: " + URL);
+		var temp_array = JSON.parse(window.localStorage.getItem('downloaded_files'));
+		console.log("check_download Extension: " + window.localStorage.getItem('downloaded_files'));
+		if($.inArray($.md5(URL),temp_array) != -1)
+		{
+			console.log("check_download true");
+			return true;
+		}
+		else
+		{
+			console.log("check_download false");
+			return false;
+		}
+	}
 	
 	
 </script>
@@ -130,7 +131,7 @@
 
 			
             <p>
-            <button id="startDl" onclick="play_or_download('http://dlsmgroup.ir/temp/salameee.mp3,'mp3');" >Click to Download and Play</button>
+            <button id="startDl" onclick="play_or_download('http://dlsmgroup.ir/temp/salameee.mp3','mp3');" >Click to Download and Play</button>
             <button id="startDl" onclick="console.log('clicked on 22222222222222222222');" >Click to 22222222</button>
             </p>
         </div>
