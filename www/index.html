@@ -23,7 +23,7 @@
 		window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, 
 			function(fs) {
 				fileSystem = fs;
-				alert("1:" + fileSystem.root.fullPath);
+				//alert("1:" + fileSystem.root.fullPath);
 				buttonDom = document.querySelector('#startDl');
 				buttonDom.addEventListener('touchend', startDl, false);
 				buttonDom.removeAttribute("disabled");
@@ -40,8 +40,8 @@
 		var ft = new FileTransfer();
 		var uri = encodeURI("http://archive.org/download/Kansas_Joe_Memphis_Minnie-When_Levee_Breaks/Kansas_Joe_and_Memphis_Minnie-When_the_Levee_Breaks.mp3");
 		
-		alert("2:" + fileSystem.root.fullPath);
 		var downloadPath = fileSystem.root.fullPath + "/download.mp3";
+		
 		if ( device.platform == 'iOS' ){//Android,iOS,win7=WinCE,win8=Win32NT
 			//downloadPath = "/android_asset/www/" + "/download.mp3";
 			downloadPath = "cdvfile://localhost/persistent/" + "/download.mp3";
@@ -63,6 +63,7 @@
 		ft.download(uri, downloadPath, 
 			function(entry) {	
 				$('#status').html("done");
+/*
 				if ( device.platform == 'iOS' ){//Android,iOS,win7=WinCE,win8=Win32NT
 					//downloadPath = "/android_asset/www/" + "/download.mp3";
 					downloadPath = "cdvfile://localhost/persistent/" + "/download.mp3";
@@ -76,7 +77,7 @@
 				}
 				var media = new Media(downloadPath, null, function(e) { alert(JSON.stringify(e));});
 				media.play();
-				
+*/
 			}, 
 			function(error) {
 				alert('Crap something went wrong...');	

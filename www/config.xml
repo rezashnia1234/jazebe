@@ -18,7 +18,7 @@
 
     <!-- Customize your app and platform with the preference element. -->
 	<preference name='phonegap-version'			  value='cli-5.2.0' />
-    <preference name="orientation"                value="portrait" />        <!-- all: default means both landscape and portrait are enabled -->
+    <preference name="orientation"                value="portrait" />       <!-- all: default means both landscape and portrait are enabled -->
     <preference name="target-device"              value="universal" />      <!-- all: possible values handset, tablet, or universal -->
     <preference name="fullscreen"                 value="true" />           <!-- all: hides the status bar at the top of the screen -->
     <preference name="prerendered-icon"           value="true" />           <!-- ios: if icon is prerendered, iOS will not apply it's gloss to the app's icon on the user's home screen -->
@@ -49,7 +49,7 @@
     <gap:plugin name="org.apache.cordova.device-orientation" source="npm"  />
     <gap:plugin name="org.apache.cordova.dialogs" source="npm"  />
     <gap:plugin name="org.apache.cordova.file" source="npm"  />
-    <gap:plugin name="org.apache.cordova.file-transfer" source="npm"  />
+    <gap:plugin name="apache.cordova.file-transfer" source="npm"  />
     <gap:plugin name="org.apache.cordova.geolocation" source="npm"  />
     <!--<gap:plugin name="org.apache.cordova.globalization" source="npm"  />-->
     <gap:plugin name="org.apache.cordova.inappbrowser" source="npm"  />
@@ -114,11 +114,6 @@
 
 	
 	<access origin="*"/> <!-- allow local pages -->
-	<access origin="http://archive.org" subdomains="true" />
-	<allow-navigation href="http://*/*" />
-	<allow-navigation href="https://*/*" />
-	<allow-intent href="http://*/*" />
-	<allow-intent href="https://*/*" />
-	
+
 
 </widget>
