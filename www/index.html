@@ -10,7 +10,7 @@
 		<script src="js/jquery.md5.js"></script>
 		<script src="phonegap.js"></script>
 <script>
-
+	var fileSystem;
 	function init() {
 		console.log("init");
 		$('#status').html("Start");
@@ -30,7 +30,7 @@
 		
 		if(window.localStorage.getItem('download_address') == null){
 			console.log("onDeviceReady 22222222222");
-			var fileSystem;
+			
 			window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, 
 				function(fs) {
 					fileSystem = fs;
@@ -39,10 +39,14 @@
 					alert(JSON.stringify(e));
 				}
 			);
+			console.log(device.platform);
 			console.log("onDeviceReady 333333333333");
-			var download_address = fileSystem.root.toURL() + "/";
-			if ( device.platform == 'iOS' ){//Android,iOS,win7=WinCE,win8=Win32NT
-				console.log("onDeviceReady 444444444444444");
+			console.log("onDeviceReady 4444444444" + fileSystem.root.toURL());
+			download_address = fileSystem.root.toURL() + "/";
+			console.log("onDeviceReady 555555555" + download_address);
+			if (device.platform == 'iOS')
+			{
+				console.log("onDeviceReady 666666666666");
 				downloadPath = "cdvfile://localhost/persistent/";
 			}
 			window.localStorage.setItem('download_address',downloadPath);
