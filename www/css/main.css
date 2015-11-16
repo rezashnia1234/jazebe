@@ -277,6 +277,7 @@ input[type=range]:focus::-ms-fill-upper {
     cursor: pointer;
     bottom: 0;
     top: -6px;
+	z-index:999999;
 }
 #header-text {
   position: absolute;
@@ -290,7 +291,7 @@ input[type=range]:focus::-ms-fill-upper {
   float:right;
 }
 #header-text-2th {
- color: white;
+	color: white;
     float: right;
     font-size: 21px;
     right: 8px;
@@ -300,6 +301,7 @@ input[type=range]:focus::-ms-fill-upper {
     padding: 0 8px;
     width: auto;
     margin-top: -3px;
+	direction:rtl;
 }
 #header-text-3th{
   background: transparent url("../images/header-text-3th.png") no-repeat scroll right 0 / auto 86px;

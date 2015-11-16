@@ -5,6 +5,7 @@ z-index:100000
 div#header-text-2th {
     width: 100% !important;
     text-align: center !important;
+	direction:ltr !important;
 }
 .doa_text {
     direction: ltr !important;
