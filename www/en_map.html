@@ -956,18 +956,18 @@ L.marker([32.6104754,44.03110044], {icon: hotel_icon}).bindPopup('Zoyoof Rahman'
 	var baseLayers = {};
 
 	var overlays = {
-		"نقاط مورد علاقه": favorites,
-		"مکان های زیارتی": ziyarati,
+		"Favorite Points": favorites,
+		"Holy Places": ziyarati,
 		//"بیمارستان ها": bimarestan,
-		"مراکز درمانی": darmani,
+		"Health Service": darmani,
 		//"موکب ، حسینیه": mukeb,//0000000000000000000000000000000000000000
-		"موکب های در اختیار ایرانی ها": mukeb_irani,
-		"ایست و بازرسی": bazresi,
-		"هتل ها": hotel,
-		"عمود ها": amud,
-		"حمل و نقل": transport,
-		"محل های گمشدگان":lost,
-		"کنسولگری":console,
+		//"موکب های در اختیار ایرانی ها": mukeb_irani,
+		"Check Points": bazresi,
+		"Hotel": hotel,
+		"Pillars": amud,
+		"Transportation": transport,
+		"Lost & Found":lost,
+		//"کنسولگری":console,
 	};
 
 	L.control.layers(baseLayers, overlays).addTo(map);
