@@ -362,9 +362,9 @@ $(document).ready(function() {
 			$(".index_menu").css("margin-top",(($(window).height() - $(".index_bg").height())/2)*0.8	);
 			$(".mypreload").html("");
 			navigator.notification.confirm(
-				'', // message
+				'لطفا زبان مورد نظر خود را انتخاب نمایید \nPlease Select Your Language', // message
 				 onConfirm,            // callback to invoke with index of button pressed
-				'لطفا زبان مورد نظر خود را انتخاب نمایید \nPlease Select Your Language',           // title
+				'',           // title
 				['English','فارسی']         // buttonLabels
 			);
 			function onConfirm(buttonIndex) {

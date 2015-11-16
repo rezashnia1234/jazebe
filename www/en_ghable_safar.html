@@ -98,7 +98,7 @@
 			FastClick.attach(document.body);
 			
 			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
-				document.addEventListener("backbutton", go_back, false);
+				document.addEventListener("backbutton", go_back_to_index, false);
 			}
 
 		}
@@ -194,7 +194,7 @@
 				<a href="#" class="slidesjs-next slidesjs-navigation"><i class="icon-chevron-right icon-large"></i></a>
 			</div>
 			
-			<div class="slider_back_page_btn" onclick="parent.history.back();"><img src="images/slider/back-btn.png" style="width:100%;" ></div>
+			<div class="slider_back_page_btn" onclick="window.location.href = 'index.html';"><img src="images/slider/back-btn.png" style="width:100%;" ></div>
 
 		</div>
 </body>

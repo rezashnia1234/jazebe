@@ -13,6 +13,10 @@
 			parent.history.back();
 		}
 	}
+	function go_back_to_dar_safar() {
+		window.sessionStorage.setItem('go_to_first',"false");
+		window.location.href = "dar_safar.html";
+	}
 	function go_back_to_index() {
 		window.sessionStorage.setItem('go_to_first',"false");
 		window.location.href = "index.html";

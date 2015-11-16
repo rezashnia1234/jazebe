@@ -1,0 +1,86 @@
+﻿#back-btn{
+z-index:100000
+
+}
+div#header-text-2th {
+    width: 100% !important;
+    text-align: center !important;
+}
+.doa_text {
+    direction: ltr !important;
+}
+p.akhbar_title {
+    text-align: left !important;
+    float: left !important;
+}
+.akhbar_text {
+    direction: ltr !important;
+    text-align: left !important;
+}
+.akhbarha li {
+     padding-right: 0px !important; 
+}
+th.sorting_disabled {
+    text-align: left !important;
+}
+
+td {
+    text-align: left !important;
+}
+table#data_table {
+    direction: ltr !important;
+}
+.title td:first-child {
+    float: left !important;
+    background: url(../images/naghsh_ltr.png) !important;
+    background-size: 26px !important;
+    background-repeat: no-repeat !important;
+}
+.title {
+    background-position: center 73px !important;
+
+}
+
+
+ul#list li {
+    float: left;
+    text-align: left;
+    padding-left: 30px;
+    padding-right:0px !important;
+    background-position: left 7px center !important;
+}
+ul.big_list li {
+    text-align: left;
+}
+
+.doa_text.persian {
+    text-align: left;
+    direction: ltr;
+    float: left;
+}
+
+
+div#translate_list a {
+    float: left !important;
+    padding-left: 10px !important;
+	text-align: left !important;
+	box-sizing: border-box;
+}
+div#translate_list a#goto_search {
+	text-align: center !important;
+}
+div#translate_list span {
+  float: left !important;
+  padding-left: 10px !important;
+  padding-right: 0 !important;
+  direction:ltr;
+  text-align:left;
+  box-sizing: border-box;
+}
+.dataTables_wrapper .dataTables_filter input {
+  background-position: 15px center;
+  box-sizing: border-box;
+  direction: ltr;
+  padding-left: 52px;
+  text-align: left;
+}

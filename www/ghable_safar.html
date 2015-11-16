@@ -96,7 +96,7 @@
 			FastClick.attach(document.body);
 			
 			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
-				document.addEventListener("backbutton", go_back, false);
+				document.addEventListener("backbutton", go_back_to_index, false);
 			}
 
 		}
@@ -162,7 +162,7 @@
 -->
 			<div id="slides">
 				<div class="silde_frame slide1th" >
-					<img src="images/slider/gh01.jpg" class="silde_frame_image" style="width:100%;" onclick="window.location.href='pishine.html';" />
+					<img src="images/slider/gh01_l.jpg" class="silde_frame_image" retina="images/slider/gh01.jpg" style="width:100%;" onclick="window.location.href='pishine.html';" />
 					<div class="slide_navigator">
 						<div class="slide_navigator_bg"></div>
 						<div class="slide_navigator_next slidesjs-next">فضیلت زیارت <img src="images/slider/next-btn.png"></div>
@@ -171,7 +171,7 @@
 					</div>
 				</div>
 				<div class="silde_frame slide2th" >
-					<img src="images/slider/gh02.jpg" class="silde_frame_image" style="width:100%;" onclick="window.location.href='fazilate_ziyarat.html';" />
+					<img src="images/slider/gh02_l.jpg" class="silde_frame_image" retina="images/slider/gh02.jpg" style="width:100%;" onclick="window.location.href='fazilate_ziyarat.html';" />
 					<div class="slide_navigator">
 						<div class="slide_navigator_bg"></div>
 						<div class="slide_navigator_next slidesjs-next">کوله پشتی <img src="images/slider/next-btn.png"></div>
@@ -180,7 +180,7 @@
 					</div>
 				</div>
 				<div class="silde_frame slide3th" >
-					<img src="images/slider/gh03.jpg" class="silde_frame_image" style="width:100%;" onclick="window.location.href='kuleposhti.html';" />
+					<img src="images/slider/gh03_l.jpg" class="silde_frame_image" retina="images/slider/gh03.jpg" style="width:100%;" onclick="window.location.href='kuleposhti.html';" />
 					<div class="slide_navigator">
 						<div class="slide_navigator_bg"></div>
 						<div class="slide_navigator_next slidesjs-next">آداب و احکام <img src="images/slider/next-btn.png"></div>
@@ -189,7 +189,7 @@
 					</div>
 				</div>
 				<div class="silde_frame slide4th" >
-					<img src="images/slider/gh04.jpg" class="silde_frame_image" style="width:100%;" onclick="window.location.href='adab_ahkam.html';" />
+					<img src="images/slider/gh04_l.jpg" class="silde_frame_image" retina="images/slider/gh04.jpg" style="width:100%;" onclick="window.location.href='adab_ahkam.html';" />
 					<div class="slide_navigator">
 						<div class="slide_navigator_bg"></div>
 						<div class="slide_navigator_next slidesjs-next">مومنانه <img src="images/slider/next-btn.png"></div>
@@ -198,7 +198,7 @@
 					</div>
 				</div>
 				<div class="silde_frame slide5th" >
-					<img src="images/slider/gh05.jpg" class="silde_frame_image" style="width:100%;" onclick="window.location.href='momenane.html';" />
+					<img src="images/slider/gh05_l.jpg" class="silde_frame_image" retina="images/slider/gh05.jpg" style="width:100%;" onclick="window.location.href='momenane.html';" />
 					<div class="slide_navigator">
 						<div class="slide_navigator_bg"></div>
 						<div class="slide_navigator_next slidesjs-next">پیشینه <img src="images/slider/next-btn.png"></div>
@@ -210,7 +210,7 @@
 				<a href="#" class="slidesjs-next slidesjs-navigation"><i class="icon-chevron-right icon-large"></i></a>
 			</div>
 			
-			<div class="slider_back_page_btn" onclick="parent.history.back();"><img src="images/slider/back-btn.png" style="width:100%;" ></div>
+			<div class="slider_back_page_btn" onclick="window.location.href = 'index.html';"><img src="images/slider/back-btn.png" style="width:100%;" ></div>
 
 		</div>
 </body>
