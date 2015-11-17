@@ -24,12 +24,16 @@
 	<script>
 		function init() {		
 			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
+			$('#status').html("Start");
+			alert($.md5 (" String str  d"));
+			
 			document.addEventListener("deviceready", onDeviceReady, false);
 			
 			//onDeviceReady();
 		}
 
 		function onDeviceReady() {
+			console.log("onDeviceReady");
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 /////START DOWNLOAD//////////////////////////////////////////////////////////////////////
@@ -54,6 +58,8 @@
 		console.log("window.localStorage.getItem('download_address'):" + window.localStorage.getItem('download_address'));
 		console.log("window.localStorage.getItem('downloaded_files'):" + window.localStorage.getItem('downloaded_files'));
 
+	}
+	
 	function play_or_download(URL,Extension) {
 		console.log("play_or_download URL: " + URL);
 		console.log("play_or_download Extension: " + Extension);
@@ -154,7 +160,7 @@
 /////START DOWNLOAD//////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
-
+/*
 			//init_audio();
 			
 			//FastClick.attach(document.getElementById('container'));
@@ -165,6 +171,12 @@
 			}
 		
 		}
+*/
+		
+		
+		
+		
+		
 		function uniqueDeviceIDsuccess_index(uuid)
 		{
 			window.localStorage.setItem('uuid',uuid);
@@ -332,7 +344,7 @@ ul.big_list li.need_download {
 	<a href="#" id="small" >قلم</a>
 	<div id="controls_bg"></div>
 </div>
-<script>
+<!--<script>-->
 	//init_audio("audio/roze/0.mp3");
 
 	audio_Timer = $("#audioTimer");
@@ -552,6 +564,6 @@ ul.big_list li.need_download {
 		
 		Timer.html(minutes + ":" + seconds);
 	};
-</script>
+<!--</script>-->
 </body>
 </html>
