@@ -148,12 +148,12 @@
 			if (progressEvent.lengthComputable) {
 				var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
 				$('#status').html(perc + "% loaded...");
-				$('.progress-bar-parent').find('span').css('width','50%');
+				$('.progress-bar-percent').css('width',perc + "%");
 				//progress_bar_element.css('width',perc);
 			} else {
 				$('#status').html($('#status').html() + ".");
 				//progress_bar_element.css('width',progress_bar_element.width()+1);
-				$('.progress-bar-parent').find('span').css('width',$('.progress-bar-parent').find('span').width()+1);
+				$('.progress-bar-percent').css('width',$('.progress-bar-parent').find('span').width()+1);
 			}
 		};
 		
@@ -302,7 +302,7 @@ ul.big_list li.need_download {
 <div id="bg-top"></div><div id="bg-bottom"></div>
 <div class="progress-bar-parent">
 	<div class="progress-bar green glow">
-		<span style="width: 2%"></span>
+		<span class="progress-bar-percent" style="width: 2%"></span>
 	</div>
 </div>
 <div id="ajax" class="mypreload">
