@@ -31,7 +31,8 @@
 		function init() {		
 			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
 			document.addEventListener("deviceready", onDeviceReady, false);
-			if(isHighDensity() || isRetina())
+			//if(isHighDensity() || isRetina())
+			if(isRetina())
 			{
 				$('.silde_frame_image').each( function(i) {
 					$(this).attr('src', $(this).attr('retina')		);

@@ -1,0 +1,1236 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    <title>بسم الله الرحمن الرحیم</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css" />
+	<link rel="stylesheet" type="text/css" href="css/simplebar.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/ltr.css">
+
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/console.log.js"></script>
+    <script src="phonegap.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script src="js/jquery.md5.js"></script>
+    <script src="js/back_btn.js"></script>
+    <script src="js/query-string.js"></script>
+    <script src="js/simplebar.min.js"></script>
+	
+	<script>
+		function init() {		
+			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
+			document.addEventListener("deviceready", onDeviceReady, false);
+			
+			//onDeviceReady();
+		}
+
+		function onDeviceReady() {
+
+			//FastClick.attach(document.getElementById('container'));
+			FastClick.attach(document.body);
+			
+			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+				document.addEventListener("backbutton", go_back, false);
+			}
+		
+		}
+		function uniqueDeviceIDsuccess_index(uuid)
+		{
+			window.localStorage.setItem('uuid',uuid);
+		};
+		function uniqueDeviceIDfail_index(uuid)
+		{
+			//alert("uniqueDeviceIDfail" + uuid);
+		};
+		
+		$(window).load(function() {
+			//alert($(window).height());
+			//alert($(window).height());
+			//alert($(document).height()); 
+			//alert($("#warper").height());
+			$("#main").height($(window).height() - $("#header").height() - $("#footer").height()-30);
+			//$("#container").height($("#warper").height()-$("#header").height());
+			//$(".mypreload").delay(100000).html("");
+		});
+		$(document).ready(function() {
+			$('.translate').on('click', function() {
+				$('.persian').toggle();
+				$(this).toggleClass('active');
+			});	
+			$('.fontsize').on('click', function() {
+				$("#controls_size").addClass('opened');
+				$("#controls_over").css('position','fixed');
+			});
+			$('.audio').on('click', function() {
+				$('#smgroup_audio_player').toggle();
+				$('#smgroup_audio_player').addClass('active');
+			});
+/*
+			$('#play').on('click', function() {
+				$('#play').hide();
+				$('#pause').css('display','block');
+				
+				
+				play_btn.css("display","none");
+				//play2_btn.css("display","block");
+				pause_btn.css("display","block");
+				$(this).prop("disabled",true);
+				play2_btn.prop("disabled",true);
+				pause_btn.prop("disabled",false);
+				
+				playAudio(my_file);
+				//alert("2");
+			});
+*/
+			$('.fontsize').on('click', function() {
+				$('#smgroup_audio_player').hide();
+			});
+		
+		
+			setTimeout(function(){
+				$(".mypreload").html("");
+				$('#main').addClass("simplebar");
+				$('#main').simplebar({ autoHide: false });
+			}, 300);
+		});
+
+			
+
+	</script>	
+
+		
+		
+<style>
+.doa_text {
+    line-height: 200%;
+    direction: rtl;
+    width: 100%;
+    text-align: center;
+	float:none !important;
+}
+.persian{
+    direction: ltr !important;
+    width: 100%;
+    text-align: center !important ;
+	float:none !important;
+}
+.translate {
+    background-image: none;
+    padding-left: 22px;
+}
+</style>
+<!--footer-bg-center.png-->
+</head>
+<body class="tarjome_disable00 sound_disable00 fontsize_disable000" onload="init();" style="overflow:hidden;width:100%;">
+<div id="bg-top"></div><div id="bg-bottom"></div>
+<div id="ajax" class="mypreload">
+	<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
+	<div style="z-index: 1011; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 28%; left: 0%; text-align: center;border: medium none;overflow:visible;" class="blockUI blockMsg blockPage"><img src="images/preloader.gif"></div>
+	<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading.png" width="70%"></div>
+</div>
+		<div id="warper" >
+				<div id="header">
+					<div id="back-btn" onclick="parent.history.back();"></div>
+					<div id="header-text-2th"></div>
+					<div class="center"></div>
+				</div>
+				<div id="footer">
+					<div id="footer-bg">
+						<button class="dw_bottun fontsize">size</button>	
+						<button class="dw_bottun audio">0</button>	
+						<button class="dw_bottun translate">Translation</button>	
+					</div>
+				</div>
+				<div id="container">
+					<div id="main" class="">
+					
+					
+					
+					
+					
+					
+					
+					
+					
+<div class="doa_text english" style="text-align:justify;">				
+	<b>ZIYARAH AL JAMIAH AL KABEERAH</b>
+	<br/>
+	The second comprehensive form of ziyarah has been also reported by Shaykh al-Saduq in his two books of man-la-yahzuruhul-faqih and ‘Uyun Akhbar al-Rida as follows:
+	<br/>
+	Musa ibn ‘Abdullah al-Nakha’i is reported to have asked Imam ‘Ali al-Naqi al-Hadi (‘a), saying, “O son of Allah’s Messenger! Please teach me a comprehensively eloquent saying that I may say whenever I visit any of you (i.e. the Holy Imams).” The Imam (‘a) therefore instructed the following:
+	<br/>
+	When you arrive at the gate (of a holy shrine), after you have bathed yourself ceremonially, you may stop and utter the two professions of Islam (shahadatayn):
+	<br/>
+	أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ
+	<br/>
+	I bear witness that there is no god save Allah
+	<br/>
+	وَحْدَهُ لاَ شَرِيكَ لَهُ
+	<br/>
+	Alone without having any associate
+	<br/>
+	وَأَشْهَدُ أَنَّ مُحَمَّداً صَلَّى اللَّهُ عَلَيْهِ وَآلِهِ عَبْدُهُ وَرَسُولُهُ
+	<br/>
+	And I bear witness that Muhammad—blessings of Allah be upon him—is His servant and Messenger
+	<br/>
+	As you enter the shrine and catch sight of the tomb, you may stop again and repeat the following statement thirty times:
+	<br/>
+	اللّه اكبر
+	<br/>
+	Allah is the Greatest
+	<br/><br/>
+	Very serene and venerable, you should walk a few yards with slow steps and then halt anew and repeating saying Allahu Akbar thirty times. As you come within reach of the tomb, you should repeat saying Allahu Akbar forty times so that you would have said it one hundred times. After that, you should recite the following:
+	<br/>
+</div>
+					
+
+
+
+
+
+<div class="doa_text arabic">السَّلاَمُ عَلَيْكُمْ يَا أَهْلَ بَيْتِ النُّبُوَّةِ</div>
+<div class="doa_text persian">Peace be on you O the family of the Prophet</div>
+<div class="doa_text arabic">وَ مَوْضِعَ الرِّسَالَةِ</div>
+<div class="doa_text persian">You are the seat of the Divine mission</div>
+<div class="doa_text arabic">وَمُخْتَلَفَ الْمَلاَئِكَةِ</div>
+<div class="doa_text persian">Unto you the Angels turn</div>
+<div class="doa_text arabic">وَمَهْبِطَ الْوَحْيِ</div>
+<div class="doa_text persian">You are the destination of the Divine revelation</div>
+<div class="doa_text arabic">وَمَعْدِنَ الرَّحْمَةِ</div>
+<div class="doa_text persian">the originating source of mercy</div>
+<div class="doa_text arabic">وَخُزَّانَ الْعِلْمِ</div>
+<div class="doa_text persian">the treasures of knowledge</div>
+<div class="doa_text arabic">وَمُنْتَهَى الْحِلْمِ</div>
+<div class="doa_text persian">the ultimate in forbearance</div>
+<div class="doa_text arabic">وَأُصُولَ الْكَرَمِ</div>
+<div class="doa_text persian">the foundation of generosity</div>
+<div class="doa_text arabic">وَقَادَةَ الْأُمَمِ</div>
+<div class="doa_text persian">the leaders of all nations</div>
+<div class="doa_text arabic">وَأَوْلِيَاءَ النِّعَمِ</div>
+<div class="doa_text persian">You administer and distribute the bounties</div>
+‏<div class="doa_text arabic">وَعَنَاصِرَ الْأَبْرَارِ</div>
+<div class="doa_text persian">You are the elements of virtues</div>
+<div class="doa_text arabic">وَدَعَائِمَ الْأَخْيَارِ</div>
+<div class="doa_text persian">the pillars of goodness</div>
+<div class="doa_text arabic">وَسَاسَةَ الْعِبَادِ</div>
+<div class="doa_text persian">You direct and guide mankind</div>
+<div class="doa_text arabic">وَأَرْكَانَ الْبِلاَدِ</div>
+<div class="doa_text persian">You protect and support lands</div>
+<div class="doa_text arabic">وَأَبْوَابَ الْإِيمَانِ</div>
+<div class="doa_text persian">The doors to faith</div>
+‏<div class="doa_text arabic">وَأُمَنَاءَ الرَّحْمَنِ</div>
+<div class="doa_text persian">the trustees of the All-beneficent Allah</div>
+<div class="doa_text arabic">وَسُلاَلَةَ النَّبِيِّينَ</div>
+<div class="doa_text persian">The distinguished descendants of the Prophets</div>
+<div class="doa_text arabic">وَصَفْوَةَ الْمُرْسَلِينَ</div>
+<div class="doa_text persian">The choice descendants of the Messengers</div>
+<div class="doa_text arabic">وَعِتْرَةَ خِيَرَةِ رَبِّ الْعَالَمِينَ</div>
+<div class="doa_text persian">The Household of the best Individual in the estimation of the Lord of the worlds</div>
+<div class="doa_text arabic">وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ</div>
+<div class="doa_text persian">And upon you be the mercy and blessings of Allah</div>
+‏<div class="doa_text arabic">السَّلاَمُ عَلَى أَئِمَّةِ الْهُدَى</div>
+<div class="doa_text persian">Peace be on the Guides imams to the Right Path</div>
+<div class="doa_text arabic">وَمَصَابِيحِ الدُّجَى</div>
+<div class="doa_text persian">The lanterns in darkness</div>
+<div class="doa_text arabic">وَأَعْلاَمِ التُّقَى</div>
+<div class="doa_text persian">The patterns of piety</div>
+<div class="doa_text arabic">وَذَوِي النُّهَى</div>
+<div class="doa_text persian">The actual ones endued with understanding</div>
+<div class="doa_text arabic">وَأُولِي الْحِجَى</div>
+<div class="doa_text persian">The ones of thought</div>
+‏<div class="doa_text arabic">وَكَهْفِ الْوَرَى</div>
+<div class="doa_text persian">The shelters for people</div>
+<div class="doa_text arabic">وَوَرَثَةِ الْأَنْبِيَاءِ</div>
+<div class="doa_text persian">The inheritors of the Prophets</div>
+<div class="doa_text arabic">وَالْمَثَلِ الْأَعْلَى</div>
+<div class="doa_text persian">The perfect specimen</div>
+<div class="doa_text arabic">وَالدَّعْوَةِ الْحُسْنَى</div>
+<div class="doa_text persian">The most excellent calling unto the good</div>
+‏<div class="doa_text arabic">وَحُجَجِ اللَّهِ عَلَى أَهْلِ الدُّنْيَا وَالْآخِرَةِ وَالْأُولَى</div>
+<div class="doa_text persian">The decisive arguments of Allah against the inhabitants of the world, the Hereafter and the former </div>
+<div class="doa_text arabic">وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ</div>
+<div class="doa_text persian">And upon you be the mercy and blessings of Allah</div>
+‏<div class="doa_text arabic">السَّلاَمُ عَلَى مَحَالِّ مَعْرِفَةِ اللَّهِ</div>
+<div class="doa_text persian">Peace be on the exponents of the views and beliefs which acquaint with the awareness of Allah</div>
+<div class="doa_text arabic">وَمَسَاكِنِ بَرَكَةِ اللَّهِ</div>
+<div class="doa_text persian">wherever you are there are blessings of Allah</div>
+<div class="doa_text arabic">وَمَعَادِنِ حِكْمَةِ اللَّهِ</div>
+<div class="doa_text persian">the wisdom of Allah is deposited with you</div>
+‏<div class="doa_text arabic">وَحَفَظَةِ سِرِّ اللَّهِ</div>
+<div class="doa_text persian">the secrets of Allah have been put in your safekeeping</div>
+<div class="doa_text arabic">وَحَمَلَةِ كِتَابِ اللَّهِ</div>
+<div class="doa_text persian">you know the Book of Allah by heart</div>
+<div class="doa_text arabic">وَأَوْصِيَاءِ نَبِيِّ اللَّهِ</div>
+<div class="doa_text persian">you are the successors of the Prophet of Allah</div>
+‏<div class="doa_text arabic">وَذُرِّيَّةِ رَسُولِ اللَّهِ صَلَّى اللَّهُ عَلَيْهِ وَآلِهِ</div>
+<div class="doa_text persian">the children of the Messenger of Allah</div>
+<div class="doa_text arabic">وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ</div>
+<div class="doa_text persian">And upon you be the mercy and blessings of Allah</div>
+‏<div class="doa_text arabic">السَّلاَمُ عَلَى الدُّعَاةِ إِلَى اللَّهِ</div>
+<div class="doa_text persian">Peace be on you who invite people unto Allah</div>
+<div class="doa_text arabic">وَالْأَدِلاَّءِ عَلَى مَرْضَاةِ اللَّهِ</div>
+<div class="doa_text persian">guide with clear arguments unto that which win Allah's pleasure</div>
+<div class="doa_text arabic">وَالْمُسْتَقِرِّينَ فِي أَمْرِ اللَّهِ</div>
+<div class="doa_text persian">abide by the laws of Allah</div>
+‏<div class="doa_text arabic">وَالتَّامِّينَ فِي مَحَبَّةِ اللَّهِ</div>
+<div class="doa_text persian">love Allah from the bottom of the heart</div>
+<div class="doa_text arabic">وَالْمُخْلِصِينَ فِي تَوْحِيدِ اللَّهِ</div>
+<div class="doa_text persian">sincerely believe in the One and Only Allah</div>
+<div class="doa_text arabic">وَالْمُظْهِرِينَ لِأَمْرِ اللَّهِ وَنَهْيِهِ</div>
+<div class="doa_text persian">make clear that which is made lawful and that which is made unlawful by Allah</div>
+‏<div class="doa_text arabic">وَعِبَادِهِ الْمُكْرَمِينَ</div>
+<div class="doa_text persian">you are the honored bondmen</div>
+<div class="doa_text arabic">الَّذِينَ لاَ يَسْبِقُونَهُ بِالْقَوْلِ وَهُمْ بِأَمْرِهِ يَعْمَلُونَ</div>
+<div class="doa_text persian">who speak not until He has spoken and act by His command</div>
+<div class="doa_text arabic">وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ</div>
+<div class="doa_text persian">And upon you be the mercy and blessings of Allah</div>
+‏<div class="doa_text arabic">السَّلاَمُ عَلَى الْأَئِمَّةِ الدُّعَاةِ</div>
+<div class="doa_text persian">Peace be on the Guides Imams who give a calling</div>
+<div class="doa_text arabic">وَالْقَادَةِ الْهُدَاةِ</div>
+<div class="doa_text persian">and lead unto guidance</div>
+<div class="doa_text arabic">وَالسَّادَةِ الْوُلاَةِ</div>
+<div class="doa_text persian">you are the loving guardians</div>
+<div class="doa_text arabic">وَالذَّادَةِ الْحُمَاةِ</div>
+<div class="doa_text persian">the protecting defenders</div>
+<div class="doa_text arabic">وَأَهْلِ الذِّكْرِ</div>
+<div class="doa_text persian">the followers people of the remembrance the Holy Quran</div>
+<div class="doa_text arabic">وَأُولِي الْأَمْرِ</div>
+<div class="doa_text persian">those who are in authority</div>
+<div class="doa_text arabic">وَبَقِيَّةِ اللَّهِ</div>
+<div class="doa_text persian">that good which Allah has left with people</div>
+<div class="doa_text arabic">وَخِيَرَتِهِ وَحِزْبِهِ</div>
+<div class="doa_text persian">His choicest and His group</div>
+<div class="doa_text arabic">وَعَيْبَةِ عِلْمِهِ</div>
+<div class="doa_text persian">The store of His Knowledge</div>
+‏<div class="doa_text arabic">وَحُجَّتِهِ وَصِرَاطِهِ</div>
+<div class="doa_text persian">His argument, His path</div>
+<div class="doa_text arabic">وَنُورِهِ وَبُرْهانِهِ</div>
+<div class="doa_text persian">His light, His proof</div>
+<div class="doa_text arabic">وَرَحْمَةُ اللَّهِ وَبَرَكَاتُهُ</div>
+<div class="doa_text persian">And upon you be the mercy and blessings of Allah</div>
+‏<div class="doa_text arabic">أَشْهَدُ أَنْ لاَ إِلَهَ إِلاَّ اللَّهُ</div>
+<div class="doa_text persian">I bear witness that there is no god save Allah</div>
+<div class="doa_text arabic">وَحْدَهُ لاَ شَرِيكَ لَهُ</div>
+<div class="doa_text persian">the One and there is no partner with Him</div>
+<div class="doa_text arabic">كَمَا شَهِدَ اللَّهُ لِنَفْسِهِ</div>
+<div class="doa_text persian">just as Allah Himself testifies to His own Oneness</div>
+<div class="doa_text arabic">وَشَهِدَتْ لَهُ مَلاَئِكَتُهُ</div>
+<div class="doa_text persian">and His Angels also testify for His Oneness</div>
+‏<div class="doa_text arabic">وَأُولُوا الْعِلْمِ مِنْ خَلْقِهِ</div>
+<div class="doa_text persian">And also his creatures who know the truth also testify</div>
+<div class="doa_text arabic">لاَ إِلَهَ إِلاَّ هُوَ الْعَزِيزُ الْحَكِيمُ</div>
+<div class="doa_text persian">there is no god save He; the Almighty the All-wise</div>
+‏<div class="doa_text arabic">وَأَشْهَدُ أَنَّ مُحَمَّداً عَبْدُهُ الْمُنْتَجَبُ</div>
+<div class="doa_text persian">I bear witness that Muhammad is His elect bondman</div>
+<div class="doa_text arabic">وَرَسُولُهُ الْمُرْتَضَى</div>
+<div class="doa_text persian">His approved Messenger</div>
+‏<div class="doa_text arabic">أَرْسَلَهُ بِالْهُدَى وَدِينِ الْحَقِّ</div>
+<div class="doa_text persian">He sent him with the guidance and the Religion of truth</div>
+<div class="doa_text arabic">لِيُظْهِرَهُ عَلَى الدِّينِ كُلِّهِ</div>
+<div class="doa_text persian">that He may cause it to prevail over all religions</div>
+<div class="doa_text arabic">وَلَوْ كَرِهَ الْمُشْرِكُونَ</div>
+<div class="doa_text persian">however much the idol-worshippers may be averse</div>
+‏<div class="doa_text arabic">وَأَشْهَدُ أَنَّكُمُ الْأَئِمَّةُ الرَّاشِدُونَ</div>
+<div class="doa_text persian">I bear witness that all of you are the rightly guided Imams</div>
+<div class="doa_text arabic">الْمَهْدِيُّونَ الْمَعْصُومُونَ</div>
+<div class="doa_text persian">The truly guided, the infallible</div>
+<div class="doa_text arabic">الْمُكَرَّمُونَ الْمُقَرَّبُونَ</div>
+<div class="doa_text persian">The highly revered, the favorite</div>
+<div class="doa_text arabic">الْمُتَّقُونَ الصَّادِقُونَ</div>
+<div class="doa_text persian">The pious, the truthful</div>
+‏<div class="doa_text arabic">الْمُصْطَفَوْنَ الْمُطِيعُونَ لِلَّهِ</div>
+<div class="doa_text persian">The chosen, the obedient servants of Allah</div>
+<div class="doa_text arabic">الْقَوَّامُونَ بِأَمْرِهِ</div>
+<div class="doa_text persian">who establish the rule of God</div>
+<div class="doa_text arabic">الْعَامِلُونَ بِإِرَادَتِهِ</div>
+<div class="doa_text persian">put into practice that which He wills</div>
+<div class="doa_text arabic">الْفَائِزُونَ بِكَرَامَتِهِ</div>
+<div class="doa_text persian">win and posses His excellence</div>
+‏<div class="doa_text arabic">اصْطَفَاكُمْ بِعِلْمِهِ</div>
+<div class="doa_text persian">He elected you to have His knowledge</div>
+<div class="doa_text arabic">وَارْتَضَاكُمْ لِغَيْبِهِ</div>
+<div class="doa_text persian">He chose you to be aware of what issues forth or what comes to pass</div>
+<div class="doa_text arabic">وَاخْتَارَكُمْ لِسِرِّهِ</div>
+<div class="doa_text persian">placed His trust in you to let you know inside and out of His secrets</div>
+‏<div class="doa_text arabic">وَاجْتَبَاكُمْ بِقُدْرَتِهِ</div>
+<div class="doa_text persian">strengthened you with His omnipotence</div>
+<div class="doa_text arabic">وَأَعَزَّكُمْ بِهُدَاهُ</div>
+<div class="doa_text persian">equipped you with His guidance</div>
+<div class="doa_text arabic">وَخَصَّكُمْ بِبُرْهَانِهِ</div>
+<div class="doa_text persian">distinguished you with His clear proofs</div>
+<div class="doa_text arabic">وَانْتَجَبَكُمْ لِنُورِهِ</div>
+<div class="doa_text persian">glorified you with His Light</div>
+<div class="doa_text arabic">وَأَيَّدَكُمْ بِرُوحِهِ</div>
+<div class="doa_text persian">confirmed you with His Holy spirit</div>
+‏<div class="doa_text arabic">وَرَضِيَكُمْ خُلَفَاءَ فِي أَرْضِهِ</div>
+<div class="doa_text persian">made a choice of you to represent Him in His earth</div>
+<div class="doa_text arabic">وَحُجَجاً عَلَى بَرِيَّتِهِ</div>
+<div class="doa_text persian">so that you make evident manifest and establish His truth</div>
+<div class="doa_text arabic">وَأَنْصَاراً لِدِينِهِ</div>
+<div class="doa_text persian">give currency to His religion</div>
+‏<div class="doa_text arabic">وَحَفَظَةً لِسِرِّهِ</div>
+<div class="doa_text persian">protect His confidence</div>
+<div class="doa_text arabic">وَخَزَنَةً لِعِلْمِهِ</div>
+<div class="doa_text persian">treasure His knowledge</div>
+<div class="doa_text arabic">وَمُسْتَوْدَعاً لِحِكْمَتِهِ</div>
+<div class="doa_text persian">store and invest His wisdom</div>
+<div class="doa_text arabic">وَتَرَاجِمَةً لِوَحْيِهِ</div>
+<div class="doa_text persian">Interpret His revelation</div>
+<div class="doa_text arabic">وَأَرْكَاناً لِتَوْحِيدِهِ</div>
+<div class="doa_text persian">consolidate and preserve His Oneness</div>
+‏<div class="doa_text arabic">وَشُهَدَاءَ عَلَى خَلْقِهِ</div>
+<div class="doa_text persian">bear witness to the act of creation you witnessed all that has been created by Allah</div>
+<div class="doa_text arabic">وَأَعْلاَماً لِعِبَادِهِ</div>
+<div class="doa_text persian">you are the signs Allah has set for His servants</div>
+<div class="doa_text arabic">وَمَنَاراً فِي بِلاَدِهِ</div>
+<div class="doa_text persian">you are the torches Allah has lighted in His lands</div>
+<div class="doa_text arabic">وَأَدِلاَّءَ عَلَى صِرَاطِهِ</div>
+<div class="doa_text persian">you show the direction unto His path</div>
+‏<div class="doa_text arabic">عَصَمَكُمُ اللَّهُ مِنَ الزَّلَلِ</div>
+<div class="doa_text persian">Allah preserved you guiltless and free from error</div>
+<div class="doa_text arabic">وَآمَنَكُمْ مِنَ الْفِتَنِ</div>
+<div class="doa_text persian">kept you safe disorderliness</div>
+<div class="doa_text arabic">وَطَهَّرَكُمْ مِنَ الدَّنَسِ</div>
+<div class="doa_text persian">freed you from dirt</div>
+<div class="doa_text arabic">وَأَذْهَبَ عَنْكُمُ الرِّجْسَ</div>
+<div class="doa_text persian">from unruly removed uncleanness from you</div>
+<div class="doa_text arabic">وَطَهَّرَكُمْ تَطْهِيراً</div>
+<div class="doa_text persian">and cleansed you with a thorough cleansing</div>
+<div class="doa_text arabic">فَعَظَّمْتُمْ جَلاَلَهُ</div>
+<div class="doa_text persian">So, you have glorified His majesty</div>
+<div class="doa_text arabic">وَأَكْبَرْتُمْ شَأْنَهُ</div>
+<div class="doa_text persian">Have declared great His magnificence</div>
+<div class="doa_text arabic">وَمَجَّدْتُمْ كَرَمَهُ</div>
+<div class="doa_text persian">Have venerated His glory</div>
+<div class="doa_text arabic">وَأَدَمْتُمْ ذِكْرَهُ</div>
+<div class="doa_text persian">Have perpetuated mentioning Him</div>
+<div class="doa_text arabic">وَوَكَّدْتُمْ مِيثَاقَهُ</div>
+<div class="doa_text persian">Have consolidated His covenant</div>
+‏<div class="doa_text arabic">وَأَحْكَمْتُمْ عَقْدَ طَاعَتِهِ</div>
+<div class="doa_text persian">Have made firm your pledge of obedience to Him</div>
+<div class="doa_text arabic">وَنَصَحْتُمْ لَهُ فِي السِّرِّ وَالْعَلاَنِيَةِ</div>
+<div class="doa_text persian">Have advised people for His sake privately and publicly</div>
+<div class="doa_text arabic">وَدَعَوْتُمْ إِلَى سَبِيلِهِ بِالْحِكْمَةِ وَالْمَوْعِظَةِ الْحَسَنَةِ</div>
+<div class="doa_text persian">Have called unto His way through words of wisdom and fair admonition</div>
+<div class="doa_text arabic">وَبَذَلْتُمْ أَنْفُسَكُمْ فِي مَرْضَاتِهِ</div>
+<div class="doa_text persian">not sparing your own lives took pains and made efforts to do as He willed</div>
+<div class="doa_text arabic">وَصَبَرْتُمْ عَلَى مَا أَصَابَكُمْ فِي جَنْبِهِ</div>
+<div class="doa_text persian">exercised self-control and faced untold hardships in His cause</div>
+<div class="doa_text arabic">وَأَقَمْتُمُ الصَّلاَةَ</div>
+<div class="doa_text persian">established prayers</div>
+<div class="doa_text arabic">وَآتَيْتُمُ الزَّكَاةَ</div>
+<div class="doa_text persian">gave prescribed alms</div>
+<div class="doa_text arabic">وَأَمَرْتُمْ بِالْمَعْرُوفِ</div>
+<div class="doa_text persian">advised to do that which is lawful</div>
+<div class="doa_text arabic">وَنَهَيْتُمْ عَنِ الْمُنْكَرِ</div>
+<div class="doa_text persian">warned not to do that which is unlawful</div>
+<div class="doa_text arabic">وَجَاهَدْتُمْ فِي اللَّهِ حَقَّ جِهَادِهِ</div>
+<div class="doa_text persian">warned not to do that which is unlawful</div>
+‏<div class="doa_text arabic">حَتَّى أَعْلَنْتُمْ دَعْوَتَهُ</div>
+<div class="doa_text persian">until you made known every aspect of His true Message</div>
+<div class="doa_text arabic">وَبَيَّنْتُمْ فَرَائِضَهُ</div>
+<div class="doa_text persian">rendered clear the obligations</div>
+<div class="doa_text arabic">وَأَقَمْتُمْ حُدُودَهُ</div>
+<div class="doa_text persian">and defined the boundaries laid down by Him</div>
+<div class="doa_text arabic">وَنَشَرْتُمْ شَرَائِعَ أَحْكَامِهِ</div>
+<div class="doa_text persian">communicated and propagated His constitution</div>
+‏<div class="doa_text arabic">وَسَنَنْتُمْ سُنَّتَهُ</div>
+<div class="doa_text persian">demonstrated the rule of conduct approved by Him</div>
+<div class="doa_text arabic">وَصِرْتُمْ فِي ذَلِكَ مِنْهُ إِلَى الرِّضَا</div>
+<div class="doa_text persian">and went ahead resolutely to accomplish that which is dear to Him</div>
+<div class="doa_text arabic">وَسَلَّمْتُمْ لَهُ الْقَضَاءَ</div>
+<div class="doa_text persian">surrendered to His will</div>
+<div class="doa_text arabic">وَصَدَّقْتُمْ مِنْ رُسُلِهِ مَنْ مَضَى</div>
+<div class="doa_text persian">proved true the Messengers sent by Him before you</div>
+‏<div class="doa_text arabic">فَالرَّاغِبُ عَنْكُمْ مَارِقٌ</div>
+<div class="doa_text persian">therefore whoso turns away from you misses the aim (and deviates from the right path)</div>
+<div class="doa_text arabic">وَاللاَّزِمُ لَكُمْ لاَحِقٌ</div>
+<div class="doa_text persian">whoso closely adhere to you reaches the destination</div>
+<div class="doa_text arabic">وَالْمُقَصِّرُ فِي حَقِّكُمْ زَاهِقٌ</div>
+<div class="doa_text persian">whoso fails short of that which is as it ought to be in your case compare and contrast to lower in grade destroys himself</div>
+‏<div class="doa_text arabic">وَالْحَقُّ مَعَكُمْ وَفِيكُمْ وَمِنْكُمْ وَإِلَيْكُمْ</div>
+<div class="doa_text persian">Verily truth is with you amid you in you and it always directs itself unto you</div>
+<div class="doa_text arabic">وَأَنْتُمْ أَهْلُهُ وَمَعْدِنُهُ</div>
+<div class="doa_text persian">you deserve it as it stays permanently with you</div>
+<div class="doa_text arabic">وَمِيرَاثُ النُّبُوَّةِ عِنْدَكُمْ</div>
+<div class="doa_text persian">the inheritance of Prophethood is with you</div>
+‏<div class="doa_text arabic">وَإِيَابُ الْخَلْقِ إِلَيْكُمْ</div>
+<div class="doa_text persian">you are the ultimate destination to which the people will have to come back</div>
+<div class="doa_text arabic">وَحِسَابُهُمْ عَلَيْكُمْ</div>
+<div class="doa_text persian">to give an account of themselves before you</div>
+<div class="doa_text arabic">وَفَصْلُ الْخِطَابِ عِنْدَكُمْ</div>
+<div class="doa_text persian">it is your privilege to separate evil from good in clear words</div>
+‏<div class="doa_text arabic">وَآيَاتُ اللَّهِ لَدَيْكُمْ</div>
+<div class="doa_text persian">in the light of the signs guidelines of Allah you are fully aware of</div>
+<div class="doa_text arabic">وَعَزَائِمُهُ فِيكُمْ</div>
+<div class="doa_text persian">because for His unavoidable decrees and plan He relies upon you</div>
+<div class="doa_text arabic">وَنُورُهُ وَبُرْهَانُهُ عِنْدَكُمْ</div>
+<div class="doa_text persian">because for His unavoidable decrees and plan He relies upon you</div>
+<div class="doa_text arabic">وَأَمْرُهُ إِلَيْكُمْ</div>
+<div class="doa_text persian">authority to guide has been conferred on you</div>
+‏<div class="doa_text arabic">مَنْ وَالاَكُمْ فَقَدْ وَالَى اللَّهَ</div>
+<div class="doa_text persian">he who is fond of you is a friend of Allah</div>
+<div class="doa_text arabic">وَمَنْ عَادَاكُمْ فَقَدْ عَادَى اللَّهَ</div>
+<div class="doa_text persian">whoso turns against you comes in conflict with Allah</div>
+<div class="doa_text arabic">وَمَنْ أَحَبَّكُمْ فَقَدْ أَحَبَّ اللَّهَ</div>
+<div class="doa_text persian">he who loves you is a beloved of Allah</div>
+<div class="doa_text arabic">وَمَنْ أَبْغَضَكُمْ فَقَدْ أَبْغَضَ اللَّهَ</div>
+<div class="doa_text persian">whoso bears a grudge against you holds Allah in contempt</div>
+<div class="doa_text arabic">وَمَنِ اعْتَصَمَ بِكُمْ فَقَدِ اعْتَصَمَ بِاللَّهِ</div>
+<div class="doa_text persian">whoso takes refuge with you takes asylum with Allah</div>
+‏<div class="doa_text arabic">أَنْتُمُ الصِّرَاطُ الْأَقْوَمُ</div>
+<div class="doa_text persian">you are the main means of approach the right way</div>
+<div class="doa_text arabic">والسَّبِيلُ الْأَعْظَمُ</div>
+<div class="doa_text persian">You are the greatest path (to Allah)</div>
+<div class="doa_text arabic">وَشُهَدَاءُ دَارِ الْفَنَاءِ</div>
+<div class="doa_text persian">you give witness to what takes place in this mortal world</div>
+<div class="doa_text arabic">وَشُفَعَاءُ دَارِ الْبَقَاءِ</div>
+<div class="doa_text persian">And you are the interceders (for the believers) on the Day of Judgement</div>
+<div class="doa_text arabic">وَالرَّحْمَةُ الْمَوْصُولَةُ</div>
+<div class="doa_text persian">you are the mercy perpetual and progressive</div>
+<div class="doa_text arabic">وَالْآيَةُ الْمَخْزُونَةُ</div>
+<div class="doa_text persian">The signs highly valued and treasured</div>
+<div class="doa_text arabic">وَالْأَمَانَةُ الْمَحْفُوظَةُ</div>
+<div class="doa_text persian">mainstay well guarded</div>
+<div class="doa_text arabic">وَالْبَابُ الْمُبْتَلَى بِهِ النَّاسُ</div>
+<div class="doa_text persian">forum of justice wherein people are put to test and trial</div>
+‏<div class="doa_text arabic">مَنْ أَتَاكُمْ نَجَا</div>
+<div class="doa_text persian">whoso comes near you is saved assured a blissful afterlife</div>
+<div class="doa_text arabic">وَمَنْ لَمْ يَأْتِكُمْ هَلَكَ</div>
+<div class="doa_text persian">whoso does not come near you is ruined doomed to everlasting distress</div>
+<div class="doa_text arabic">إِلَى اللَّهِ تَدْعُونَ</div>
+<div class="doa_text persian">you invite people unto Allah</div>
+<div class="doa_text arabic">وَعَلَيْهِ تَدُلُّونَ</div>
+<div class="doa_text persian">show the right way leading to Him</div>
+<div class="doa_text arabic">وَبِهِ تُؤْمِنُونَ</div>
+<div class="doa_text persian">Believe in Him</div>
+‏<div class="doa_text arabic">وَلَهُ تُسَلِّمُونَ</div>
+<div class="doa_text persian">willingly surrender to Him</div>
+<div class="doa_text arabic">وَبِأَمْرِهِ تَعْمَلُونَ</div>
+<div class="doa_text persian">act upon His law and command</div>
+<div class="doa_text arabic">وَإِلَى سَبِيلِهِ تُرْشِدُونَ</div>
+<div class="doa_text persian">Guide to His path</div>
+<div class="doa_text arabic">وَبِقَوْلِهِ تَحْكُمُونَ</div>
+<div class="doa_text persian">exercise authority in the name of His word</div>
+‏<div class="doa_text arabic">سَعِدَ مَنْ وَالاَكُمْ</div>
+<div class="doa_text persian">happy and successful is he who stands by you</div>
+<div class="doa_text arabic">وَهَلَكَ مَنْ عَادَاكُمْ</div>
+<div class="doa_text persian">lost and desolate is he who forsakes you</div>
+<div class="doa_text arabic">وَخَابَ مَنْ جَحَدَكُمْ</div>
+<div class="doa_text persian">indistinct and little known is he who knows better but denies you</div>
+<div class="doa_text arabic">وَضَلَّ مَنْ فَارَقَكُمْ</div>
+<div class="doa_text persian">whoso separates himself from you goes astray</div>
+‏<div class="doa_text arabic">وَفَازَ مَنْ تَمَسَّكَ بِكُمْ</div>
+<div class="doa_text persian">whoso clings to you attains his purpose</div>
+<div class="doa_text arabic">وَأَمِنَ مَنْ لَجَأَ إِلَيْكُمْ</div>
+<div class="doa_text persian">whoso takes refuge with you saves himself</div>
+<div class="doa_text arabic">وَسَلِمَ مَنْ صَدَّقَكُمْ</div>
+<div class="doa_text persian">blessed is he who becomes aware of your truthfulness</div>
+<div class="doa_text arabic">وَهُدِيَ مَنِ اعْتَصَمَ بِكُمْ</div>
+<div class="doa_text persian">he who is watched over by you finds the right path</div>
+‏<div class="doa_text arabic">مَنِ اتَّبَعَكُمْ فَالْجَنَّةُ مَأْوَاهُ</div>
+<div class="doa_text persian">whoso follows you shall dwell in the Paradise</div>
+<div class="doa_text arabic">وَمَنْ خَالَفَكُمْ فَالنَّارُ مَثْوَاهُ</div>
+<div class="doa_text persian">whoso turns against you shall rot in Hell</div>
+‏<div class="doa_text arabic">وَمَنْ جَحَدَكُمْ كَافِرٌ</div>
+<div class="doa_text persian">he who says no to you in fact renounces the faith</div>
+<div class="doa_text arabic">وَمَنْ حَارَبَكُمْ مُشْرِكٌ</div>
+<div class="doa_text persian">he who makes war against you is as bad as a polytheist</div>
+<div class="doa_text arabic">وَمَنْ رَدَّ عَلَيْكُمْ فِي أَسْفَلِ دَرْكٍ مِنَ الْجَحِيمِ</div>
+<div class="doa_text persian">he who forsakes you shall find himself in the lowest tier of the burning fire</div>
+‏<div class="doa_text arabic">أَشْهَدُ أَنَّ هَذَا سَابِقٌ لَكُمْ فِيمَا مَضَى</div>
+<div class="doa_text persian">I know for sure that certainly you are like what is said above</div>
+<div class="doa_text arabic">وَجَارٍ لَكُمْ فِيمَا بَقِيَ</div>
+<div class="doa_text persian">and shall continue to be so in future</div>
+‏<div class="doa_text arabic">وَأَنَّ أَرْوَاحَكُمْ وَنُورَكُمْ وَطِينَتَكُمْ وَاحِدَةٌ</div>
+<div class="doa_text persian">your souls, light and form are made from the same clay</div>
+<div class="doa_text arabic">طَابَتْ وَطَهُرَتْ بَعْضُهَا مِنْ بَعْضٍ</div>
+<div class="doa_text persian">They are thoroughly pure and infallible altogether</div>
+‏<div class="doa_text arabic">خَلَقَكُمُ اللَّهُ أَنْوَاراً</div>
+<div class="doa_text persian">Allah created you in the form of light</div>
+<div class="doa_text arabic">فَجَعَلَكُمْ بِعَرْشِهِ مُحْدِقِينَ</div>
+<div class="doa_text persian">then kept you closely attached with His Throne</div>
+<div class="doa_text arabic">حَتَّى مَنَّ عَلَيْنَا بِكُمْ</div>
+<div class="doa_text persian">until you were sent down in this world as a favor to us</div>
+‏<div class="doa_text arabic">فَجَعَلَكُمْ فِي بُيُوتٍ أَذِنَ اللَّهُ أَنْ تُرْفَعَ وَيُذْكَرَ فِيهَا اسْمُهُ</div>
+<div class="doa_text persian">allowed you to pronounce and praise His name aloud in the Houses of Allah</div>
+‏<div class="doa_text arabic">وَجَعَلَ صَلاَتَنَا عَلَيْكُمْ وَمَا خَصَّنَا بِهِ مِنْ وِلاَيَتِكُمْ طِيباً لِخَلْقِنَا</div>
+<div class="doa_text persian">made our sending blessings on you and being loyal to you as signs of the legitimacy of our birth</div>
+<div class="doa_text arabic">وَطَهَارَةً لِأَنْفُسِنَا</div>
+<div class="doa_text persian">and the purity of our souls</div>
+<div class="doa_text arabic">وَتَزْكِيَةً لَنَا</div>
+<div class="doa_text persian">And the refinement our manners</div>
+<div class="doa_text arabic">وَكَفَّارَةً لِذُنُوبِنَا</div>
+<div class="doa_text persian">And His forgiving our sins</div>
+<div class="doa_text arabic">فَكُنَّا عِنْدَهُ مُسَلِّمِينَ بِفَضْلِكُمْ</div>
+<div class="doa_text persian">We thus have become among those who believe undoubtedly in your (excellent) virtues</div>
+<div class="doa_text arabic">وَمَعْرُوفِينَ بِتَصْدِيقِنَا إِيَّاكُمْ</div>
+<div class="doa_text persian">and by becoming aware of your true status we have been distinguished</div>
+‏<div class="doa_text arabic">فَبَلَغَ اللَّهُ بِكُمْ أَشْرَفَ مَحَلِّ الْمُكَرَّمِينَ</div>
+<div class="doa_text persian">Allah made you reach the noblest position of glory</div>
+<div class="doa_text arabic">وَأَعْلَى مَنَازِلِ الْمُقَرَّبِينَ</div>
+<div class="doa_text persian">the highest station nearest to Allah</div>
+<div class="doa_text arabic">وَأَرْفَعَ دَرَجَاتِ الْمُرْسَلِينَ</div>
+<div class="doa_text persian">and the loftiest status of the Messengers</div>
+‏<div class="doa_text arabic">حَيْثُ لاَ يَلْحَقُهُ لاَحِقٌ</div>
+<div class="doa_text persian">where none can ever reach you</div>
+<div class="doa_text arabic">وَلاَ يَفُوقُهُ فَائِقٌ</div>
+<div class="doa_text persian">nor can anyone surpass you</div>
+<div class="doa_text arabic">وَلاَ يَسْبِقُهُ سَابِقٌ</div>
+<div class="doa_text persian">nor can anyone ever precede you</div>
+<div class="doa_text arabic">وَلاَ يَطْمَعُ فِي إِدْرَاكِهِ طَامِعٌ</div>
+<div class="doa_text persian">No can anyone look forward to reaching your positions</div>
+‏<div class="doa_text arabic">حَتَّى لاَ يَبْقَى مَلَكٌ مُقَرَّبٌ</div>
+<div class="doa_text persian">even the favorite Angels went for it</div>
+<div class="doa_text arabic">وَلاَ نَبِيٌّ مُرْسَلٌ</div>
+<div class="doa_text persian">nor the commissioned Prophets</div>
+<div class="doa_text arabic">وَلاَ صِدِّيقٌ وَلاَ شَهِيدٌ</div>
+<div class="doa_text persian">nor a friend nor a martyr</div>
+<div class="doa_text arabic">وَلاَ عَالِمٌ وَلاَ جَاهِلٌ</div>
+<div class="doa_text persian">nor a scholar nor an ignorant</div>
+<div class="doa_text arabic">وَلاَ دَنِيٌّ وَلاَ فَاضِلٌ</div>
+<div class="doa_text persian">nor an inferior nor a superior</div>
+<div class="doa_text arabic">وَلاَ مُؤْمِنٌ صَالِحٌ</div>
+<div class="doa_text persian">nor a pious faithful</div>
+<div class="doa_text arabic">وَلاَ فَاجِرٌ طَالِحٌ</div>
+<div class="doa_text persian">nor a wicked sinner</div>
+‏<div class="doa_text arabic">وَلاَ جَبَّارٌ عَنِيدٌ</div>
+<div class="doa_text persian">nor an obstinate tyrant</div>
+<div class="doa_text arabic">وَلاَ شَيْطَانٌ مَرِيدٌ</div>
+<div class="doa_text persian">nor a devilish rebel</div>
+<div class="doa_text arabic">وَلاَ خَلْقٌ فِيمَا بَيْنَ ذَلِكَ شَهِيدٌ</div>
+<div class="doa_text persian">nor any other being had ever been there</div>
+<div class="doa_text arabic">إِلاَّ عَرَّفَهُمْ جَلاَلَةَ أَمْرِكُمْ</div>
+<div class="doa_text persian">except that Allah informs them of the grandeur of your decisive authority</div>
+<div class="doa_text arabic">وَعِظَمَ خَطَرِكُمْ</div>
+<div class="doa_text persian">importance of your thoughtful ideas</div>
+<div class="doa_text arabic">وَكِبَرَ شَأْنِكُمْ</div>
+<div class="doa_text persian">power of your meaningful intelligence</div>
+<div class="doa_text arabic">وَتَمَامَ نُورِكُمْ</div>
+<div class="doa_text persian">thoroughness of your enlightenment</div>
+<div class="doa_text arabic">وَصِدْقَ مَقَاعِدِكُمْ</div>
+<div class="doa_text persian">strength and goodness of your essence</div>
+<div class="doa_text arabic">وَثَبَاتَ مَقَامِكُمْ</div>
+<div class="doa_text persian">proof of the durability of your office</div>
+‏<div class="doa_text arabic">وَشَرَفَ مَحَلِّكُمْ</div>
+<div class="doa_text persian">distinction of your position</div>
+<div class="doa_text arabic">وَمَنْزِلَتِكُمْ عِنْدَهُ</div>
+<div class="doa_text persian">and the glory of your rank and dignity in His estimation</div>
+<div class="doa_text arabic">وَكَرَامَتَكُمْ عَلَيْهِ</div>
+<div class="doa_text persian">your venerable grace in His perception</div>
+<div class="doa_text arabic">وَخَاصَّتَكُمْ لَدَيْهِ</div>
+<div class="doa_text persian">your special friendship with Him</div>
+<div class="doa_text arabic">وَقُرْبَ مَنْزِلَتِكُمْ مِنْهُ</div>
+<div class="doa_text persian">and the closest nearness you have near Him</div>
+‏<div class="doa_text arabic">بِأَبِي أَنْتُمْ وَأُمِّي وَأَهْلِي وَمَالِي وَأُسْرَتِي</div>
+<div class="doa_text persian">My father, mother, family, property and possessions are at your disposal</div>
+<div class="doa_text arabic">أُشْهِدُ اللَّهَ وَأُشْهِدُكُمْ أَنِّي مُؤْمِنٌ بِكُمْ وَبِمَا آمَنْتُمْ بِهِ</div>
+<div class="doa_text persian">I beseech Allah and you to bear witness that I believe in you and in that in which you believe</div>
+‏<div class="doa_text arabic">كَافِرٌ بِعَدُوِّكُمْ وَبِمَا كَفَرْتُمْ بِهِ</div>
+<div class="doa_text persian">I renounce your enemies and whatever you renounce</div>
+<div class="doa_text arabic">مُسْتَبْصِرٌ بِشَأْنِكُمْ</div>
+<div class="doa_text persian">I am fully aware of your glorious purpose</div>
+<div class="doa_text arabic">وَبِضَلاَلَةِ مَنْ خَالَفَكُمْ</div>
+<div class="doa_text persian">and of the deviation of him whoever oppose you</div>
+‏<div class="doa_text arabic">مُوَالٍ لَكُمْ وَلِأَوْلِيَائِكُمْ</div>
+<div class="doa_text persian">I am your friend and a friend of your friends</div>
+<div class="doa_text arabic">مُبْغِضٌ لِأَعْدَائِكُمْ وَمُعَادٍ لَهُمْ</div>
+<div class="doa_text persian">I dislike your enemies and strive against their designs</div>
+<div class="doa_text arabic">سِلْمٌ لِمَنْ سَالَمَكُمْ</div>
+<div class="doa_text persian">I am at peace with those who make peace with you</div>
+<div class="doa_text arabic">وَحَرْبٌ لِمَنْ حَارَبَكُمْ</div>
+<div class="doa_text persian">I take the field against those who march against you</div>
+‏<div class="doa_text arabic">مُحَقِّقٌ لِمَا حَقَّقْتُمْ</div>
+<div class="doa_text persian">I accept as true that which acknowledges your truth</div>
+<div class="doa_text arabic">مُبْطِلٌ لِمَا أَبْطَلْتُمْ</div>
+<div class="doa_text persian">I prove false that which takes a stand against you</div>
+<div class="doa_text arabic">مُطِيعٌ لَكُمْ</div>
+<div class="doa_text persian">I follow in your footsteps</div>
+<div class="doa_text arabic">عَارِفٌ بِحَقِّكُمْ</div>
+<div class="doa_text persian">I am fully aware of your rights and privileges</div>
+‏<div class="doa_text arabic">مُقِرٌّ بِفَضْلِكُمْ</div>
+<div class="doa_text persian">I recognize your superiority over others</div>
+<div class="doa_text arabic">مُحْتَمِلٌ لِعِلْمِكُمْ</div>
+<div class="doa_text persian">I carry and preserve your knowledge</div>
+<div class="doa_text arabic">مُحْتَجِبٌ بِذِمَّتِكُمْ</div>
+<div class="doa_text persian">I take refuge under your protective shelter</div>
+<div class="doa_text arabic">مُعْتَرِفٌ بِكُمْ</div>
+<div class="doa_text persian">I respond to you</div>
+<div class="doa_text arabic">مُؤْمِنٌ بِإِيَابِكُمْ</div>
+<div class="doa_text persian">I know for sure that you will come back</div>
+<div class="doa_text arabic">مُصَدِّقٌ بِرَجْعَتِكُمْ</div>
+<div class="doa_text persian">I believe in your promised return</div>
+‏<div class="doa_text arabic">مُنْتَظِرٌ لِأَمْرِكُمْ</div>
+<div class="doa_text persian">I anticipate and look for your just and fair order</div>
+<div class="doa_text arabic">مُرْتَقِبٌ لِدَوْلَتِكُمْ</div>
+<div class="doa_text persian">I anticipate the advent of your State</div>
+<div class="doa_text arabic">آخِذٌ بِقَوْلِكُمْ</div>
+<div class="doa_text persian">I hold fast to that which you have said</div>
+<div class="doa_text arabic">عَامِلٌ بِأَمْرِكُمْ</div>
+<div class="doa_text persian">I carry out your orders</div>
+<div class="doa_text arabic">مُسْتَجِيرٌ بِكُمْ</div>
+<div class="doa_text persian">I take shelter in your neighborhood</div>
+‏<div class="doa_text arabic">زَائِرٌ لَكُمْ</div>
+<div class="doa_text persian">I make a visit to do homage and praise you</div>
+<div class="doa_text arabic">لاَئِذٌ عَائِذٌ بِقُبُورِكُمْ</div>
+<div class="doa_text persian">for me your resting abodes are sanctuaries</div>
+<div class="doa_text arabic">مُسْتَشْفِعٌ إِلَى اللَّهِ عَزَّ وَجَلَّ بِكُمْ</div>
+<div class="doa_text persian">in the court of the Almighty you are my advocates</div>
+<div class="doa_text arabic">وَمُتَقَرِّبٌ بِكُمْ إِلَيْهِ</div>
+<div class="doa_text persian">I seek His nearness through you</div>
+‏<div class="doa_text arabic">وَمُقَدِّمُكُمْ أَمَامَ طَلِبَتِي وَحَوَائِجِي وَإِرَادَتِي</div>
+<div class="doa_text persian">for seeking fulfillment of my wants and desire</div>
+<div class="doa_text arabic">فِي كُلِّ أَحْوَالِي وَأُمُورِي</div>
+<div class="doa_text persian">under all circumstances I follow you to make headway</div>
+‏<div class="doa_text arabic">مُؤْمِنٌ بِسِرِّكُمْ وَعَلاَنِيَتِكُمْ</div>
+<div class="doa_text persian">I believe in your invisibility visibility</div>
+<div class="doa_text arabic">وَشَاهِدِكُمْ وَغَائِبِكُمْ</div>
+<div class="doa_text persian">Presence, absence</div>
+<div class="doa_text arabic">وَأَوَّلِكُمْ وَآخِرِكُمْ</div>
+<div class="doa_text persian">and in the first of you and the last of you</div>
+<div class="doa_text arabic">وَمُفَوِّضٌ فِي ذَلِكَ كُلِّهِ إِلَيْكُمْ</div>
+<div class="doa_text persian">I entrust to you the total charge of everything concerning me</div>
+‏<div class="doa_text arabic">وَمُسَلِّمٌ فِيهِ مَعَكُمْ</div>
+<div class="doa_text persian">I gladly consent to that which you think is good for me</div>
+<div class="doa_text arabic">وَقَلْبِي لَكُمْ مُسَلِّمٌ</div>
+<div class="doa_text persian">from the bottom of my heart I surrender to you</div>
+<div class="doa_text arabic">وَرَأْيِي لَكُمْ تَبَعٌ</div>
+<div class="doa_text persian">your opinion is my opinion</div>
+<div class="doa_text arabic">وَنُصْرَتِي لَكُمْ مُعَدَّةٌ</div>
+<div class="doa_text persian">I am prepared and ready to stand up for you</div>
+<div class="doa_text arabic">حَتَّى يُحْيِيَ اللَّهُ تَعَالَى دِينَهُ بِكُمْ</div>
+<div class="doa_text persian">till Allah the Supreme gives a new life to His Religion through you</div>
+<div class="doa_text arabic">وَيَرُدَّكُمْ فِي أَيَّامِهِ</div>
+<div class="doa_text persian">brings you back again in His ‘Days’</div>
+<div class="doa_text arabic">وَيُظْهِرَكُمْ لِعَدْلِهِ</div>
+<div class="doa_text persian">Manifest you to set up His fair and just rule</div>
+<div class="doa_text arabic">وَيُمَكِّنَكُمْ فِي أَرْضِهِ</div>
+<div class="doa_text persian">you take root in and take possession of His earth the world</div>
+‏<div class="doa_text arabic">فَمَعَكُمْ مَعَكُمْ لاَ مَعَ غَيْرِكُمْ</div>
+<div class="doa_text persian">so I am with you, with you, not other than you</div>
+<div class="doa_text arabic">آمَنْتُ بِكُمْ</div>
+<div class="doa_text persian">I have full faith in you</div>
+<div class="doa_text arabic">وَتَوَلَّيْتُ آخِرَكُمْ بِمَا تَوَلَّيْتُ بِهِ أَوَّلَكُمْ</div>
+<div class="doa_text persian">I love and cherish the last of you just as I love and cherish the first of you</div>
+‏<div class="doa_text arabic">وَبَرِئْتُ إِلَى اللَّهِ عَزَّ وَجَلَّ مِنْ أَعْدَائِكُمْ</div>
+<div class="doa_text persian">I turn to the Almighty Allah disconnecting all links with your enemies</div>
+<div class="doa_text arabic">وَمِنَ الْجِبْتِ وَالطَّاغُوتِ</div>
+<div class="doa_text persian">I turn to the Almighty Allah disconnecting all links with your enemies</div>
+<div class="doa_text arabic">وَالشَّيَاطِينِ ‏وَحِزْبِهِمُ</div>
+<div class="doa_text persian">and the devils and their followers</div>
+<div class="doa_text arabic">الظَّالِمِينَ لَكُمْ</div>
+<div class="doa_text persian">who took liberties with you</div>
+<div class="doa_text arabic">وَالْجَاحِدِينَ لِحَقِّكُمْ</div>
+<div class="doa_text persian">the renegades who suppressed your rights</div>
+<div class="doa_text arabic">وَالْمَارِقِينَ مِنْ وِلاَيَتِكُمْ</div>
+<div class="doa_text persian">the turncoats who ran away from your guardianship</div>
+<div class="doa_text arabic">وَالْغَاصِبِينَ لِإِرْثِكُمْ</div>
+<div class="doa_text persian">the swindlers who usurped your succession</div>
+<div class="doa_text arabic">وَالشَّاكِّينَ فِيكُمْ</div>
+<div class="doa_text persian">the unbelievers who hesitated to accept you as true</div>
+<div class="doa_text arabic">وَالْمُنْحَرِفِينَ عَنْكُمْ</div>
+<div class="doa_text persian">the deserters who turned against you</div>
+‏<div class="doa_text arabic">وَمِنْ كُلِّ وَلِيجَةٍ دُونَكُمْ</div>
+<div class="doa_text persian">and from every affinity apart from you</div>
+<div class="doa_text arabic">وَكُلِّ مُطَاعٍ سِوَاكُمْ</div>
+<div class="doa_text persian">every allegiance other than unto you</div>
+<div class="doa_text arabic">وَمِنَ الْأَئِمَّةِ الَّذِينَ يَدْعُونَ إِلَى النَّارِ</div>
+<div class="doa_text persian">from the leadership which directs to the Fire</div>
+<div class="doa_text arabic">فَثَبَّتَنِيَ اللَّهُ أَبَداً مَا حَيِيتُ عَلَى مُوَالاَتِكُمْ</div>
+<div class="doa_text persian">May Allah keep intact my love and attachment with you for ever so far I am alive</div>
+<div class="doa_text arabic">وَمَحَبَّتِكُمْ وَدِينِكُمْ</div>
+<div class="doa_text persian">and make me adhere to your creed</div>
+<div class="doa_text arabic">وَوَفَّقَنِي لِطَاعَتِكُمْ</div>
+<div class="doa_text persian">find obedience unto you convenient</div>
+<div class="doa_text arabic">وَرَزَقَنِي شَفَاعَتَكُمْ</div>
+<div class="doa_text persian">obtain your intercession</div>
+‏<div class="doa_text arabic">وَجَعَلَنِي مِنْ خِيَارِ مَوَالِيكُمْ</div>
+<div class="doa_text persian">be among your fortunate disciples</div>
+<div class="doa_text arabic">التَّابِعِينَ لِمَا دَعَوْتُمْ إِلَيْهِ</div>
+<div class="doa_text persian">Who hold fast to your traditions</div>
+<div class="doa_text arabic">وَجَعَلَنِي مِمَّنْ يَقْتَصُّ آثَارَكُمْ</div>
+<div class="doa_text persian">And make me follow in your footsteps</div>
+‏<div class="doa_text arabic">وَيَسْلُكُ سَبِيلَكُمْ</div>
+<div class="doa_text persian">And track your Path</div>
+<div class="doa_text arabic">وَيَهْتَدِي بِهُدَاكُمْ</div>
+<div class="doa_text persian">abide by your guidance</div>
+<div class="doa_text arabic">وَيُحْشَرُ فِي زُمْرَتِكُمْ</div>
+<div class="doa_text persian">to be raised in your group on the Day of Judgement</div>
+<div class="doa_text arabic">وَيَكِرُّ فِي رَجْعَتِكُمْ</div>
+<div class="doa_text persian">brought back during your reappearance</div>
+‏<div class="doa_text arabic">وَيُمَلَّكُ فِي دَوْلَتِكُمْ</div>
+<div class="doa_text persian">called upon to help you in your administration</div>
+<div class="doa_text arabic">وَيُشَرَّفُ فِي عَافِيَتِكُمْ</div>
+<div class="doa_text persian">honoured to live in your safe and sound supervision</div>
+<div class="doa_text arabic">وَيُمَكَّنُ فِي أَيَّامِكُمْ</div>
+<div class="doa_text persian">right there in the middle of your 'days'</div>
+‏<div class="doa_text arabic">وَتَقَرُّ عَيْنُهُ غَداً بِرُؤْيَتِكُمْ</div>
+<div class="doa_text persian">delighted and thrilled by seeing you in person</div>
+<div class="doa_text arabic">بِأَبِي أَنْتُمْ وَأُمِّي وَنَفْسِي وَأَهْلِي وَمَالِي</div>
+<div class="doa_text persian">My father, mother, children, possessions and myself are at your disposal</div>
+‏<div class="doa_text arabic">مَنْ أَرَادَ اللَّهَ بَدَأَ بِكُمْ</div>
+<div class="doa_text persian">whoso desires nearness to Allah in fact makes a beginning with you</div>
+<div class="doa_text arabic">وَمَنْ وَحَّدَهُ قَبِلَ عَنْكُمْ</div>
+<div class="doa_text persian">whoso professes the Unity of God in fact takes after you</div>
+‏<div class="doa_text arabic">وَمَنْ قَصَدَهُ تَوَجَّهَ بِكُمْ</div>
+<div class="doa_text persian">whoso moves towards Him has to turn to you</div>
+<div class="doa_text arabic">مَوَالِيَّ لاَ أُحْصِي ثَنَاءَكُمْ</div>
+<div class="doa_text persian">O my masters I cannot count and mention your merits</div>
+<div class="doa_text arabic">وَلاَ أَبْلُغُ مِنَ الْمَدْحِ كُنْهَكُمْ</div>
+<div class="doa_text persian">I am unable to come up to the height where your true appreciation can be enjoyed</div>
+<div class="doa_text arabic">وَمِنَ الْوَصْفِ قَدْرَكُمْ</div>
+<div class="doa_text persian">and your real class can be determined </div>
+‏<div class="doa_text arabic">وَأَنْتُمْ نُورُ الْأَخْيَارِ</div>
+<div class="doa_text persian">You are the light of the virtuous </div>
+<div class="doa_text arabic">وَهُدَاةُ الْأَبْرَارِ</div>
+<div class="doa_text persian">The guides of the pious ones </div>
+<div class="doa_text arabic">وَحُجَجُ الْجَبَّارِ</div>
+<div class="doa_text persian">The claims of the Omnipotent (Lord) </div>
+<div class="doa_text arabic">بِكُمْ فَتَحَ اللَّهُ</div>
+<div class="doa_text persian">Allah had created you in the first place </div>
+‏<div class="doa_text arabic">وَبِكُمْ يَخْتِمُ اللَّهُ</div>
+<div class="doa_text persian">and then disclosed to you His plan of creation </div>
+<div class="doa_text arabic">وَبِكُمْ يُنَزِّلُ الْغَيْثَ</div>
+<div class="doa_text persian">on account of you He sent down abundant and far-spread rain </div>
+<div class="doa_text arabic">وَبِكُمْ يُمْسِكُ السَّمَاءَ أَنْ تَقَعَ عَلَى الْأَرْضِ إِلاَّ بِإِذْنِهِ</div>
+<div class="doa_text persian">because of you the sky prevents itself from falling down over the earth unless He permits </div>
+‏<div class="doa_text arabic">وَبِكُمْ يُنَفِّسُ الْهَمَّ وَيَكْشِفُ الضُّرَّ</div>
+<div class="doa_text persian">due to you He drives away troubles and dismisses hardships</div>
+<div class="doa_text arabic">وَعِنْدَكُمْ مَا نَزَلَتْ بِهِ رُسُلُهُ</div>
+<div class="doa_text persian">with you is that with which His Messengers came down</div>
+<div class="doa_text arabic">وَهَبَطَتْ بِهِ مَلاَئِكَتُهُ</div>
+<div class="doa_text persian">And with which His Angels descended</div>
+<div class="doa_text arabic">وَإِلَى جَدِّكُمْ</div>
+<div class="doa_text persian">and to your forefather,</div>
+<div class="doa_text arabic">-----</div>
+<div class="doa_text persian">Note:  If it is the tomb of Imam Ali ibn Abi Talib is the visited, you should say instead,</div>
+<div class="doa_text arabic">وَإلى ابْنِ عَمِّكَ</div>
+<div class="doa_text persian">"And to your cousin"</div>
+<div class="doa_text arabic">-----</div>
+‏<div class="doa_text arabic">بُعِثَ الرُّوحُ الْأَمِينُ</div>
+<div class="doa_text persian">the Truthful Spirit was sent</div>
+<div class="doa_text arabic">آتَاكُمُ اللَّهُ مَا لَمْ يُؤْتِ أَحَداً مِنَ الْعَالَمِينَ</div>
+<div class="doa_text persian">Allah has given you that which He has not given to anyone in the whole universe</div>
+<div class="doa_text arabic">طَأْطَأَ كُلُّ شَرِيفٍ لِشَرَفِكُمْ</div>
+<div class="doa_text persian">all the highborn hang their heads before your noble lineage</div>
+<div class="doa_text arabic">وَبَخَعَ كُلُّ مُتَكَبِّرٍ لِطَاعَتِكُمْ</div>
+<div class="doa_text persian">every valiant lord submits to you in your obedience</div>
+‏<div class="doa_text arabic">وَخَضَعَ كُلُّ جَبَّارٍ لِفَضْلِكُمْ</div>
+<div class="doa_text persian">every type of heroism is dwarfed before your completeness and perfection</div>
+<div class="doa_text arabic">وَذَلَّ كُلُّ شَيْ‏ءٍ لَكُمْ</div>
+<div class="doa_text persian">everything humbles itself in front of you</div>
+<div class="doa_text arabic">وَأَشْرَقَتِ الْأَرْضُ بِنُورِكُمْ</div>
+<div class="doa_text persian">your light lights up the earth</div>
+<div class="doa_text arabic">وَفَازَ الْفَائِزُونَ بِوِلاَيَتِكُمْ</div>
+<div class="doa_text persian">those who love and cherish you attain their end</div>
+‏<div class="doa_text arabic">بِكُمْ يُسْلَكُ إِلَى الرِّضْوَانِ</div>
+<div class="doa_text persian">and conduct themselves to the Paradise</div>
+<div class="doa_text arabic">وَعَلَى مَنْ جَحَدَ وِلاَيَتَكُمْ غَضَبُ الرَّحْمَنِ</div>
+<div class="doa_text persian">and those who forsake your friendship earn displeasure of the All-compassionate</div>
+‏<div class="doa_text arabic">بِأَبِي أَنْتُمْ وَأُمِّي وَنَفْسِي وَأَهْلِي وَمَالِي</div>
+<div class="doa_text persian">My father, mother, myself, my children and possessions are at your disposal</div>
+<div class="doa_text arabic">ذِكْرُكُمْ فِي الذَّاكِرِينَ</div>
+<div class="doa_text persian">Although people make mention of you</div>
+<div class="doa_text arabic">وَأَسْمَاؤُكُمْ فِي الْأَسْمَاءِ</div>
+<div class="doa_text persian">your names are called along with other names</div>
+<div class="doa_text arabic">وَأَجْسَادُكُمْ فِي الْأَجْسَادِ</div>
+<div class="doa_text persian">your figures appeared among other humans</div>
+<div class="doa_text arabic">وَأَرْوَاحُكُمْ فِي الْأَرْوَاحِ</div>
+<div class="doa_text persian">your souls rest with other souls</div>
+<div class="doa_text arabic">وَأَنْفُسُكُمْ فِي النُّفُوسِ</div>
+<div class="doa_text persian">your beings existed side by side with other beings</div>
+<div class="doa_text arabic">وَآثَارُكُمْ فِي الْآثَارِ</div>
+<div class="doa_text persian">your traditions are cited with other traditions</div>
+<div class="doa_text arabic">وَقُبُورُكُمْ فِي الْقُبُورِ</div>
+<div class="doa_text persian">your resting places are seen amidst others</div>
+<div class="doa_text arabic">فَمَا أَحْلَى أَسْمَاءَكُمْ</div>
+<div class="doa_text persian">but most gracious are your names</div>
+<div class="doa_text arabic">وَأَكْرَمَ أَنْفُسَكُمْ</div>
+<div class="doa_text persian">most generous and merciful are your lives</div>
+<div class="doa_text arabic">وَأَعْظَمَ شَأْنَكُمْ</div>
+<div class="doa_text persian">superlative is your nature and disposition</div>
+<div class="doa_text arabic">وَأَجَلَّ خَطَرَكُمْ</div>
+<div class="doa_text persian">befitting is your station</div>
+<div class="doa_text arabic">وَأَوْفَى عَهْدَكُمْ</div>
+<div class="doa_text persian">dependable is your covenant</div>
+<div class="doa_text arabic">وَأَصْدَقَ وَعْدَكُمْ</div>
+<div class="doa_text persian">true is your promise</div>
+<div class="doa_text arabic">كَلاَمُكُمْ نُورٌ</div>
+<div class="doa_text persian">your words give light</div>
+<div class="doa_text arabic">وَأَمْرُكُمْ رُشْدٌ</div>
+<div class="doa_text persian">your administration is just and fair</div>
+<div class="doa_text arabic">وَوَصِيَّتُكُمُ التَّقْوَى</div>
+<div class="doa_text persian">Piety is your will</div>
+<div class="doa_text arabic">وَفِعْلُكُمُ الْخَيْرُ</div>
+<div class="doa_text persian">your deeds are good</div>
+<div class="doa_text arabic">وَعَادَتُكُمُ الْإِحْسَانُ</div>
+<div class="doa_text persian">doing good is your manner of living</div>
+<div class="doa_text arabic">وَسَجِيَّتُكُمُ الْكَرَمُ</div>
+<div class="doa_text persian">generosity is your habit</div>
+‏<div class="doa_text arabic">وَشَأْنُكُمُ الْحَقُّ وَالصِّدْقُ وَالرِّفْقُ</div>
+<div class="doa_text persian">fair dealing, conformity to reality and helping others are in your nature</div>
+<div class="doa_text arabic">وَقَوْلُكُمْ حُكْمٌ وَحَتْمٌ</div>
+<div class="doa_text persian">your words are final and decisive</div>
+<div class="doa_text arabic">وَرَأْيُكُمْ عِلْمٌ وَحِلْمٌ وَحَزْمٌ</div>
+<div class="doa_text persian">your opinion is based upon knowledge, temperance and forethought</div>
+‏<div class="doa_text arabic">إِنْ ذُكِرَ الْخَيْرُ كُنْتُمْ أَوَّلَهُ</div>
+<div class="doa_text persian">if goodness is mentioned, you are its beginning</div>
+<div class="doa_text arabic">وَأَصْلَهُ وَفَرْعَهُ وَمَعْدِنَهُ</div>
+<div class="doa_text persian">And its origin and branch and core</div>
+<div class="doa_text arabic">وَمَأْوَاهُ وَمُنْتَهَاهُ</div>
+<div class="doa_text persian">And its resting place and its ultimate</div>
+<div class="doa_text arabic">بِأَبِي أَنْتُمْ وَأُمِّي وَنَفْسِي</div>
+<div class="doa_text persian">My father, mother and myself are at your disposal</div>
+<div class="doa_text arabic">كَيْفَ أَصِفُ حُسْنَ ثَنَائِكُمْ</div>
+<div class="doa_text persian">How shall I describe the beauty and goodness of your merits?</div>
+<div class="doa_text arabic">وَأُحْصِي جَمِيلَ بَلاَئِكُمْ</div>
+<div class="doa_text persian">How shall I define the grace and decorum you displayed in the hour of test and trial?</div>
+‏<div class="doa_text arabic">وَبِكُمْ أَخْرَجَنَا اللَّهُ مِنَ الذُّلِّ</div>
+<div class="doa_text persian">It is on account of you that Allah pulls us out of the depth of degradation</div>
+<div class="doa_text arabic">وَفَرَّجَ عَنَّا غَمَرَاتِ الْكُرُوبِ</div>
+<div class="doa_text persian">sets us free from the clutches of hardships</div>
+<div class="doa_text arabic">وَأَنْقَذَنَا مِنْ شَفَا جُرُفِ الْهَلَكَاتِ وَمِنَ النَّارِ</div>
+<div class="doa_text persian">takes us to safety from the precipice of annihilation and from failing down into the Hell</div>
+<div class="doa_text arabic">بِأَبِي أَنْتُمْ وَأُمِّي وَنَفْسِي</div>
+<div class="doa_text persian">My father, mother and myself are at your disposal</div>
+<div class="doa_text arabic">بِمُوَالاَتِكُمْ عَلَّمَنَا اللَّهُ مَعَالِمَ دِينِنَا</div>
+<div class="doa_text persian">Because of our friendship with you Allah taught us the laws of our religion</div>
+<div class="doa_text arabic">وَأَصْلَحَ مَا كَانَ فَسَدَ مِنْ دُنْيَانَا</div>
+<div class="doa_text persian">put in order that which had been spoiled and corrupted in our world</div>
+<div class="doa_text arabic">وَبِمُوَالاَتِكُمْ تَمَّتِ الْكَلِمَةُ</div>
+<div class="doa_text persian">by being loyal to you the Word has been completed</div>
+<div class="doa_text arabic">وَعَظُمَتِ النِّعْمَةُ</div>
+<div class="doa_text persian">and the Grace has become great</div>
+<div class="doa_text arabic">وَائْتَلَفَتِ الْفُرْقَةُ</div>
+<div class="doa_text persian">And the discord has turned into togetherness</div>
+<div class="doa_text arabic">وَبِمُوَالاَتِكُمْ تُقْبَلُ الطَّاعَةُ الْمُفْتَرَضَةُ</div>
+<div class="doa_text persian">And only is by our loyalty to you the obligatory obedience (to Allah) accepted</div>
+<div class="doa_text arabic">وَلَكُمُ الْمَوَدَّةُ الْوَاجِبَةُ</div>
+<div class="doa_text persian">And only is the obligatory adoration yours</div>
+<div class="doa_text arabic">وَالدَّرَجَاتُ الرَّفِيعَةُ</div>
+<div class="doa_text persian">And so are the highest ranks</div>
+<div class="doa_text arabic">وَالْمَقَامُ الْمَحْمُودُ</div>
+<div class="doa_text persian">And so is the Praised Standing</div>
+<div class="doa_text arabic">وَالْمَكَانُ الْمَعْلُومُ عِنْدَ اللَّهِ عَزَّ وَجَلَّ</div>
+<div class="doa_text persian">And so is the renowned station in Almighty Allah’s view</div>
+<div class="doa_text arabic">وَالْجَاهُ الْعَظِيمُ</div>
+<div class="doa_text persian">And topmost office</div>
+<div class="doa_text arabic">وَالشَّأْنُ الْكَبِيرُ</div>
+<div class="doa_text persian">And the supreme rank</div>
+<div class="doa_text arabic">وَالشَّفَاعَةُ الْمَقْبُولَةُ</div>
+<div class="doa_text persian">And the admitted intercession</div>
+<div class="doa_text arabic">رَبَّنَا آمَنَّا بِمَا أَنْزَلْتَ وَاتَّبَعْنَا الرَّسُولَ فَاكْتُبْنَا مَعَ الشَّاهِدِينَ</div>
+<div class="doa_text persian">O our Lord, we believe in that which Thou has sent down and follow the Messenger; so write our names among those who bear witness</div>
+‏<div class="doa_text arabic">رَبَّنَا لاَ تُزِغْ قُلُوبَنَا بَعْدَ إِذْ هَدَيْتَنَا وَهَبْ لَنَا مِنْ لَدُنْكَ رَحْمَةً إِنَّكَ أَنْتَ الْوَهَّابُ</div>
+<div class="doa_text persian">Our Lord! Cause not our hearts to stray after Thou hast guided us, and bestow upon us mercy from Thy Presence. Lo! Thou, only Thou, art the Bestower.</div>
+‏<div class="doa_text arabic">سُبْحَانَ رَبِّنَا إِنْ كَانَ وَعْدُ رَبِّنَا لَمَفْعُولاً</div>
+<div class="doa_text persian">Glory be to our Lord for in fact the promise of our Lord immediately takes effect</div>
+<div class="doa_text arabic">يَا وَلِيَّ اللَّهِ</div>
+<div class="doa_text persian">O trusted representative of Allah</div>
+<div class="doa_text arabic">إِنَّ بَيْنِي وَبَيْنَ اللَّهِ عَزَّ وَجَلَّ ذُنُوباً لاَ يَأْتِي عَلَيْهَا إِلاَّ رِضَاكُمْ</div>
+<div class="doa_text persian">the barriers of wrongdoings separating me from Allah cannot be removed save by attaining your satisfaction</div>
+‏<div class="doa_text arabic">فَبِحَقِّ مَنِ ائْتَمَنَكُمْ عَلَى سِرِّهِ</div>
+<div class="doa_text persian">therefore in the name of the divine authority delegated to you</div>
+<div class="doa_text arabic">وَاسْتَرْعَاكُمْ أَمْرَ خَلْقِهِ</div>
+<div class="doa_text persian">the administration of the human society entrusted to you </div>
+<div class="doa_text arabic">وَقَرَنَ طَاعَتَكُمْ بِطَاعَتِهِ</div>
+<div class="doa_text persian">and joining obedience to Him to the obedience to you</div>
+‏<div class="doa_text arabic">لَمَّا اسْتَوْهَبْتُمْ ذُنُوبِي</div>
+<div class="doa_text persian">I implore to you to pardon my sins</div>
+<div class="doa_text arabic">وَكُنْتُمْ شُفَعَائِي</div>
+<div class="doa_text persian">And to intercede for me</div>
+<div class="doa_text arabic">فَإِنِّي لَكُمْ مُطِيعٌ</div>
+<div class="doa_text persian">For I obey you</div>
+<div class="doa_text arabic">مَنْ أَطَاعَكُمْ فَقَدْ أَطَاعَ اللَّهَ</div>
+<div class="doa_text persian">He who obeys you in fact obeys Allah</div>
+‏<div class="doa_text arabic">وَمَنْ عَصَاكُمْ فَقَدْ عَصَى اللَّهَ</div>
+<div class="doa_text persian">he who disobeys you in fact disobeys Allah</div>
+<div class="doa_text arabic">وَمَنْ أَحَبَّكُمْ فَقَدْ أَحَبَّ اللَّهَ</div>
+<div class="doa_text persian">he who loves you in fact loves Allah</div>
+<div class="doa_text arabic">وَمَنْ أَبْغَضَكُمْ فَقَدْ أَبْغَضَ اللَّهَ</div>
+<div class="doa_text persian">he who hates you in fact hates Allah</div>
+‏<div class="doa_text arabic">اللَّهُمَّ إِنِّي لَوْ وَجَدْتُ شُفَعَاءَ أَقْرَبَ إِلَيْكَ مِنْ مُحَمَّدٍ وَأَهْلِ بَيْتِهِ الْأَخْيَارِ الْأَئِمَّةِ الْأَبْرَارِ لَجَعَلْتُهُمْ شُفَعَائِي</div>
+<div class="doa_text persian">O Allah, had I known interceders that are closer to You than Muhammad and his Household, the virtuous and pious Imams, I would have chosen to intercede for me before You</div>
+‏<div class="doa_text arabic">فَبِحَقِّهِمُ الَّذِي أَوْجَبْتَ لَهُمْ عَلَيْكَ</div>
+<div class="doa_text persian">So I beseech You by their Right that You have made obligatory upon us to follow</div>
+<div class="doa_text arabic">أَسْأَلُكَ أَنْ تُدْخِلَنِي فِي جُمْلَةِ الْعَارِفِينَ بِهِمْ وَبِحَقِّهِمْ</div>
+<div class="doa_text persian">To include me with the group of those who recognize their Right and them</div>
+‏<div class="doa_text arabic">وَفِي زُمْرَةِ الْمَرْحُومِينَ بِشَفَاعَتِهِمْ</div>
+<div class="doa_text persian">And with the assembly of those on whom You will have mercy on account of their (Muhammad and his Household) intercession</div>
+<div class="doa_text arabic">إِنَّكَ أَرْحَمُ الرَّاحِمِينَ</div>
+<div class="doa_text persian">Verily, You are the All-merciful</div>
+‏<div class="doa_text arabic">وَصَلَّى اللَّهُ عَلَى مُحَمَّدٍ وَآلِهِ الطَّاهِرِينَ</div>
+<div class="doa_text persian">Blessings of Allah be upon Muhammad and his infallible Household.</div>
+<div class="doa_text arabic">وَسَلَّمَ تَسْلِيماً كَثِيراً</div>
+<div class="doa_text persian">And His thorough peace be upon them</div>
+<div class="doa_text arabic">وَحَسْبُنَا اللَّهُ وَنِعْمَ الْوَكِيلُ‏</div>
+<div class="doa_text persian">Allah is Sufficient for us! Most Excellent is He in Whom we trust!</div>
+<div class="doa_text arabic">وَإلى ابْنِ عَمِّكَ</div>
+<div class="doa_text persian">"And to your cousin"</div>
+					
+					
+					
+					
+					
+					
+					
+					
+					</div>
+				</div>
+		</div>
+		
+		
+		
+		
+		
+		
+<div id="smgroup_audio_player">
+        <span id="audioTimer" >00:00</span>&nbsp 
+        <span id="durationTimer" >00:00</span>
+        <div id="audioPosition" >
+            <input type="range" name="slider" id="slider" disabled="disabled" value="0" min="0" max="60" style="padding:0;margin:0;" />
+        </div>
+        <div class="audio_btn">
+            <input type="button" id="play" value="" />
+			<input type="button" id="play2" value="" />
+            <input type="button" id="pause" value="" />
+            <input type="button" id="stop" value="Stop" />
+        </div>
+</div>
+<div id="controls_size">
+	<div id="css_style"></div>
+	<div id="controls_over"></div>
+	<a href="#" id="large">size</a>
+	<a href="#" id="medium">size</a>
+	<a href="#" id="small" >size</a>
+	<div id="controls_bg"></div>
+</div>
+<script>
+	init_audio("audio/salame.mp3");
+	audio_Timer = $("#audioTimer");
+	duration_Timer = $("#durationTimer");
+	slider_Timer = $("#slider");
+	
+	audio = null;
+	audioTimer = null;
+	pausePos = 0;
+	
+	function init_audio(my_file){
+		/*
+		if (audio) {
+			play_btn.css("display","block");
+			play2_btn.css("display","none");
+			pause_btn.css("display","none");
+			
+			slider_Timer.val(0);
+			stopAudio();
+		}
+		*/
+		// Phonegap is loaded and can be used
+		play_btn = $("#play");
+		play2_btn = $("#play2");
+		pause_btn = $("#pause");
+		stop_btn = $("#stop");
+		slider_Timer = $("#slider");
+		slider_range = slider_Timer;
+		
+		play_btn.click(function(){	
+			play_btn.css("display","none");
+			pause_btn.css("display","block");
+			slider_Timer.prop("disabled",false);
+			playAudio(my_file);
+		});
+/*
+		$('#play').on('click', function() {
+			$('#play').hide();
+			$('#pause').css('display','block');
+			
+			
+			play_btn.css("display","none");
+			//play2_btn.css("display","block");
+			pause_btn.css("display","block");
+			$(this).prop("disabled",true);
+			play2_btn.prop("disabled",true);
+			pause_btn.prop("disabled",false);
+			
+			playAudio(my_file);
+			//alert("2");
+		});
+*/
+/*
+		play_btn.click(function(){	
+			alert("1");
+			play_btn.css("display","none");
+			//play2_btn.css("display","block");
+			pause_btn.css("display","block");
+			$(this).prop("disabled",true);
+			play2_btn.prop("disabled",true);
+			pause_btn.prop("disabled",false);
+			
+			playAudio(my_file);
+		});
+*/
+		slider_Timer.on("change", function(){
+			//play_btn.prop("disabled",false);
+			//play2_btn.prop("disabled",false);
+			//pause_btn.prop("disabled",true);
+			play2_btn.css("display","block");
+			pause_btn.css("display","none");
+			
+			pausePos = slider_Timer.val();
+			formatTime(pausePos,audio_Timer);
+			pauseAudio();
+		});
+		
+		pause_btn.click(function(){	
+			play2_btn.css("display","block");
+			pause_btn.css("display","none");
+
+			pauseAudio();
+		});
+		
+		play2_btn.click(function(){	
+			pause_btn.css("display","block");
+			play2_btn.css("display","none");		
+			
+			PausePlayAudio();
+		});
+		
+		stop_btn.click(function(){
+			play_btn.css("display","block");
+			play2_btn.css("display","none");
+			pause_btn.css("display","none");
+			
+			slider_Timer.val(0);
+			stopAudio();
+		});
+		
+	}
+
+
+	function playAudio(file){
+		if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+			file = "/android_asset/www/" + file;
+		}
+		
+		audio = new Media(file, function(){ // success callback
+			console.log("playAudio():Audio Success");
+			play_btn.css("display","block");
+			play2_btn.css("display","none");
+			pause_btn.css("display","none");
+			
+			slider_Timer.val(0);
+			stopAudio();
+		}, function(error){ // error callback
+			//alert("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
+		});
+		
+		// get audio duration
+		var duration = audio.getDuration();
+		var duration_show = false;
+		
+		// set slider data
+		if( duration > 0 ){
+			formatTime(duration,duration_Timer);
+			slider_Timer.attr( "max", Math.round(duration) );
+			//slider_Timer.slider("refresh");
+			slider_Timer.val(0);
+			duration_show = true;
+		}
+
+		
+		// play audio
+		audio.play({ playAudioWhenScreenIsLocked : true });
+
+		audio.seekTo(pausePos*1000);
+			
+		// update audio position every second
+		if (audioTimer == null) {
+			audioTimer = setInterval(function() {
+				// get audio position
+				audio.getCurrentPosition(
+					function(position) { // get position success
+						if (position > -1) {
+							setAudioPosition(position);
+						}
+					}, function(e) { // get position error
+						alert("Error getting pos=" + e);
+						//setAudioPosition(duration);
+					}
+				);
+				if(!duration_show){
+					duration = audio.getDuration();
+					if( duration > 0 ){
+						formatTime(duration,duration_Timer);
+						slider_Timer.attr( "max", Math.round(duration) );
+						//slider_Timer.slider("refresh");
+						duration_show = true;
+					}
+				}
+			}, 1000);
+		}
+	}
+
+
+	function pauseAudio() {
+		if (audio) {
+			audio.pause();
+		}
+	}
+	
+	function PausePlayAudio() {
+		if (audio) {
+			audio.pause();
+			audio.seekTo(pausePos*1000);
+			audio.play();
+		}
+	}
+
+
+	function stopAudio() {
+		if (audio) {
+			audio.stop();
+			audio.release();
+		}
+		clearInterval(audioTimer);
+		audioTimer = null;
+		pausePos = 0;
+		formatTime(0,audio_Timer);
+	}
+
+
+	function setAudioPosition(position) {
+		pausePos = position;
+		position = Math.round(position);
+		slider_Timer.val(position);
+		formatTime(position,audio_Timer);
+		//slider_Timer.slider("refresh");
+		//slider_Timer.val(0);
+	}
+
+	function formatTime(seconds,Timer) {
+		if (seconds <= 0)
+		{
+			Timer.html("00:00");
+			return;
+		}	
+		var minutes = Math.floor(seconds / 60);
+		
+		if (minutes < 10)
+			minutes = "0" + minutes;
+
+		seconds = seconds % 60;
+		if (seconds < 10)
+			seconds = "0" + seconds;
+		seconds = Math.round(seconds);
+		
+		Timer.html(minutes + ":" + seconds);
+	};
+</script>
+</body>
+</html>

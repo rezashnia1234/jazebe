@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    <title>بسم الله الرحمن الرحیم</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css" />
+	<link rel="stylesheet" type="text/css" href="css/simplebar.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/ltr.css">
+
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/console.log.js"></script>
+    <script src="phonegap.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script src="js/jquery.md5.js"></script>
+    <script src="js/back_btn.js"></script>
+    <script src="js/query-string.js"></script>
+    <script src="js/simplebar.min.js"></script>
+	
+	<script>
+		function init() {		
+			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
+			document.addEventListener("deviceready", onDeviceReady, false);
+			
+			//onDeviceReady();
+		}
+
+		function onDeviceReady() {
+
+			//FastClick.attach(document.getElementById('container'));
+			FastClick.attach(document.body);
+			
+			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+				document.addEventListener("backbutton", go_back, false);
+			}
+		
+		}
+		function uniqueDeviceIDsuccess_index(uuid)
+		{
+			window.localStorage.setItem('uuid',uuid);
+		};
+		function uniqueDeviceIDfail_index(uuid)
+		{
+			//alert("uniqueDeviceIDfail" + uuid);
+		};
+		
+		$(window).load(function() {
+			//alert($(window).height());
+			//alert($(window).height());
+			//alert($(document).height()); 
+			//alert($("#warper").height());
+			$("#main").height($(window).height() - $("#header").height() - $("#footer").height()-30);
+			//$("#container").height($("#warper").height()-$("#header").height());
+			//$(".mypreload").delay(100000).html("");
+		});
+		$(document).ready(function() {
+			$('.translate').on('click', function() {
+				$('.persian').toggle();
+				$(this).toggleClass('active');
+			});	
+			$('.fontsize').on('click', function() {
+				$("#controls_size").addClass('opened');
+				$("#controls_over").css('position','fixed');
+			});
+			$('.audio').on('click', function() {
+				$('#smgroup_audio_player').toggle();
+				$('#smgroup_audio_player').addClass('active');
+			});
+/*
+			$('#play').on('click', function() {
+				$('#play').hide();
+				$('#pause').css('display','block');
+				
+				
+				play_btn.css("display","none");
+				//play2_btn.css("display","block");
+				pause_btn.css("display","block");
+				$(this).prop("disabled",true);
+				play2_btn.prop("disabled",true);
+				pause_btn.prop("disabled",false);
+				
+				playAudio(my_file);
+				//alert("2");
+			});
+*/
+		
+		
+			setTimeout(function(){
+				$(".mypreload").html("");
+				$('#main').addClass("simplebar");
+				$('#main').simplebar({ autoHide: false });
+			}, 300);
+		});
+
+			
+
+	</script>	
+
+		
+		
+<style>
+
+
+</style>
+<!--footer-bg-center.png-->
+</head>
+<body class="tarjome_disable sound_disable" onload="init();" style="overflow:hidden;width:100%;">
+	<div id="bg-top"></div><div id="bg-bottom"></div>
+	<div id="ajax" class="mypreload">
+		<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
+		<div style="z-index: 1011; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 28%; left: 0%; text-align: center;border: medium none;overflow:visible;" class="blockUI blockMsg blockPage"><img src="images/preloader.gif"></div>
+		<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading.png" width="70%"></div>
+	</div>
+	<div id="warper" >
+			<div id="header">
+				<div id="back-btn" onclick="parent.history.back();"></div>
+				<div id="header-text-2th">History</div>
+				<div class="center"></div>
+			</div>
+			<div id="footer">
+				<div id="footer-bg">
+					<button class="dw_bottun fontsize">Size</button>	
+					<button class="dw_bottun audio">0</button>	
+					<button class="dw_bottun translate">ترجمه</button>	
+				</div>
+			</div>
+			<div id="container" >
+				<div id="main" >
+<div class="justify doa_text">
+
+
+
+<b>Arbaeen (Arbayeen) or Chehlum [40th Day of Imam Husayn (as) Martyrdom Anniversary in Karbala]:</b>
+<br/>
+<br/>
+Arbaeen (Arbayeen) means "forty" in Arabic, or Chehlum, as it is known by many Muslims, is a Shia religious observation that occurs 40 days after the Day of Ashura (Aashura/Ashurah), the commemoration of the martyrdom by beheading of Imam Husayn Ibn Ali (as), the grandson of the Prophet Muhammad (saw) which falls on the 20th day of the second month of the Islamic Lunar Calendar called as Safar. Imam Husayn Ibn Ali (as) and 72 supporters died in the Battle of Karbala in the year 61 AH (680 CE). Forty days is the usual length of the time of mourning in many Islamic cultures.
+<br/>
+Number forty is mystic in Theosophy. According to the Islamic culture if someone practices a good deed constantly during forty days, it would be his inseparable attribute and lead to descending of Allah's blessing. In some religions forty days and forty nights praying has been special position.
+<br/>
+When Prophet Musa / Moses (pbuh) prayed forty nights; found the ability to hear the words of Allah (SWT), "And when We appointed a time of forty nights with Musa, then you took the calf (for a god) after him and you were unjust." [Glorious Quran 2:51]
+<br/>
+Prophet Muhammad (saw) said, "Whoever dedicates himself to Allah (SWT) for forty days, will find springs of wisdom sprout out of his heart and flow on his tongue."
+<br/>
+Commemorating of the fortieth day of deeds by their family and giving alms is one of the common customs among some of the Muslims.
+<br/>
+The 40th [Arbaeen (Arbayeen) or Chehlum] marks an important turning point in the movement of Karbala (Kerbala). This day, which is no less important to the day of Ashura (Aashura/Ashurah) is important for many reasons - the prime being that the Ahlul Bayt reached the land of Karbala on this day and performed the visitation to Sayyid ash-Shuhada al-Husayn (as) and the loyal family and friends who gave their life for the cause of Islam.
+<br/>
+Although the historians differ on when this event transpired; some say it was in the same year of the massacre in Karbala in the year 61 AH, whilst other say it was in the following year 62 AH. Whatever the case, the atrocities and difficulties which the family of Prophet Muhammad (saw) was put through in the court of Yazid and the long ride to Karbala culminated on the 20th of Safar on the empty plains of Karbala.
+<br/>
+According to most widely accepted traditions, the family of Prophet Muhammad (saw) remained in captivity for about a year in Damascus by Yazid, the Umayyad Caliph. After one year when the ruler of Shaam (Syria) were forced to release them, Bibi Zainab (sa) said to Imam Ali ibn al-Husayn as-Sajjad (as) that she wanted to go back to Karbala to mourn his brother and all the martyrs of Karbala. The same was desired by other women of this caravan and Imam Ali ibn al-Husayn as-Sajjad (as) directed them towards Karbala.
+<br/>
+The grave of Imam Husayn Ibn Ali (as) was not desolate as some may expect. Rather, as the Ahlul Bayt were approaching Karbala, there were a few people already at the grave, marking his martyrdom with tears. The individual, who had been a companion of Prophet Muhammad (saw) - Jabir ibne Abdullah al-Ansari (who at this point was blind) - along with his assistant (Atiyya bin Saad), had made the trek from Madina to the place of martyrdom of his Imam and master, Imam Husayn Ibn Ali (as). Jabir ibne Abdullah al-Ansari (ra) called out to his Imam, "I testify that you are the son of the Seal of the Prophets, the son of the Master of the Faithful, the son of the inseparable ally of piety, the descendant of guidance." His servant, Atiyya bin Saad noted to him that he could see a caravan of people in the distance and they were approaching this sacred site. As they approached, they realized that this was none other than the caravan of present Imam, Ali ibn al-Husayn as-Sajjad (as) with the other family members and assistants!
+<br/>
+The historians note that at this point, Jabir ibne Abdullah al-Ansari (ra) and his assistant, Atiyya bin Saad, moved out of the way so that the women of the Ahlul Bayt and the others could show their grief at the sacred grave in privacy and according to reports, the heads of the martyrs were also buried at this point in time - as before leaving Shaam (Syria), they were given back the sacred heads of the martyrs.
+<br/>
+According to a famous saying of Imam Hasan Askari (as) - there are five characteristics of a Momin (faithful):
+<br/>
+1.	Performing fifty-one (51) Rakaat Prayer (Salat) during the day and night in 24 hours;<br/>
+o	Fajr - 2 Wajib and 2 Nafl,<br/>
+o	Zuhr - 4 Wajib and 8 Nafl,<br/>
+o	Asr - 4 Wajib and 8 Nafl,<br/>
+o	Maghrib - 3 Wajib and 4 Nafl,<br/>
+o	Ishaa - 4 Wajib and 1 Nafl (2 Rakaat in sitting position counted as 1 Rakaat),<br/>
+o	Namaz-e-Shab or Tahajjud - 11 Rakaat Sunnat<br/>
+2.	Recitation of Ziarat-E-Imam Husayn (as) on the 40th day of his martyrdom (20th of Safar) called as Ziyarat-E-Arbaeen;<br/>
+3.	Wearing Aqeeq Ring in the right hand;<br/>
+4.	To put the forehead on the earth (preferably on the earth of Karbala, Khak-E-Shifa) in prostration (Sajda);<br/>
+5.	To pronounce "Bismillahir Rahmanir Raheem" in clear and loud voice while praying the Salat.<br/>
+The occasion of Arbaeen (Arbayeen) or Chehlum reminds the faithful of the core message behind Imam Husayn's martyrdom: establishing justice and fighting injustice, no matter what its incarnation - a message that strongly influenced subsequent Shia uprisings against the tyranny of Umayyad and Abbasid rule.<br/>
+These forty days are a suitable opportunity for people to develop the love of Imam Husayn (as) and hate his murderers, in their hearts. Forty consecutive days, from Ashura up to Arbaeen, also is a national ceremony of aversion announcement from oppressors of the history.<br/>
+O Husayn, commemoration of your revolution from Ashura up to Arbaeen makes the world pay attention to the message of the resurrection. Ashura is martyrdom day of the history makers and Arbaeen is pilgrimage day of Ashura makers.<br/>
+Arbaeen philosophy shows itself, and we can teach martyrdom lesson from this class and prepare ourselves in order to help our master Imam Mahdi (as) [May Allah hasten his reappearance].<br/>
+As a sign of loyalty to the martyrs, we have been ordered to recite the Ziyarat of Arbaeen on the day of Arbaeen.<br/>
+Why is so much importance given to the performance of the Ziyarat-E-Arbaeen and the observance of Arbaeen (40 days of mourning)?<br/>
+Ziyarat, as we all know is a visitation, which in essence, is the act of speaking with and visiting our role models. Of course the physical manifestation of the Ziyarat is actually being present in Karbala to perform the Ziyarat-E-Arbaeen, but, in reality, that is not possible for every believer. So, does making Ziyarat while not in Karbala give one the same benefits? Ahadith tell us that performing the Ziyarat of Imam Husayn (as) far from Karbala would hold the same significance as being in the land of Karbala, as long as the person performing the Ziyarat has truly understood the status of the Imam Husayn (as) and seeks to emulate him.<br/>
+Imam Muhammad al-Baqir (as) states that the heavens wept over Imam Husayn (as) for forty mornings, rising red and setting red. As we complete 40 days of remembrance of our Imam, we re-assert our pledge of obedience and loyalty to him,<br/>
+"I bear witness that you are the Imam (who is) the upright, the pious, well-pleased (with Allah), the pure, the guide and the rightly-guided. I bear witness that you fulfilled the pledge of Allah and you struggled in His way.I am a friend of whoever befriends him ..."<br/>
+By performing the Ziyarat-E-Arbaeen, we pledge that we will continue to follow the path of justice and righteousness and will reject injustice and speak up against the oppressors of the time; I am an enemy of whoever is his enemy...<br/>
+In essence, we make a promise to continue to mold our lives according to the teaching of Imam Husayn (as). But why is it that we mourn and remember Imam Husayn (as) for a period of forty days and then move on?<br/>
+Our Prophet Muhammad (saw) has said, "The earth mourns the death of a believer for forty mornings." Therefore it appears that the deceased should be remembered and mourned over for a period of forty days. Performing an act for a continuous period of forty days is also known to help one to not just form a habit, but also to carry on the practice for the rest of his life.<br/>
+If we look at studies dealing with bringing a lifestyle change, we notice the time period emphasized to bring about a change is usually 6 weeks which is about the same time period as 40 days (to be exact it is 42 days).<br/>
+In the book 40 Days to Personal Revolution: A Breakthrough Program to Radically Change Your Body and Awaken the Sacred Within Your Soul, the author Baron Baptiste explains the significance of forty days:<br/>
+Why forty days? Because the number 40 holds tremendous spiritual significance in the realm of transformation. Jesus wandered in the desert for forty days in order to experience purification and come to a greater understanding of himself and his mission. Moses and his people traveled through the desert for forty years before arriving at their home in the holy land. Noah preserved the sacredness of life by sailing his ark for forty days and forty nights. According to the Kabbalah, the ancient Jewish mystical text, it takes forty days to ingrain any new way of being into our system...<br/>
+Reciting particular Duas for a period of 40 days is highly recommended in our practices as well. The unit 40 (forty) is said to be very effective. If a particular Dua is recited 40 times, or 40 people gather to recite it, or it is recited for 40 days then its effectiveness is highly increased.<br/>
+It is reported from Imam Jaffer Sadiq (as) that whoever recites Dua-E-Ahad for forty days, after morning prayers will be amongst the helpers of the 12th Imam Mahdi (as). Visitation of the shrine of Imam Husayn (as) as well as Masjid-E-Sahla for 40 consecutive Thursdays is also very highly recommended and is one of the acts that promises a visit from the 12th Imam Mahdi (as).<br/>
+Thus, as we perform the Ziyarat-E-Arbaeen and commemorate the Arba'een, 40 days of mourning of Imam Husayn (as), we hope and pray that this forty days of remembrance of Imam Husayn (as), brings about a transformation in us by which we can continue to follow the path of Imam Husayn (as) and carry on his message of upholding justice with true faith and a strong sense of sacrifice!<br/>
+
+
+
+
+
+	<br/><br/><br/>
+<div>
+				</div>
+			</div>
+	</div>
+	<div id="controls_size">
+		<div id="css_style"></div>
+		<div id="controls_over"></div>
+		<a href="#" id="large">Size</a>
+		<a href="#" id="medium">Size</a>
+		<a href="#" id="small" >Size</a>
+		<div id="controls_bg"></div>
+	</div>
+</body>
+</html>

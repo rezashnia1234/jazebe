@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    <title>بسم الله الرحمن الرحیم</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css" />
+	<link rel="stylesheet" type="text/css" href="css/simplebar.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/ltr.css">
+
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/console.log.js"></script>
+    <script src="phonegap.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script src="js/jquery.md5.js"></script>
+    <script src="js/back_btn.js"></script>
+    <script src="js/query-string.js"></script>
+    <script src="js/simplebar.min.js"></script>
+	
+	<script>
+		function init() {		
+			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
+			document.addEventListener("deviceready", onDeviceReady, false);
+			
+			//onDeviceReady();
+		}
+
+		function onDeviceReady() {
+
+			//FastClick.attach(document.getElementById('container'));
+			FastClick.attach(document.body);
+			
+			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+				document.addEventListener("backbutton", go_back, false);
+			}
+		
+		}
+		function uniqueDeviceIDsuccess_index(uuid)
+		{
+			window.localStorage.setItem('uuid',uuid);
+		};
+		function uniqueDeviceIDfail_index(uuid)
+		{
+			//alert("uniqueDeviceIDfail" + uuid);
+		};
+		
+		$(window).load(function() {
+			//alert($(window).height());
+			//alert($(window).height());
+			//alert($(document).height()); 
+			//alert($("#warper").height());
+			$("#main").height($(window).height() - $("#header").height() - $("#footer").height()-30);
+			//$("#container").height($("#warper").height()-$("#header").height());
+			//$(".mypreload").delay(100000).html("");
+		});
+		$(document).ready(function() {
+			$('.translate').on('click', function() {
+				$('.persian').toggle();
+				$(this).toggleClass('active');
+			});	
+			$('.fontsize').on('click', function() {
+				$("#controls_size").addClass('opened');
+				$("#controls_over").css('position','fixed');
+			});
+			$('.audio').on('click', function() {
+				$('#smgroup_audio_player').toggle();
+				$('#smgroup_audio_player').addClass('active');
+			});
+/*
+			$('#play').on('click', function() {
+				$('#play').hide();
+				$('#pause').css('display','block');
+				
+				
+				play_btn.css("display","none");
+				//play2_btn.css("display","block");
+				pause_btn.css("display","block");
+				$(this).prop("disabled",true);
+				play2_btn.prop("disabled",true);
+				pause_btn.prop("disabled",false);
+				
+				playAudio(my_file);
+				//alert("2");
+			});
+*/
+			$('.fontsize').on('click', function() {
+				$('#smgroup_audio_player').hide();
+			});
+		
+		
+			setTimeout(function(){
+				$(".mypreload").html("");
+				$('#main').addClass("simplebar");
+				$('#main').simplebar({ autoHide: false });
+			}, 300);
+		});
+
+			
+
+	</script>	
+
+		
+		
+<style>
+.doa_text {
+    line-height: 200%;
+    direction: rtl;
+    width: 100%;
+    text-align: center;
+	float:none !important;
+}
+.persian{
+    direction: ltr !important;
+    width: 100%;
+    text-align: center !important ;
+	float:none !important;
+}
+.translate {
+    background-image: none;
+    padding-left: 22px;
+}
+</style>
+<!--footer-bg-center.png-->
+</head>
+<body class="tarjome_disable00 sound_disable00 fontsize_disable000" onload="init();" style="overflow:hidden;width:100%;">
+<div id="bg-top"></div><div id="bg-bottom"></div>
+<div id="ajax" class="mypreload">
+	<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
+	<div style="z-index: 1011; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 28%; left: 0%; text-align: center;border: medium none;overflow:visible;" class="blockUI blockMsg blockPage"><img src="images/preloader.gif"></div>
+	<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading.png" width="70%"></div>
+</div>
+		<div id="warper" >
+				<div id="header">
+					<div id="back-btn" onclick="parent.history.back();"></div>
+					<div id="header-text-2th"></div>
+					<div class="center"></div>
+				</div>
+				<div id="footer">
+					<div id="footer-bg">
+						<button class="dw_bottun fontsize">size</button>	
+						<button class="dw_bottun audio">0</button>	
+						<button class="dw_bottun translate">Translation</button>	
+					</div>
+				</div>
+				<div id="container">
+					<div id="main" class="">
+					
+					
+					
+					
+					
+					
+					
+					
+					
+<div class="doa_text english" style="text-align:justify;">				
+	<b>Ziaraat Ashura</b>
+	<br/>
+	The first form of ziyarah to be mentioned hereinafter is the famous ziyarah of ‘Ashura’, which can be said at the tomb of Imam al-Husayn (‘a) and also from far distance. The following is the elaborate report of this form of ziyarah, as has been narrated by Shaykh Abu-Ja’far al-Tusi in his book of al-Misbah:
+	<br/>
+	Muhammad ibn Isma’il ibn Buzaygh has reported on the authority of Salih ibn ‘Aqabah on the authority of his father on the authority of Imam Muhammad al-Baqir (‘a) who said, “Whoever visits al-Husayn ibn ‘Ali (‘a) on the tenth of Muharram (i.e. the ‘Ashura’ Day) and remains there weeping, will meet Almighty Allah on the day of meeting Him having the reward of two thousand times of going on hajj, two thousand times of going on ‘umrah, as well as the reward of one who has participated with the Holy Messenger of Allah and with the Holy Imams in two thousand campaigns.”
+	<br/>
+	The reporter asked, “May Allah accept me as ransom for you! What should one who lives in remote regions and cannot come to the tomb on that day do?”
+	<br/>
+	The Imam (‘a) explained, “As for such people, they may come out to a wasteland or go up a high roof in their houses, wave towards Imam al-Husayn (‘a) with greeting, invoke earnestly curses on those who killed him, and then offer a two-unit prayer. They may do so before midday. They may then mourn and weep for al-Husayn (‘a) and order those who live with them in their houses to weep for him, unless they fear for themselves from certain individuals who live with them. They may hold mournful ceremonies in their houses and show grief for him. They may also console one another on this terrible occasion of Imam al-Husayn’s sufferings. If they do all that, I myself guarantee for them to grant the rewards that I have mentioned beforehand.”
+	<br/>
+	The reporter asked, “May Allah accept me as ransom for you! Do you really promise them and guarantee for them to have that reward?”
+	<br/>
+	The Imam (‘a) answered, “Yes, I do. I do promise them and guarantee for them having that reward.”
+	<br/>
+	The reporter asked, “In which method should we console one another on this occasion?”
+	<br/>
+	The Imam instructed, “You may address the following words at one another:
+	<br/><br/>
+</div>
+					
+
+
+<div class="doa_text arabic">اَعْظَمَ اللّهُ اُجُورَنا وَاُجورَكُمْ بِمُصابِنا بِالْحُسَيْنِ عَلَيْهِ السَّلامُ وَجَعَلَنا وَاِيّاكُمْ مِنَ الطّالِبينَ بِثارِهِ مَعَ وَلِيِّهِ الاِْمامِ الْمَهْدِىِّ مِنْ الِ مُحَمَّدٍ عَلَيْهِمُ السَّلامُ. </div>
+<div class="doa_text persian">
+If possible, you may not leave your house on that day to settle any of your needs, because this day is doomed and no need of a faithful believer is settled on it; and even if it is settled, it will be unblessed. Moreover, whatever is saved on this day will be unblessed and so will be his family members. If they do all that, they will have the reward of one thousand times of hajj and one thousand times of ‘umrah as well as one thousand participations in campaigns with the Holy Messenger of Allah. They will also gain the reward of all misfortunes that have inflicted every prophet, prophet’s successor, veracious, and martyr who have died or been killed since Almighty Allah has created this world up to the Resurrection Hour.”
+Salih ibn ‘Aqabah and Sayf ibn ‘Umayrah have reported ‘Alqamah ibn Muhammad al-Hazrami as saying that he, once, asked Imam al-Baqir, Allah’s peace and blessings be upon him, to teach him a supplicatory prayer with which he would pray Almighty Allah on that day (of ‘Ashura’) when he would visit Imam al-Husayn’s tomb and to teach him another supplicatory prayer with which he would pray Almighty Allah on that day when he would be unable to visit the tomb and then he would point to the tomb and send greetings to Imam al-Husayn (‘a) from his own house.
+The Imam thus said, “Listen, ‘Alqamah! After you point to Imam al-Husayn (‘a) with greetings and offer the two-unit prayer, you may utter the Takbir statement (i.e. allahu-akbar) and then say... (the forthcoming form of Ziyarah). If you do so, you will have said the prayer that is said by the angels who visit Imam al-Husayn (‘a). You will be also raised one hundred million ranks to join the rank of those who were martyred with him (i.e. Imam al-Husayn) and you will be included with their group. You will, moreover, be awarded the reward of the visiting of all Prophets and Messengers as well as the reward of all the visitors of Imam al-Husayn (‘a) since the day of his martyrdom. Peace of Allah be upon him and upon his household.”
+</div>
+<div class="doa_text arabic">اَلسَّلاَمُ عَلَيْكَ يَا أَبَا عَبْدِ اللَّهِ السَّلاَمُ عَلَيْكَ يَا ابْنَ رَسُولِ اللَّهِ‏</div>
+<div class="doa_text persian">Peace be on you, O Aba Abdullah! peace be on you, O son of the Messenger of Allah!</div>
+<div class="doa_text arabic">السَّلاَمُ عَلَيْكَ يَا خِيَرَةَ اللَّهِ وَ ابْنَ خِيَرَتِه السَّلاَمُ عَلَيْكَ يَا ابْنَ أَمِيرِ الْمُؤْمِنِينَ وَ ابْنَ سَيِّدِ الْوَصِيِّينَ‏</div>
+<div class="doa_text persian">peace be on you, O son of the commander of the faithfuls, the forebear of the successors!</div>
+<div class="doa_text arabic">السَّلاَمُ عَلَيْكَ يَا ابْنَ فَاطِمَةَ سَيِّدَةِ نِسَاءِ الْعَالَمِينَ‏</div>
+<div class="doa_text persian">Peace be on you, O son of Faatimah, the choicest among the women of the worlds!</div>
+<div class="doa_text arabic">السَّلاَمُ عَلَيْكَ يَا ثَارَ اللَّهِ وَ ابْنَ ثَارِهِ وَ الْوِتْرَ الْمَوْتُورَ</div>
+<div class="doa_text persian">Peace be on you, who was martyred while fighting heroically in the cause of Allah, the son of Allah's fearless warrior, you were isolated and had been attacked with a vengeance!</div>
+<div class="doa_text arabic">السَّلاَمُ عَلَيْكَ وَ عَلَى الْأَرْوَاحِ الَّتِي حَلَّتْ بِفِنَائِكَ عَلَيْكُمْ مِنِّي جَمِيعاً سَلاَمُ اللَّهِ أَبَداً مَا بَقِيتُ وَ بَقِيَ اللَّيْلُ وَ النَّهَارُ</div>
+<div class="doa_text persian">Peace be on you and on those souls who had gathered in your camp, in your journey. I pray and invoke Allah to keep all of you tranquil and restful, for ever; so far I am alive, this is my prayer, and till nights and days follow each other.</div>
+<div class="doa_text arabic">يَا أَبَا عَبْدِ اللَّهِ لَقَدْ عَظُمَتِ الرَّزِيَّةُ وَ جَلَّتْ وَ عَظُمَتِ الْمُصِيبَةُ بِكَ (بِكُمْ) عَلَيْنَا وَ عَلَى جَمِيعِ أَهْلِ الْإِسْلاَمِ‏</div>
+<div class="doa_text persian">O Abaa Abdu I lah ! unbearable is the sorrow, nerve-racking is the agony, youput up with, for us and for all the (true) Muslims,</div>
+<div class="doa_text arabic">وَ جَلَّتْ وَ عَظُمَتْ مُصِيبَتُكَ فِي السَّمَاوَاتِ عَلَى جَمِيعِ أَهْلِ السَّمَاوَاتِ‏</div>
+<div class="doa_text persian">crimes committed against you also shocked and unnerved the dwellers of the heavens, one and all</div>
+<div class="doa_text arabic">فَلَعَنَ اللَّهُ أُمَّةً أَسَّسَتْ أَسَاسَ الظُّلْمِ وَ الْجَوْرِ عَلَيْكُمْ أَهْلَ الْبَيْتِ‏</div>
+<div class="doa_text persian">May Allah condemn and damn the people who laid the basis and set up the groundwork, to wander astray and turn aside from not only you and your family but to take liberties and bear hard upon you.</div>
+<div class="doa_text arabic">وَ لَعَنَ اللَّهُ أُمَّةً دَفَعَتْكُمْ عَنْ مَقَامِكُمْ وَ أَزَالَتْكُمْ عَنْ مَرَاتِبِكُمُ الَّتِي رَتَّبَكُمُ اللَّهُ فِيهَا</div>
+<div class="doa_text persian">May Allah condemn and damn the people who tried to obscure and deny your office and status, wilfully neglected your rank and class Allah had made known in clear terms.</div>
+<div class="doa_text arabic">وَ لَعَنَ اللَّهُ أُمَّةً قَتَلَتْكُمْ وَ لَعَنَ اللَّهُ الْمُمَهِّدِينَ لَهُمْ بِالتَّمْكِينِ مِنْ قِتَالِكُمْ‏</div>
+<div class="doa_text persian">May Allah condemn and damn the people who killed you. May Allah condemn and damn the abettors who instigated and had a part in your murder.</div>
+<div class="doa_text arabic">بَرِئْتُ إِلَى اللَّهِ وَ إِلَيْكُمْ مِنْهُمْ وَ (مِنْ) أَشْيَاعِهِمْ وَ أَتْبَاعِهِمْ وَ أَوْلِيَائِهِمْ‏</div>
+<div class="doa_text persian">I turn to you and Allah, away from them, their henchmen, their followers and their friends,</div>
+<div class="doa_text arabic">يَا أَبَا عَبْدِ اللَّهِ إِنِّي سِلْمٌ لِمَنْ سَالَمَكُمْ وَ حَرْبٌ لِمَنْ حَارَبَكُمْ إِلَى يَوْمِ الْقِيَامَةِ</div>
+<div class="doa_text persian">O Abaa Abdullah, I make peace with those who make their peace with you, I make war on those who go to war against you, till the Day of Judgment.</div>
+<div class="doa_text arabic">وَ لَعَنَ اللَّهُ آلَ زِيَادٍ وَ آلَ مَرْوَانَ وَ لَعَنَ اللَّهُ بَنِي أُمَيَّةَ قَاطِبَةً وَ لَعَنَ اللَّهُ ابْنَ مَرْجَانَةَ</div>
+<div class="doa_text persian">May Allah condemn and damn the family of Ziyaad and the family of Marwaan; may Allah condemn and damn the group and the tribe of Umiyyah, one and all, altogether;may Allah condemn and damn ibna Marjaanah;</div>
+<div class="doa_text arabic">وَ لَعَنَ اللَّهُ عُمَرَ بْنَ سَعْدٍ وَ لَعَنَ اللَّهُ شِمْراً (شَمِراً)</div>
+<div class="doa_text persian">may Allah condemn and damn Umar bin Saad; may Allah condemn and damn Shimr;</div>
+<div class="doa_text arabic">وَ لَعَنَ اللَّهُ أُمَّةً أَسْرَجَتْ وَ أَلْجَمَتْ وَ تَنَقَّبَتْ لِقِتَالِكَ بِأَبِي أَنْتَ وَ أُمِّي‏</div>
+<div class="doa_text persian">may Allah condemn and damn the people who celebrate, enjoy, sing and dance on the day of your martyrdom. My father and mother are at your disposal.</div>
+<div class="doa_text arabic">لَقَدْ عَظُمَ مُصَابِي بِكَ فَأَسْأَلُ اللَّهَ الَّذِي أَكْرَمَ مَقَامَكَ وَ أَكْرَمَنِي (بِكَ)</div>
+<div class="doa_text persian">Profound is my sorrow for you. I beg Allah, who honoured you above others, to be generous towards me on account of you,</div>
+<div class="doa_text arabic">أَنْ يَرْزُقَنِي طَلَبَ ثَارِكَ مَعَ إِمَامٍ مَنْصُورٍ مِنْ أَهْلِ بَيْتِ مُحَمَّدٍ صَلَّى اللَّهُ عَلَيْهِ وَ آلِهِ‏</div>
+<div class="doa_text persian">and give me the opportunity to be with the victorious Imaam, the descendant of Muhammad (blessings and peace be on him and on his children from Allah) at the time of the final and decisive war against Allah's enemies.</div>
+<div class="doa_text arabic">اللَّهُمَّ اجْعَلْنِي عِنْدَكَ وَجِيهاً بِالْحُسَيْنِ عليه السلام فِي الدُّنْيَا وَ الْآخِرَةِ</div>
+<div class="doa_text persian">O my Allah make me attend to Thy cause, sincerely, in every respect following in Husayn's footsteps, in this world and the hereafter.</div>
+<div class="doa_text arabic">يَا أَبَا عَبْدِ اللَّهِ إِنِّي أَتَقَرَّبُ إِلَى اللَّهِ وَ إِلَى رَسُولِهِ وَ إِلَى أَمِيرِ الْمُؤْمِنِينَ‏</div>
+<div class="doa_text persian">O Abaa Abdullah, I come nearer and seek greater intimacy with Allah, with His Messenger, with Ameerul Moomineen,</div>
+<div class="doa_text arabic">وَ إِلَى فَاطِمَةَ وَ إِلَى الْحَسَنِ وَ إِلَيْكَ بِمُوَالاَتِكَ‏</div>
+<div class="doa_text persian">with Faatimah, with Has-an and with you, with the help of your love and patronage,</div>
+<div class="doa_text arabic">وَ بِالْبَرَاءَةِ (مِمَّنْ قَاتَلَكَ وَ نَصَبَ لَكَ الْحَرْبَ وَ بِالْبَرَاءَةِ مِمَّنْ أَسَّسَ أَسَاسَ الظُّلْمِ وَ الْجَوْرِ عَلَيْكُمْ‏</div>
+<div class="doa_text persian">cutting off every connection with those who took up arms against you and killed you.</div>
+
+<div class="doa_text arabic">وَ أَبْرَأُ إِلَى اللَّهِ وَ إِلَى رَسُولِهِ) مِمَّنْ أَسَّسَ أَسَاسَ ذَلِكَ وَ بَنَى عَلَيْهِ بُنْيَانَهُ‏</div>
+
+<div class="doa_text persian">I take refuge with Allah and His Messenger free from the guilt of associating with those who laid the foundation for (your suffering), devised and carried out their corrupt plan of action, 
+boldly gave currency to reign of terror and cruelty to oppress you and your friends and followers; detach myself from them and present myself to Allah and to you,</div>
+<div class="doa_text arabic">وَ جَرَى فِي ظُلْمِهِ وَ جَوْرِهِ عَلَيْكُمْ وَ عَلَى أَشْيَاعِكُمْ بَرِئْتُ إِلَى اللَّهِ وَ إِلَيْكُمْ مِنْهُمْ‏</div>
+<div class="doa_text persian">I disconnect all links with those who, in the beginning, took the first steps to take liberties with and bear hard upon you,</div>
+<div class="doa_text arabic">وَ أَتَقَرَّبُ إِلَى اللَّهِ ثُمَّ إِلَيْكُمْ بِمُوَالاَتِكُمْ وَ مُوَالاَةِ وَلِيِّكُمْ‏</div>
+<div class="doa_text persian">I (first) seek greater intimacy with Allah and then with you to win your love and patronage, and to make friends with your friends,</div>
+<div class="doa_text arabic">وَ بِالْبَرَاءَةِ مِنْ أَعْدَائِكُمْ وَ النَّاصِبِينَ لَكُمُ الْحَرْبَ وَ بِالْبَرَاءَةِ مِنْ أَشْيَاعِهِمْ وَ أَتْبَاعِهِمْ‏</div>
+<div class="doa_text persian">cut off all links with your enemies, and with those who planted the seeds of hostility against you, and reject and discard their associates, their followers and their friends.</div>
+<div class="doa_text arabic">إِنِّي سِلْمٌ لِمَنْ سَالَمَكُمْ وَ حَرْبٌ لِمَنْ حَارَبَكُمْ وَ وَلِيٌّ لِمَنْ وَالاَكُمْ وَ عَدُوٌّ لِمَنْ عَادَاكُمْ‏</div>
+<div class="doa_text persian">I make peace with those who made their peace with you, I search out and confront those who waged war against you, I make friends with those who stood by you, I strive against those who came in conflict with you,</div>
+<div class="doa_text arabic">فَأَسْأَلُ اللَّهَ الَّذِي أَكْرَمَنِي بِمَعْرِفَتِكُمْ وَ مَعْرِفَةِ أَوْلِيَائِكُمْ وَ رَزَقَنِي الْبَرَاءَةَ مِنْ أَعْدَائِكُمْ‏</div>
+<div class="doa_text persian">therefore, I make a request to Allah to acquaint (me) with the awareness that perceives you and your friends, to set me free from the corrupting influence of your enemies,</div>
+<div class="doa_text arabic">أَنْ يَجْعَلَنِي مَعَكُمْ فِي الدُّنْيَا وَ الْآخِرَةِ وَ أَنْ يُثَبِّتَ لِي عِنْدَكُمْ قَدَمَ صِدْقٍ فِي الدُّنْيَا وَ الْآخِرَةِ</div>
+<div class="doa_text persian">to make me keep company with you it, this world and in the Hereafter, stand firm beside you and follow your footsteps closely in this world and in the next world.</div>
+<div class="doa_text arabic">وَ أَسْأَلُهُ أَنْ يُبَلِّغَنِي الْمَقَامَ الْمَحْمُودَ لَكُمْ عِنْدَ اللَّهِ‏</div>
+<div class="doa_text persian">I beseech Him that He helps me to reach your highly praised station, given to you by Allah, (to meet you)</div>
+<div class="doa_text arabic">وَ أَنْ يَرْزُقَنِي طَلَبَ ثَارِي (ثَارَكُمْ) مَعَ إِمَامٍ هُدًى (مَهْدِيٍّ) ظَاهِرٍ نَاطِقٍ بِالْحَقِّ مِنْكُمْ‏</div>
+<div class="doa_text persian">that He provides me the opportunity to fight for justice and fair play along with and under the leadership of the rightly guided guide (in your progeny) who surely will come and speak the truth.</div>
+<div class="doa_text arabic">وَ أَسْأَلُ اللَّهَ بِحَقِّكُمْ وَ بِالشَّأْنِ الَّذِي لَكُمْ عِنْدَهُ أَنْ يُعْطِيَنِي بِمُصَابِي بِكُمْ أَفْضَلَ مَا يُعْطِي مُصَاباً بِمُصِيبَتِهِ‏</div>
+<div class="doa_text persian">I beseech Allah in the name of your right and the purpose He assigned to you, that He overwhelms me with grief in memory of your sorrows, more than the personal grief that torments any one who is in great agony,</div>
+<div class="doa_text arabic">مُصِيبَةً مَا أَعْظَمَهَا وَ أَعْظَمَ رَزِيَّتَهَا فِي الْإِسْلاَمِ وَ فِي جَمِيعِ السَّمَاوَاتِ وَ الْأَرْضِ (الْأَرَضِينَ)</div>
+<div class="doa_text persian">sorrows which have no parallel and overshadow all calamities that took place in the history of Islam, for that matter, throughout the whole universe.</div>
+<div class="doa_text arabic">اللَّهُمَّ اجْعَلْنِي فِي مَقَامِي هَذَا مِمَّنْ تَنَالُهُ مِنْكَ صَلَوَاتٌ وَ رَحْمَةٌ وَ مَغْفِرَةٌ</div>
+<div class="doa_text persian">O my Allah, in my on the spot situation, treat me like him (or her) who obtains from Thee (Thy) blessings, mercy and forgiveness.</div>
+<div class="doa_text arabic">اللَّهُمَّ اجْعَلْ مَحْيَايَ مَحْيَا مُحَمَّدٍ وَ آلِ مُحَمَّدٍ وَ مَمَاتِي مَمَاتَ مُحَمَّدٍ وَ آلِ مُحَمَّدٍ</div>
+<div class="doa_text persian">O my Allah, bring me to life again, after death, in the place Muhammad and his "Aal" (children) are dwelling, and make me depart from this world like Muhammad and his "Aal" (children) had left,</div>
+<div class="doa_text arabic">اللَّهُمَّ إِنَّ هَذَا يَوْمٌ تَبَرَّكَتْ بِهِ (فِيهِ) بَنُو أُمَيَّةَ وَ ابْنُ آكِلَةِ الْأَكْبَادِ</div>
+<div class="doa_text persian">O my Allah this day is a day of rejoicing for the "Bani Umayyah", the herd of hardened criminals,</div>
+<div class="doa_text arabic">اللَّعِينُ ابْنُ اللَّعِينِ عَلَى (لِسَانِكَ) وَ لِسَانِ نَبِيِّكَ (صَلَّى اللَّهُ عَلَيْهِ وَ آلِهِ)</div>
+<div class="doa_text persian">the eternally damned and accursed group, a fact that had been made public by Thee and by Thy Prophet (blessings of Allah be on him and on his children),</div>
+<div class="doa_text arabic">فِي كُلِّ مَوْطِنٍ وَ مَوْقِفٍ وَقَفَ فِيهِ نَبِيُّكَ (صَلَّى اللَّهُ عَلَيْهِ وَ آلِهِ)</div>
+<div class="doa_text persian">who, in every place and at all occasions, drew attention of people to this truism.</div>
+<div class="doa_text arabic">اللَّهُمَّ الْعَنْ أَبَا سُفْيَانَ وَ مُعَاوِيَةَ وَ يَزِيدَ بْنَ مُعَاوِيَةَ عَلَيْهِمْ مِنْكَ اللَّعْنَةُ أَبَدَ الْآبِدِينَ‏</div>
+<div class="doa_text persian">O my Allah condemn and damn Abu Sufyaan, Mu-a'awiyah bin Abu Sufyan, Yazid bin Muwa'awiyah and let it be an everlasting curse upon them from Thee.</div>
+<div class="doa_text arabic">وَ هَذَا يَوْمٌ فَرِحَتْ بِهِ آلُ زِيَادٍ وَ آلُ مَرْوَانَ بِقَتْلِهِمُ الْحُسَيْنَ صَلَوَاتُ اللَّهِ عَلَيْهِ (عَلَيْهِ السَّلاَمُ)</div>
+<div class="doa_text persian">Today the descendants of Ziyaad and Marwan make merry, laugh and dance because on this day they killed Husayn (blessings of Allah be on him).</div>
+<div class="doa_text arabic">اللَّهُمَّ فَضَاعِفْ عَلَيْهِمُ اللَّعْنَ مِنْكَ وَ الْعَذَابَ (الْأَلِيمَ)</div>
+<div class="doa_text persian">O my Allah, therefore, double up the curse Thou brings upon them and also the punishment Thou decrees for them.</div>
+<div class="doa_text arabic">اللَّهُمَّ إِنِّي أَتَقَرَّبُ إِلَيْكَ فِي هَذَا الْيَوْمِ وَ فِي مَوْقِفِي هَذَا وَ أَيَّامِ حَيَاتِي‏</div>
+<div class="doa_text persian">O my Allah, I seek nearness to Thee today in this frame of mind, cutting off all links with them for the _rest of my life,</div>
+<div class="doa_text arabic">بِالْبَرَاءَةِ مِنْهُمْ وَ اللَّعْنَةِ عَلَيْهِمْ وَ بِالْمُوَالاَةِ لِنَبِيِّكَ وَ آلِ نَبِيِّكَ (عَلَيْهِ وَ) عَلَيْهِمُ السَّلاَمُ‏</div>
+<div class="doa_text persian">denouncing them because of my love for Thy Prophet and his children, peace be on him and them.</div>
+
+<div class="doa_text persian">Say 100 Times:</div>
+
+‏
+<div class="doa_text arabic">اللَّهُمَّ الْعَنْ أَوَّلَ ظَالِمٍ ظَلَمَ حَقَّ مُحَمَّدٍ وَ آلِ مُحَمَّدٍ وَ آخِرَ تَابِعٍ لَهُ عَلَى ذَلِكَ‏</div>
+<div class="doa_text persian">O my Allah condemn and damn the first tyrant who unjustly and wrongfully usurped that which rightly belonged to Muhammad and the children of Muhammad, and bring curse upon those who, after him, followed in his footsteps.</div>
+<div class="doa_text arabic">اللَّهُمَّ الْعَنِ الْعِصَابَةَ الَّتِي (الَّذِينَ) جَاهَدَتِ الْحُسَيْنَ وَ شَايَعَتْ وَ بَايَعَتْ وَ تَابَعَتْ (تَايَعَتْ) عَلَى قَتْلِهِ اللَّهُمَّ الْعَنْهُمْ جَمِيعاً</div>
+<div class="doa_text persian">O my Allah condemn and damn those conspirators who vexed and harassed Husayn, showed eagerness, agreed mutually, and joined hands to kill him. O my Allah bring curse upon all of them.</div>
+<div class="doa_text persian">Say 100 Times:</div>
+
+‏
+<div class="doa_text arabic">السَّلاَمُ عَلَيْكَ يَا أَبَا عَبْدِ اللَّهِ وَ عَلَى الْأَرْوَاحِ الَّتِي حَلَّتْ بِفِنَائِكَ‏</div>
+<div class="doa_text persian">Peace be on you, O Abaa Abdullah, and on those souls who came to your camp to put themselves at your disposal.</div>
+<div class="doa_text arabic">عَلَيْكَ مِنِّي سَلاَمُ اللَّهِ أَبَداً مَا بَقِيتُ وَ بَقِيَ اللَّيْلُ وَ النَّهَارُ</div>
+<div class="doa_text persian">So far I am alive and the days and nights follow each other I invoke Allah to send blessings on you for ever and ever.</div>
+<div class="doa_text arabic">وَ لاَ جَعَلَهُ اللَّهُ آخِرَ الْعَهْدِ مِنِّي لِزِيَارَتِكُمْ (لِزِيَارَتِكَ)</div>
+<div class="doa_text persian">May Allah not make me this pledge of close association, physical as well as spiritual, with you the last fulfillment.</div>
+<div class="doa_text arabic">السَّلاَمُ عَلَى الْحُسَيْنِ وَ عَلَى عَلِيِّ بْنِ الْحُسَيْنِ (وَ عَلَى أَوْلاَدِ الْحُسَيْنِ ) وَ عَلَى أَصْحَابِ الْحُسَيْنِ‏  Peace be on Husayn, and on Ali son of Husayn, and on the children of Husayn, and on the friends of Husayn.</div>
+<div class="doa_text persian">Then You say:</div>
+<div class="doa_text arabic">اللَّهُمَّ خُصَّ أَنْتَ أَوَّلَ ظَالِمٍ بِاللَّعْنِ مِنِّي وَ ابْدَأْ بِهِ أَوَّلاً ثُمَّ (الْعَنِ) الثَّانِيَ وَ الثَّالِثَ وَ الرَّابِعَ‏</div>
+<div class="doa_text persian">O my Allah, let the curse I call down on the head of the first tyrant stick like a leech; and stay put for ever on the first, then the second, the third and the fourth.</div>
+<div class="doa_text arabic">اللَّهُمَّ الْعَنْ يَزِيدَ خَامِساً وَ الْعَنْ عُبَيْدَ اللَّهِ بْنَ زِيَادٍ وَ ابْنَ مَرْجَانَةَ</div>
+<div class="doa_text persian">O my Allah damn and call down evil on the fifth, Yazid son of Mua'awyah, and bring a curse upon Ubaydullah bin Ziyaad, ibna Marjanah,</div>
+<div class="doa_text arabic">وَ عُمَرَ بْنَ سَعْدٍ وَ شِمْراً وَ آلَ أَبِي سُفْيَانَ وَ آلَ زِيَادٍ وَ آلَ مَرْوَانَ إِلَى يَوْمِ الْقِيَامَةِ</div>
+<div class="doa_text persian"> Umar bin Saad, and Shimr, and on the descendants of Abu Sufyaan, on the descendants of Ziyaad, on the descendants of Marwaan, till the Day of Judgment.</div>
+<div class="doa_text persian">Go in Sajdah & Recite:</div>
+
+<div class="doa_text arabic">اللَّهُمَّ لَكَ الْحَمْدُ حَمْدَ الشَّاكِرِينَ لَكَ عَلَى مُصَابِهِمْ الْحَمْدُ لِلَّهِ عَلَى عَظِيمِ رَزِيَّتِي‏</div>
+<div class="doa_text persian">O my Allah! (All) praise is for Thee (alone); praise of the "Ever-thankful to Thee", who glorify Thee whatever come to pass. (All) praise is for Allah for my deep-felt intense grief.</div>
+<div class="doa_text arabic">اللَّهُمَّ ارْزُقْنِي شَفَاعَةَ الْحُسَيْنِ يَوْمَ الْوُرُودِ</div>
+<div class="doa_text persian">O my Allah make available for me the recommendations of Husayn on the day I present myself before Thee,</div>
+<div class="doa_text arabic">وَ ثَبِّتْ لِي قَدَمَ صِدْقٍ عِنْدَكَ مَعَ الْحُسَيْنِ وَ أَصْحَابِ الْحُسَيْنِ الَّذِينَ بَذَلُوا مُهَجَهُمْ دُونَ الْحُسَيْنِ عليه السلام</div>
+<div class="doa_text persian">let me stand firm in safety before Thee on account of my sincere attachment with Husayn, alongwith him and his comrades, who sacrificed everything they had (heart, mind, soul and life) for Husayn, peace be on him</div>
+
+				
+					
+					
+					
+					
+					</div>
+				</div>
+		</div>
+		
+		
+		
+		
+		
+		
+<div id="smgroup_audio_player">
+        <span id="audioTimer" >00:00</span>&nbsp 
+        <span id="durationTimer" >00:00</span>
+        <div id="audioPosition" >
+            <input type="range" name="slider" id="slider" disabled="disabled" value="0" min="0" max="60" style="padding:0;margin:0;" />
+        </div>
+        <div class="audio_btn">
+            <input type="button" id="play" value="" />
+			<input type="button" id="play2" value="" />
+            <input type="button" id="pause" value="" />
+            <input type="button" id="stop" value="Stop" />
+        </div>
+</div>
+<div id="controls_size">
+	<div id="css_style"></div>
+	<div id="controls_over"></div>
+	<a href="#" id="large">size</a>
+	<a href="#" id="medium">size</a>
+	<a href="#" id="small" >size</a>
+	<div id="controls_bg"></div>
+</div>
+<script>
+	init_audio("audio/salame.mp3");
+	audio_Timer = $("#audioTimer");
+	duration_Timer = $("#durationTimer");
+	slider_Timer = $("#slider");
+	
+	audio = null;
+	audioTimer = null;
+	pausePos = 0;
+	
+	function init_audio(my_file){
+		/*
+		if (audio) {
+			play_btn.css("display","block");
+			play2_btn.css("display","none");
+			pause_btn.css("display","none");
+			
+			slider_Timer.val(0);
+			stopAudio();
+		}
+		*/
+		// Phonegap is loaded and can be used
+		play_btn = $("#play");
+		play2_btn = $("#play2");
+		pause_btn = $("#pause");
+		stop_btn = $("#stop");
+		slider_Timer = $("#slider");
+		slider_range = slider_Timer;
+		
+		play_btn.click(function(){	
+			play_btn.css("display","none");
+			pause_btn.css("display","block");
+			slider_Timer.prop("disabled",false);
+			playAudio(my_file);
+		});
+/*
+		$('#play').on('click', function() {
+			$('#play').hide();
+			$('#pause').css('display','block');
+			
+			
+			play_btn.css("display","none");
+			//play2_btn.css("display","block");
+			pause_btn.css("display","block");
+			$(this).prop("disabled",true);
+			play2_btn.prop("disabled",true);
+			pause_btn.prop("disabled",false);
+			
+			playAudio(my_file);
+			//alert("2");
+		});
+*/
+/*
+		play_btn.click(function(){	
+			alert("1");
+			play_btn.css("display","none");
+			//play2_btn.css("display","block");
+			pause_btn.css("display","block");
+			$(this).prop("disabled",true);
+			play2_btn.prop("disabled",true);
+			pause_btn.prop("disabled",false);
+			
+			playAudio(my_file);
+		});
+*/
+		slider_Timer.on("change", function(){
+			//play_btn.prop("disabled",false);
+			//play2_btn.prop("disabled",false);
+			//pause_btn.prop("disabled",true);
+			play2_btn.css("display","block");
+			pause_btn.css("display","none");
+			
+			pausePos = slider_Timer.val();
+			formatTime(pausePos,audio_Timer);
+			pauseAudio();
+		});
+		
+		pause_btn.click(function(){	
+			play2_btn.css("display","block");
+			pause_btn.css("display","none");
+
+			pauseAudio();
+		});
+		
+		play2_btn.click(function(){	
+			pause_btn.css("display","block");
+			play2_btn.css("display","none");		
+			
+			PausePlayAudio();
+		});
+		
+		stop_btn.click(function(){
+			play_btn.css("display","block");
+			play2_btn.css("display","none");
+			pause_btn.css("display","none");
+			
+			slider_Timer.val(0);
+			stopAudio();
+		});
+		
+	}
+
+
+	function playAudio(file){
+		if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+			file = "/android_asset/www/" + file;
+		}
+		
+		audio = new Media(file, function(){ // success callback
+			console.log("playAudio():Audio Success");
+			play_btn.css("display","block");
+			play2_btn.css("display","none");
+			pause_btn.css("display","none");
+			
+			slider_Timer.val(0);
+			stopAudio();
+		}, function(error){ // error callback
+			//alert("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
+		});
+		
+		// get audio duration
+		var duration = audio.getDuration();
+		var duration_show = false;
+		
+		// set slider data
+		if( duration > 0 ){
+			formatTime(duration,duration_Timer);
+			slider_Timer.attr( "max", Math.round(duration) );
+			//slider_Timer.slider("refresh");
+			slider_Timer.val(0);
+			duration_show = true;
+		}
+
+		
+		// play audio
+		audio.play({ playAudioWhenScreenIsLocked : true });
+
+		audio.seekTo(pausePos*1000);
+			
+		// update audio position every second
+		if (audioTimer == null) {
+			audioTimer = setInterval(function() {
+				// get audio position
+				audio.getCurrentPosition(
+					function(position) { // get position success
+						if (position > -1) {
+							setAudioPosition(position);
+						}
+					}, function(e) { // get position error
+						alert("Error getting pos=" + e);
+						//setAudioPosition(duration);
+					}
+				);
+				if(!duration_show){
+					duration = audio.getDuration();
+					if( duration > 0 ){
+						formatTime(duration,duration_Timer);
+						slider_Timer.attr( "max", Math.round(duration) );
+						//slider_Timer.slider("refresh");
+						duration_show = true;
+					}
+				}
+			}, 1000);
+		}
+	}
+
+
+	function pauseAudio() {
+		if (audio) {
+			audio.pause();
+		}
+	}
+	
+	function PausePlayAudio() {
+		if (audio) {
+			audio.pause();
+			audio.seekTo(pausePos*1000);
+			audio.play();
+		}
+	}
+
+
+	function stopAudio() {
+		if (audio) {
+			audio.stop();
+			audio.release();
+		}
+		clearInterval(audioTimer);
+		audioTimer = null;
+		pausePos = 0;
+		formatTime(0,audio_Timer);
+	}
+
+
+	function setAudioPosition(position) {
+		pausePos = position;
+		position = Math.round(position);
+		slider_Timer.val(position);
+		formatTime(position,audio_Timer);
+		//slider_Timer.slider("refresh");
+		//slider_Timer.val(0);
+	}
+
+	function formatTime(seconds,Timer) {
+		if (seconds <= 0)
+		{
+			Timer.html("00:00");
+			return;
+		}	
+		var minutes = Math.floor(seconds / 60);
+		
+		if (minutes < 10)
+			minutes = "0" + minutes;
+
+		seconds = seconds % 60;
+		if (seconds < 10)
+			seconds = "0" + seconds;
+		seconds = Math.round(seconds);
+		
+		Timer.html(minutes + ":" + seconds);
+	};
+</script>
+</body>
+</html>

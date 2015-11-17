@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="css/font.css" />
 	<link rel="stylesheet" type="text/css" href="css/simplebar.css" />
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/ltr.css">
 
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/console.log.js"></script>
@@ -86,26 +87,8 @@
 				//alert("2");
 			});
 */
-			max_width = 0;
-			win_width = $('.zirmenu li').width();
-			
-			$('.zirmenu li a').each( function(i) {
-				if(max_width<$(this).width())
-					max_width = $(this).width();
-			});
-				max_width_temp = max_width;
-				max_width = max_width + 55 + 50;
-			$('.zirmenu li a').each( function(i) {
-				if(max_width>win_width)
-				{
-					$(this).attr("style","background-image:none;padding:0 5px;border-radius:3px;background-color:#f0f0f0 !important;");
-				}
-				else
-				{
-					$(this).attr("style","width:" + (max_width_temp + 10) + "px;display:block;padding:0 40px;");
-				}
-			});
-
+		
+		
 			setTimeout(function(){
 				$(".mypreload").html("");
 				$('#main').addClass("simplebar");
@@ -117,6 +100,13 @@
 
 	</script>	
 
+		
+		
+<style>
+
+
+</style>
+<!--footer-bg-center.png-->
 </head>
 <body class="tarjome_disable sound_disable" onload="init();" style="overflow:hidden;width:100%;">
 	<div id="bg-top"></div><div id="bg-bottom"></div>
@@ -127,34 +117,50 @@
 	</div>
 	<div id="warper" >
 			<div id="header">
-				<div id="back-btn" onclick="go_back_to_dar_safar();"></div>
-				<div id="header-text-2th">نقشه</div>
+				<div id="back-btn" onclick="parent.history.back();"></div>
+				<div id="header-text-2th"></div>
 				<div class="center"></div>
 			</div>
 			<div id="footer">
 				<div id="footer-bg">
-					<button class="dw_bottun fontsize">قلم</button>	
+					<button class="dw_bottun fontsize">Size</button>	
 					<button class="dw_bottun audio">0</button>	
-					<button class="dw_bottun translate">ترجمه</button>	
+					<button class="dw_bottun translate"></button>	
 				</div>
 			</div>
 			<div id="container" >
-			<div id="main" >
-			
-				<ul class="zirmenu">
-					<li><a href="map_najaf.html">نقشه نجف</a></li>
-					<li><a href="map_karbala.html">نقشه کربلا</a></li>
-					<li><a href="map_iraq.html">نقشه نجف تا کربلا</a></li>
-				</ul>
+				<div id="main" >
+<div class="justify doa_text">
 
-			
+<b>Merit of Ziaraat Imam Ali(a.s)</b></br></br>
+
+Through an authentic chain of authority, Shaykh al-Tusi has reported on the authority of Muhammad ibn Muslim that Imam al-Sadiq (‘a) said, “Almighty Allah has not created a category of creatures bigger in number than angels. Verily, seventy thousand angels descend everyday to circumambulate the Much-Frequented Fane. Then, they circumambulate the Holy Ka’bah. Then, they visit the tomb of the Holy Prophet (s) to greet him. Then, they visit the tomb of Imam ‘Ali Amir al-Mu’minin (‘a) to greet him. Then, they visit the tomb of Imam al-Husayn (‘a) to greet him. They then ascend back to the skies. Everyday and up to the Resurrection Day, such a number of angels descend and do the same thing. Verily, if one visits Amir al-Mu’minin (i.e. the Comamnder of the Believers) with full recognition of his right( ) and being neither arrogant nor conceited, Almighty Allah shall decide for him the reward of one hundred thousand martyrs, forgive his past and coming sins, include him with the secured group (on the Resurrection Day), and make easy for him the calling to account; and he will be received be the angels. As he returns home (after ziyarah), these angels will visit him when he is ill. When he dies, these angels will follow him to his grave, imploring Almighty Allah’s forgiveness for him.”
+<br/><br/>
+In his book entitled Farhat al-Ghari, Sayyid ‘Abd al-Karim ibn Tawus has reported the following saying from Imam al-Sadiq (‘a), too:
+<br/><br/>
+“As for one who visits the tomb of Amir al-Mu’minin (‘a) walking, Almighty Allah shall verily decide for him the reward of one hajj and one ‘umrah. If he returns walking, Almighty Allah shall decide for him the reward of two times of hajj and two time of ‘umrah.”
+<br/><br/>
+Likewise, Imam al-Sadiq (‘a) is reported to have said to Ibn Marid, “As for any one who visits the tomb of my grandfather with recognition of his right, Almighty Allah shall decide for him the reward of acceptable hajj and admissible ‘umrah. Ibn Marid, I swear by Allah that He shall never give to Hellfire a foot that was dusted in the course of visiting Amir al-Mu’minin, being walking or riding. Ibn Marid, write down this saying with golden ink.”
+<br/><br/>
+Imam al-Sadiq (‘a) is also reported as saying, “We confirm that there is a grave near al-Kufah; Almighty Allah shall definitely heal any handicapped person who has recourse to it.”
+<br/><br/>
+In the word of authorized narrations, Almighty Allah has decided the tombs of Imam ‘Ali (‘a) and his immaculate descendants to be shelters for the fearful, refuges for the depressed, and secure places for the inhabitants of the earth. Certainly, any aggrieved person who visits these tombs, Almighty Allah shall definitely relieve him. Any ailed person who visits them, Almighty Allah shall heal him. Any seeker of security who seeks it at these tombs, Almighty Allah shall grant him security.
+
+
+
+
+
+	<br/><br/><br/>
+<div>
+				</div>
 			</div>
+	</div>
 	<div id="controls_size">
 		<div id="css_style"></div>
 		<div id="controls_over"></div>
-		<a href="#" id="large">قلم</a>
-		<a href="#" id="medium">قلم</a>
-		<a href="#" id="small" >قلم</a>
+		<a href="#" id="large">Size</a>
+		<a href="#" id="medium">Size</a>
+		<a href="#" id="small" >Size</a>
 		<div id="controls_bg"></div>
 	</div>
 </body>

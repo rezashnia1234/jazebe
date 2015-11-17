@@ -31,7 +31,8 @@
 		function init() {		
 			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
 			document.addEventListener("deviceready", onDeviceReady, false);
-			if(isHighDensity() || isRetina())
+			//if(isHighDensity() || isRetina())
+			if(isRetina())
 			{
 				$('.silde_frame_image').each( function(i) {
 					$(this).attr('src', $(this).attr('retina')		);
@@ -163,29 +164,29 @@
 -->
 			<div id="slides">
 				<div class="silde_frame slide1th" >
-					<img src="images/slider/h02_l.jpg" class="silde_frame_image" retina="images/slider/h02.jpg" style="width:100%;" onclick="window.location.href='pishine.html';" />
+					<img src="images/slider/h02_l.jpg" class="silde_frame_image" retina="images/slider/h02.jpg" style="width:100%;" onclick="window.location.href='en_map.html';" />
 					<div class="slide_navigator">
 						<div class="slide_navigator_bg"></div>
 						<div class="slide_navigator_next slidesjs-next">لغات پرکاربرد <img src="images/slider/next-btn.png"></div>
-						<div class="slide_navigator_link" onclick="window.location.href='map.html';"  >Map</div>
+						<div class="slide_navigator_link" onclick="window.location.href='en_map.html';"  >Map</div>
 						<div class="slide_navigator_previous slidesjs-previous">اخبار مرز <img src="images/slider/previous-btn.png"></div>
 					</div>
 				</div>
 				<div class="silde_frame slide2th" >
-					<img src="images/slider/h03_l.jpg" class="silde_frame_image" retina="images/slider/h03.jpg" style="width:100%;" onclick="window.location.href='ziyarat.html';" />
+					<img src="images/slider/h03_l.jpg" class="silde_frame_image" retina="images/slider/h03.jpg" style="width:100%;" onclick="window.location.href='en_ziyarat.html';" />
 					<div class="slide_navigator">
 						<div class="slide_navigator_bg"></div>
 						<div class="slide_navigator_next slidesjs-next">روضه <img src="images/slider/next-btn.png"></div>
-						<div class="slide_navigator_link" onclick="window.location.href='ziyarat.html';" >Ziaraat</div>
+						<div class="slide_navigator_link" onclick="window.location.href='en_ziyarat.html';" >Ziaraat</div>
 						<div class="slide_navigator_previous slidesjs-previous">نقشه <img src="images/slider/previous-btn.png"></div>
 					</div>
 				</div>
 				<div class="silde_frame slide3th" >
-					<img src="images/slider/h09_l.jpg" class="silde_frame_image" retina="images/slider/h09.jpg" style="width:100%;" onclick="window.location.href='arabic.html';" />
+					<img src="images/slider/h09_l.jpg" class="silde_frame_image" retina="images/slider/h09.jpg" style="width:100%;" onclick="window.location.href='en_arabic.html';" />
 					<div class="slide_navigator">
 						<div class="slide_navigator_bg"></div>
 						<div class="slide_navigator_next slidesjs-next">اخبار مرز <img src="images/slider/next-btn.png"></div>
-						<div class="slide_navigator_link" onclick="window.location.href='arabic.html';">Useful Phrases</div>
+						<div class="slide_navigator_link" onclick="window.location.href='en_arabic.html';">Useful Phrases</div>
 						<div class="slide_navigator_previous slidesjs-previous">آداب و احکام <img src="images/slider/previous-btn.png"></div>
 					</div>
 				</div>

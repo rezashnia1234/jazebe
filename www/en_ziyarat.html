@@ -34,7 +34,7 @@
 			FastClick.attach(document.body);
 			
 			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
-				document.addEventListener("backbutton", go_back, false);
+				document.addEventListener("backbutton", go_back_to_dar_safar_en, false);
 			}
 		
 		}
@@ -127,13 +127,13 @@
 	</div>
 	<div id="warper" >
 			<div id="header">
-				<div id="back-btn" onclick="go_back_to_dar_safar();"></div>
-				<div id="header-text-2th">نقشه</div>
+				<div id="back-btn" onclick="go_back_to_dar_safar_en();"></div>
+				<div id="header-text-2th">Ziaraat</div>
 				<div class="center"></div>
 			</div>
 			<div id="footer">
 				<div id="footer-bg">
-					<button class="dw_bottun fontsize">قلم</button>	
+					<button class="dw_bottun fontsize">size</button>	
 					<button class="dw_bottun audio">0</button>	
 					<button class="dw_bottun translate">ترجمه</button>	
 				</div>
@@ -142,9 +142,10 @@
 			<div id="main" >
 			
 				<ul class="zirmenu">
-					<li><a href="map_najaf.html">نقشه نجف</a></li>
-					<li><a href="map_karbala.html">نقشه کربلا</a></li>
-					<li><a href="map_iraq.html">نقشه نجف تا کربلا</a></li>
+					<li><a href="en_ziyarat-arbaein.html">Ziaraat Arbaeen</a></li>
+					<li><a href="en_ziyarat-ashura.html">Ziaraat Ashura</a></li>
+					<li><a href="en_ziyarat-amin.html">Ziaraat Aminullah</a></li>
+					<li><a href="en_ziyarat-jamee.html">Ziaraat Al-Jamiah Al-Kabeerah</a></li>
 				</ul>
 
 			
@@ -152,9 +153,9 @@
 	<div id="controls_size">
 		<div id="css_style"></div>
 		<div id="controls_over"></div>
-		<a href="#" id="large">قلم</a>
-		<a href="#" id="medium">قلم</a>
-		<a href="#" id="small" >قلم</a>
+		<a href="#" id="large">size</a>
+		<a href="#" id="medium">size</a>
+		<a href="#" id="small" >size</a>
 		<div id="controls_bg"></div>
 	</div>
 </body>

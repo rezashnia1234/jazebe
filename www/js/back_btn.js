@@ -17,6 +17,18 @@
 		window.sessionStorage.setItem('go_to_first',"false");
 		window.location.href = "dar_safar.html";
 	}
+	function go_back_to_dar_safar_en() {
+		window.sessionStorage.setItem('go_to_first',"false");
+		window.location.href = "en_dar_safar.html";
+	}
+	function go_back_to_ghable_safar_en() {
+		window.sessionStorage.setItem('go_to_first',"false");
+		window.location.href = "en_ghable_safar.html";
+	}
+	function go_back_to_ghable_safar() {
+		window.sessionStorage.setItem('go_to_first',"false");
+		window.location.href = "ghable_safar.html";
+	}
 	function go_back_to_index() {
 		window.sessionStorage.setItem('go_to_first',"false");
 		window.location.href = "index.html";

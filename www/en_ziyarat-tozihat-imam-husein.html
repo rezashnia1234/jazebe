@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    <title>بسم الله الرحمن الرحیم</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css" />
+	<link rel="stylesheet" type="text/css" href="css/simplebar.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/ltr.css">
+
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/console.log.js"></script>
+    <script src="phonegap.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script src="js/jquery.md5.js"></script>
+    <script src="js/back_btn.js"></script>
+    <script src="js/query-string.js"></script>
+    <script src="js/simplebar.min.js"></script>
+	
+	<script>
+		function init() {		
+			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
+			document.addEventListener("deviceready", onDeviceReady, false);
+			
+			//onDeviceReady();
+		}
+
+		function onDeviceReady() {
+
+			//FastClick.attach(document.getElementById('container'));
+			FastClick.attach(document.body);
+			
+			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+				document.addEventListener("backbutton", go_back, false);
+			}
+		
+		}
+		function uniqueDeviceIDsuccess_index(uuid)
+		{
+			window.localStorage.setItem('uuid',uuid);
+		};
+		function uniqueDeviceIDfail_index(uuid)
+		{
+			//alert("uniqueDeviceIDfail" + uuid);
+		};
+		
+		$(window).load(function() {
+			//alert($(window).height());
+			//alert($(window).height());
+			//alert($(document).height()); 
+			//alert($("#warper").height());
+			$("#main").height($(window).height() - $("#header").height() - $("#footer").height()-30);
+			//$("#container").height($("#warper").height()-$("#header").height());
+			//$(".mypreload").delay(100000).html("");
+		});
+		$(document).ready(function() {
+			$('.translate').on('click', function() {
+				$('.persian').toggle();
+				$(this).toggleClass('active');
+			});	
+			$('.fontsize').on('click', function() {
+				$("#controls_size").addClass('opened');
+				$("#controls_over").css('position','fixed');
+			});
+			$('.audio').on('click', function() {
+				$('#smgroup_audio_player').toggle();
+				$('#smgroup_audio_player').addClass('active');
+			});
+/*
+			$('#play').on('click', function() {
+				$('#play').hide();
+				$('#pause').css('display','block');
+				
+				
+				play_btn.css("display","none");
+				//play2_btn.css("display","block");
+				pause_btn.css("display","block");
+				$(this).prop("disabled",true);
+				play2_btn.prop("disabled",true);
+				pause_btn.prop("disabled",false);
+				
+				playAudio(my_file);
+				//alert("2");
+			});
+*/
+		
+		
+			setTimeout(function(){
+				$(".mypreload").html("");
+				$('#main').addClass("simplebar");
+				$('#main').simplebar({ autoHide: false });
+			}, 300);
+		});
+
+			
+
+	</script>	
+
+		
+		
+<style>
+
+
+</style>
+<!--footer-bg-center.png-->
+</head>
+<body class="tarjome_disable sound_disable" onload="init();" style="overflow:hidden;width:100%;">
+	<div id="bg-top"></div><div id="bg-bottom"></div>
+	<div id="ajax" class="mypreload">
+		<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
+		<div style="z-index: 1011; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 28%; left: 0%; text-align: center;border: medium none;overflow:visible;" class="blockUI blockMsg blockPage"><img src="images/preloader.gif"></div>
+		<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading.png" width="70%"></div>
+	</div>
+	<div id="warper" >
+			<div id="header">
+				<div id="back-btn" onclick="parent.history.back();"></div>
+				<div id="header-text-2th"></div>
+				<div class="center"></div>
+			</div>
+			<div id="footer">
+				<div id="footer-bg">
+					<button class="dw_bottun fontsize">Size</button>	
+					<button class="dw_bottun audio">0</button>	
+					<button class="dw_bottun translate">ترجمه</button>	
+				</div>
+			</div>
+			<div id="container" >
+				<div id="main" >
+<div class="justify doa_text">
+
+<b>Merit of Ziaraat Imam Hussain(a.s)</b><br/>
+The merits of the visitor of Imam Husain's (a.s.) shrine right from the time he leaves his house with the intention of Ziarat, to the time he undertakes his journey, reaches Karbala and finally returns to his house. 
+We have mentioned the reward that he will get at each and every stage of his journey and how his level is raised accordingly. And if the Shia makes this journey on behalf of Imam Mahdi (a.t.f.s.), the rewards will multiply manifold. This is because when Allah bestows a reward, He also takes into consideration the personality on whom He is bestowing the reward.
+<br/><br/>
+
+<b>Intention of Ziarat</b>
+<br/>
+When a Shia makes the intention to go for Ziarat, he has laid the foundation for his journey. Imam Sadiq (a.s.) narrates, 'Allah has appointed some angels at Imam Husain's grave. When a Shia makes the intention for Imam Husain's (a.s.) Ziarat, Allah forgives all his sins. When he takes a step to go for Ziarat, he erases his sins. His virtues multiply and they increase till the time he becomes worthy of Paradise’. 
+<br/>
+(Wasailul Mohibbeen, pg. 280)
+<br/><br/>
+<b>Ghusl before commencing the journey for Ziarat </b>
+<br/>
+When a person intends to go for Ziarat and accordingly performs ghusl, at that time the Holy Prophet (s.a.w.a.) calls out to him, 'O guests of Allah! I give you glad tidings of being with me in Paradise.'<br/>
+Ameerul Momeneen (a.s.) declares:<br/>, 
+'I guarantee you that your wishes of the world and the hereafter will be fulfilled. The tribulations of the world and the hereafter will be averted.'
+<br/>
+After that the Holy Prophet (s.a.w.a.) and Ameerul Momeneen <br/>
+(a.s.) protect him from the right and the left until he reaches his native place safely.<br/>
+(Kamiluz Ziaraat, pg. 133, Behaarul Anwar vol 101, pg 147, tradition 36) <br/><br/>
+
+The Holy Prophet (s.a.w.a.) has called the visitor of the shrines as Allah's guest. On the Day of Judgement when Allah unveils the weighing scales (Mizaan), He shall grant His guest innumerable bounties.
+<br/>
+Not only is the visitor given glad tidings of entry into Paradise, but he will dwell in the neighbourhood of the Holy Prophet (s.a.w.a.) himself. The visitor's status can be gauged from the fact that none will enjoy a higher position than the Holy Prophet (s.a.w.a.) in Paradise.
+<br/>
+Ameerul Momeneen (a.s.) has guaranteed that the visitor's adversities will be repelled. And such a guarantee from Ameerul Momeneen (a.s.) is not surprising given the fact that he is the repeller of difficulties (Mushkil kusha).
+<br/>
+The Holy Prophet (s.a.w.a.) and Ameerul Mo'mineen (a.s.) shall safeguard him from both sides. 
+<br/>
+While packing his luggage for the journey Imam Jafar Sadiq (a.s.) asked Jabir-e-Jo'fi (r.a.), 'What is the distance between you and Imam Husain's (a.s.) shrine? 
+<br/>
+Jabir (r.a.): 'May my father and mother be sacrificed for you, a days journey or even less.' 
+<br/>
+Imam (a.s.): 'Do you visit the shrine?' 
+<br/>
+Jabir (r.a.): 'Yes' 
+<br/>
+Imam (a.s.): 'Should I not give you glad tidings and inform 
+<br/>
+you about the reward of the visitation?'
+<br/>
+Jabir (r.a.): 'May my father and mother be sacrificed for you, do inform me.'
+<br/>
+Imam (a.s.): 'When the visitor packs his luggage for Imam Husain's (a.s.) visitation, the divine angels are with him.' 
+<br/>
+While leaving his house And when he leaves his house, be it by foot or on a mount, Allah sends 4,000 angels with him. They send salutations upon him (i.e. the visitor) till they reach Imam Husain's (a.s.) grave. 
+<br/>
+(Behaarul Anwar,vol 101,p. 163,trad. 8; Kamiluz Ziaraat,p.206)
+<br/><br/>
+<b>Divine protection from 6 sides </b>
+<br/>
+Safwan Jammaal narrates on the authority of Imam Sadiq a.s,
+<br/>
+'When a Shia leaves his house with the intention of performing Imam Husain's (a.s.) ziarat, he is accompanied by 700 angels. They safeguard him from above and below, from the right and the left, from the front and the back, till such a time that he reaches his destination.' 
+<br/>
+(Behaarul Anwar, vol. 101, pg. 58, trad. 62;Kamiluz Ziaraat, pg 190) 
+<br/><br/>
+Accompanied by 1,000 angels According to another version of the tradition narrated by Raff'ah from Imam Sadiq (a.s.): 
+<br/>
+'When a Shia knows Imam Husain's (a.s.) right over the people and leaves his house for Imam's (a.s.) ziarat in this condition, without any pride and conceit, then a 1,000 angels accompany him from the right, with another 1,000 angels on the left. And he will be rewarded as if he has performed 1,000 Hajj and 1,000 Umrah with a prophet or with the successor (wasi) of a prophet.' 
+<br/>
+(Behaarul Anwar, vol 101, pg 91, tradition 33) 
+<br/><br/>
+<b>Different traditions quote varying numbers of angels. This can be attributed to various reasons: </b>
+<br/>
+1. The difference could be due to the variance in the sincerity of the intention on the part of the visitor. The more sincere he is, the bigger will be the group of angels accompanying him. 
+<br/>
+2. The difference could also be attributed to the various occasions for Ziarat. For instance, if a person goes to Ziarat on 9th Zilhajj (day of Arafah) he could be accompanied by a specific number of angels and if he goes for Ziarat on Arbaeen the number of angels accompanying him could vary (from the day of Arafah).' 
+<br/>
+3. The difference could be due to the variance in the recognition (ma'refat) of Imam Husain (a.s.). A higher level of recognition and love for Imam (a.s.), will result in a larger group of angels. 
+<br/>
+4. The difference could be related to the akhlaq (ethics) of the visitor. This is because in addition to recognition, one also need to discard pride and conceit while visiting Imam (a.s.). 
+<br/><br/>
+This underlines the fact that Imam Husain's (a.s.) ziarat not only washes away the sins, but it also rectifies the visitor's bad habits and ethics.
+Sun's rays consumes sins Safwan Jammaal relates from Imam Sadiq (a.s.), 
+'When the rays of the sun fall on the visitor of Imam's (a.s.) shrines, it consumes his sins like the fire consumes wooden sticks. The sun does not leave any sin on his body and he returns home sinless. In fact on his return he is granted a status that is not even given to those who shed their blood in Allah's path.' 
+<br/>
+(Behaarul Anwar, vol 101, pg 15, trad. 14; Kamiluz Ziaraat, pg 298)
+<br/><br/>
+<b>Perspiration and fatigue </b>
+<br/>
+From every drop of perspiration on the body of Imam's (a.s.) visitor (in the course of Ziarat). Allah creates 70,000 angels who glorify and seek forgiveness for Imam's (a.s.) visitors till the Day of Judgement. 
+<br/>
+(Mustadrak vol 2, pg 204)
+<br/> <br/>
+<b>While stepping out of the house</b>
+<br/> 
+When the visitor leaves the house, each and every spot that he steps on, prays for him. 
+<br/>
+(Behaarul Anwar, vol 101, pg 15, tradition 14) 
+<br/><br/>
+If he goes for Ziarat on a mount, for each and every spot 
+that his mount steps on, he will get one virtue and one sin will be forgiven. 
+<br/>
+(Thawaabul A'maal, pg 116) 
+<br/><br/>
+In another tradition Imam Sadiq (a.s.) reveals, 
+<br/>
+'If one of our Shias goes for Imam Husain's (a.s.) Ziarat, then he will not return but all his sins will be forgiven. For every step that he or his mount takes, 1,000 virtues are written for him, 1,000 sins are forgiven and his status is elevated by a 1,000 degrees.' 
+<br/>
+(Behaarul Anwar, vol 101, pg 25, tradition 26; Kamiluz Ziaraat, pg 134)
+<br/><br/>
+<b>Ghusl in the Euphrates </b>
+<br/>
+A person asked Imam Sadiq (a.s.), 'What is the reward of a person who performs ghusl in the Euphrates (Foraat) and then does Imam's (a.s.) ziarat?' 
+Imam Sadiq (a.s.) replied, 
+'If a person performs ghusl in the Euphrates and goes for Imam Husain's (a.s.) ziarat, all his sins will be extinguished, as if he has just come out from his mother's womb.' 
+<br/>
+(Behaarul Anwar, vol 101, pg 145; Kamiluz Ziaraat, pg 185) 
+<br/><br/>
+Walking towards the shrine after ghusl in the Euphrates 
+Imam Sadiq (a.s.) narrated to Bashir b. Dahhaan: 'If any of you performs ghusl in the Euphrates and then goes for Ziarat of Imam Husain (a.s.) with his recognition then for every time he steps on the earth and for every time he lifts his feet off the earth, he will be rewarded with 100 accepted Hajj and 100 accepted Umra and 100 battles in the company of the Holy Prophet (s.a.w.a.).' 
+<br/>
+(Kamiluz Ziaraat pg. 185)
+<br/><br/>
+<b>Angels welcome the visitor </b>
+<br/>
+Aban b. Tughlab relates from Imam Sadiq (a.s.), 
+'There are 4,000 angels at the holy shrine of Imam Husain (a.s.). Their heads are covered with dust and they are wailing and will continue to do so till the Day of Judgment. Their leader is called 'Mansoor'. When a person comes to visit Imam's (a.s.) shrine, all these angels welcome him.' 
+(Kafi, vol 4, pg 581) 
+Angels record only the virtuous deeds 
+Imam Jafar Sadiq (a.s.) exhorted Ali b. Maimoon As Sa'ig 
+'Visit Imam Husain's (a.s.) shrine and never leave it.' The narrator asked, 'If someone goes for Imam Husain's (a.s.) ziarat, then what is his reward?' 
+Imam Sadiq (a.s.) revealed, 
+'If someone goes for ziarat on foot, for every step he takes, one virtue will be recorded in his name, one sin will be forgiven and his level will be raised one degree. Once he reaches the shrine, Allah will appoint two angels for him who will record only his good deeds and will omit his evil deeds. When he is about to depart from the shrine, the angels will bid farewell thus - O Allah's slave your sins have been forgiven, and you are now in Allah's party, His Prophet's (s.a.w.a.) party and the Prophet's (s.a.w.a.) Ahle Bait (a.s.) party. By Allah, you shall never have to face the Fire and you shall never be made to taste it!' 
+(Kamiluz Ziaraat, pg 134) 
+<br/><br/>
+<b>Intention to return home from the shrine </b>
+<br/>
+1.         Allah sends His salutations upon the visitor: 
+Imam Jafar Sadiq (a.s.) narrates, 
+'When the visitor decides to return home from the shrine, an Angel near him declares - I have got a message for you from Allah. Allah sends his salutations to you and says - I have forgiven all your past sins and now you can begin performing your actions afresh.' 
+(Tahzeeb vol 6, pg 43; Wasail vol 10, pg 342) 
+<br/>
+2.         The Prophet (s.a.w.a.) sends His salutations upon 
+the visitor: 
+An Angel descends from the side of the Holy Prophet 
+(s.a.w.a.) and conveys the following message - The Holy Prophet (s.a.w.a.) 
+communicates salutations to you and gives you glad tidings that Allah has 
+forgiven your sins. You can now commence your actions afresh.' 
+(Kamiluz Ziaraat pg 132) 
+<br/>
+3.         Jibraeel, Mikaeel and Israfeel accompany the visitor: 
+Safwaan b. Jammaal narrates from Imam Jafar Sadiq (a.s.), 
+'One who visits Imam Husain's (a.s.) shrine with complete sincerity, then Jibraeel, Mikaeel and Israfeel accompany him at every step till he returns home, from ziarat.' 
+(Behaarul Anwar, vol 101, pg 20; Kamiluz Ziaraat, pg 145) 
+<br/>
+4.         700 angels accompany the visitor: 
+Imam Jafar Sadiq (a.s.) reveals, 
+'When a person intends for ziarat of Imam Husain (a.s.) and departs from his house, then 700 angels accompany him from above, below, right, left, front and behind. They are with him till he reaches his lodging place in Karbala. When he performs ziarat of Imam Husain (a.s.), a caller announces - 'All your sins have been forgiven and now you can begin your actions afresh.' These 700 angels accompany him on his way back home. Till the time he is alive the angels visit him. They visit Imam Husain's shrine daily and the reward of their ziarat is recorded in the name of the visitor.' 
+(Kamiluz Ziaraat, pg 190) 
+<br/>
+5.         Angels visit him when he is sick, participate in 
+his funeral and seek forgiveness for him: 
+Imam Jafar Sadiq (a.s.) declares, 
+'If Imam Husain's (a.s.) visitor falls sick, the angels visit him every morning and evening. If he expires, they participate in his funeral and till the Day of Judgment they pray for his forgiveness. These angels are awaiting the reappearance of Imam Mahdi (a.t.f.s.).' 
+(Kamiluz Ziaraat, pg 192) 
+<br/>
+6.         Angels Glorify and exalt Allah at the threshold: 
+After the angels escort the visitor safely to his house, they turn towards Allah and inquire from Him, 
+'O Lord, this worshipper has returned safely to his house after completing the ziarat of the grandson of Your Prophet (s.a.w.a.). Now where do we go?' A voice from the sky replies to their query - O My angels, keep vigil at the threshold of my servant. Glorify and exalt Me. And till the time My servant is alive, record the reward of your glorification and exaltation in his name.' 
+Till the servant is alive, the angles keep vigil at his threshold and glorify and exalt Allah. And the reward of their actions is recorded in the visitor's favor. 
+(Behaarul Anwar, vol 101, pg 164; Kamiluz Ziaraat, pg 208) 
+<br/>
+<br/><br/>
+Allah Himself captures the soul 
+Jabir-e-Jo'fi (r.a.) relates from Imam Sadiq (a.s.): 
+'When the visitor of Imam Husain's (a.s.) shrine returns home, an announcer calls out from the sky. If you had heard his voice, you would have preferred staying near Imam Husain's (a.s.) shrine for the rest of your life. The announcer cries, 'O servant of Allah, greetings to you! You have accomplished a great distinction and now you are secure in every way! Allah has forgiven all your past sins and now you can perform your actions afresh!' 'If he dies in that night or in that year, Allah Himself captures his soul.' 
+<br/>
+(Behaarul Anwar, vol 101, pg 164; Kamiluz Ziaraat, pg 207)
+<br/><br/>
+Indeed it is a matter of great honor and distinction for a servant that Allah Himself captures his soul and Himself takes him to His Abode. By no means is this merit and honor due to the servant's position near Allah. Rather he has become worthy of this distinction purely because of Imam Husain's (a.s.) exalted station near Allah. 
+<br/>
+(Kamiluz Ziaraat, pg 192) 
+<br/><br/>
+Angels participate in shrouding, giving ghusl and the burial 
+Imam Muhammad Baqir (a.s.) informed, 
+'If Imam Husain's (a.s.) visitor expires in the same year of the ziarat, then the angels of mercy participate in his ceremonial bath (ghusl) and shrouding. They seeks forgiveness for him. They are with his funeral till the grave. Then his grave becomes vast and spacious.'   
+<br/>
+(Kamiluz Ziaraat, pg. 143, Behaarul Anwar vol 101, pg 18) 
+<br/><br/>
+Merits of visiting Imam Husain's (a.s.) shrine are much more than can be outlined in his place. We have mentioned but a few so that readers can get some idea of this great virtue. We have seen the tremendous reward and merit in each step of the visitation - right from the time he makes his intention with sincerity, makes preparations, commences his journey, completes one stage after another, reaches Karbala, performs ziarat and returns home finally. 
+We pray to Allah that He grants us limitless sincerity, and recognition of the highest order to perform ziarat of Imam Husain's (a.s.) shrine time and again. And we pray to Allah to grant us boundless taufeeq to defend our Imam's (a.t.f.s.) wilayat like the martyrs of Karbala defended their Imam (a.s.), and to fight in his (a.t.f.s.) army and finally get martyred in his (a.t.f.s.) way. Inshallah. 
+ 
+
+
+
+
+
+	<br/><br/><br/>
+<div>
+				</div>
+			</div>
+	</div>
+	<div id="controls_size">
+		<div id="css_style"></div>
+		<div id="controls_over"></div>
+		<a href="#" id="large">Size</a>
+		<a href="#" id="medium">Size</a>
+		<a href="#" id="small" >Size</a>
+		<div id="controls_bg"></div>
+	</div>
+</body>
+</html>

@@ -31,14 +31,13 @@
 		function init() {		
 			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
 			document.addEventListener("deviceready", onDeviceReady, false);
-/*
-			if(isHighDensity() || isRetina())
+			//if(isHighDensity() || isRetina())
+			if(isRetina())
 			{
 				$('.silde_frame_image').each( function(i) {
-					//$(this).attr('src', $(this).attr('retina')		);
+					$(this).attr('src', $(this).attr('retina')		);
 				});
 			}
-*/
 			$("#slides").slidesjs({
 				width: 400,
 				//height: 400,
@@ -164,29 +163,29 @@
 -->
 			<div id="slides">
 				<div class="silde_frame slide1th" >
-					<img src="images/slider/gh01_l.jpg" class="silde_frame_image"  style="width:100%;" onclick="window.location.href='pishine.html';" />
+					<img src="images/slider/gh01_l.jpg" class="silde_frame_image" retina="images/slider/gh01.jpg" style="width:100%;" onclick="window.location.href='en_pishine.html';" />
 					<div class="slide_navigator">
 						<div class="slide_navigator_bg"></div>
 						<div class="slide_navigator_next slidesjs-next">فضیلت زیارت <img src="images/slider/next-btn.png"></div>
-						<div class="slide_navigator_link" onclick="window.location.href='pishine.html';"  >History</div>
+						<div class="slide_navigator_link" onclick="window.location.href='en_pishine.html';"  >History</div>
 						<div class="slide_navigator_previous slidesjs-previous">مومنانه <img src="images/slider/previous-btn.png"></div>
 					</div>
 				</div>
 				<div class="silde_frame slide2th" >
-					<img src="images/slider/gh02_l.jpg" class="silde_frame_image"  style="width:100%;" onclick="window.location.href='fazilate_ziyarat.html';" />
+					<img src="images/slider/gh02_l.jpg" class="silde_frame_image" retina="images/slider/gh02.jpg" style="width:100%;" onclick="window.location.href='en_fazilate_ziyarat.html';" />
 					<div class="slide_navigator">
 						<div class="slide_navigator_bg"></div>
 						<div class="slide_navigator_next slidesjs-next">کوله پشتی <img src="images/slider/next-btn.png"></div>
-						<div class="slide_navigator_link" onclick="window.location.href='fazilate_ziyarat.html';"  >Merit of Ziaraat</div>
+						<div class="slide_navigator_link" onclick="window.location.href='en_fazilate_ziyarat.html';"  >Merit of Ziaraat</div>
 						<div class="slide_navigator_previous slidesjs-previous">پیشینه <img src="images/slider/previous-btn.png"></div>
 					</div>
 				</div>
 				<div class="silde_frame slide3th" >
-					<img src="images/slider/gh03_l.jpg" class="silde_frame_image"  style="width:100%;" onclick="window.location.href='kuleposhti.html';" />
+					<img src="images/slider/gh03_l.jpg" class="silde_frame_image" retina="images/slider/gh03.jpg" style="width:100%;" onclick="window.location.href='en_kuleposhti.html';" />
 					<div class="slide_navigator">
 						<div class="slide_navigator_bg"></div>
 						<div class="slide_navigator_next slidesjs-next">آداب و احکام <img src="images/slider/next-btn.png"></div>
-						<div class="slide_navigator_link" onclick="window.location.href='kuleposhti.html';"  >Rucksack</div>
+						<div class="slide_navigator_link" onclick="window.location.href='en_kuleposhti.html';"  >Rucksack</div>
 						<div class="slide_navigator_previous slidesjs-previous">فضیلت زیارت <img src="images/slider/previous-btn.png"></div>
 					</div>
 				</div>

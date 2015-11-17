@@ -29,7 +29,7 @@
 		my_location_marker = L.marker([36.2879,59.6157], {icon: user_location_icon,zIndexOffset: 999}).addTo(map);
 		my_location_circle = L.circle([36.2879,59.6157], radius).addTo(map);
 		my_location_marker_friend = L.marker([36.2879,59.6157], {icon: user_location_icon_friend,zIndexOffset: 998}).addTo(map);
-		my_location_marker_friend.bindPopup("موقعیت دوست شما");
+		my_location_marker_friend.bindPopup("Your Friend's Location");
 	}
 
 	function onDeviceReady() {
@@ -48,7 +48,7 @@
 			$(".cd-popup").addClass("is-visible");
 			add_to_favorites_popup = true;
 			new_favorite_marker_icon	= new icon_style_favorites_new({iconUrl: 'maps/map-icon/marker-icon.png',iconRetinaUrl: 'maps/map-icon/marker-icon@2x.png',shadowUrl: 'maps/map-icon/marker-shadow.png',});
-			new_favorite_marker = L.marker(map.getCenter(), {icon: new_favorite_marker_icon,setZIndexOffset: 1000,draggable:true}).addTo(map).bindPopup("لطفا این مارکر را در موقعیت دلخواه قرار دهید.").openPopup();
+			new_favorite_marker = L.marker(map.getCenter(), {icon: new_favorite_marker_icon,setZIndexOffset: 1000,draggable:true}).addTo(map).bindPopup("Please put the marker in your favorite place!").openPopup();
 		}
 		else
 		{
@@ -85,10 +85,10 @@
 //////share location//////////////////////////////
 	function share_location() {
 		navigator.notification.confirm(
-			'لطفا گزینه مورد نظر را انتخاب نمایید', // message
+			'Please choose the option!', // message
 			 onConfirm,            // callback to invoke with index of button pressed
-			'اشتراک گذاری موقعیت',           // title
-			['میخواهم موقعیت خود را ارسال کنم','دوستم موقعیت خود را برای من ارسال کرده است','لغو درخواست']         // buttonLabels
+			'Share Lockation',           // title
+			['I want to send my location','My friend sent me his/her location','Cancel']         // buttonLabels
 		);
 	}
 	function onConfirm(buttonIndex) {
@@ -102,20 +102,20 @@
 			else
 			{
 				navigator.notification.alert(
-					'متاسفانه دستگاه موقعیت جغرافیایی شما پیدا نکرده است.\nلطفا از روشن بودن GPS اطمینان حاصل کنید و دقایقی دیگر ، مجددا تلاش نمایید.',  // message
+					'Your location could not be found.\n Please make sure your GPS is on and try again!',  // message
 					alertDismissed,         // callback
-					'اخطار',            // title
-					'تائید'                  // buttonName
+					'Warning',            // title
+					'Submit'                  // buttonName
 				);
 			}
 		}
 		else if(buttonIndex==2)
 		{//recive
 			navigator.notification.prompt(
-				'لطفا متن پیامکی که سامانه برای شما ارسال کرده است را وارد نمایید',  // message
+				'Please paste the SMS content here!',  // message
 				onPrompt,                  // callback to invoke
-				'موقعیت مخاطب',            // title
-				['ثبت','لغو درخواست'],             // buttonLabels
+				'Location of Friend',            // title
+				['Submit','Cancel'],             // buttonLabels
 				'LatLng(...,...)'                 // defaultText
 			);
 		}
@@ -145,20 +145,20 @@
 			if(my_location_marker.getLatLng().lat != 36.2879)
 			{
 				navigator.notification.alert(
-					'موقعیت دوست شما در نقشه ثبت شد.\nفاصله تقریبی شما با دوستتان ' +  Math.round(distance(my_location_marker.getLatLng().lat, my_location_marker.getLatLng().lng, my_location_marker_friend.getLatLng().lat, my_location_marker_friend.getLatLng().lng, "M")) + " متر می باشد.",  // message
+					'Your friend"s location was submited on the map.\n Your approximate distance to your friend ' +  Math.round(distance(my_location_marker.getLatLng().lat, my_location_marker.getLatLng().lng, my_location_marker_friend.getLatLng().lat, my_location_marker_friend.getLatLng().lng, "M")) + " متر می باشد.",  // message
 					alertDismissed,         // callback
-					'اطلاعیه',            // title
-					'تائید'                  // buttonName
+					'Notificaion',            // title
+					'Ok'                  // buttonName
 				);
 			}
 		}
 		else
 		{
 			navigator.notification.alert(
-				'اطلاعات ورودی شما ، با الگوی مورد نظر نرم افزار همخوانی ندارد.',  // message
+				'The submited informaion are not correct ',  // message
 				alertDismissed,         // callback
-				'اخطار',            // title
-				'لغو درخواست'                  // buttonName
+				'Warning',            // title
+				'Cancel'                  // buttonName
 			);
 		}
 	}
@@ -205,10 +205,10 @@
 		
 		//user_location_icon	= new icon_style_user_location({iconUrl: 'maps/map-icon/user_location.png',iconRetinaUrl: 'maps/map-icon/user_location@2x.png',});
 		radius = (position.coords.accuracy / 2) * 1;
-		//my_location_marker = L.marker([position.coords.latitude,position.coords.longitude], {icon: user_location_icon}).addTo(map).bindPopup("شما در شعاع " + radius + " متری این نقطه هستید");//.openPopup();
+		//my_location_marker = L.marker([position.coords.latitude,position.coords.longitude], {icon: user_location_icon}).addTo(map).bindPopup("You are in a radius of " + radius + " m of the point");//.openPopup();
 		//my_location_circle = L.circle([position.coords.latitude,position.coords.longitude], radius).addTo(map);
 		my_location_marker.setLatLng([position.coords.latitude,position.coords.longitude]);
-		my_location_marker.bindPopup("شما در شعاع " + radius + " متری این نقطه هستید");
+		my_location_marker.bindPopup("You are in a radius of " + radius + " m of the point");
 		my_location_circle.setLatLng([position.coords.latitude,position.coords.longitude]);
 		my_location_circle.setRadius(radius);
 		
@@ -235,10 +235,10 @@
 	
 <div class="cd-popup is-visible0" role="alert">
 	<div class="cd-popup-container">
-		<p><input id="favorite_title" id="favorite_title" placeholder="عنوان نقطه جدید" /></p>
+		<p><input id="favorite_title" id="favorite_title" placeholder="Title of New Point" /></p>
 		<ul class="cd-buttons">
-			<li><a href="#" onclick="add_to_favorites();">تاید</a></li>
-			<li><a href="#" onclick="add_to_favorites_open();">لغو</a></li>
+			<li><a href="#" onclick="add_to_favorites();">Ok</a></li>
+			<li><a href="#" onclick="add_to_favorites_open();">Cancel</a></li>
 		</ul>
 		<!--<a href="#0" class="cd-popup-close img-replace">Close</a>-->
 	</div> <!-- cd-popup-container -->
@@ -305,24 +305,24 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////		
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //زیارتگاه ها///////////////////////////////////////////////////////////////////////////////////
-L.marker([32.6171,44.0362], {icon: ziyarati_icon}).bindPopup('حرم مطهر امام حسین علیه السلام').addTo(ziyarati),
-L.marker([32.6163,44.0322], {icon: ziyarati_icon}).bindPopup('حرم مطهر حضرت اباالفضل علیه السلام').addTo(ziyarati),
-L.marker([32.6510,43.9850], {icon: ziyarati_icon}).bindPopup('مرقد حر بن یزید ریاحی').addTo(ziyarati),
-L.marker([31.9958,44.3146], {icon: ziyarati_icon}).bindPopup('حرم مطهر امیرالمونین علیه السلام').addTo(ziyarati);
-L.marker([32.0288724,44.4008203], {icon: ziyarati_icon}).bindPopup('مسجد کوفه').addTo(ziyarati);
-L.marker([32.02645113,44.3948918], {icon: ziyarati_icon}).bindPopup('مرقد میثم تمار').addTo(ziyarati);
-L.marker([32.03892129,44.37993155], {icon: ziyarati_icon}).bindPopup('مسجد سهله').addTo(ziyarati);
-L.marker([32.00680564,44.33875302], {icon: ziyarati_icon}).bindPopup('مرقد کمیل').addTo(ziyarati);
-L.marker([32.0048148,44.33475735], {icon: ziyarati_icon}).bindPopup('مسجد حنانه').addTo(ziyarati);
-L.marker([32.00001671,44.3323294], {icon: ziyarati_icon}).bindPopup('مرقد آیت الله حکیم').addTo(ziyarati);
-L.marker([31.99565193,44.30934614], {icon: ziyarati_icon}).bindPopup('صافی صفا').addTo(ziyarati);
-L.marker([31.99997219,44.31655901], {icon: ziyarati_icon}).bindPopup('مرقد هود و صالح').addTo(ziyarati);
-L.marker([32.00029956,44.31497449], {icon: ziyarati_icon}).bindPopup('مرقد آیت الله قاضی').addTo(ziyarati);
-L.marker([32.001879,44.31273779], {icon: ziyarati_icon}).bindPopup('مقام امام زمان').addTo(ziyarati);
-L.marker([32.61596931,44.03122651], {icon: ziyarati_icon}).bindPopup('تل زینبیه').addTo(ziyarati);
-L.marker([32.61445311,44.03079782], {icon: ziyarati_icon}).bindPopup('خیمه گاه').addTo(ziyarati);
-L.marker([32.62218719,44.03511867], {icon: ziyarati_icon}).bindPopup('مقام امام زمان').addTo(ziyarati);
-L.marker([33.38026985,44.33819831], {icon: ziyarati_icon}).bindPopup('حرم مطهر امام موسی کاظم و امام جواد علیهما السلام').addTo(ziyarati);
+L.marker([32.6171,44.0362], {icon: ziyarati_icon}).bindPopup('Holy Shrine of Imam Hussain a.s.').addTo(ziyarati),
+L.marker([32.6163,44.0322], {icon: ziyarati_icon}).bindPopup('Holy Shrine of Abolfazl a.s.').addTo(ziyarati),
+L.marker([32.6510,43.9850], {icon: ziyarati_icon}).bindPopup('Tomb of Horr ibn Yazid Riahi').addTo(ziyarati),
+L.marker([31.9958,44.3146], {icon: ziyarati_icon}).bindPopup('Holy Shrine of Amir Almomineen a.s.').addTo(ziyarati);
+L.marker([32.0288724,44.4008203], {icon: ziyarati_icon}).bindPopup('Kufa Mosque').addTo(ziyarati);
+L.marker([32.02645113,44.3948918], {icon: ziyarati_icon}).bindPopup('Tomb of Maytham Tammar').addTo(ziyarati);
+L.marker([32.03892129,44.37993155], {icon: ziyarati_icon}).bindPopup('Sahala Mosque').addTo(ziyarati);
+L.marker([32.00680564,44.33875302], {icon: ziyarati_icon}).bindPopup('Tomb of Komeyl ').addTo(ziyarati);
+L.marker([32.0048148,44.33475735], {icon: ziyarati_icon}).bindPopup('Hannana Mosque').addTo(ziyarati);
+L.marker([32.00001671,44.3323294], {icon: ziyarati_icon}).bindPopup('Tomb of Ayatullah Hakim').addTo(ziyarati);
+L.marker([31.99565193,44.30934614], {icon: ziyarati_icon}).bindPopup('Safi Safa').addTo(ziyarati);
+L.marker([31.99997219,44.31655901], {icon: ziyarati_icon}).bindPopup('Tomb of Prophets Hood and Salih a.s.').addTo(ziyarati);
+L.marker([32.00029956,44.31497449], {icon: ziyarati_icon}).bindPopup('Tomb of Ayatullah Qazi').addTo(ziyarati);
+L.marker([32.001879,44.31273779], {icon: ziyarati_icon}).bindPopup('Maqam of Imam Zaman a.s. ').addTo(ziyarati);
+L.marker([32.61596931,44.03122651], {icon: ziyarati_icon}).bindPopup('Zaynabiya Hill').addTo(ziyarati);
+L.marker([32.61445311,44.03079782], {icon: ziyarati_icon}).bindPopup('Tents Places').addTo(ziyarati);
+L.marker([32.62218719,44.03511867], {icon: ziyarati_icon}).bindPopup('Maqam of Imam Zaman a.s. ').addTo(ziyarati);
+L.marker([33.38026985,44.33819831], {icon: ziyarati_icon}).bindPopup('Holy Shrines of Imam Musa Kadhim a.s. and Imam Jawad a.s. ').addTo(ziyarati);
 ////////////////////////////////////////////////////////////////////////////////////////////////		
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //کنسولگری ها///////////////////////////////////////////////////////////////////////////////////
@@ -336,17 +336,17 @@ L.marker([32.60835727605914,44.02948021388499], {icon: console_icon}).bindPopup(
 //L.marker([32.61670818,44.03129439], {icon: darmani_icon}).bindPopup('درمانگاه سفیر').addTo(darmani);
 L.marker([31.99671432,44.32239353], {icon: darmani_icon}).bindPopup('هتل نبا').addTo(darmani);
 
-L.marker([32.00773352197744,44.34559013039667], {icon: bimarestan_icon}).bindPopup('بیمارستان حکیم').addTo(darmani);
-L.marker([32.01783084105517,44.37258733139262], {icon: bimarestan_icon}).bindPopup('بیمارستان صدر').addTo(darmani);
-L.marker([31.98750536580526,44.34119211845884], {icon: bimarestan_icon}).bindPopup('بیمارستان امام علی').addTo(darmani);
-L.marker([31.99675811750426,44.32279523471789], {icon: darmani_icon}).bindPopup('درمانگاه هلال احمر').addTo(darmani);
-L.marker([32.31709559338142,44.27156113381829], {icon: bimarestan_icon}).bindPopup('بیمارستان حیدریه').addTo(darmani);
-L.marker([32.58628026668129,44.02645245620648], {icon: bimarestan_icon}).bindPopup('بیمارستان الحسین').addTo(darmani);
-L.marker([32.59113209723427,44.04201816149397], {icon: bimarestan_icon}).bindPopup('بیمارستان الکفیل').addTo(darmani);
-L.marker([32.60951606209149,44.03086738895918], {icon: darmani_icon}).bindPopup('درمانگاه هلال احمر- هتل ضیوف الرحمن').addTo(darmani);
-L.marker([32.61673588651463,44.03127805094174], {icon: darmani_icon}).bindPopup('هتل سفیر').addTo(darmani);
-L.marker([32.6252571776183,44.03370455791725], {icon: darmani_icon}).bindPopup('درمانگاه هلال احمر- هتل هدی الوالی').addTo(darmani);
-L.marker([32.62959543633673,44.03861156301936], {icon: bimarestan_icon}).bindPopup('بیمارستان امام سجاد').addTo(darmani);
+L.marker([32.00773352197744,44.34559013039667], {icon: bimarestan_icon}).bindPopup('Hakim Hospital').addTo(darmani);
+L.marker([32.01783084105517,44.37258733139262], {icon: bimarestan_icon}).bindPopup('Sadr Hospital').addTo(darmani);
+L.marker([31.98750536580526,44.34119211845884], {icon: bimarestan_icon}).bindPopup('Imam Ali a.s. Hospital').addTo(darmani);
+L.marker([31.99675811750426,44.32279523471789], {icon: darmani_icon}).bindPopup('Red Crescent Clinic').addTo(darmani);
+L.marker([32.31709559338142,44.27156113381829], {icon: bimarestan_icon}).bindPopup('Haydaria Hospital').addTo(darmani);
+L.marker([32.58628026668129,44.02645245620648], {icon: bimarestan_icon}).bindPopup('Al_Hussain Hospital').addTo(darmani);
+L.marker([32.59113209723427,44.04201816149397], {icon: bimarestan_icon}).bindPopup('Al_Kafil Hospital').addTo(darmani);
+L.marker([32.60951606209149,44.03086738895918], {icon: darmani_icon}).bindPopup('Red Crescent Clinic-Zuyuf urahman Hotel').addTo(darmani);
+L.marker([32.61673588651463,44.03127805094174], {icon: darmani_icon}).bindPopup('Hotel Safir').addTo(darmani);
+L.marker([32.6252571776183,44.03370455791725], {icon: darmani_icon}).bindPopup('Red Crescent Clinic- Hudal wali Hotel').addTo(darmani);
+L.marker([32.62959543633673,44.03861156301936], {icon: bimarestan_icon}).bindPopup('Imam Sajjad a.s. Hospital').addTo(darmani);
 ////////////////////////////////////////////////////////////////////////////////////////////////		
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //سید جواد///////////////////////////////////////////////////////////////////////////////////
@@ -916,13 +916,14 @@ L.marker([32.6104754,44.03110044], {icon: hotel_icon}).bindPopup('Zoyoof Rahman'
 //////////////////////////////////////////////////
 
 	var map = L.map('map', {
-		center: [32.1210,44.3257],
-		zoom: 12,
+		center: [32.6073,44.0115],
+		zoom: 13,
 		maxZoom: 16,//17
 		minZoom:1,
 	});
 	//map.locate({setView: true, maxZoom: 16});
 	//map.locate();
+
 
 
 	L.tileLayer('maps/mapquest/{z}/{x}/{y}.png', {
@@ -945,10 +946,11 @@ L.marker([32.6104754,44.03110044], {icon: hotel_icon}).bindPopup('Zoyoof Rahman'
 		id: 'mapbox.streets'
 	}).addTo(map);
 */
+
 	
 	map.addControl( new L.Control.Search({
 		container: 'findbox',
-		layer: amud,
+		layer: ziyarati,
 		initial: false,
 		collapsed: false
 	}) );
@@ -958,18 +960,18 @@ L.marker([32.6104754,44.03110044], {icon: hotel_icon}).bindPopup('Zoyoof Rahman'
 	var baseLayers = {};
 
 	var overlays = {
-		"نقاط مورد علاقه": favorites,
-		"مکان های زیارتی": ziyarati,
+		"Favorite Points": favorites,
+		"Holy Places": ziyarati,
 		//"بیمارستان ها": bimarestan,
-		"مراکز درمانی": darmani,
+		"Health Service": darmani,
 		//"موکب ، حسینیه": mukeb,//0000000000000000000000000000000000000000
-		"موکب های در اختیار ایرانی ها": mukeb_irani,
-		"ایست و بازرسی": bazresi,
-		"هتل ها": hotel,
-		"عمود ها": amud,
-		"حمل و نقل": transport,
-		"محل های گمشدگان":lost,
-		"کنسولگری":console,
+		//"موکب های در اختیار ایرانی ها": mukeb_irani,
+		"Check Points": bazresi,
+		"Hotel": hotel,
+		"Pillars": amud,
+		"Transportation": transport,
+		"Lost & Found":lost,
+		//"کنسولگری":console,
 	};
 
 	L.control.layers(baseLayers, overlays).addTo(map);
@@ -1055,12 +1057,26 @@ L.marker([32.6104754,44.03110044], {icon: hotel_icon}).bindPopup('Zoyoof Rahman'
 }
 .leaflet-control-layers.leaflet-control.leaflet-control-layers-expanded {
     background-color: #eeeeee;
-    background-image: url(maps/js/images/list_top_bg.png);
+    background-image: url(maps/js/images/list_top_bg_en.png);
     background-size: 100%;
     background-repeat: no-repeat;
     background-position: top;
     padding-top: 55px;
 }
+
+
+/*//LTR /////////////////////////////////////////////////////////////////////////////////////*/
+.leaflet-popup-content {
+  direction: ltr;
+}
+#favorite_title {
+  direction: ltr;
+}
+.leaflet-control-layers-overlays label {
+  direction: ltr;
+}
+
+
 </style>
 </body>
 </html>

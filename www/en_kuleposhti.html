@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="css/font.css" />
 	<link rel="stylesheet" type="text/css" href="css/simplebar.css" />
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/ltr.css">
 
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/console.log.js"></script>
@@ -34,7 +35,7 @@
 			FastClick.attach(document.body);
 			
 			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
-				document.addEventListener("backbutton", go_back, false);
+				document.addEventListener("backbutton", go_back_to_ghable_safar_en, false);
 			}
 		
 		}
@@ -127,13 +128,13 @@
 	</div>
 	<div id="warper" >
 			<div id="header">
-				<div id="back-btn" onclick="go_back_to_dar_safar();"></div>
-				<div id="header-text-2th">نقشه</div>
+				<div id="back-btn" onclick="go_back_to_ghable_safar_en();"></div>
+				<div id="header-text-2th">Rucksack</div>
 				<div class="center"></div>
 			</div>
 			<div id="footer">
 				<div id="footer-bg">
-					<button class="dw_bottun fontsize">قلم</button>	
+					<button class="dw_bottun fontsize">size</button>	
 					<button class="dw_bottun audio">0</button>	
 					<button class="dw_bottun translate">ترجمه</button>	
 				</div>
@@ -142,9 +143,8 @@
 			<div id="main" >
 			
 				<ul class="zirmenu">
-					<li><a href="map_najaf.html">نقشه نجف</a></li>
-					<li><a href="map_karbala.html">نقشه کربلا</a></li>
-					<li><a href="map_iraq.html">نقشه نجف تا کربلا</a></li>
+					<li><a href="en_info.html">Useful Information</a></li>
+					<li><a href="en_lavazem.html">Useful Luggage</a></li>
 				</ul>
 
 			
@@ -152,9 +152,9 @@
 	<div id="controls_size">
 		<div id="css_style"></div>
 		<div id="controls_over"></div>
-		<a href="#" id="large">قلم</a>
-		<a href="#" id="medium">قلم</a>
-		<a href="#" id="small" >قلم</a>
+		<a href="#" id="large">size</a>
+		<a href="#" id="medium">size</a>
+		<a href="#" id="small" >size</a>
 		<div id="controls_bg"></div>
 	</div>
 </body>

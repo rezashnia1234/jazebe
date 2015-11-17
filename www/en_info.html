@@ -10,6 +10,7 @@
 	<link rel="stylesheet" type="text/css" href="css/font.css" />
 	<link rel="stylesheet" type="text/css" href="css/simplebar.css" />
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/ltr.css">
 
 	<script src="js/jquery-1.11.3.min.js"></script>
 	<script src="js/console.log.js"></script>
@@ -86,26 +87,8 @@
 				//alert("2");
 			});
 */
-			max_width = 0;
-			win_width = $('.zirmenu li').width();
-			
-			$('.zirmenu li a').each( function(i) {
-				if(max_width<$(this).width())
-					max_width = $(this).width();
-			});
-				max_width_temp = max_width;
-				max_width = max_width + 55 + 50;
-			$('.zirmenu li a').each( function(i) {
-				if(max_width>win_width)
-				{
-					$(this).attr("style","background-image:none;padding:0 5px;border-radius:3px;background-color:#f0f0f0 !important;");
-				}
-				else
-				{
-					$(this).attr("style","width:" + (max_width_temp + 10) + "px;display:block;padding:0 40px;");
-				}
-			});
-
+		
+		
 			setTimeout(function(){
 				$(".mypreload").html("");
 				$('#main').addClass("simplebar");
@@ -117,6 +100,13 @@
 
 	</script>	
 
+		
+		
+<style>
+
+
+</style>
+<!--footer-bg-center.png-->
 </head>
 <body class="tarjome_disable sound_disable" onload="init();" style="overflow:hidden;width:100%;">
 	<div id="bg-top"></div><div id="bg-bottom"></div>
@@ -127,34 +117,63 @@
 	</div>
 	<div id="warper" >
 			<div id="header">
-				<div id="back-btn" onclick="go_back_to_dar_safar();"></div>
-				<div id="header-text-2th">نقشه</div>
+				<div id="back-btn" onclick="parent.history.back();"></div>
+				<div id="header-text-2th">Useful Information</div>
 				<div class="center"></div>
 			</div>
 			<div id="footer">
 				<div id="footer-bg">
-					<button class="dw_bottun fontsize">قلم</button>	
+					<button class="dw_bottun fontsize">Size</button>	
 					<button class="dw_bottun audio">0</button>	
 					<button class="dw_bottun translate">ترجمه</button>	
 				</div>
 			</div>
 			<div id="container" >
-			<div id="main" >
-			
-				<ul class="zirmenu">
-					<li><a href="map_najaf.html">نقشه نجف</a></li>
-					<li><a href="map_karbala.html">نقشه کربلا</a></li>
-					<li><a href="map_iraq.html">نقشه نجف تا کربلا</a></li>
-				</ul>
+				<div id="main" >
+<div class="justify doa_text">
 
-			
+
+
+<b>Useful Information about the Journey</b>
+<br/>
+The distance between Najaf –Karbala= 80 km<br/>
+Number of pillars= 1452<br/>
+Pillars distance each to next = 50 m<br/>
+The time needed for the whole walk = 20 to 25 hours (each day 7 to 8 hours)<br/>
+ Estimated time for the whole journey = 2 to 3 days<br/>
+Best suitable time for the walk = 16. of the month Safar<br/>
+Expected arrival time in Karbala= 18 of Safar<br/>
+<br/>
+There will be many pilgrimages, so you can easily follow the crowd.<br/>
+<br/>
+Iraqi currency: (Iraqi) Dinar<br/>
+Usually all services during the walk will be free but for just in case you should have a bit money with you. The recommended currency; Iraqi Dinar!
+<br/>
+During the walk there are many medical and usual Help Stations. In case anything happened there will be doctors and you will receive medical treatment. There are many stations with such medical services from Iranian Red Crescent.
+<br/>
+For resting and sleeping we suggest first of all you find a Mukeb (Camp or Hussainiya) shortly before sunset praying,
+then choose one of the Mawakib  (Camps or Hussainiyas)   that is not a tent. During the night the temperature falls.
+<br/>
+You may not find a warm place after 9:00 PM.
+<br/>
+There are many WCs during the walk. Some of Mawakib offer also Toilets western kind.
+<br/>
+There might not be enough water or warm water and soap, you should have some single-use gloves with (just in case)!
+
+
+
+
+	<br/><br/><br/>
+<div>
+				</div>
 			</div>
+	</div>
 	<div id="controls_size">
 		<div id="css_style"></div>
 		<div id="controls_over"></div>
-		<a href="#" id="large">قلم</a>
-		<a href="#" id="medium">قلم</a>
-		<a href="#" id="small" >قلم</a>
+		<a href="#" id="large">Size</a>
+		<a href="#" id="medium">Size</a>
+		<a href="#" id="small" >Size</a>
 		<div id="controls_bg"></div>
 	</div>
 </body>
