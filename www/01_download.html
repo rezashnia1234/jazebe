@@ -8,7 +8,7 @@
 		<script src="js/jquery-1.11.3.min.js"></script>
 		<script src="js/console.log.js"></script>
 		<script src="js/jquery.md5.js"></script>
-		<script src="phonegap.js"></script>
+		<script src="phonegap.js"></script> 
 <script>
 	function init() {
 		console.log("init");
@@ -71,19 +71,6 @@
 	
 	
 	function start_download(URL,Extension) {
-		var networkState = navigator.connection.type;
-		if (networkState == Connection.NONE) {
-			navigator.notification.alert(
-				'شما برای اینکار به اینترنت نیاز دارید.\n You need internet to download this file.',  // message
-				alertDismissed,         // callback
-				'اخطار',            // title
-				'تائید'                  // buttonName
-			);
-		}
-		else{
-			return false;
-		}
-		
 		console.log("start_download URL: " + URL);
 		console.log("start_download Extension: " + Extension);
 		
