@@ -25,7 +25,10 @@
 	<script>
 		var temp_element;
 		var progress_bar_element;
-
+		function temp_function() {
+			// do something
+		}
+		
 		function init() {		
 			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
 			//$('#status').html("Start");		
@@ -106,16 +109,12 @@
 			start_download(URL,Extension);
 		}
 	}
-	
-
-	function temp_function() {
-		// do something
-	}
 
 	function start_download(URL,Extension) {
-
+		console.log("start_download check internet");
 		networkState = navigator.connection.type;
 		if (networkState == Connection.NONE) {
+			console.log("start_download : we have internet");
 			navigator.notification.alert(
 				'شما برای اینکار به اینترنت نیاز دارید',  // message
 				temp_function,         // callback
@@ -124,6 +123,7 @@
 			);
 		}
 		else{
+			console.log("start_download : NO internet");
 			return false;
 		}
 
