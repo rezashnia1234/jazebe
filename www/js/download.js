@@ -39,8 +39,10 @@ if(true)
 
 		if (device.platform == 'iOS')
 		{
+			console.log("play_or_download IOS 1");
 			downloadPath = "cdvfile://localhost/persistent/";
 			window.localStorage.setItem('download_address',downloadPath);
+			console.log("play_or_download IOS 2");
 		}
 		
 		downloadPath = window.localStorage.getItem('download_address') + $.md5(URL) + "." + Extension;
@@ -48,8 +50,8 @@ if(true)
 		if(check_download(URL))
 		{
 			console.log("play_or_download : check_download");
-			var media = new Media(downloadPath, null, function(e) { alert(JSON.stringify(e));});
-			media.play();
+			var media2 = new Media(downloadPath, null, function(e) { alert(JSON.stringify(e));});
+			media2.play();
 		}
 		else
 		{
