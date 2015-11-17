@@ -21,7 +21,7 @@ if(true)
 			//temp_array.push($.md5($(this).attr('online')));
 			//window.localStorage.setItem('downloaded_files',JSON.stringify(temp_array));
 			temp_element = $(this);
-			play_or_download($(this).attr('online'));
+			play_or_download($(this).attr('online'),"mp3");
 		});
 */
 		

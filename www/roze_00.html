@@ -22,8 +22,6 @@
 <!--    <script src="js/download.js"></script>-->
 	
 	<script>
-		var temp_element;
-		
 		function init() {		
 			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
 			$('#status').html("Start");
@@ -39,20 +37,6 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 /////START DOWNLOAD//////////////////////////////////////////////////////////////////////
-		$('.play_it').each( function(i) {
-			//$(this).css("display","none");
-			var temp_array = JSON.parse(window.localStorage.getItem('downloaded_files'));
-			if($.inArray($.md5($(this).attr('online')),temp_array) != -1)
-			{
-				$(this).removeClass("need_download").addClass("downloaded");
-			}
-		});
-		$('.play_it').click( function(i) {
-			temp_element = $(this);
-			play_or_download($(this).attr('online'),"mp3");
-		});
-		
-		
 		
 		if(window.localStorage.getItem('downloaded_files') == null){
 			window.localStorage.setItem('downloaded_files',JSON.stringify(["786","110"]));	
@@ -91,10 +75,8 @@
 		if(check_download(URL))
 		{
 			console.log("play_or_download : check_download");
-			
-			playAudio_new(downloadPath);
-			//var media = new Media(downloadPath, null, function(e) { alert(JSON.stringify(e));});
-			//media.play();
+			var media = new Media(downloadPath, null, function(e) { alert(JSON.stringify(e));});
+			media.play();
 		}
 		else
 		{
@@ -104,9 +86,7 @@
 	}
 	
 	
-	function alertDismissed() {
-		// do something
-	}
+	
 	function start_download(URL,Extension) {
 		var networkState = navigator.connection.type;
 		if (networkState == Connection.NONE) {
