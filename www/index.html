@@ -1,457 +1,151 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-	
-    <title>بسم الله الرحمن الرحیم</title>
-	
-	<link rel="stylesheet" type="text/css" href="css/reset.css">
-	<link rel="stylesheet" type="text/css" href="css/font.css" />
-	<link rel="stylesheet" type="text/css" href="css/main.css">
-    
-	<script src="js/jquery-1.11.3.min.js"></script>
-	<!--<script src="js/console.log.js"></script>-->
-    <script src="phonegap.js"></script>
-    <script src="js/fastclick.js"></script>
-    <script src="js/jquery.md5.js"></script>
-    <script src="js/back_btn.js"></script>
-    <script src="js/scale.js"></script>
-    <script src="js/jquery.touchSwipe.min.js"></script>
-    <script src="js/jquery.slides.min.js"></script>
-	<script src="PushNotification.js" type="text/javascript" ></script>
-	
-	<script>
-		function isHighDensity(){
-			return ((window.matchMedia && (window.matchMedia('only screen and (min-resolution: 124dpi), only screen and (min-resolution: 1.3dppx), only screen and (min-resolution: 48.8dpcm)').matches || window.matchMedia('only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 2.6/2), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3)').matches)) || (window.devicePixelRatio && window.devicePixelRatio > 1.3));
-		}
-		function isRetina(){
-			return ((window.matchMedia && (window.matchMedia('only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx), only screen and (min-resolution: 75.6dpcm)').matches || window.matchMedia('only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)').matches)) || (window.devicePixelRatio && window.devicePixelRatio >= 2)) && /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
-		}
-		
-		function init() {		
-			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
-			if(isHighDensity() || isRetina())
-			{
-				$('.index_bg').each( function(i) {
-					$(this).attr('src', $(this).attr('retina')		);
-				});
-			}
-			document.addEventListener("deviceready", onDeviceReady, false);
-			$("#slides").slidesjs({
-				width: 400,
-				//height: 400,
-				navigation: {
-					active: true,
-					effect: "slide",//"slide"fade
-				},
-				pagination: {
-					active: true,
-					effect: "slide",//"slide"fade
-				},
-				effect: {
-					fade: {
-						speed: 800
-					}
-				},
-				play: { auto: false},
-				callback: {
-					loaded: function(number) {
-						// Do something awesome!
-						// Passes start slide number
-					},
-					start: function(number) {
-						// Do something awesome!
-						// Passes slide number at start of animation
-					},
-					complete: function(number) {
-						// Do something awesome!
-						// Passes slide number at end of animation
-					}
-				}
-			});
-			//onDeviceReady();
-		}
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-// START push Notification :////////////////////////////////////////////////////////////////
-	 var register_for_notifs;// = window.localStorage.getItem('register_for_notifs');
-	 function onNotificationGCM(e) {
-		//alert("uuuuuu");
-		//$("#app-status-ul").append('<li>EVENT -> RECEIVED:' + e.event + '</li>');
-
-		switch( e.event )
-		{
-		case 'registered':
-			if ( e.regid.length > 0 )
-			{
-				//$("#app-status-ul").append('<li>REGISTERED -> REGID:' + e.regid + "</li>");
-				// Your GCM push server needs to know the regID before it can push to this device
-				// here is where you might want to send it the regID for later use.
-				//console.log("regID = " + e.regid);
-				//alert("regID = " + e.regid);
-				//if(register_for_notifs){
-					$.ajax({ type: "POST",
-							url: "http://jazebe.smgroup.ir/SMCMS_notification/RegisterDeviceIDtoDB.php", 
-							data: {regID : e.regid,user:window.localStorage.getItem('uuid'),OS:device.platform},
-							async: false,
-							success : function(text)
-							{
-								//last_articles_version = text;
-								console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    Notification registration text : ' + text);
-								window.localStorage.setItem('register_for_notifs','yes');
-							}
-					});
-				//}
-			}
-		break;
-
-		case 'message':
-			// if this flag is set, this notification happened while we were in the foreground.
-			// you might want to play a sound to get the user's attention, throw up a dialog, etc.
-			if ( e.foreground )
-			{
-				//$("#app-status-ul").append('<li>--INLINE NOTIFICATION--' + '</li>');
-
-				// if the notification contains a soundname, play it.
-				//var my_media = new Media("/android_asset/www/"+e.soundname);
-				//my_media.play();
-			}
-			else
-			{  // otherwise we were launched because the user touched a notification in the notification tray.
-				/*
-				if ( e.coldstart )
-				{
-					$("#app-status-ul").append('<li>--COLDSTART NOTIFICATION--' + '</li>');
-				}
-				else
-				{
-					$("#app-status-ul").append('<li>--BACKGROUND NOTIFICATION--' + '</li>');
-				}
-				*/
-			}
-			
-			//alert(e.payload.message);
-			navigator.notification.alert(
-				e.payload.message,  // message
-				alertDismissed,         // callback
-				'اطلاعیه',            // title
-				'تائید'                  // buttonName
-			);
-			//alert(e.payload.msgcnt);
-			/*
-			$("#app-status-ul").append('<li>MESSAGE -> MSG: ' + e.payload.message + '</li>');
-			$("#app-status-ul").append('<li>MESSAGE -> MSGCNT: ' + e.payload.msgcnt + '</li>');
-			*/
-		break;
-
-		case 'error':
-			//$("#app-status-ul").append('<li>ERROR -> MSG:' + e.msg + '</li>');
-		break;
-
-		default:
-			//$("#app-status-ul").append('<li>EVENT -> Unknown, an event was received and we do not know what it is</li>');
-		break;
-	  }
-	}
-	function successHandler (result) {
-		//alert('result = ' + result);
-	}
-	// result contains any error description text returned from the plugin call
-	function errorHandler (error) {
-		//alert('error = ' + error);
-	}
-// END push Notification ///////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-		function onDeviceReady() {
-			if(window.sessionStorage.getItem('session_rand') == null)
-			{
-				playAudioBackground("audio/besmella.mp3");
-				window.sessionStorage.setItem('session_rand',Math.random());				
-			}
-
-			/*
-			$("body").swipe({
-				swipe:function(event, direction, distance, duration, fingerCount){
-					//$(this).text("You swiped " + direction + " for " + distance + "px" );
-					//alert("You swiped " + direction + " for " + distance + "px" );
-					if(direction=="right")
-					{
-						if ( device.platform == 'iOS' )
-						{
-							go_back_index();
-						}
-					}
-				},
-				threshold:100
-			});
-			*/
-			
-			if(window.sessionStorage.getItem('session_rand') == null)
-			{
-				window.sessionStorage.setItem('session_rand',Math.random());				
-			}
-
-			if(window.localStorage.getItem('uuid') == null)
-				window.plugins.uniqueDeviceID.get(uniqueDeviceIDsuccess_index, uniqueDeviceIDfail_index);
-			else
-			{
-				
-			}
-			window.sessionStorage.setItem('we_are_in',"index");
-			//FastClick.attach(document.getElementById('container'));
-			FastClick.attach(document.body);
-			
-			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
-				document.addEventListener("backbutton", go_back_index, false);
-			}
-			if(window.sessionStorage.getItem('LOAD_URL') == null)
-			{
-				window.sessionStorage.setItem('LOAD_URL',JSON.stringify(["786","110"]));				
-			}
-
-
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-// START push Notification :////////////////////////////////////////////////////////////////
-			if(window.localStorage.getItem('register_for_notifs') == null)
-			{
-				pushNotification = window.plugins.pushNotification;
-				console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    register_for_notifs : no // ' + device.platform);
-				if ( device.platform == 'android' || device.platform == 'Android' || device.platform == "amazon-fireos" ){
-					pushNotification.register(successHandler,errorHandler,{"senderID":"804625540618","ecb":"onNotificationGCM"});
-				} else {
-					pushNotification.register(tokenHandler,errorHandler,{"badge":"true","sound":"true","alert":"true","ecb":"onNotificationGCM"});//"onNotificationAPN"});
-				}
-			}
-
-			function tokenHandler(result) {
-				console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    Notification Callback Success! Result (ios) = '+result);
-				//if(register_for_notifs){
-					$.ajax({ type: "POST",
-							url: "http://jazebe.smgroup.ir/SMCMS_notification/RegisterDeviceIDtoDB.php", 
-							data: {regID : result,user:window.localStorage.getItem('uuid'),OS:device.platform},
-							async: false,
-							success : function(text)
-							{
-								//last_articles_version = text;
-								console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    Notification registration text : ' + text);
-								window.localStorage.setItem('register_for_notifs','yes');
-							}
-					});
-				//}
-			}
-// END push Notification ///////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-////////////////////////////////////////////////////////////////////////////////////////////
-			
-		}
-		function uniqueDeviceIDsuccess_index(uuid)
-		{
-			window.localStorage.setItem('uuid',uuid);
-		};
-		function uniqueDeviceIDfail_index(uuid)
-		{
-			//alert("uniqueDeviceIDfail" + uuid);
-		};
-		
-		function loadcompeleted() {
-			//$(".mypreload").html("");
-		}
-		$(window).load(function() {
-			//$(".mypreload").html("");
-		});
-
-		function go_back_index() {
-			navigator.notification.confirm(
-				'آیا تمایل به خروج از برنامه را دارید؟',	// message
-				onExitConfirm,								// callback
-				'توجه',										// title
-				['بله','خیر']								// buttonName
-			);
-		}
-		function onExitConfirm(buttonIndex) {
-			if(buttonIndex==1)
-			{
-				navigator.app.exitApp();
-				/*
-				if (navigator && navigator.app) {
-					navigator.app.exitApp();
-				} 
-				else {
-					if (navigator && navigator.device) {
-						navigator.device.exitApp();
-					}
-				}
-				*/
-			}
-			else
-			{
-				
-			}
-		}
-	</script>	
-<style>
-*{
-    -webkit-touch-callout: none !important;
-    -webkit-user-select: none !important;
-    -khtml-user-select: none !important;
-    -moz-user-select: none !important;
-    -ms-user-select: none !important;
-    -o-user-select: none !important;
-    user-select: none !important;
-	outline-style:none !important;
-}
-html {
-  background-color: transparent;
-}
-body{
-	background-color:#303030;text-align:center;overflow:hidden;width:100%;
-}
-.index_bg{
-	width:100%;
-}
-.btn{
-	position:absolute;
-	width:100%;
-	cursor:pointer;
-}
-.btn1{
-	position:absolute;
-	width:100%;
-	height:12%;
-	left:0%;
-	top:53%;
-}
-.btn2{
-	position:absolute;
-	width:100%;
-	height:12%;
-	left:0%;
-	top:70%;
-}
-img.lan_en.language {
-    position: fixed;
-    left: 0;
-    top: 0;
-    z-index: 999;
-    width: 70px;
-    cursor: pointer;
-}
-#container.blur{
-  -webkit-filter: blur(30px);
-  -moz-filter: blur(30px);
-  -o-filter: blur(30px);
-  -ms-filter: blur(30px);
-  filter: blur(30px);
-}
-#container {
-  transition: all 300ms ease 0ms;
-}
-</style>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name = "format-detection" content = "telephone=no"/>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>FileTransfer Test</title>
+		<script src="js/jquery-1.11.3.min.js"></script>
+		<script src="js/console.log.js"></script>
+		<script src="js/jquery.md5.js"></script>
+		<script src="phonegap.js"></script>
 <script>
-$(document).ready(function() {
-	if(window.localStorage.getItem('lan') == null)
-	{
-		//change_language();
-		$("#container").addClass("blur");
-		setTimeout(function(){
-			$(".index_menu").css("margin-top",(($(window).height() - $(".index_bg").height())/2)*0.8	);
-			$(".mypreload").html("");
-			navigator.notification.confirm(
-				'لطفا زبان مورد نظر خود را انتخاب نمایید \nPlease Select Your Language', // message
-				 onConfirm,            // callback to invoke with index of button pressed
-				'',           // title
-				['English','فارسی']         // buttonLabels
-			);
-			function onConfirm(buttonIndex) {
-				if(buttonIndex==1)
-				{
-					change_language("en");
-				}
-				else
-				{
-					change_language("fa");
-				}
-			}
-		}, 300);
+	function init() {
+		console.log("init");
+		$('#status').html("Start");
+		//alert($.md5 (" String str  d"));
+		document.addEventListener("deviceready", onDeviceReady, false);
+		
+		//onDeviceReady();
 	}
-	else
-	{
-		if(window.localStorage.getItem('lan')=="en")
+	
+	function onDeviceReady() {
+		console.log("onDeviceReady");
+		
+		if(window.localStorage.getItem('downloaded_files') == null){
+			window.localStorage.setItem('downloaded_files',JSON.stringify(["786","110"]));	
+		}
+		
+		
+		if(window.localStorage.getItem('download_address') == null){
+			
+			window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, 
+				function(fs) {
+					window.localStorage.setItem('download_address',fs.root.toURL());
+				}, function(e) {
+					alert('failed to get fs');
+					alert(JSON.stringify(e));
+				}
+			);
+		}
+
+		console.log("window.localStorage.getItem('download_address'):" + window.localStorage.getItem('download_address'));
+		console.log("window.localStorage.getItem('downloaded_files'):" + window.localStorage.getItem('downloaded_files'));
+
+	}
+	function play_or_download(URL,Extension) {
+		console.log("play_or_download URL: " + URL);
+		console.log("play_or_download Extension: " + Extension);
+
+		if (device.platform == 'iOS')
 		{
-			setTimeout(function(){
-				$(".index_menu").css("margin-top",(($(window).height() - $(".index_bg").height())/2)*0.8	);
-				aplay_change_language("en");
-			}, 300);
-			setTimeout(function(){
-				$(".mypreload").html("");
-			}, 600);
+			downloadPath = "cdvfile://localhost/persistent/";
+			window.localStorage.setItem('download_address',downloadPath);
+		}
+		
+		downloadPath = window.localStorage.getItem('download_address') + $.md5(URL) + "." + Extension;
+		console.log("play_or_download : " + downloadPath);
+		if(check_download(URL))
+		{
+			console.log("play_or_download : check_download");
+			var media = new Media(downloadPath, null, function(e) { alert(JSON.stringify(e));});
+			media.play();
 		}
 		else
 		{
-			setTimeout(function(){
-				$(".index_menu").css("margin-top",(($(window).height() - $(".index_bg").height())/2)*0.8	);
-				$(".mypreload").html("");
-			}, 300);
+			console.log("play_or_download : start_download");
+			start_download(URL,Extension);
 		}
 	}
-});
-
-function change_language(lan)
-{
-	$("#container").addClass("blur");
-	setTimeout(function(){
-		aplay_change_language(lan);
-		setTimeout(function(){
-			$("#container").removeClass("blur");
-		}, 300);
-	}, 300);
-};
-function aplay_change_language(lan)
-{
-	if(lan=="fa")
-	{
-		$("#fa").css("display","block");
-		$("#en").css("display","none");
-		window.localStorage.setItem('lan','fa');
-	}
-	if(lan=="en")
-	{
-		$("#en").css("display","block");
-		$("#fa").css("display","none");
-		window.localStorage.setItem('lan','en');
-	}
-};
+	
+	
+	
+	function start_download(URL,Extension) {
+		console.log("start_download URL: " + URL);
+		console.log("start_download Extension: " + Extension);
 		
+		var FileTransfer_OBJ = new FileTransfer();
+		var uri = encodeURI(URL);
+		
+		if (device.platform == 'iOS')
+		{
+			downloadPath = "cdvfile://localhost/persistent/";
+			window.localStorage.setItem('download_address',downloadPath);
+		}
+		
+		downloadPath = window.localStorage.getItem('download_address') + $.md5(URL) + "." + Extension;
+		console.log("start_download : " + downloadPath);
+		
+		FileTransfer_OBJ.onprogress = function(progressEvent) {
+			if (progressEvent.lengthComputable) {
+				var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
+				$('#status').html(perc + "% loaded...");
+			} else {
+				$('#status').html($('#status').html() + ".");
+			}
+		};
+		
+		FileTransfer_OBJ.download(uri, downloadPath, 
+			function(entry) {	
+				$('#status').html("done");
+				console.log("start_download : done");
+				temp_array = JSON.parse(window.localStorage.getItem('downloaded_files'));
+				temp_array.push($.md5(URL));
+				window.localStorage.setItem('downloaded_files',JSON.stringify(temp_array));			
+			}, 
+			function(error) {
+				alert('Crap something went wrong...');	
+				alert(JSON.stringify(error));
+			},
+			true
+		);
+	}
+	
+	function check_download(URL) {
+		console.log("check_download URL: " + URL);
+		var temp_array = JSON.parse(window.localStorage.getItem('downloaded_files'));
+		console.log("check_download Extension: " + window.localStorage.getItem('downloaded_files'));
+		if($.inArray($.md5(URL),temp_array) != -1)
+		{
+			console.log("check_download true");
+			return true;
+		}
+		else
+		{
+			console.log("check_download false");
+			return false;
+		}
+	}
+	
+	
 </script>
-</head>
-<body onload="init();" >
-		<div class="container " id="container" >
-			<div id="ajax" class="mypreload">
-				<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #313131; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
-				<div style="z-index: 1011; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 28%; left: 0%; text-align: center;border: medium none;overflow:visible;" class="blockUI blockMsg blockPage"><img src="images/preloader2.gif"></div>
-				<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading2.png" width="70%"></div>
-			</div>
-			<div id="fa" >
-				<img src="images/lan_en.png" class="lan_en language" onclick="change_language('en');" >
-				<div class="index_menu">
-					<img src="images/index_l.png" retina="images/index.png" class="index_bg">
-					<div class="btn btn1" onclick="window.location.href='ghable_safar.html';" ></div>
-					<div class="btn btn2" onclick="window.location.href='dar_safar.html';" ></div>
-				</div>
-			</div>
-			<div id="en" style="display:none;">
-				<img src="images/lan_fa.png" class="lan_en language" onclick="change_language('fa');" >
-				<div class="index_menu">
-					<img src="images/index_en_l.png" retina="images/index_en.png" class="index_bg">
-					<div class="btn btn1" onclick="window.location.href='en_ghable_safar.html';" ></div>
-					<div class="btn btn2" onclick="window.location.href='en_dar_safar.html';" ></div>
-				</div>
-			</div>
-		</div>
-</body>
+    </head>
+	<body onload="init();" >
+
+        <div id="content">
+            <p>
+            Kansas Joe McCoy and Memphis Minnie - "When The Levee Breaks"
+            </p>
+
+			
+            <p>
+            <button id="startDl" onclick="play_or_download('http://dlsmgroup.ir/temp/salameee.mp3','mp3');" >Click to Download and Play</button>
+            <button id="startDl" onclick="console.log('clicked on 22222222222222222222');" >Click to 22222222</button>
+            </p>
+        </div>
+		
+		<div id="status">status....</div>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+		<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+    </body>
 </html>
