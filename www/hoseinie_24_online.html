@@ -30,15 +30,13 @@
 		}
 
 		function onDeviceReady() {
-			init_audio();
-			
+
 			//FastClick.attach(document.getElementById('container'));
 			FastClick.attach(document.body);
 			
 			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
 				document.addEventListener("backbutton", go_back, false);
 			}
-		
 		}
 		function uniqueDeviceIDsuccess_index(uuid)
 		{
@@ -71,7 +69,23 @@
 				$('#smgroup_audio_player').toggle();
 				$('#smgroup_audio_player').addClass('active');
 			});
-
+/*
+			$('#play').on('click', function() {
+				$('#play').hide();
+				$('#pause').css('display','block');
+				
+				
+				play_btn.css("display","none");
+				//play2_btn.css("display","block");
+				pause_btn.css("display","block");
+				$(this).prop("disabled",true);
+				play2_btn.prop("disabled",true);
+				pause_btn.prop("disabled",false);
+				
+				playAudio(my_file);
+				//alert("2");
+			});
+*/
 			$('.fontsize').on('click', function() {
 				$('#smgroup_audio_player').hide();
 			});
@@ -91,41 +105,12 @@
 		
 		
 <style>
-ul.big_list li {
-  background-image: url("images/naghsh.png");
-  background-position: right 12px;
-  border-right: 6px solid transparent;
-  
-  background-repeat: no-repeat;
-  background-size: 31px auto;
-  border-bottom: 1px solid white;
-  box-sizing: border-box;
-  cursor: pointer;
-  float: right;
-  font-weight: bold;
-  height: 40px;
-  line-height: 40px;
-  padding-right: 45px;
-  width: 200%;
-  list-style:none;
-}
-ul.big_list {
-    overflow: hidden;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-ul.big_list li.need_download {
-  background-image: url("images/download.png");
-  background-position: right 6px;
-  background-size: 26px auto;
-}
 
 
 </style>
 <!--footer-bg-center.png-->
 </head>
-<body class="tarjome_disable" onload="init();" style="overflow:hidden;width:100%;">
+<body class="tarjome_disable sound_disable00 fontsize_disable000" onload="init();" style="overflow:hidden;width:100%;">
 <div id="bg-top"></div><div id="bg-bottom"></div>
 <div id="ajax" class="mypreload">
 	<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
@@ -135,7 +120,7 @@ ul.big_list li.need_download {
 		<div id="warper" >
 				<div id="header">
 					<div id="back-btn" onclick="parent.history.back();"></div>
-					<div id="header-text-2th">روضه</div>
+					<div id="header-text-2th">از خیمه برون چو رسول الله</div>
 					<div class="center"></div>
 				</div>
 				<div id="footer">
@@ -145,47 +130,61 @@ ul.big_list li.need_download {
 						<button class="dw_bottun translate">ترجمه</button>	
 					</div>
 				</div>
-
 				<div id="container">
 					<div id="main" class="">
-						<div id="status">---</div>
-						<ul class="big_list">
-							<li class="play_it need_download" online="http://dlsmgroup.ir/jazebe_huseini/audio/bikhavas/01.mp3" offline="audio/bikhavas/01.mp3" play_type="online" onclick2='playAudio_new("audio/roze/01.mp3");' >گفتگوی امام و عمر سعد</li>
-							<li class="play_it" online="http://dlsmgroup.ir/jazebe_huseini/audio/roze/02.mp3" offline="audio/roze/02.mp3" play_type="online" onclick2='playAudio_new("audio/roze/02.mp3");' >گفتگوی امام و حضرت زینب سلام الله علیها</li>
-							<li class="play_it" online="http://dlsmgroup.ir/jazebe_huseini/audio/roze/03.mp3" offline="audio/roze/03.mp3" play_type="offline" onclick2='playAudio_new("audio/roze/03.mp3");' >شهادت غلام امام حسین علیه السلام</li>
-							<li class="play_it" online="http://dlsmgroup.ir/jazebe_huseini/audio/roze/04.mp3" offline="audio/roze/04.mp3" play_type="online" onclick2='playAudio_new("audio/roze/04.mp3");' >شهادت عبدالله بن الحسن علیه السلام</li>
-							<li class="play_it" online="http://dlsmgroup.ir/jazebe_huseini/audio/roze/05.mp3" offline="audio/roze/05.mp3" play_type="online" onclick2='playAudio_new("audio/roze/05.mp3");' >شهادت قاسم ابن‌الحسن علیه السلام</li>
-							<li class="play_it" online="http://dlsmgroup.ir/jazebe_huseini/audio/roze/06.mp3" offline="audio/roze/06.mp3" play_type="online" onclick2='playAudio_new("audio/roze/06.mp3");' >شهادت حضرت علی‌اصغر علیه السلام</li>
-							<li class="play_it" online="http://dlsmgroup.ir/jazebe_huseini/audio/roze/07.mp3" offline="audio/roze/07.mp3" play_type="online" onclick2='playAudio_new("audio/roze/07.mp3");' >شهادت حضرت علی‌‌اکبر علیه السلام</li>
-							<li class="play_it" online="http://dlsmgroup.ir/jazebe_huseini/audio/roze/08.mp3" offline="audio/roze/08.mp3" play_type="online" onclick2='playAudio_new("audio/roze/08.mp3");' >شهادت حضرت عباس علیه السلام</li>
-							<li class="play_it" online="http://dlsmgroup.ir/jazebe_huseini/audio/roze/09.mp3" offline="audio/roze/09.mp3" play_type="online" onclick2='playAudio_new("audio/roze/09.mp3");' >عصر عاشورا</li>
-						</ul>
+<div class="justify doa_text">
+از خیمه برون چو رسول الله
+<br/>
+آمد پیش چشم ثار الله دستی بر قبضه ی شمشیر<br/>
+فریاد علی اکبر یا علی ولی الله<br/>
+<br/><br/>
+همه ی اهل حرم از پی او نالان<br/>
+فلک از غم او گریان<br/>
+ملک از نفسش سوزان<br/>
+به کف آینه و اشک و قرآن<br/>
+به تنش زره ی رسول دو سرا<br/>
+می برد به نگاه دل خون خدا، مولا<br/>
+دست عالم و دامن تو یا علی<br/>
+غم تو مولا علی<br/>
+علی علی ، علی علی<br/>
+علی علی ، علی علی<br/>
 
+نظر عباس به نگاه یل حیدر<br/>
+که ببیند ازو یک بار، مثل پرده ای از خیبر<br/>
+می رسد رجز اکبر<br/>
+امیر عالمین، نگاهش به جنان<br/>
+زیر تیغ و سنان، تو عزیز حسین…<br/>
+ای وای ی ی!<br/>
+<br/><br/>
+دست خدا دست مولا علی، دست او هم علی<br/>
+از میمنه تا میسره می تازد و می گوید و حیدر امیرالمومنین<br/>
+می دوزد از تیغش ببین ، صد آسمان را بر زمین؛ حیدر امیرالمومنین<br/>
+بر پیش چشمان عمو، رزم علی اکبر ببین؛ حیدر امیرالمومنین<br/>
+فرق سرش شد حیدری، پهلوی او شد مادری<br/>
+آمد کنار این پسر، بابا به حال مضطری<br/>
+ای نازنین جان پدر، جان از تن بابا مبر<br/>
+دیگر مزن پا بر زمین دیگر مزن پا بر زمین<br/>
+رخ تو پر خون، تن پاک تو بر خاک است<br/>
+نفس پدرت دیگر، شرر دل افلاک است<br/>
+لب تو ز عطش چاک است<br/>
+روح پیکر من، مرو از بر من<br/>
+بیا سوی حرم علی اکبر من، بابا!<br/>
+<br/>
+پیش چشم من ،می زدی دست و پا ،سوی خیمه بیا
+	<br/><br/><br/>
+<div>
 					</div>
 				</div>
 		</div>
-
-<script>
-	function playAudio_new(filename) {
-		$("#durationTimer").html("--:--");
-		$("#audioTimer").html("00:00");
-		
-		audio.stop();
-		setTimeout(function(){
-			playAudio(filename);
-		}, 600);
-	}
-</script>
-
 		
 		
 		
 		
 		
 		
-<div id="smgroup_audio_player" >
+<div id="smgroup_audio_player">
         <span id="audioTimer" >00:00</span>&nbsp 
-        <span id="durationTimer" >--:--</span>
+        <span id="durationTimer" >00:00</span>
         <div id="audioPosition" >
             <input type="range" name="slider" id="slider" disabled="disabled" value="0" min="0" max="60" style="padding:0;margin:0;" />
         </div>
@@ -205,8 +204,7 @@ ul.big_list li.need_download {
 	<div id="controls_bg"></div>
 </div>
 <script>
-	//init_audio("audio/roze/0.mp3");
-
+	init_audio("audio/salame.mp3");
 	audio_Timer = $("#audioTimer");
 	duration_Timer = $("#durationTimer");
 	slider_Timer = $("#slider");
@@ -233,12 +231,40 @@ ul.big_list li.need_download {
 		stop_btn = $("#stop");
 		slider_Timer = $("#slider");
 		slider_range = slider_Timer;
-/*
-		play_btn.click(function(e){
-			e.preventDefault();
+		
+		play_btn.click(function(){	
 			play_btn.css("display","none");
 			pause_btn.css("display","block");
 			slider_Timer.prop("disabled",false);
+			playAudio(my_file);
+		});
+/*
+		$('#play').on('click', function() {
+			$('#play').hide();
+			$('#pause').css('display','block');
+			
+			
+			play_btn.css("display","none");
+			//play2_btn.css("display","block");
+			pause_btn.css("display","block");
+			$(this).prop("disabled",true);
+			play2_btn.prop("disabled",true);
+			pause_btn.prop("disabled",false);
+			
+			playAudio(my_file);
+			//alert("2");
+		});
+*/
+/*
+		play_btn.click(function(){	
+			alert("1");
+			play_btn.css("display","none");
+			//play2_btn.css("display","block");
+			pause_btn.css("display","block");
+			$(this).prop("disabled",true);
+			play2_btn.prop("disabled",true);
+			pause_btn.prop("disabled",false);
+			
 			playAudio(my_file);
 		});
 */
@@ -277,52 +303,26 @@ ul.big_list li.need_download {
 			stopAudio();
 		});
 		
-		
-		file = "audio/roze/0.mp3";
-		if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
-			file = "/android_asset/www/" + file;
-		}
-		audio = new Media(file, function(){ // success callback
-
-		}, function(error){ // error callback
-			//alert("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
-			console.log("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
-		});
 	}
 
 
 	function playAudio(file){
-		//alert(file);
 		if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
 			file = "/android_asset/www/" + file;
 		}
-		console.log("2");
-		if (audio) {
-			console.log("3");
-			audio.stop();
-			//audio.release();
-		}
-		console.log("4");
-		
-		$("#smgroup_audio_player").show();
-		play_btn.css("display","none");
-		play2_btn.css("display","none");
-		pause_btn.css("display","block");
-		slider_Timer.prop("disabled",false);
 		
 		audio = new Media(file, function(){ // success callback
 			console.log("playAudio():Audio Success");
 			play_btn.css("display","block");
 			play2_btn.css("display","none");
 			pause_btn.css("display","none");
-		
+			
 			slider_Timer.val(0);
 			stopAudio();
 		}, function(error){ // error callback
 			//alert("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
-			console.log("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
 		});
-		//alert("3");
+		
 		// get audio duration
 		var duration = audio.getDuration();
 		var duration_show = false;
@@ -339,8 +339,8 @@ ul.big_list li.need_download {
 		
 		// play audio
 		audio.play({ playAudioWhenScreenIsLocked : true });
-		
-		audio.seekTo(0);
+
+		audio.seekTo(pausePos*1000);
 			
 		// update audio position every second
 		if (audioTimer == null) {
