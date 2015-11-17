@@ -253,7 +253,7 @@ input[type=range]:focus::-ms-fill-upper {
 .persian{border-bottom:1px solid #ffffff;border-top:1px solid #ffffff;}
 .persian {
   background-color: #efefef;
-  margin: 0 -14px;
+  /*margin: 0 -14px;*/
   padding: 12px 14px;
 }
 
