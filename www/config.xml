@@ -59,7 +59,7 @@
     <gap:plugin name="org.apache.cordova.splashscreen" source="npm"  />
     <gap:plugin name="org.apache.cordova.vibration" source="npm"  />
 	
-	<gap:plugin name="cordova-plugin-whitelist" source="npm">
+	<gap:plugin name="cordova-plugin-whitelist" source="npm" />
 
     <!-- Third party plugins -->
     <!-- A list of available plugins are available at https://build.phonegap.com/plugins -->
