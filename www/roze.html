@@ -155,7 +155,9 @@
 				console.log("start_download : done");
 				temp_array = JSON.parse(window.localStorage.getItem('downloaded_files'));
 				temp_array.push($.md5(URL));
-				window.localStorage.setItem('downloaded_files',JSON.stringify(temp_array));			
+				window.localStorage.setItem('downloaded_files',JSON.stringify(temp_array));	
+
+				temp_element.removeClass("need_download");				
 			}, 
 			function(error) {
 				alert('Crap something went wrong...');	
@@ -310,9 +312,6 @@ ul.big_list li.need_download {
 				<div id="container">
 					<div id="main" class="">
 						<div id="status">---</div><br/>
-						<a href="01_download.html">sssssssss</a><br/>
-						<button id="startDl" onclick="play_or_download('http://dlsmgroup.ir/temp/salameee.mp3','mp3');" >Click to Download and Play</button>
-						<br/>
 						<ul class="big_list">
 							<li class="play_it need_download" online="http://dlsmgroup.ir/jazebe_huseini/audio/bikhavas/01.mp3" offline="audio/bikhavas/01.mp3" play_type="online" onclick2='playAudio_new("audio/roze/01.mp3");' >گفتگوی امام و عمر سعد</li>
 							<li class="play_it" online="http://dlsmgroup.ir/jazebe_huseini/audio/roze/02.mp3" offline="audio/roze/02.mp3" play_type="online" onclick2='playAudio_new("audio/roze/02.mp3");' >گفتگوی امام و حضرت زینب سلام الله علیها</li>
