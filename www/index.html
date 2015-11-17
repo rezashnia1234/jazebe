@@ -167,35 +167,6 @@
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 		function onDeviceReady() {
-/////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
-/////START DOWNLOAD//////////////////////////////////////////////////////////////////////
-			if(window.localStorage.getItem('downloaded_files') == null){
-				window.localStorage.setItem('downloaded_files',JSON.stringify(["786","110"]));	
-			}
-			
-			
-			if(window.localStorage.getItem('download_address') == null){
-				if (device.platform == 'iOS')
-				{
-					downloadPath = "cdvfile://localhost/persistent/";
-					window.localStorage.setItem('download_address',downloadPath);
-				}
-				else
-				{
-					window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, 
-						function(fs) {
-							window.localStorage.setItem('download_address',fs.root.toURL());
-						}, function(e) {
-							alert('failed to get fs');
-							alert(JSON.stringify(e));
-						}
-					);
-				}
-			}
-/////START DOWNLOAD//////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
-/////////////////////////////////////////////////////////////////////////////////////////
 			window.localStorage.setItem('offline','yes');
 			
 			if(window.sessionStorage.getItem('session_rand') == null)
@@ -204,6 +175,31 @@
 				window.sessionStorage.setItem('session_rand',Math.random());				
 			}
 
+			if(window.localStorage.getItem('lan') == null)
+			{
+				//change_language();
+				$("#container").addClass("blur");
+				setTimeout(function(){
+					$(".index_menu").css("margin-top",(($(window).height() - $(".index_bg").height())/2)*0.8	);
+					$(".mypreload").html("");
+					navigator.notification.confirm(
+						'لطفا زبان مورد نظر خود را انتخاب نمایید \nPlease Select Your Language', // message
+						 onConfirm,            // callback to invoke with index of button pressed
+						'',           // title
+						['English','فارسی']         // buttonLabels
+					);
+					function onConfirm(buttonIndex) {
+						if(buttonIndex==1)
+						{
+							change_language("en");
+						}
+						else
+						{
+							change_language("fa");
+						}
+					}
+				}, 300);
+			}
 			/*
 			$("body").swipe({
 				swipe:function(event, direction, distance, duration, fingerCount){
@@ -220,11 +216,7 @@
 				threshold:100
 			});
 			*/
-			
-			if(window.sessionStorage.getItem('session_rand') == null)
-			{
-				window.sessionStorage.setItem('session_rand',Math.random());				
-			}
+
 
 			if(window.localStorage.getItem('uuid') == null)
 				window.plugins.uniqueDeviceID.get(uniqueDeviceIDsuccess_index, uniqueDeviceIDfail_index);
@@ -239,11 +231,6 @@
 			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
 				document.addEventListener("backbutton", go_back_index, false);
 			}
-			if(window.sessionStorage.getItem('LOAD_URL') == null)
-			{
-				window.sessionStorage.setItem('LOAD_URL',JSON.stringify(["786","110"]));				
-			}
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
@@ -279,6 +266,36 @@
 ////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////
 			
+			
+/////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+/////START DOWNLOAD//////////////////////////////////////////////////////////////////////
+			if(window.localStorage.getItem('downloaded_files') == null){
+				window.localStorage.setItem('downloaded_files',JSON.stringify(["786","110"]));	
+			}
+			
+			
+			if(window.localStorage.getItem('download_address') == null){
+				if (device.platform == 'iOS')
+				{
+					downloadPath = "cdvfile://localhost/persistent/";
+					window.localStorage.setItem('download_address',downloadPath);
+				}
+				else
+				{
+					window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, 
+						function(fs) {
+							window.localStorage.setItem('download_address',fs.root.toURL());
+						}, function(e) {
+							alert('failed to get fs');
+							alert(JSON.stringify(e));
+						}
+					);
+				}
+			}
+/////START DOWNLOAD//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
 		}
 		function uniqueDeviceIDsuccess_index(uuid)
 		{
