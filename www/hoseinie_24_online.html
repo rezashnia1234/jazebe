@@ -168,8 +168,15 @@
 					$('.progress-bar-parent').css("display","none");				
 				}, 
 				function(error) {
-					alert('Crap something went wrong...');	
-					alert(JSON.stringify(error));
+					//alert('Crap something went wrong...');	
+					//alert(JSON.stringify(error));
+					navigator.notification.alert(
+						'خطا در دانلود فایل',  // message
+						temp_function,         // callback
+						'اخطار',            // title
+						'تائید'                  // buttonName
+					);
+					$('.progress-bar-parent').css("display","none");
 				},
 				true
 			);
@@ -276,6 +283,7 @@
 <div class="progress-bar-parent">
 	<div class="progress-bar green glow">
 		<span class="progress-bar-percent" style="width: 2%"></span>
+		<div id="status"></div>
 	</div>
 </div>
 <!--///END DOWNLOAD//////////////////////////////////////////////////////////////-->

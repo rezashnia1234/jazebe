@@ -174,8 +174,15 @@
 					$('.progress-bar-parent').css("display","none");				
 				}, 
 				function(error) {
-					alert('Crap something went wrong...');	
-					alert(JSON.stringify(error));
+					//alert('Crap something went wrong...');	
+					//alert(JSON.stringify(error));
+					navigator.notification.alert(
+						'خطا در دانلود فایل',  // message
+						temp_function,         // callback
+						'اخطار',            // title
+						'تائید'                  // buttonName
+					);
+					$('.progress-bar-parent').css("display","none");
 				},
 				true
 			);
@@ -301,7 +308,9 @@ ul.big_list li.need_download {
 <div class="progress-bar-parent">
 	<div class="progress-bar green glow">
 		<span class="progress-bar-percent" style="width: 2%"></span>
+		<div id="status"></div>
 	</div>
+	
 </div>
 <!--///END DOWNLOAD//////////////////////////////////////////////////////////////-->
 <!--/////////////////////////////////////////////////////////////////////////////-->
@@ -327,7 +336,6 @@ ul.big_list li.need_download {
 
 				<div id="container">
 					<div id="main" class="">
-						<div id="status"></div>
 						<ul class="big_list">
 							<li class="play_it need_download" online="http://dlsmgroup.ir/jazebe_huseini/audio/roze/01.mp3" offline="audio/roze/01.mp3" play_type="online" onclick2='playAudio_new("audio/roze/01.mp3");' >گفتگوی امام و عمر سعد</li>
 							<li class="play_it need_download" online="http://dlsmgroup.ir/jazebe_huseini/audio/roze/02.mp3" offline="audio/roze/02.mp3" play_type="online" onclick2='playAudio_new("audio/roze/02.mp3");' >گفتگوی امام و حضرت زینب سلام الله علیها</li>
