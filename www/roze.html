@@ -33,38 +33,35 @@
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
 /////START DOWNLOAD//////////////////////////////////////////////////////////////////////
-	if(window.localStorage.getItem('downloaded_files') == null){
-		window.localStorage.setItem('downloaded_files',JSON.stringify(["786","110"]));	
-	}
-console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    1');
-	
-	if(window.localStorage.getItem('download_address') == null){
 		
-		window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, 
-			function(fs) {
-				window.localStorage.setItem('download_address',fs.root.toURL());
-			}, function(e) {
-				alert('failed to get fs');
-				alert(JSON.stringify(e));
-			}
-		);
-	}
+		if(window.localStorage.getItem('downloaded_files') == null){
+			window.localStorage.setItem('downloaded_files',JSON.stringify(["786","110"]));	
+		}
+		
+		
+		if(window.localStorage.getItem('download_address') == null){
 			
-	var temp_element;
-	function alertDismissed() {
-		// do something
-	}
-	
+			window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, 
+				function(fs) {
+					window.localStorage.setItem('download_address',fs.root.toURL());
+				}, function(e) {
+					alert('failed to get fs');
+					alert(JSON.stringify(e));
+				}
+			);
+		}
+
+		console.log("window.localStorage.getItem('download_address'):" + window.localStorage.getItem('download_address'));
+		console.log("window.localStorage.getItem('downloaded_files'):" + window.localStorage.getItem('downloaded_files'));
+
 	function play_or_download(URL,Extension) {
 		console.log("play_or_download URL: " + URL);
 		console.log("play_or_download Extension: " + Extension);
 
 		if (device.platform == 'iOS')
 		{
-			console.log("play_or_download IOS 1");
 			downloadPath = "cdvfile://localhost/persistent/";
 			window.localStorage.setItem('download_address',downloadPath);
-			console.log("play_or_download IOS 2");
 		}
 		
 		downloadPath = window.localStorage.getItem('download_address') + $.md5(URL) + "." + Extension;
@@ -72,8 +69,8 @@ console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    1');
 		if(check_download(URL))
 		{
 			console.log("play_or_download : check_download");
-			var media2 = new Media(downloadPath, null, function(e) { alert(JSON.stringify(e));});
-			media2.play();
+			var media = new Media(downloadPath, null, function(e) { alert(JSON.stringify(e));});
+			media.play();
 		}
 		else
 		{
@@ -97,6 +94,7 @@ console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    1');
 		else{
 			return false;
 		}
+		
 		console.log("start_download URL: " + URL);
 		console.log("start_download Extension: " + Extension);
 		
@@ -152,45 +150,6 @@ console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    1');
 			return false;
 		}
 	}
-
-
-
-
-
-
-console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    2');
-
-			$('.play_it').each( function(i) {
-console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    2.1');
-				//$(this).css("display","none");
-				var temp_array = JSON.parse(window.localStorage.getItem('downloaded_files'));
-console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    2.2');
-				if($.inArray($.md5($(this).attr('online')),temp_array) != -1)
-				{
-console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    2.3');
-					$(this).removeClass("need_download").addClass("downloaded");
-console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    2.4');
-				}
-console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    2.5');
-			});
-console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    3');
-
-			$('.play_it').click( function(i) {
-				//$(this).css("display","none");
-				//alert($(this).attr('online'));
-				
-				//temp_array = JSON.parse(window.localStorage.getItem('downloaded_files'));
-				//temp_array.push($.md5($(this).attr('online')));
-				//window.localStorage.setItem('downloaded_files',JSON.stringify(temp_array));
-				temp_element = $(this);
-				play_or_download($(this).attr('online'),"mp3");
-			});
-console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    4');
-
-
-
-
-
 
 /////START DOWNLOAD//////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -316,7 +275,8 @@ ul.big_list li.need_download {
 					<div id="main" class="">
 						<div id="status">---</div><br/>
 						<a href="01_download.html">sssssssss</a><br/>
-						
+						<button id="startDl" onclick="play_or_download('http://dlsmgroup.ir/temp/salameee.mp3','mp3');" >Click to Download and Play</button>
+						<br/>
 						<ul class="big_list">
 							<li class="play_it need_download" online="http://dlsmgroup.ir/jazebe_huseini/audio/bikhavas/01.mp3" offline="audio/bikhavas/01.mp3" play_type="online" onclick2='playAudio_new("audio/roze/01.mp3");' >گفتگوی امام و عمر سعد</li>
 							<li class="play_it" online="http://dlsmgroup.ir/jazebe_huseini/audio/roze/02.mp3" offline="audio/roze/02.mp3" play_type="online" onclick2='playAudio_new("audio/roze/02.mp3");' >گفتگوی امام و حضرت زینب سلام الله علیها</li>

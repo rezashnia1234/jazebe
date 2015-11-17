@@ -176,15 +176,22 @@
 			
 			
 			if(window.localStorage.getItem('download_address') == null){
-				
-				window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, 
-					function(fs) {
-						window.localStorage.setItem('download_address',fs.root.toURL());
-					}, function(e) {
-						alert('failed to get fs');
-						alert(JSON.stringify(e));
-					}
-				);
+				if (device.platform == 'iOS')
+				{
+					downloadPath = "cdvfile://localhost/persistent/";
+					window.localStorage.setItem('download_address',downloadPath);
+				}
+				else
+				{
+					window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, 
+						function(fs) {
+							window.localStorage.setItem('download_address',fs.root.toURL());
+						}, function(e) {
+							alert('failed to get fs');
+							alert(JSON.stringify(e));
+						}
+					);
+				}
 			}
 /////START DOWNLOAD//////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
