@@ -19,11 +19,10 @@
 	margin:auto;
 	direction:ltr;
 	text-align: left;
-	
 	background-color: #1a1a1a;
 	height: 25px;
-	padding: 5px;
-	width: 350px;
+	padding: 0px;
+	width: 70%;
 	-moz-border-radius: 5px;
 	-webkit-border-radius: 5px;
 	border-radius: 5px;
@@ -39,6 +38,7 @@
 	-moz-border-radius: 3px;
 	-webkit-border-radius: 3px;
 	border-radius: 3px;
+	width: 2%;
 	-moz-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
 	-webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;
 	box-shadow: 0 1px 0 rgba(255, 255, 255, .5) inset;

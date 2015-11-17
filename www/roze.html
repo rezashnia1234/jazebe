@@ -160,6 +160,7 @@
 		FileTransfer_OBJ.download(uri, downloadPath, 
 			function(entry) {	
 				$('#status').html("");
+				$('.progress-bar-parent').find('span').css('width','2%');
 				console.log("start_download : done");
 				temp_array = JSON.parse(window.localStorage.getItem('downloaded_files'));
 				temp_array.push($.md5(URL));
@@ -301,7 +302,7 @@ ul.big_list li.need_download {
 <div id="bg-top"></div><div id="bg-bottom"></div>
 <div class="progress-bar-parent">
 	<div class="progress-bar green glow">
-		<span style="width: 0%"></span>
+		<span style="width: 2%"></span>
 	</div>
 </div>
 <div id="ajax" class="mypreload">
