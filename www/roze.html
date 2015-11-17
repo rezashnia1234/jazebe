@@ -30,6 +30,52 @@
 		}
 
 		function onDeviceReady() {
+/////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+/////START DOWNLOAD//////////////////////////////////////////////////////////////////////
+			if(window.localStorage.getItem('downloaded_files') == null){
+				window.localStorage.setItem('downloaded_files',JSON.stringify(["786","110"]));	
+			}
+console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    1');
+			
+			if(window.localStorage.getItem('download_address') == null){
+				
+				window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, 
+					function(fs) {
+						window.localStorage.setItem('download_address',fs.root.toURL());
+					}, function(e) {
+						alert('failed to get fs');
+						alert(JSON.stringify(e));
+					}
+				);
+			}
+console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    2');
+
+			$('.play_it').each( function(i) {
+				//$(this).css("display","none");
+				var temp_array = JSON.parse(window.localStorage.getItem('downloaded_files'));
+				if($.inArray($.md5($(this).attr('online')),temp_array) != -1)
+				{
+					$(this).removeClass("need_download").addClass("downloaded");
+				}
+			});
+console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    3');
+
+			$('.play_it').click( function(i) {
+				//$(this).css("display","none");
+				//alert($(this).attr('online'));
+				
+				//temp_array = JSON.parse(window.localStorage.getItem('downloaded_files'));
+				//temp_array.push($.md5($(this).attr('online')));
+				//window.localStorage.setItem('downloaded_files',JSON.stringify(temp_array));
+				temp_element = $(this);
+				play_or_download($(this).attr('online'),"mp3");
+			});
+console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    4');
+/////START DOWNLOAD//////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+
 			init_audio();
 			
 			//FastClick.attach(document.getElementById('container'));
