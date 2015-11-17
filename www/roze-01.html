@@ -33,7 +33,7 @@
 		}
 
 		function onDeviceReady() {
-			init_audio();
+			//init_audio();
 			console.log("onDeviceReady");
 /////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////////
@@ -94,9 +94,9 @@
 		{
 			console.log("play_or_download : check_download");
 			
-			playAudio_new(downloadPath,true);
-			//var media = new Media(downloadPath, null, function(e) { alert(JSON.stringify(e));});
-			//media.play();
+			//playAudio_new(downloadPath);
+			var media = new Media(downloadPath, null, function(e) { alert(JSON.stringify(e));});
+			media.play();
 		}
 		else
 		{
@@ -330,13 +330,13 @@ ul.big_list li.need_download {
 		</div>
 
 <script>
-	function playAudio_new(filename,is_from_web) {
+	function playAudio_new(filename) {
 		$("#durationTimer").html("--:--");
 		$("#audioTimer").html("00:00");
 		
 		audio.stop();
 		setTimeout(function(){
-			playAudio(filename,is_from_web);
+			playAudio(filename);
 		}, 600);
 	}
 </script>
@@ -368,7 +368,7 @@ ul.big_list li.need_download {
 	<a href="#" id="small" >قلم</a>
 	<div id="controls_bg"></div>
 </div>
-<script>
+<!--<script>-->
 	//init_audio("audio/roze/0.mp3");
 
 	audio_Timer = $("#audioTimer");
@@ -455,9 +455,9 @@ ul.big_list li.need_download {
 	}
 
 
-	function playAudio(file,is_from_web){
+	function playAudio(file){
 		//alert(file);
-		if ( device.platform == 'Android' && is_from_web==false ){//Android,iOS,win7=WinCE,win8=Win32NT
+		if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
 			file = "/android_asset/www/" + file;
 		}
 		console.log("2");
@@ -588,6 +588,6 @@ ul.big_list li.need_download {
 		
 		Timer.html(minutes + ":" + seconds);
 	};
-</script>
+<!--</script>-->
 </body>
 </html>
