@@ -107,18 +107,18 @@
 		}
 	}
 	
-/*
-	function alertDismissed() {
+
+	function temp_function() {
 		// do something
 	}
-*/
+
 	function start_download(URL,Extension) {
-/*
-		var networkState = navigator.connection.type;
+
+		networkState = navigator.connection.type;
 		if (networkState == Connection.NONE) {
 			navigator.notification.alert(
-				'شما برای اینکار به اینترنت نیاز دارید.\n You need internet to download this file.',  // message
-				alertDismissed,         // callback
+				'شما برای اینکار به اینترنت نیاز دارید',  // message
+				temp_function,         // callback
 				'اخطار',            // title
 				'تائید'                  // buttonName
 			);
@@ -126,7 +126,7 @@
 		else{
 			return false;
 		}
-*/
+
 		console.log("start_download URL: " + URL);
 		console.log("start_download Extension: " + Extension);
 		
