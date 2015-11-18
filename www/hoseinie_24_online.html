@@ -179,6 +179,7 @@
 						'تائید'                  // buttonName
 					);
 					$('.progress-bar-parent').find('span').css('width','2%');
+					$('.progress-bar-percent').css('width',"");
 					$('.progress-bar-parent').css("display","none");
 				},
 				true
@@ -187,6 +188,7 @@
 			$("#abort").click( function(i) {
 				FileTransfer_OBJ.abort();
 				$('.progress-bar-parent').find('span').css('width','2%');
+				$('.progress-bar-percent').css('width',"");
 				$('.progress-bar-parent').css("display","none");
 			});
 			
@@ -375,6 +377,8 @@
 		$("#durationTimer").html("--:--");
 		$("#audioTimer").html("00:00");
 		
+		alert(filename);
+		
 		audio.stop();
 		setTimeout(function(){
 			playAudio(filename,is_from_web);
@@ -476,7 +480,7 @@
 		});
 		
 		
-		file = "audio/roze/0.mp3";
+		file = "audio/besmella.mp3";
 		if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
 			file = "/android_asset/www/" + file;
 		}
