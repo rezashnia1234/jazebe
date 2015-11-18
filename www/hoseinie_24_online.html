@@ -99,6 +99,7 @@
 		{
 			console.log("play_or_download : check_download");
 			
+			//$("#play").css("display","none");
 			playAudio_new(downloadPath,true);
 			//var media = new Media(downloadPath, null, function(e) { alert(JSON.stringify(e));});
 			//media.play();
@@ -165,6 +166,7 @@
 					window.localStorage.setItem('downloaded_files',JSON.stringify(temp_array));	
 					
 					//temp_element.removeClass("need_download");
+					//$("#play").css("display","none");
 					$('.progress-bar-parent').css("display","none");				
 				}, 
 				function(error) {
@@ -366,7 +368,17 @@
 		
 		
 		
+<script>
+	function playAudio_new(filename,is_from_web) {
+		$("#durationTimer").html("--:--");
+		$("#audioTimer").html("00:00");
 		
+		audio.stop();
+		setTimeout(function(){
+			playAudio(filename,is_from_web);
+		}, 600);
+	}
+</script>
 <div id="smgroup_audio_player" >
         <span id="audioTimer" >00:00</span>&nbsp 
         <span id="durationTimer" >--:--</span>
@@ -374,7 +386,7 @@
             <input type="range" name="slider" id="slider" disabled="disabled" value="0" min="0" max="60" style="padding:0;margin:0;" />
         </div>
         <div class="audio_btn">
-            <input type="button" id="play" value="" onclick="play_or_download('http://dlsmgroup.ir/jazebe_huseini/audio/huseiniye/24.mp3','mp3');" />
+            <input type="button" id="play" value="" onclick="play_or_download('http://dlsmgroup.ir/jazebe_huseini/audio/huseiniye/22.mp3','mp3');" />
 			<input type="button" id="play2" value="" />
             <input type="button" id="pause" value="" />
             <input type="button" id="stop" value="Stop" />
