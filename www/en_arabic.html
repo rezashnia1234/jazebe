@@ -37,7 +37,7 @@
 			FastClick.attach(document.body);
 			
 			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
-				document.addEventListener("backbutton", go_back_to_dar_safar_en, false);
+				document.addEventListener("backbutton", go_back_to_dar_safar, false);
 			}
 		
 		}
@@ -129,18 +129,20 @@ a.back_to_top {
 }
 
 .title td:first-child {
-     background: url(images/naghsh.png);
-    background-position: right 4px center !important;
+    background: url(images/naghsh.png);
+    background-position: right center !important;
+	border-right:4px solid transparent;
+	
     background-size: 26px;
     background-repeat: no-repeat;
     color: black !important;
     padding-right: 29px;
-    background-color: #d7d7d7 !important;
+    background-color: #E4E3E3 !important;
     width: auto;
     float: right;
-    padding: 0 50px 0 19px;
+    padding: 0 47px 0 10px;
     height: 40px;
-    line-height: 40px;;
+    line-height: 40px;
 }
 .title.odd td:first-child {
     background-color: #CCCCCC !important;
@@ -177,7 +179,7 @@ div#data_table_filter {
 </div>
 		<div id="warper" >
 				<div id="header">
-					<div id="back-btn" onclick="window.location.href='en_dar_safar.html';"></div>
+					<div id="back-btn" onclick="window.location.href='dar_safar.html';"></div>
 					<div id="header-text-2th">Useful Phrases</div>
 					<div class="center"></div>
 				</div>
@@ -268,26 +270,26 @@ $(document).ready(function() {
 <div id="translate_list" >
 	<a href="#data_table_filter" id="goto_search">Search</a><br/>
 	<span><b>Words Category :</b></span><br/>
-	<a href="#time">زمان و تاریخ</a><br/>
-	<a href="#days">روزهای هفته</a><br/>
-	<a href="#sesons">فصول چهارگانه</a><br/>
-	<a href="#relative">خیشاوندی</a><br/>
-	<a href="#color">رنگ ها</a><br/>
-	<a href="#number">اعداد شمارشی</a><br/>
-	<a href="#number-tarjib">اعداد ترتیبی</a><br/>
-	<a href="#number-kasr">کسر اعداد</a><br/>
-	<a href="#body">اعضای بدن</a><br/>
-	<a href="#bazar">در بازار</a><br/>
-	<a href="#kharid">خرید و فروش</a><br/>
-	<a href="#restaurant">رستوران</a><br/>
-	<a href="#fruit">میوه جات</a><br/>
-	<a href="#animal">حیوانات</a><br/>
-	<a href="#post">پست</a><br/>
-	<a href="#masjed">در حرم و مسجد</a><br/>
-	<a href="#city">در شهر</a><br/>
-	<a href="#hotel">در هتل</a><br/>
-	<a href="#safar">در سفر</a><br/>
-	<a href="#politic">سیاست</a><br style="float:right;" /><br style="float:right;" /><br style="float:right;" />
+	<a href="#time">Time and Date</a><br/>
+	<a href="#days">Week days </a><br/>
+	<a href="#Seasons">Four Seasons</a><br/>
+	<a href="#Relatives">Relatives</a><br/>
+	<a href="#color">Color</a><br/>
+	<a href="#Cardinal">Cardinal number</a><br/>
+	<a href="#Ordinal">Ordinal number</a><br/>
+	<a href="#Fractions">Fractions</a><br/>
+	<a href="#body">Body parts</a><br/>
+	<a href="#market">In the Market</a><br/>
+	<a href="#Trade">Trade</a><br/>
+	<a href="#Restaurant">Restaurant</a><br/>
+	<a href="#Fruits">Fruits</a><br/>
+	<a href="#animal">Animals</a><br/>
+	<a href="#post">Post</a><br/>
+	<a href="#masjed">In the Holy Shrine or Mosque</a><br/>
+	<a href="#city">In the City</a><br/>
+	<a href="#hotel">Hotel</a><br/>
+	<a href="#way">On the Way</a><br/>
+	<a href="#politic">politic</a><br style="float:right;" /><br style="float:right;" /><br style="float:right;" />
 </div>
 
 			<table id="data_table" class="display data_table tarjome" cellspacing="0" width="100%" style="direction:rtl;" >
@@ -309,7 +311,7 @@ $(document).ready(function() {
 
 				<tbody>
 				
-<tr id="time" class="title"><td >Time and Date</td><td></td><td></td></tr>
+<tr id="time" class="title"><td >Time</td><td></td><td></td></tr>
 
 <tr><td>لحظة</td><td>	Moment	</td><td>	Lahdha	</td></tr>
 <tr><td>ثانیة	</td><td>Second	</td><td>	Thania	</td></tr>
@@ -338,7 +340,7 @@ $(document).ready(function() {
 
 
 
-<tr id="Week" class="title"><td>Week days</td><td></td><td></td></tr>
+<tr id="days" class="title"><td>days</td><td></td><td></td></tr>
 
 <tr><td>السَّبت	</td><td>Saturday	</td><td>	A_sabt	</td></tr>
 <tr><td>الأحَد	</td><td>Sunday	</td><td>	Al_ahad	</td></tr>
@@ -351,7 +353,7 @@ $(document).ready(function() {
 
 
 
-<tr id="Seasons" class="title"><td>Four Seasons</td><td></td><td></td></tr>
+<tr id="Seasons" class="title"><td>Seasons</td><td></td><td></td></tr>
 
 <tr><td>الرَبیع		</td><td>Spring	</td><td>	Rabie	</td></tr>
 <tr><td>الصّیف	</td><td>	Summer		</td><td>Sayf	</td></tr>
@@ -427,7 +429,7 @@ $(document).ready(function() {
 <tr><td>فاتح</td><td>	light</td><td>	Fateh</td></tr>
 <tr><td>غامق</td><td>	dark</td><td>	Ghameq</td></tr>
 
-<tr id="Cardinal" class="title"><td>Cardinal Numbers</td><td></td><td></td></tr>
+<tr id="Cardinal" class="title"><td>Cardinal</td><td></td><td></td></tr>
 <tr><td>واحد	</td><td>one	</td><td>Wahed	</td></tr>
 <tr><td>إثنین</td><td>	two</td><td>	Ethnain	</td></tr>
 <tr><td>ثلاثة	</td><td>three</td><td>	Thlatha	</td></tr>
@@ -474,7 +476,7 @@ $(document).ready(function() {
 
 
 
-<tr id="Ordinal" class="title"><td>Ordinal Numbers</td><td></td><td></td></tr>
+<tr id="Ordinal" class="title"><td>Ordinal</td><td></td><td></td></tr>
 
 
 <tr><td>الأول</td><td>	First</td><td>	Awwal</td></tr>
@@ -512,7 +514,7 @@ $(document).ready(function() {
 
 
 
-<tr id="body" class="title"><td>Body parts</td><td></td><td></td></tr>
+<tr id="body" class="title"><td>Body</td><td></td><td></td></tr>
 
 
 
@@ -562,7 +564,7 @@ $(document).ready(function() {
 
 
 
-<tr id="market" class="title"><td>In the Market</td><td></td><td></td></tr>
+<tr id="market" class="title"><td>Market</td><td></td><td></td></tr>
 
 
 
@@ -735,7 +737,7 @@ $(document).ready(function() {
 
 
 
-<tr id="masjed" class="title"><td>In the Holy Shrine or Mosque</td><td></td><td></td></tr>
+<tr id="masjed" class="title"><td>Mosque</td><td></td><td></td></tr>
 
 
 
@@ -756,7 +758,7 @@ $(document).ready(function() {
 
 
 
-<tr id="city" class="title"><td>In the City</td><td></td><td></td></tr>
+<tr id="city" class="title"><td>City</td><td></td><td></td></tr>
 
 
 
@@ -823,9 +825,20 @@ $(document).ready(function() {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
 <tr id="way" class="title"><td>On the Way</td><td></td><td></td></tr>
-
-
 
 <tr><td>ذهاب</td><td>	Go</td><td>	Dhahab</td></tr>
 <tr><td>إیاب</td><td>	Return</td><td>	Iyab</td></tr>
@@ -840,6 +853,7 @@ $(document).ready(function() {
 <tr><td>شارع</td><td>	Street</td><td>	Shaarea'</td></tr>
 <tr><td>زَفاق،فَرع</td><td>	Alley</td><td>	Zafaaq</td></tr>
 <tr><td>ساحة،دوَار</td><td>	Square</td><td>	Dawwaar</td></tr>
+
 <tr><td>طَریق</td><td>	Way</td><td>	Tariq</td></tr>
 <tr><td>طَریق</td><td> ­مُشاة</td><td>	Sidewalk	Tariq moshaa'</td></tr>
 <tr><td>طریق</td><td> ­مسدود</td><td>	Road Closed	Tariq masdud</td></tr>
@@ -859,8 +873,8 @@ $(document).ready(function() {
 <tr><td>یصل</td><td>	Arrival</td><td>	Yasil</td></tr>
 <tr><td>یرحل</td><td>	Diparture</td><td>	Yarhal</td></tr>
 <tr><td>یتوقف</td><td>	Stop</td><td>	Yatawaqif</td></tr>
-<tr><td>افتَح</td><td>	Open it!	Iftah</td></tr>
-<tr><td>أغلق</td><td>	Close it!	Aghliq</td></tr>
+<tr><td>افتَح</td><td>	Open it!</td><td>	Iftah</td></tr>
+<tr><td>أغلق</td><td>	Close it!</td><td>	Aghliq</td></tr>
 <tr><td>أمتعة</td><td>	Baggage</td><td>	Amta'a</td></tr>
 <tr><td>الباخرة</td><td>	Ship</td><td>	Al_bakhira</td></tr>
 <tr><td>شاحنة،لاری</td><td>	Truck</td><td>	Shaahina</td></tr>
@@ -869,7 +883,6 @@ $(document).ready(function() {
 <tr><td>علی طول</td><td>	Straight on	</td><td>Ala tul</td></tr>
 <tr><td>باب ­القدام</td><td>	Front door	</td><td>Bab al_qdam</td></tr>
 <tr><td>باب­ الخلفی</td><td>	Back door	</td><td>Bab al_khalaf</td></tr>
-
 
 <tr id="politic" class="title"><td>politic</td><td></td><td></td></tr>
 
@@ -985,7 +998,6 @@ $(document).ready(function() {
 <tr><td>نَشید وطنی</td><td>	Anthem</td><td>	Nashid watani</td></tr>
 <tr><td>استعراض ­عسکری</td><td>	Military Parade</td><td>	Ista'radh askari</td></tr>
 <tr><td>بطاقة هویة	</td><td>ID Card</td><td>	Bitaqa Huwiya</td></tr>
-
 
 				</tbody>
 			</table>

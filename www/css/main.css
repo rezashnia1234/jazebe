@@ -607,7 +607,8 @@ outline:none
 }
 .translate.active {
     background-image: url(../images/trans-off.png) !important;
-    background-position: right 5px center;
+    background-position: right center;
+	border-right:5px solid transparent;
     background-repeat: no-repeat;
     background-size: 10px;
 }
@@ -814,7 +815,9 @@ ul.zirmenu li a {
     text-decoration: none !important;
     background: url(../images/naghsh_menu_right.png),url(../images/naghsh_menu_left.png);
     background-repeat: no-repeat;
-    background-position: right 5px top 15px,left 5px top 15px;
+    background-position: right 15px,5px 15px;
+	border-right:5px solid transparent;
+	
     background-size: 24px;
 /*  padding-right: 40px;*/
 /*  padding-left: 40px;*/

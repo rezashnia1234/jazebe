@@ -48,7 +48,9 @@ ul#list li {
     text-align: left;
     padding-left: 30px;
     padding-right:0px !important;
-    background-position: left 7px center !important;
+    background-position: left center !important;
+	border-left:7px solid transparent;
+
 }
 ul.big_list li {
     text-align: left;

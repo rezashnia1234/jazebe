@@ -1,0 +1,35 @@
+<script>
+$(document).ready(function() {
+	$('#abort000').on('click', function() {
+		//navigator.share("text text text","Share","plain/text");
+		//navigator.share("images/slider/gh04_l.jpg","Share","image/jpeg");
+		//leter_for_you.pdf
+		window.plugins.socialsharing.share('Here is your PDF file', 'Your PDF', 'www/pdf/leter_for_you.pdf');
+	});	
+	$('#abort1').on('click', function() {
+		//navigator.share("/android_asset/www/images/slider/gh04_l.jpg","Share","image/jpeg");
+		window.plugins.socialsharing.share(null, 'Android filename', 'data:image/png;base64,R0lGODlhDAAMALMBAP8AAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAUKAAEALAAAAAAMAAwAQAQZMMhJK7iY4p3nlZ8XgmNlnibXdVqolmhcRQA7', null);
+	});
+	$('#abort2').on('click', function() {
+		//navigator.share("www/images/slider/gh04_l.jpg","Share","image/jpeg");
+		
+	});	
+
+});
+</script>
+<input type="button" id="abort000" value="Cancel0000" />
+<input type="button" id="abort1" value="Cancel11111" />
+<input type="button" id="abort2" value="Cancel222" />
+<button onclick="window.plugins.socialsharing.share('Message only')">message only</button><br/>
+<button onclick="window.plugins.socialsharing.share('Message and subject', 'The subject')">message and subject</button><br/>
+<button onclick="window.plugins.socialsharing.share(null, null, null, 'http://www.x-services.nl')">link only</button><br/>
+<button onclick="window.plugins.socialsharing.share('Message and link', null, null, 'http://www.x-services.nl')">message and link</button><br/>
+<button onclick="window.plugins.socialsharing.share(null, null, 'https://www.google.nl/images/srpr/logo4w.png', null)">image only</button><br/>
+// Beware: passing a base64 file as 'data:' is not supported on Android 2.x: https://code.google.com/p/android/issues/detail?id=7901#c43<br/>
+// Hint: when sharing a base64 encoded file on Android you can set the filename by passing it as the subject (second param)<br/>
+<button onclick="window.plugins.socialsharing.share(null, 'Android filename', 'data:image/png;base64,R0lGODlhDAAMALMBAP8AAP///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACH5BAUKAAEALAAAAAAMAAwAQAQZMMhJK7iY4p3nlZ8XgmNlnibXdVqolmhcRQA7', null)">base64 image only</button><br/>
+// Hint: you can share multiple files by using an array as thirds param: ['file 1','file 2', ..], but beware of this Android Kitkat Facebook issue: [#164]<br/>
+<button onclick="window.plugins.socialsharing.share('Message and image', null, 'https://www.google.nl/images/srpr/logo4w.png', null)">message and image</button><br/>
+<button onclick="window.plugins.socialsharing.share('Message, image and link', null, 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')">message, image and link</button><br/>
+<button onclick="window.plugins.socialsharing.share('Message, subject, image and link', 'The subject', 'https://www.google.nl/images/srpr/logo4w.png', 'http://www.x-services.nl')">message, subject, image and link</button><br/>
+

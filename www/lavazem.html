@@ -184,7 +184,8 @@
 ul#list li.active {
     background-image: url(images/checkbox_on.png) !important;
     background-size: 19px;
-    background-position: right 0px center;
+    background-position: right center;
+	border-right:9px solid transparent;
 }
 ul#list li {
     box-sizing: border-box;
@@ -195,9 +196,11 @@ ul#list li {
     padding-right: 29px;
     background-image: url(images/checkbox_off.png);
     background-repeat: no-repeat;
-    background-position: right 7px center;
+    background-position: right center;
+	border-right:17px solid transparent;
     background-size: 12px;
-	cursor:pointer
+	cursor:pointer;
+	direction:rtl;
 }
 ul#list{
 	margin-top:0px;
