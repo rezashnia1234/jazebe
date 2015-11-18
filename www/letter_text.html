@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    <title>بسم الله الرحمن الرحیم</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css" />
+	<link rel="stylesheet" type="text/css" href="css/simplebar.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/console.log.js"></script>
+    <script src="phonegap.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script src="js/jquery.md5.js"></script>
+    <script src="js/back_btn.js"></script>
+    <script src="js/query-string.js"></script>
+    <script src="js/simplebar.min.js"></script>
+	
+	<script>
+		function init() {		
+			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
+			document.addEventListener("deviceready", onDeviceReady, false);
+			
+			//onDeviceReady();
+		}
+
+		function onDeviceReady() {
+
+			//FastClick.attach(document.getElementById('container'));
+			FastClick.attach(document.body);
+			
+			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+				document.addEventListener("backbutton", go_back, false);
+			}
+		
+		}
+		function uniqueDeviceIDsuccess_index(uuid)
+		{
+			window.localStorage.setItem('uuid',uuid);
+		};
+		function uniqueDeviceIDfail_index(uuid)
+		{
+			//alert("uniqueDeviceIDfail" + uuid);
+		};
+		
+		$(window).load(function() {
+			//alert($(window).height());
+			//alert($(window).height());
+			//alert($(document).height()); 
+			//alert($("#warper").height());
+			$("#main").height($(window).height() - $("#header").height() - $("#footer").height()-30);
+			//$("#container").height($("#warper").height()-$("#header").height());
+			//$(".mypreload").delay(100000).html("");
+		});
+		$(document).ready(function() {
+			$('.translate').on('click', function() {
+				$('.persian').toggle();
+				$(this).toggleClass('active');
+			});	
+			$('.fontsize').on('click', function() {
+				$("#controls_size").addClass('opened');
+				$("#controls_over").css('position','fixed');
+			});
+			$('.audio').on('click', function() {
+				$('#smgroup_audio_player').toggle();
+				$('#smgroup_audio_player').addClass('active');
+			});
+/*
+			$('#play').on('click', function() {
+				$('#play').hide();
+				$('#pause').css('display','block');
+				
+				
+				play_btn.css("display","none");
+				//play2_btn.css("display","block");
+				pause_btn.css("display","block");
+				$(this).prop("disabled",true);
+				play2_btn.prop("disabled",true);
+				pause_btn.prop("disabled",false);
+				
+				playAudio(my_file);
+				//alert("2");
+			});
+*/
+		
+		
+			setTimeout(function(){
+				$(".mypreload").html("");
+				$('#main').addClass("simplebar");
+				$('#main').simplebar({ autoHide: false });
+			}, 300);
+		});
+
+			
+
+	</script>	
+
+		
+		
+<style>
+
+
+</style>
+<!--footer-bg-center.png-->
+</head>
+<body class="tarjome_disable sound_disable" onload="init();" style="overflow:hidden;width:100%;">
+	<div id="bg-top"></div><div id="bg-bottom"></div>
+	<div id="ajax" class="mypreload">
+		<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
+		<div style="z-index: 1011; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 28%; left: 0%; text-align: center;border: medium none;overflow:visible;" class="blockUI blockMsg blockPage"><img src="images/preloader.gif"></div>
+		<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading.png" width="70%"></div>
+	</div>
+	<div id="warper" >
+			<div id="header">
+				<div id="back-btn" onclick="parent.history.back();"></div>
+				<div id="header-text-2th">نامه ای برای تو</div>
+				<div class="center"></div>
+			</div>
+			<div id="footer">
+				<div id="footer-bg">
+					<button class="dw_bottun fontsize">قلم</button>	
+					<button class="dw_bottun audio">0</button>	
+					<button class="dw_bottun translate">ترجمه</button>	
+				</div>
+			</div>
+			<div id="container" >
+				<div id="main" >
+<div class="justify doa_text">
+<div style="display:block;text-align:center;width:100%;">
+	<img src="images/leter_title.jpg" style="width:100%;max-width:650px;margin:0 auto 10px auto;">
+</div>
+<div style="display:block;text-align:center;widows:100%;">بسم‌ الله الرّحمن الرّحیم</div>
+به عموم جوانان در اروپا و امریکای شمالی
+<br/>
+حوادث اخیر در فرانسه و وقایع مشابه در برخی دیگر از کشورهای غربی مرا متقاعد کرد که درباره‌ی آنها مستقیماً با شما سخن بگویم. من شما جوانان را مخاطب خود قرار میدهم؛ نه به این علّت که پدران و مادران شما را ندیده می‌انگارم، بلکه به این سبب که آینده‌ی ملّت و سرزمینتان را در دستان شما میبینم و نیز حسّ حقیقت‌جویی را در قلبهای شما زنده‌تر و هوشیارتر می‌یابم. همچنین در این نوشته به سیاستمداران و دولتمردان شما خطاب نمیکنم، چون معتقدم که آنان آگاهانه راه سیاست را از مسیر صداقت و درستی جدا کرده‌اند.
+<br/>
+سخن من با شما درباره‌ی اسلام است و به‌طور خاص، درباره‌ی تصویر و چهره‌ای که از اسلام به شما ارائه میگردد. از دو دهه پیش به این سو ــ یعنی تقریباً پس از فروپاشی اتّحاد جماهیر شوروی ــ تلاشهای زیادی صورت گرفته است تا این دین بزرگ، در جایگاه دشمنی ترسناک نشانده شود. تحریک احساس رعب و نفرت و بهره‌گیری از آن، متأسّفانه سابقه‌ای طولانی در تاریخ سیاسی غرب دارد. من در اینجا نمیخواهم به «هراس‌های» گوناگونی که تاکنون به ملّتهای غربی القاء شده است، بپردازم. شما خود با مروری کوتاه بر مطالعات انتقادی اخیر پیرامون تاریخ، می‌بینید که در تاریخنگاری‌های جدید، رفتارهای غیر صادقانه و مزوّرانه‌ی دولتهای غربی با دیگر ملّتها و فرهنگهای جهان نکوهش شده است. تاریخ اروپا و امریکا از برده‌داری شرمسار است، از دوره‌ی استعمار سرافکنده است، از ستم بر رنگین‌پوستان و غیر مسیحیان خجل است؛ محقّقین و مورّخین شما از خونریزی‌هایی که به نام مذهب بین کاتولیک و پروتستان و یا به اسم ملیّت و قومیّت در جنگهای اوّل و دوّم جهانی صورت گرفته، عمیقاً ابراز سرافکندگی میکنند.
+<br/>
+این به‌خودی‌خود جای تحسین دارد و هدف من نیز از بازگوکردن بخشی از این فهرست بلند، سرزنش تاریخ نیست، بلکه از شما میخواهم از روشنفکران خود بپرسید چرا وجدان عمومی در غرب باید همیشه با تأخیری چند ده ساله و گاهی چند صد ساله بیدار و آگاه شود؟ چرا بازنگری در وجدان جمعی، باید معطوف به گذشته‌های دور باشد نه مسائل روز؟ چرا در موضوع مهمّی همچون شیوه‌ی برخورد با فرهنگ و اندیشه‌ی اسلامی، از شکل‌گیری آگاهی عمومی جلوگیری میشود؟
+<br/>
+شما بخوبی میدانید که تحقیر و ایجاد نفرت و ترس موهوم از «دیگری»، زمینه‌ی مشترک تمام آن سودجویی‌های ستمگرانه بوده است. اکنون من میخواهم از خود بپرسید که چرا سیاست قدیمی هراس‌افکنی و نفرت‌پراکنی، این‌بار با شدّتی بی‌سابقه، اسلام و مسلمانان را هدف گرفته است؟ چرا ساختار قدرت در جهان امروز مایل است تفکر اسلامی در حاشیه و انفعال قرار گیرد؟ مگر چه معانی و ارزشهایی در اسلام، مزاحم برنامه‌ی قدرتهای بزرگ است و چه منافعی در سایه‌ی تصویرسازی غلط از اسلام، تأمین میگردد؟ پس خواسته‌ی اوّل من این است که درباره‌ی انگیزه‌های این سیاه‌نمایی گسترده علیه اسلام پرسش و کاوش کنید.
+<br/>
+خواسته‌ی دوم من این است که در واکنش به سیل پیشداوری‌ها و تبلیغات منفی، سعی کنید شناختی مستقیم و بی‌واسطه از این دین به دست آورید. منطق سلیم اقتضاء میکند که لااقل بدانید آنچه شما را از آن میگریزانند و میترسانند، چیست و چه ماهیّتی دارد. من اصرار نمیکنم که برداشت من یا هر تلقّی دیگری از اسلام را بپذیرید بلکه میگویم اجازه ندهید این واقعیّت پویا و اثرگذار در دنیای امروز، با اغراض و اهداف آلوده به شما شناسانده شود. اجازه ندهید ریاکارانه، تروریست‌های تحت استخدام خود را به عنوان نمایندگان اسلام به شما معرفی کنند. اسلام را از طریق منابع اصیل و مآخذ دست اوّل آن بشناسید. با اسلام از طریق قرآن و زندگی پیامبر بزرگ آن (صلّی‌الله‌علیه‌وآله‌و‌سلّم) آشنا شوید. من در اینجا مایلم بپرسم آیا تاکنون خود مستقیماً به قرآن مسلمانان مراجعه کرده‌اید؟ آیا تعالیم پیامبر اسلام (صلّی‌الله‌علیه‌وآله‌وسلّم) و آموزه‌های انسانی و اخلاقی او را مطالعه کرده‌اید؟ آیا تاکنون به جز رسانه‌ها، پیام اسلام را از منبع دیگری دریافت کرده‌اید؟ آیا هرگز از خود پرسیده‌اید که همین اسلام، چگونه و بر مبنای چه ارزشهایی طیّ قرون متمادی، بزرگترین تمدّن علمی و فکری جهان را پرورش داد و برترین دانشمندان و متفکّران را تربیت کرد؟
+<br/>
+من از شما میخواهم اجازه ندهید با چهره‌پردازی‌های موهن و سخیف، بین شما و واقعیّت، سدّ عاطفی و احساسی ایجاد کنند و امکان داوری بیطرفانه را از شما سلب کنند. امروز که ابزارهای ارتباطاتی، مرزهای جغرافیایی را شکسته است، اجازه ندهید شما را در مرزهای ساختگی و ذهنی محصور کنند. اگر چه هیچکس به‌صورت فردی نمیتواند شکافهای ایجاد شده را پر کند، امّا هر یک از شما میتواند به قصد روشنگریِ خود و محیط پیرامونش، پلی از اندیشه و انصاف بر روی آن شکافها بسازد. این چالش از پیش طراحی شده بین اسلام و شما جوانان، اگر چه ناگوار است امّا میتواند پرسش‌های جدیدی را در ذهن کنجکاو و جستجوگر شما ایجاد کند. تلاش در جهت یافتن پاسخ این پرسش‌ها، فرصت مغتنمی را برای کشف حقیقت‌های نو پیش روی شما قرار میدهد. بنابراین، این فرصت را برای فهم صحیح و درک بدون پیشداوری از اسلام از دست ندهید تا شاید به یمن مسئولیّت‌پذیری شما در قبال حقیقت، آیندگان این برهه از تاریخ تعامل غرب با اسلام را با آزردگی کمتر و وجدانی آسوده‌تر به نگارش درآورند.
+<br/>
+سیّدعلی خامنه‌ای
+<br/>
+۱۳۹۳/۱۱/۱
+
+<br/><br/><br/>
+<div>
+				</div>
+			</div>
+	</div>
+	<div id="controls_size">
+		<div id="css_style"></div>
+		<div id="controls_over"></div>
+		<a href="#" id="large">قلم</a>
+		<a href="#" id="medium">قلم</a>
+		<a href="#" id="small" >قلم</a>
+		<div id="controls_bg"></div>
+	</div>
+</body>
+</html>
