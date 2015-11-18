@@ -1,6 +1,6 @@
 .progress-bar-parent {
 	background-color: rgba(2, 2, 2, 0.8);
-	display0: none;
+	display: none;
 	height: 100%;
 	left: 0;
 	position: fixed;
