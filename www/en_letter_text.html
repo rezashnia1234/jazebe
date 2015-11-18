@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    <title>بسم الله الرحمن الرحیم</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css" />
+	<link rel="stylesheet" type="text/css" href="css/simplebar.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/ltr.css">
+
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/console.log.js"></script>
+    <script src="phonegap.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script src="js/jquery.md5.js"></script>
+    <script src="js/back_btn.js"></script>
+    <script src="js/query-string.js"></script>
+    <script src="js/simplebar.min.js"></script>
+	
+	<script>
+		function init() {		
+			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
+			document.addEventListener("deviceready", onDeviceReady, false);
+			
+			//onDeviceReady();
+		}
+
+		function onDeviceReady() {
+
+			//FastClick.attach(document.getElementById('container'));
+			FastClick.attach(document.body);
+			
+			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+				document.addEventListener("backbutton", go_back, false);
+			}
+		
+		}
+		function uniqueDeviceIDsuccess_index(uuid)
+		{
+			window.localStorage.setItem('uuid',uuid);
+		};
+		function uniqueDeviceIDfail_index(uuid)
+		{
+			//alert("uniqueDeviceIDfail" + uuid);
+		};
+		
+		$(window).load(function() {
+			//alert($(window).height());
+			//alert($(window).height());
+			//alert($(document).height()); 
+			//alert($("#warper").height());
+			$("#main").height($(window).height() - $("#header").height() - $("#footer").height()-30);
+			//$("#container").height($("#warper").height()-$("#header").height());
+			//$(".mypreload").delay(100000).html("");
+		});
+		$(document).ready(function() {
+			$('.translate').on('click', function() {
+				$('.persian').toggle();
+				$(this).toggleClass('active');
+			});	
+			$('.fontsize').on('click', function() {
+				$("#controls_size").addClass('opened');
+				$("#controls_over").css('position','fixed');
+			});
+			$('.audio').on('click', function() {
+				$('#smgroup_audio_player').toggle();
+				$('#smgroup_audio_player').addClass('active');
+			});
+/*
+			$('#play').on('click', function() {
+				$('#play').hide();
+				$('#pause').css('display','block');
+				
+				
+				play_btn.css("display","none");
+				//play2_btn.css("display","block");
+				pause_btn.css("display","block");
+				$(this).prop("disabled",true);
+				play2_btn.prop("disabled",true);
+				pause_btn.prop("disabled",false);
+				
+				playAudio(my_file);
+				//alert("2");
+			});
+*/
+		
+		
+			setTimeout(function(){
+				$(".mypreload").html("");
+				$('#main').addClass("simplebar");
+				$('#main').simplebar({ autoHide: false });
+			}, 300);
+		});
+
+			
+
+	</script>	
+
+		
+		
+<style>
+
+
+</style>
+<!--footer-bg-center.png-->
+</head>
+<body class="tarjome_disable sound_disable" onload="init();" style="overflow:hidden;width:100%;">
+	<div id="bg-top"></div><div id="bg-bottom"></div>
+	<div id="ajax" class="mypreload">
+		<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
+		<div style="z-index: 1011; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 28%; left: 0%; text-align: center;border: medium none;overflow:visible;" class="blockUI blockMsg blockPage"><img src="images/preloader.gif"></div>
+		<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading.png" width="70%"></div>
+	</div>
+	<div id="warper" >
+			<div id="header">
+				<div id="back-btn" onclick="parent.history.back();"></div>
+				<div id="header-text-2th">A LETTER FOR YOU</div>
+				<div class="center"></div>
+			</div>
+			<div id="footer">
+				<div id="footer-bg">
+					<button class="dw_bottun fontsize">size</button>	
+					<button class="dw_bottun audio">0</button>	
+					<button class="dw_bottun translate">ترجمه</button>	
+				</div>
+			</div>
+			<div id="container" >
+				<div id="main" >
+<div class="justify doa_text">
+<div style="display:block;text-align:center;width:100%;">
+	<img src="images/leter_title.jpg" style="width:100%;max-width:650px;margin:0 auto 10px auto;">
+</div>
+<div style="display:block;text-align:center;widows:100%;">In the name of God, the Beneficent the Merciful</div>
+<br/>
+<b>To the Youth in Europe and North America,</b>
+<br/>
+The recent events in France and similar ones in some other Western countries have convinced me to directly talk to you about them. I am addressing you, [the youth], not because I overlook your parents, rather it is because the future of your nations and countries will be in your hands; and also I find that the sense of quest for truth is more vigorous and attentive in your hearts.
+<br/>
+I don’t address your politicians and statesmen either in this writing because I believe that they have consciously separated the route of politics from the path of righteousness and truth.
+<br/>
+I would like to talk to you about Islam, particularly the image that is presented to you as Islam. Many attempts have been made over the past two decades, almost since the disintegration of the Soviet Union, to place this great religion in the seat of a horrifying enemy. The provocation of a feeling of horror and hatred and its utilization has unfortunately a long record in the political history of the West.
+<br/>
+Here, I don’t want to deal with the different phobias with which the Western nations have thus far been indoctrinated. A cursory review of recent critical studies of history would bring home to you the fact that the Western governments’ insincere and hypocritical treatment of other nations and cultures has been censured in new historiographies.
+<br/>
+The histories of the United States and Europe are ashamed of slavery, embarrassed by the colonial period and chagrined at the oppression of people of color and non-Christians. Your researchers and historians are deeply ashamed of the bloodsheds wrought in the name of religion between the Catholics and Protestants or in the name of nationality and ethnicity during the First and Second World Wars. This approach is admirable.
+<br/>
+By mentioning a fraction of this long list, I don’t want to reproach history; rather I would like you to ask your intellectuals as to why the public conscience in the West awakens and comes to its senses after a delay of several decades or centuries. Why should the revision of collective conscience apply to the distant past and not to the current problems? Why is it that attempts are made to prevent public awareness regarding an important issue such as the treatment of Islamic culture and thought?
+<br/>
+You know well that humiliation and spreading hatred and illusionary fear of the “other” have been the common base of all those oppressive profiteers. Now, I would like you to ask yourself why the old policy of spreading “phobia” and hatred has targeted Islam and Muslims with an unprecedented intensity. Why does the power structure in the world want Islamic thought to be marginalized and remain latent? What concepts and values in Islam disturb the programs of the super powers and what interests are safeguarded in the shadow of distorting the image of Islam? Hence, my first request is: Study and research the incentives behind this widespread tarnishing of the image of Islam.
+<br/>
+My second request is that in reaction to the flood of prejudgments and disinformation campaigns, try to gain a direct and firsthand knowledge of this religion. The right logic requires that you understand the nature and essence of what they are frightening you about and want you to keep away from.
+<br/>
+I don’t insist that you accept my reading or any other reading of Islam. What I want to say is: Don’t allow this dynamic and effective reality in today’s world to be introduced to you through resentments and prejudices. Don’t allow them to hypocritically introduce their own recruited terrorists as representatives of Islam.
+<br/>
+Receive knowledge of Islam from its primary and original sources. Gain information about Islam through the Qur’an and the life of its great Prophet. I would like to ask you whether you have directly read the Qur’an of the Muslims. Have you studied the teachings of the Prophet of Islam and his humane, ethical doctrines? Have you ever received the message of Islam from any sources other than the media?
+<br/>
+Have you ever asked yourself how and on the basis of which values has Islam established the greatest scientific and intellectual civilization of the world and raised the most distinguished scientists and intellectuals throughout several centuries?
+<br/>
+I would like you not to allow the derogatory and offensive image-buildings to create an emotional gulf between you and the reality, taking away the possibility of an impartial judgment from you. Today, the communication media have removed the geographical borders. Hence, don’t allow them to besiege you within fabricated and mental borders.
+<br/>
+Although no one can individually fill the created gaps, each one of you can construct a bridge of thought and fairness over the gaps to illuminate yourself and your surrounding environment. While this preplanned challenge between Islam and you, the youth, is undesirable, it can raise new questions in your curious and inquiring minds. Attempts to find answers to these questions will provide you with an appropriate opportunity to discover new truths.
+<br/>
+Therefore, don’t miss the opportunity to gain proper, correct and unbiased understanding of Islam so that hopefully, due to your sense of responsibility toward the truth, future generations would write the history of this current interaction between Islam and the West with a clearer conscience and lesser resentment.
+<br/>
+<br/>
+Seyyed Ali Khamenei
+<br/>
+21st Jan. 2015 
+
+<br/><br/><br/>
+<div>
+				</div>
+			</div>
+	</div>
+	<div id="controls_size">
+		<div id="css_style"></div>
+		<div id="controls_over"></div>
+		<a href="#" id="large">size</a>
+		<a href="#" id="medium">size</a>
+		<a href="#" id="small" >size</a>
+		<div id="controls_bg"></div>
+	</div>
+</body>
+</html>
