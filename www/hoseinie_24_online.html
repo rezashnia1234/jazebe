@@ -181,6 +181,13 @@
 				true
 			);
 			
+			$("#abort").click( function(i) {
+				FileTransfer_OBJ.abort();
+				$('.progress-bar-parent').css("display","none");
+			});
+			
+			
+			
 		}
 	}
 	
@@ -283,7 +290,8 @@
 <div class="progress-bar-parent">
 	<div class="progress-bar green glow">
 		<span class="progress-bar-percent" style="width: 2%"></span>
-		<div id="status"></div>
+		<div id="status"></div><br/>
+		<input type="button" id="abort" value="Cancel" />
 	</div>
 </div>
 <!--///END DOWNLOAD//////////////////////////////////////////////////////////////-->
@@ -366,7 +374,7 @@
             <input type="range" name="slider" id="slider" disabled="disabled" value="0" min="0" max="60" style="padding:0;margin:0;" />
         </div>
         <div class="audio_btn">
-            <input type="button" id="play" value="" onclick="play_or_download('http://dlsmgroup.ir/jazebe_huseini/audio/huseiniye/24.mp3','mp3');" />
+            <input type="button" id="play" value="" onclick="play_or_download('http://dlsmgroup.ir/temp/salameee.mp3','mp3');" onclick22="play_or_download('http://dlsmgroup.ir/jazebe_huseini/audio/huseiniye/24.mp3','mp3');" />
 			<input type="button" id="play2" value="" />
             <input type="button" id="pause" value="" />
             <input type="button" id="stop" value="Stop" />

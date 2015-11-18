@@ -1,6 +1,6 @@
 .progress-bar-parent {
 	background-color: rgba(2, 2, 2, 0.8);
-	display: none;
+	display0: none;
 	height: 100%;
 	left: 0;
 	position: fixed;
@@ -52,6 +52,30 @@
 	max-width:auto;
 }
 .progress-bar #status{color:#ffffff;}
+.progress-bar #abort{
+	color:#000000;
+	font-weight:bold;
+	-moz-box-shadow: 0 5px 5px rgba(255, 255, 255, .7) inset, 0 -5px 5px rgba(255, 255, 255, .7) inset;
+	-webkit-box-shadow: 0 5px 5px rgba(255, 255, 255, .7) inset, 0 -5px 5px rgba(255, 255, 255, .7) inset;
+	box-shadow: 0 5px 5px rgba(255, 255, 255, .7) inset, 0 -5px 5px rgba(255, 255, 255, .7) inset;
+
+	background-color: #a5df41;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#a5df41), to(#4ca916));
+	background-image: -webkit-linear-gradient(top, #a5df41, #4ca916);
+	background-image: -moz-linear-gradient(top, #a5df41, #4ca916);
+	background-image: -ms-linear-gradient(top, #a5df41, #4ca916);
+	background-image: -o-linear-gradient(top, #a5df41, #4ca916);
+	background-image: linear-gradient(top, #a5df41, #4ca916); 
+	  
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	border-radius: 3px;
+	  
+	border:none;
+	width:100px;
+	height:35px;
+	
+}
 /*---------------------------*/			
 
 .blue span {
