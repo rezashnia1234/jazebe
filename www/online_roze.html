@@ -135,7 +135,7 @@
 			console.log("start_download Extension: " + Extension);
 			
 			var FileTransfer_OBJ = new FileTransfer();
-			var uri = encodeURI(URL);
+			var uri = encodeURI(URL + "?" + Math.random());
 			
 			if (device.platform == 'iOS')
 			{
@@ -182,6 +182,7 @@
 						'اخطار',            // title
 						'تائید'                  // buttonName
 					);
+					$('.progress-bar-parent').find('span').css('width','2%');
 					$('.progress-bar-parent').css("display","none");
 				},
 				true
@@ -189,6 +190,7 @@
 			
 			$("#abort").click( function(i) {
 				FileTransfer_OBJ.abort();
+				$('.progress-bar-parent').find('span').css('width','2%');
 				$('.progress-bar-parent').css("display","none");
 			});
 			
