@@ -31,6 +31,8 @@
 		}
 
 		function onDeviceReady() {
+			init_audio();
+			console.log("onDeviceReady");
 
 			//FastClick.attach(document.getElementById('container'));
 			FastClick.attach(document.body);
@@ -377,7 +379,6 @@
 		$("#durationTimer").html("--:--");
 		$("#audioTimer").html("00:00");
 		
-		alert(filename);
 		
 		audio.stop();
 		setTimeout(function(){
