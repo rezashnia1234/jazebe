@@ -48,14 +48,8 @@
 		};
 		
 		$(window).load(function() {
-			//alert($(window).height());
-			//alert($(window).height());
-			//alert($(document).height()); 
-			//alert($("#warper").height());
-			$("#main").height($(window).height() - $("#header").height() - $("#footer").height()-30);
-			$(".akhbar_title").width($(window).width()-115-40);
-			//$("#container").height($("#warper").height()-$("#header").height());
-			//$(".mypreload").delay(100000).html("");
+			//$("#main").height($(window).height() - $("#header").height() - $("#footer").height()-30);
+			//$(".akhbar_title").width($(window).width()-115-40);
 		});
 		$(document).ready(function() {
 			$('.translate').on('click', function() {
@@ -87,12 +81,72 @@
 				//alert("2");
 			});
 */
-		
+			function getParameterByName(name) {
+				name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+				var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+					results = regex.exec(location.search);
+				return results == null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+			}
+			var id	=	getParameterByName("id");
+
+			$.ajax({
+					url: "http://dlsmgroup.ir/jazebe_huseini/news/report.php?id=" + id,
+					type: "POST",
+					data: {
+						testdata: "786"
+					},
+					async: true,
+					success : function(text)
+					{
+						$('#main').html(text);
+						setTimeout(function(){
+							$("#main").height($(window).height() - $("#header").height() - $("#footer").height()-30);
+							//$(".akhbar_title").width($(window).width()-115-40);
+							setTimeout(function(){						
+								$(".mypreload").html("");
+								$('#main').addClass("simplebar");
+								$('#main').simplebar({ autoHide: false });
+							}, 300);
+						}, 100);
+					},
+					error: function(jqXHR, exception) {
+						$('#main').html('در اتصال شما به اینترنت مشکلی به وجود آمده است ، امکان نمایش محتوا وجود ندارد<a onclick="go_back();" style="position: fixed; color: white; text-align: center; box-sizing: padding-box; top: 45%; background-color: black; z-index: 999; width: 100%; left: 0px; padding: 20px 0px;">بازگشت به صفحه قبل</a>');				
+						setTimeout(function(){
+							$("#main").height($(window).height() - $("#header").height() - $("#footer").height()-30);
+							$(".akhbarha li a").width($(window).width()-115);
+							setTimeout(function(){						
+								$(".mypreload").html("");
+								$('#main').addClass("simplebar");
+								$('#main').simplebar({ autoHide: false });
+							}, 300);
+						}, 100);
+						/*
+						if (jqXHR.status === 0) {
+							$('#main').html('در اتصال شما به اینترنت مشکلی به وجود آمده است ، امکان نمایش محتوا وجود ندارد<a onclick="go_back();" style="position: fixed; color: white; text-align: center; box-sizing: padding-box; top: 45%; background-color: black; z-index: 999; width: 100%; left: 0px; padding: 20px 0px;">بازگشت به صفحه قبل</a>');
+						} else if (jqXHR.status == 404) {
+							$('#main').html('صفحه مورد نظر شما یافت نشد<a onclick="go_back();" style="position: fixed; color: white; text-align: center; box-sizing: padding-box; top: 45%; background-color: black; z-index: 999; width: 100%; left: 0px; padding: 20px 0px;">بازگشت به صفحه قبل</a>');
+						} else if (jqXHR.status == 500) {
+							$('#main').html('Internal Server Error [500].<a onclick="go_back();" style="position: fixed; color: white; text-align: center; box-sizing: padding-box; top: 45%; background-color: black; z-index: 999; width: 100%; left: 0px; padding: 20px 0px;">بازگشت به صفحه قبل</a>');
+						} else if (exception === 'parsererror') {
+							$('#main').html('Requested JSON parse failed.<a onclick="go_back();" style="position: fixed; color: white; text-align: center; box-sizing: padding-box; top: 45%; background-color: black; z-index: 999; width: 100%; left: 0px; padding: 20px 0px;">بازگشت به صفحه قبل</a>');
+						} else if (exception === 'timeout') {
+							$('#main').html('Time out error.<a onclick="go_back();" style="position: fixed; color: white; text-align: center; box-sizing: padding-box; top: 45%; background-color: black; z-index: 999; width: 100%; left: 0px; padding: 20px 0px;">بازگشت به صفحه قبل</a>');
+						} else if (exception === 'abort') {
+							$('#main').html('Ajax request aborted.<a onclick="go_back();" style="position: fixed; color: white; text-align: center; box-sizing: padding-box; top: 45%; background-color: black; z-index: 999; width: 100%; left: 0px; padding: 20px 0px;">بازگشت به صفحه قبل</a>');
+						} else {
+							$('#main').html('Uncaught Error.\n' + jqXHR.responseText + '<a onclick="go_back();" style="position: fixed; color: white; text-align: center; box-sizing: padding-box; top: 45%; background-color: black; z-index: 999; width: 100%; left: 0px; padding: 20px 0px;">بازگشت به صفحه قبل</a>');
+						}
+						*/
+					},
+					//error : function (request, status, error) {
+					//	alert(request.responseText);
+					//}
+			});
 		
 			setTimeout(function(){
-				$(".mypreload").html("");
-				$('#main').addClass("simplebar");
-				$('#main').simplebar({ autoHide: false });
+				//$(".mypreload").html("");
+				//$('#main').addClass("simplebar");
+				//$('#main').simplebar({ autoHide: false });
 			}, 300);
 		});
 
@@ -103,39 +157,24 @@
 		
 		
 <style>
-
 .akhbar_header {
-  min-height: 60px;
+  min-height: 25px;
   width: 100%;
 }
-span.time {
-    border-left: 1px solid #039C84;
-    left: 31px;
-}
 
-span.date {
-    padding-right: 10px;
-}
-.akhbar_header span {
+.date_text{
 	color: #039C84;
-    float: left;
-    width: 45px;
-    margin-top: 22px;
-    height: 15px;
-}
-span.date_text {
-  padding: 0 !important;
-  text-align: left;
+	width: 100%;
+	margin-top: 4px;
+	padding: 0 !important;
+	text-align: right;
 }
 .akhbar_title {
-    float: right;
-    color: #039c84;
-    line-height: 58px;
-	font-weight:bold;
-}
-.akhbar_text {
-    float: right;
-    padding: 23px;
+  color: #039c84;
+  direction: rtl;
+  font-weight: bold;
+  line-height: 180%;
+  text-align: justify;
 }
 
 </style>
@@ -163,43 +202,18 @@ span.date_text {
 			</div>
 			<div id="container" >
 				<div id="main" >
-					<div class="akhbar_header">
-						<p class="akhbar_title">همه ی مرز ها باز است</p>
-						<span class="date_text">1394/08/29<br/>12:15</span>
-					</div>
 
-					<div class="justify doa_text">
-<p>
-سرهنگ ابراهیم رضایی‌نژاد رئیس پلیس مهاجرت و گذرنامه ناجا در گفت‌وگو با خبرنگار انتظامی خبرگزاری فارس، در مورد آمار زائران عتبات عالیات اظهار داشت: تا ساعت 15 امروز 950 هزار نفر از مرز ایران عبور کردند.
-
-وی تصریح کرد: این تعداد از مرزهای شلمچه،‌چزابه، مهران و تعدادی به صورت هوایی و تعداد کمی هم به صورت دریایی از مرز ایران خارج شده و به سمت عراق حرکت کرده‌اند.
-
-سرهنگ رضایی‌نژاد با بیان این مطلب که همه مرزها باز است، گفت: مرز مهران نسبت به بقیه مرزها تراکم جمعیت بیشتری دارد.
-
-رئیس پلیس مهاجرت و گذرنامه ناجا از هموطنان خواست که فقط با گذرنامه معتبر به مرز مراجعه کنند
-
-این مقام ارشد انتظامی در پاسخ به سؤال دیگر فارس در مورد تراکم جمعیت در مرزهای زمینی خاطرنشان کرد: مهران رتبه اول در عبور زائران را به خود اختصاص داده و شلمچه و چزابه در رده‌های بعدی تعداد و تردد زائران هستند.سرهنگ ابراهیم رضایی‌نژاد رئیس پلیس مهاجرت و گذرنامه ناجا در گفت‌وگو با خبرنگار انتظامی خبرگزاری فارس، در مورد آمار زائران عتبات عالیات اظهار داشت: تا ساعت 15 امروز 950 هزار نفر از مرز ایران عبور کردند.
-
-وی تصریح کرد: این تعداد از مرزهای شلمچه،‌چزابه، مهران و تعدادی به صورت هوایی و تعداد کمی هم به صورت دریایی از مرز ایران خارج شده و به سمت عراق حرکت کرده‌اند.
-
-سرهنگ رضایی‌نژاد با بیان این مطلب که همه مرزها باز است، گفت: مرز مهران نسبت به بقیه مرزها تراکم جمعیت بیشتری دارد.
-
-رئیس پلیس مهاجرت و گذرنامه ناجا از هموطنان خواست که فقط با گذرنامه معتبر به مرز مراجعه کنند
-
-این مقام ارشد انتظامی در پاسخ به سؤال دیگر فارس در مورد تراکم جمعیت در مرزهای زمینی خاطرنشان کرد: مهران رتبه اول در عبور زائران را به خود اختصاص داده و شلمچه و چزابه در رده‌های بعدی تعداد و تردد زائران هستند.
-</p>
-					</div>
+			
 				</div>
-
 			</div>
-		</div>
-			<div id="controls_size">
-				<div id="css_style"></div>
-				<div id="controls_over"></div>
-				<a href="#" id="large">قلم</a>
-				<a href="#" id="medium">قلم</a>
-				<a href="#" id="small" >قلم</a>
-				<div id="controls_bg"></div>
-			</div>
+	</div>
+	<div id="controls_size">
+		<div id="css_style"></div>
+		<div id="controls_over"></div>
+		<a href="#" id="large">قلم</a>
+		<a href="#" id="medium">قلم</a>
+		<a href="#" id="small" >قلم</a>
+		<div id="controls_bg"></div>
+	</div>
 </body>
 </html>

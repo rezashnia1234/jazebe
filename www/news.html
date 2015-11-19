@@ -27,7 +27,22 @@
 			
 			//onDeviceReady();
 		}
-
+		function show_id(id)
+		{
+			var networkState = navigator.connection.type;
+			if (networkState == Connection.NONE) {
+				navigator.notification.alert(
+					'شما برای مشاهده این صفحه نیاز به اینترنت دارید',  // message
+					alertDismissed,         // callback
+					'اخطار',            // title
+					'تائید'                  // buttonName
+				);
+			}
+			else
+			{
+				window.location.href = "news_in.html?id=" + id;
+			}
+		}
 		function onDeviceReady() {
 
 			//FastClick.attach(document.getElementById('container'));
@@ -48,14 +63,8 @@
 		};
 		
 		$(window).load(function() {
-			//alert($(window).height());
-			//alert($(window).height());
-			//alert($(document).height()); 
-			//alert($("#warper").height());
-			$("#main").height($(window).height() - $("#header").height() - $("#footer").height()-30);
-			$(".akhbarha li a").width($(window).width()-115);
-			//$("#container").height($("#warper").height()-$("#header").height());
-			//$(".mypreload").delay(100000).html("");
+			//$("#main").height($(window).height() - $("#header").height() - $("#footer").height()-30);
+			//$(".akhbarha li a").width($(window).width()-115);
 		});
 		$(document).ready(function() {
 			$('.translate').on('click', function() {
@@ -88,11 +97,72 @@
 			});
 */
 		
+			$.ajax({
+					url: "http://dlsmgroup.ir/jazebe_huseini/news/report.php",
+					type: "POST",
+					data: {
+						testdata: "786"
+					},
+					async: true,
+					success : function(text)
+					{
+						$('.akhbarha').html(text);
+						
+						max_width = 0;
+						
+						$('.time').each( function(i) {
+							if(max_width<$(this).width())
+								max_width = $(this).width();
+						});
+						
+						setTimeout(function(){
+							$("#main").height($(window).height() - $("#header").height() - $("#footer").height()-30);
+							$(".akhbarha li div").width($(window).width()-max_width-25);
+							setTimeout(function(){						
+								$(".mypreload").html("");
+								$('#main').addClass("simplebar");
+								$('#main').simplebar({ autoHide: false });
+							}, 300);
+						}, 100);
+					},
+					error: function(jqXHR, exception) {
+						$('#main').html('در اتصال شما به اینترنت مشکلی به وجود آمده است ، امکان نمایش محتوا وجود ندارد<a onclick="go_back();" style="position: fixed; color: white; text-align: center; box-sizing: padding-box; top: 45%; background-color: black; z-index: 999; width: 100%; left: 0px; padding: 20px 0px;">بازگشت به صفحه قبل</a>');				
+						setTimeout(function(){
+							$("#main").height($(window).height() - $("#header").height() - $("#footer").height()-30);
+							$(".akhbarha li a").width($(window).width()-115);
+							setTimeout(function(){						
+								$(".mypreload").html("");
+								$('#main').addClass("simplebar");
+								$('#main').simplebar({ autoHide: false });
+							}, 300);
+						}, 100);
+						/*
+						if (jqXHR.status === 0) {
+							$('#main').html('در اتصال شما به اینترنت مشکلی به وجود آمده است ، امکان نمایش محتوا وجود ندارد<a onclick="go_back();" style="position: fixed; color: white; text-align: center; box-sizing: padding-box; top: 45%; background-color: black; z-index: 999; width: 100%; left: 0px; padding: 20px 0px;">بازگشت به صفحه قبل</a>');
+						} else if (jqXHR.status == 404) {
+							$('#main').html('صفحه مورد نظر شما یافت نشد<a onclick="go_back();" style="position: fixed; color: white; text-align: center; box-sizing: padding-box; top: 45%; background-color: black; z-index: 999; width: 100%; left: 0px; padding: 20px 0px;">بازگشت به صفحه قبل</a>');
+						} else if (jqXHR.status == 500) {
+							$('#main').html('Internal Server Error [500].<a onclick="go_back();" style="position: fixed; color: white; text-align: center; box-sizing: padding-box; top: 45%; background-color: black; z-index: 999; width: 100%; left: 0px; padding: 20px 0px;">بازگشت به صفحه قبل</a>');
+						} else if (exception === 'parsererror') {
+							$('#main').html('Requested JSON parse failed.<a onclick="go_back();" style="position: fixed; color: white; text-align: center; box-sizing: padding-box; top: 45%; background-color: black; z-index: 999; width: 100%; left: 0px; padding: 20px 0px;">بازگشت به صفحه قبل</a>');
+						} else if (exception === 'timeout') {
+							$('#main').html('Time out error.<a onclick="go_back();" style="position: fixed; color: white; text-align: center; box-sizing: padding-box; top: 45%; background-color: black; z-index: 999; width: 100%; left: 0px; padding: 20px 0px;">بازگشت به صفحه قبل</a>');
+						} else if (exception === 'abort') {
+							$('#main').html('Ajax request aborted.<a onclick="go_back();" style="position: fixed; color: white; text-align: center; box-sizing: padding-box; top: 45%; background-color: black; z-index: 999; width: 100%; left: 0px; padding: 20px 0px;">بازگشت به صفحه قبل</a>');
+						} else {
+							$('#main').html('Uncaught Error.\n' + jqXHR.responseText + '<a onclick="go_back();" style="position: fixed; color: white; text-align: center; box-sizing: padding-box; top: 45%; background-color: black; z-index: 999; width: 100%; left: 0px; padding: 20px 0px;">بازگشت به صفحه قبل</a>');
+						}
+						*/
+					},
+					//error : function (request, status, error) {
+					//	alert(request.responseText);
+					//}
+			});
 		
 			setTimeout(function(){
-				$(".mypreload").html("");
-				$('#main').addClass("simplebar");
-				$('#main').simplebar({ autoHide: false });
+				//$(".mypreload").html("");
+				//$('#main').addClass("simplebar");
+				//$('#main').simplebar({ autoHide: false });
 			}, 300);
 		});
 
@@ -115,14 +185,16 @@
   list-style-type: none;
   padding-right: 10px;
   width: 100%;
+  box-sizing: border-box;
 }
-.akhbarha li a {
-  color: black;
-  line-height: 40px;
+.akhbarha li div {
+	color: black;
+	line-height: 40px;
 	width: 65%;
-  padding-right: 0;
-  float:right;
-      cursor: pointer;
+	padding-right: 0;
+	float:right;
+	cursor: pointer;
+	display:inline-block;
 }
 .akhbarha li:nth-child(2n-1) {
 background:#ededed
@@ -130,39 +202,15 @@ background:#ededed
 #warper #container #main .simplebar-content{
 	padding:0 !important
 }
-
-
-
-
-span.time {
-    border-left: 1px solid #039C84;
-    left: 31px;
-
-}
-
-span.date {
-    	padding-right: 10px;
-
-
-}
-
-
 .akhbarha span {
     color: #039C84;
     float: left;
-    width: 45px;
+	padding-left: 3px;
     margin-top: 14px;
     height: 15px;
+   box-sizing: border-box;
+   display:inline-block;
 }
-span.date_numb {
-    width: 15px;
-    padding-right: 5px;
-}
-span.date_text {
-    padding: 0 !important;
-    width: 35px;
-}
-
 </style>
 <!--footer-bg-center.png-->
 </head>
@@ -190,15 +238,8 @@ span.date_text {
 			<div id="main" >
 			
 				<ol class="akhbarha" type="1">
-					<li><a href="news_in.html">سردار احمدی:تراکم جمعیت در مهران زایران از مرزهای دیگر تردد کنند</a><span class="date_text">آذر</span><span class="date_numb">2</span><span class="time">12:15</span></li>
-					<li><a href="news_in.html">سردار احمدی:تراکم جمعیت در مهران زایران از مرزهای دیگر تردد کنند</a><span class="date">2آذر</span><span class="time">12:15</span></li>
-					<li><a href="news_in.html">سردار احمدی:تراکم جمعیت در مهران زایران از مرزهای دیگر تردد کنند</a><span class="date">2آذر</span><span class="time">12:15</span></li>
-					<li><a href="news_in.html">سردار احمدی:تراکم جمعیت در مهران زایران از مرزهای دیگر تردد کنند</a><span class="date">2آذر</span><span class="time">12:15</span></li>
-					<li><a href="news_in.html">سردار احمدی:تراکم جمعیت در مهران زایران از مرزهای دیگر تردد کنند</a><span class="date">2آذر</span><span class="time">12:15</span></li>
-					<li><a href="news_in.html">سردار احمدی:تراکم جمعیت در مهران زایران از مرزهای دیگر تردد کنند</a><span class="date">2آذر</span><span class="time">12:15</span></li>
-					<li><a href="news_in.html">سردار احمدی:تراکم جمعیت در مهران زایران از مرزهای دیگر تردد کنند</a><span class="date">2آذر</span><span class="time">12:15</span></li>
-					<li><a href="news_in.html">سردار احمدی:تراکم جمعیت در مهران زایران از مرزهای دیگر تردد کنند</a><span class="date">2آذر</span><span class="time">12:15</span></li>
-
+					در اتصال شما به اینترنت مشکلی به وجود آمده است ، امکان نمایش محتوا وجود ندارد
+					<a onclick="go_back();" style="position: fixed; color: white; text-align: center; box-sizing: padding-box; top: 45%; background-color: black; z-index: 10; width: 100%; left: 0px; padding: 20px 0px;">بازگشت به صفحه قبل</a>
 				</ol>
 
 			
