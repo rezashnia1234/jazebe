@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/font.css" />
 	<link rel="stylesheet" type="text/css" href="css/simplebar.css" />
+	<link rel="stylesheet" type="text/css" href="css/progress.bar.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 
 	<script src="js/jquery-1.11.3.min.js"></script>
@@ -19,6 +20,7 @@
     <script src="js/back_btn.js"></script>
     <script src="js/query-string.js"></script>
     <script src="js/simplebar.min.js"></script>
+    <script src="js/download.js"></script>
 	
 	<script>
 		function init() {		
@@ -29,6 +31,8 @@
 		}
 
 		function onDeviceReady() {
+			init_audio();
+			console.log("onDeviceReady");
 
 			//FastClick.attach(document.getElementById('container'));
 			FastClick.attach(document.body);
@@ -36,8 +40,184 @@
 			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
 				document.addEventListener("backbutton", go_back, false);
 			}
+/////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+/////START DOWNLOAD//////////////////////////////////////////////////////////////////////
+/*
+		$('.play_it').each( function(i) {
+			//$(this).css("display","none");
+			var temp_array = JSON.parse(window.localStorage.getItem('downloaded_files'));
+			if($.inArray($.md5($(this).attr('online')),temp_array) != -1)
+			{
+				$(this).removeClass("need_download").addClass("downloaded");
+			}
+		});
+		$('.play_it').click( function(i) {
+			temp_element = $(this);
+			//alert($(this).attr('online'));
+			
+			//play_or_download('http://dlsmgroup.ir/jazebe_huseini/audio/roze/02.mp3','mp3');
+			play_or_download($(this).attr('online'),"mp3");
+		});
+*/		
 		
+		
+		
+		if(window.localStorage.getItem('downloaded_files') == null){
+			window.localStorage.setItem('downloaded_files',JSON.stringify(["786","110"]));	
 		}
+		
+		
+		if(window.localStorage.getItem('download_address') == null){
+			
+			window.requestFileSystem(LocalFileSystem.TEMPORARY, 0, 
+				function(fs) {
+					window.localStorage.setItem('download_address',fs.root.toURL());
+				}, function(e) {
+					alert('failed to get fs');
+					alert(JSON.stringify(e));
+				}
+			);
+		}
+
+		console.log("window.localStorage.getItem('download_address'):" + window.localStorage.getItem('download_address'));
+		console.log("window.localStorage.getItem('downloaded_files'):" + window.localStorage.getItem('downloaded_files'));
+
+	}
+	
+	function play_or_download(URL,Extension) {
+		console.log("play_or_download URL: " + URL);
+		console.log("play_or_download Extension: " + Extension);
+
+		if (device.platform == 'iOS')
+		{
+			downloadPath = "cdvfile://localhost/persistent/";
+			window.localStorage.setItem('download_address',downloadPath);
+		}
+		
+		downloadPath = window.localStorage.getItem('download_address') + $.md5(URL) + "." + Extension;
+		console.log("play_or_download : " + downloadPath);
+		if(check_download(URL))
+		{
+			console.log("play_or_download : check_download");
+			
+			//$("#play").css("display","none");
+			playAudio_new(downloadPath,true);
+			//var media = new Media(downloadPath, null, function(e) { alert(JSON.stringify(e));});
+			//media.play();
+		}
+		else
+		{
+			console.log("play_or_download : start_download");
+			start_download(URL,Extension);
+		}
+	}
+
+	function start_download(URL,Extension) {
+		console.log("start_download check internet");
+		networkState = navigator.connection.type;
+		if (networkState == Connection.NONE) {
+			console.log("start_download : NO internet");
+			navigator.notification.alert(
+				'شما برای اینکار به اینترنت نیاز دارید',  // message
+				temp_function,         // callback
+				'اخطار',            // title
+				'تائید'                  // buttonName
+			);
+		}
+		else{
+			console.log("start_download : we have internet");
+
+			console.log("start_download URL: " + URL);
+			console.log("start_download Extension: " + Extension);
+			
+			var FileTransfer_OBJ = new FileTransfer();
+			var uri = encodeURI(URL + "?" + Math.random());
+			
+			if (device.platform == 'iOS')
+			{
+				downloadPath = "cdvfile://localhost/persistent/";
+				window.localStorage.setItem('download_address',downloadPath);
+			}
+			
+			$('.progress-bar-parent').css("display","block");
+			
+			downloadPath = window.localStorage.getItem('download_address') + $.md5(URL) + "." + Extension;
+			console.log("start_download : " + downloadPath);
+			
+			FileTransfer_OBJ.onprogress = function(progressEvent) {
+				if (progressEvent.lengthComputable) {
+					var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
+					$('#status').html(perc + "% loaded...");
+					$('.progress-bar-percent').css('width',perc + "%");
+					//progress_bar_element.css('width',perc);
+				} else {
+					$('#status').html($('#status').html() + ".");
+					//progress_bar_element.css('width',progress_bar_element.width()+1);
+					$('.progress-bar-percent').css('width',$('.progress-bar-parent').find('span').width()+1);
+				}
+			};
+			
+			FileTransfer_OBJ.download(uri, downloadPath, 
+				function(entry) {	
+					$('#status').html("");
+					$('.progress-bar-parent').find('span').css('width','2%');
+					console.log("start_download : done");
+					temp_array = JSON.parse(window.localStorage.getItem('downloaded_files'));
+					temp_array.push($.md5(URL));
+					window.localStorage.setItem('downloaded_files',JSON.stringify(temp_array));	
+					
+					//temp_element.removeClass("need_download");
+					//$("#play").css("display","none");
+					$('.progress-bar-parent').css("display","none");				
+				}, 
+				function(error) {
+					//alert('Crap something went wrong...');	
+					//alert(JSON.stringify(error));
+					navigator.notification.alert(
+						'خطا در دانلود فایل',  // message
+						temp_function,         // callback
+						'اخطار',            // title
+						'تائید'                  // buttonName
+					);
+					$('.progress-bar-parent').find('span').css('width','2%');
+					$('.progress-bar-percent').css('width',"");
+					$('.progress-bar-parent').css("display","none");
+				},
+				true
+			);
+			
+			$("#abort").click( function(i) {
+				FileTransfer_OBJ.abort();
+				$('.progress-bar-parent').find('span').css('width','2%');
+				$('.progress-bar-percent').css('width',"");
+				$('.progress-bar-parent').css("display","none");
+			});
+			
+			
+			
+		}
+	}
+	
+	function check_download(URL) {
+		console.log("check_download URL: " + URL);
+		var temp_array = JSON.parse(window.localStorage.getItem('downloaded_files'));
+		console.log("check_download Extension: " + window.localStorage.getItem('downloaded_files'));
+		if($.inArray($.md5(URL),temp_array) != -1)
+		{
+			console.log("check_download true");
+			return true;
+		}
+		else
+		{
+			console.log("check_download false");
+			return false;
+		}
+	}
+
+/////END DOWNLOAD////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////
 		function uniqueDeviceIDsuccess_index(uuid)
 		{
 			window.localStorage.setItem('uuid',uuid);
@@ -112,13 +292,26 @@
 </head>
 <body class="tarjome_disable sound_disable00 fontsize_disable000" onload="init();" style="overflow:hidden;width:100%;">
 <div id="bg-top"></div><div id="bg-bottom"></div>
+<!--/////////////////////////////////////////////////////////////////////////////-->
+<!--/////////////////////////////////////////////////////////////////////////////-->
+<!--////START DOWNLOAD///////////////////////////////////////////////////////////-->
+<div class="progress-bar-parent">
+	<div class="progress-bar green glow">
+		<span class="progress-bar-percent" style="width: 2%"></span>
+		<div id="status"></div><br/>
+		<input type="button" id="abort" value="Cancel" />
+	</div>
+</div>
+<!--///END DOWNLOAD//////////////////////////////////////////////////////////////-->
+<!--/////////////////////////////////////////////////////////////////////////////-->
+<!--/////////////////////////////////////////////////////////////////////////////-->
 <div id="ajax" class="mypreload">
 	<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
 	<div style="z-index: 1011; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 28%; left: 0%; text-align: center;border: medium none;overflow:visible;" class="blockUI blockMsg blockPage"><img src="images/preloader.gif"></div>
 	<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading.png" width="70%"></div>
 </div>
 		<div id="warper" >
-				<div id="header">
+			<div id="header">
 					<div id="back-btn" onclick="parent.history.back();"></div>
 					<div id="header-text-2th">شدم در پی‌ات دیده گریان</div>
 					<div class="center"></div>
@@ -138,21 +331,31 @@
 </div>
 					</div>
 				</div>
+		
 		</div>
 		
 		
 		
+<script>
+	function playAudio_new(filename,is_from_web) {
+		$("#durationTimer").html("--:--");
+		$("#audioTimer").html("00:00");
 		
 		
-		
-<div id="smgroup_audio_player">
+		audio.stop();
+		setTimeout(function(){
+			playAudio(filename,is_from_web);
+		}, 600);
+	}
+</script>
+<div id="smgroup_audio_player" >
         <span id="audioTimer" >00:00</span>&nbsp 
-        <span id="durationTimer" >00:00</span>
+        <span id="durationTimer" >--:--</span>
         <div id="audioPosition" >
             <input type="range" name="slider" id="slider" disabled="disabled" value="0" min="0" max="60" style="padding:0;margin:0;" />
         </div>
         <div class="audio_btn">
-            <input type="button" id="play" value="" />
+            <input type="button" id="play" value="" onclick="play_or_download('http://dlsmgroup.ir/jazebe_huseini/audio/huseiniye/13.mp3','mp3');" />
 			<input type="button" id="play2" value="" />
             <input type="button" id="pause" value="" />
             <input type="button" id="stop" value="Stop" />
@@ -167,7 +370,8 @@
 	<div id="controls_bg"></div>
 </div>
 <script>
-	init_audio("audio/salame.mp3");
+	//init_audio("audio/roze/0.mp3");
+
 	audio_Timer = $("#audioTimer");
 	duration_Timer = $("#durationTimer");
 	slider_Timer = $("#slider");
@@ -194,40 +398,12 @@
 		stop_btn = $("#stop");
 		slider_Timer = $("#slider");
 		slider_range = slider_Timer;
-		
-		play_btn.click(function(){	
+/*
+		play_btn.click(function(e){
+			e.preventDefault();
 			play_btn.css("display","none");
 			pause_btn.css("display","block");
 			slider_Timer.prop("disabled",false);
-			playAudio(my_file);
-		});
-/*
-		$('#play').on('click', function() {
-			$('#play').hide();
-			$('#pause').css('display','block');
-			
-			
-			play_btn.css("display","none");
-			//play2_btn.css("display","block");
-			pause_btn.css("display","block");
-			$(this).prop("disabled",true);
-			play2_btn.prop("disabled",true);
-			pause_btn.prop("disabled",false);
-			
-			playAudio(my_file);
-			//alert("2");
-		});
-*/
-/*
-		play_btn.click(function(){	
-			alert("1");
-			play_btn.css("display","none");
-			//play2_btn.css("display","block");
-			pause_btn.css("display","block");
-			$(this).prop("disabled",true);
-			play2_btn.prop("disabled",true);
-			pause_btn.prop("disabled",false);
-			
 			playAudio(my_file);
 		});
 */
@@ -266,26 +442,52 @@
 			stopAudio();
 		});
 		
-	}
-
-
-	function playAudio(file){
+		
+		file = "audio/besmella.mp3";
 		if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
 			file = "/android_asset/www/" + file;
 		}
+		audio = new Media(file, function(){ // success callback
+
+		}, function(error){ // error callback
+			//alert("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
+			console.log("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
+		});
+	}
+
+
+	function playAudio(file,is_from_web){
+		//alert(file);
+		if ( device.platform == 'Android' && is_from_web==false ){//Android,iOS,win7=WinCE,win8=Win32NT
+			file = "/android_asset/www/" + file;
+		}
+		console.log("2");
+		if (audio) {
+			console.log("3");
+			audio.stop();
+			//audio.release();
+		}
+		console.log("4");
+		
+		$("#smgroup_audio_player").show();
+		play_btn.css("display","none");
+		play2_btn.css("display","none");
+		pause_btn.css("display","block");
+		slider_Timer.prop("disabled",false);
 		
 		audio = new Media(file, function(){ // success callback
 			console.log("playAudio():Audio Success");
 			play_btn.css("display","block");
 			play2_btn.css("display","none");
 			pause_btn.css("display","none");
-			
+		
 			slider_Timer.val(0);
 			stopAudio();
 		}, function(error){ // error callback
 			//alert("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
+			console.log("code: "    + error.code    + "\n" + "message: " + error.message + "\n");
 		});
-		
+		//alert("3");
 		// get audio duration
 		var duration = audio.getDuration();
 		var duration_show = false;
@@ -302,8 +504,8 @@
 		
 		// play audio
 		audio.play({ playAudioWhenScreenIsLocked : true });
-
-		audio.seekTo(pausePos*1000);
+		
+		audio.seekTo(0);
 			
 		// update audio position every second
 		if (audioTimer == null) {
