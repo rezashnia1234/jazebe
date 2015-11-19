@@ -94,7 +94,7 @@
 				//alert("regID = " + e.regid);
 				//if(register_for_notifs){
 					$.ajax({ type: "POST",
-							url: "http://jazebe.smgroup.ir/SMCMS_notification/RegisterDeviceIDtoDB.php", 
+							url: "http://dlsmgroup.ir/jazebe_huseini/SMCMS_notification/RegisterDeviceIDtoDB.php", 
 							data: {regID : e.regid,user:window.localStorage.getItem('uuid'),OS:device.platform},
 							async: false,
 							success : function(text)
@@ -250,7 +250,7 @@
 				console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    Notification Callback Success! Result (ios) = '+result);
 				//if(register_for_notifs){
 					$.ajax({ type: "POST",
-							url: "http://jazebe.smgroup.ir/SMCMS_notification/RegisterDeviceIDtoDB.php", 
+							url: "http://dlsmgroup.ir/jazebe_huseini/SMCMS_notification/RegisterDeviceIDtoDB.php", 
 							data: {regID : result,user:window.localStorage.getItem('uuid'),OS:device.platform},
 							async: false,
 							success : function(text)
