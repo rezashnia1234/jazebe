@@ -286,6 +286,7 @@
 	var favorites_icon		= new icon_style({iconUrl: 'maps/map-icon/fav.png',iconRetinaUrl: 'maps/map-icon/fav@2x.png',});
 	var lost_icon			= new icon_style({iconUrl: 'maps/map-icon/gomshodeghan.png',iconRetinaUrl: 'maps/map-icon/gomshodeghan@2x.png',});
 	var hotel_icon			= new icon_style({iconUrl: 'maps/map-icon/hotel.png',iconRetinaUrl: 'maps/map-icon/hotel@2x.png',});
+	var wifi_icon			= new icon_style({iconUrl: 'maps/map-icon/wifi.png',iconRetinaUrl: 'maps/map-icon/wifi@2x.png',});
 	var console_icon		= new icon_style({iconUrl: 'maps/map-icon/konsulgari.png',iconRetinaUrl: 'maps/map-icon/konsulgari@2x.png',});
 	var	user_location_icon	= new icon_style_user_location({iconUrl: 'maps/map-icon/user_location.png',iconRetinaUrl: 'maps/map-icon/user_location@2x.png',});
 	var	user_location_icon_friend	= new icon_style_user_location({iconUrl: 'maps/map-icon/user_location_friend.png',iconRetinaUrl: 'maps/map-icon/user_location_friend@2x.png',});
@@ -302,6 +303,7 @@
 	var lost		= new L.LayerGroup();
 	var console		= new L.LayerGroup();
 	var hotel		= new L.LayerGroup();
+	var wifi		= new L.LayerGroup();
 ////////////////////////////////////////////////////////////////////////////////////////////////		
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //زیارتگاه ها///////////////////////////////////////////////////////////////////////////////////
@@ -328,6 +330,14 @@ L.marker([33.38026985,44.33819831], {icon: ziyarati_icon}).bindPopup('Holy Shrin
 //کنسولگری ها///////////////////////////////////////////////////////////////////////////////////
 L.marker([31.99969789780743,44.33634475707925], {icon: console_icon}).bindPopup('کنسولگری جمهوری اسلامی ایران').addTo(console);//najaf
 L.marker([32.60835727605914,44.02948021388499], {icon: console_icon}).bindPopup('کنسولگری جمهوری اسلامی ایران').addTo(console);//karbala
+////////////////////////////////////////////////////////////////////////////////////////////////		
+////////////////////////////////////////////////////////////////////////////////////////////////
+//WIFI//////////////////////////////////////////////////////////////////////////////////////////
+L.marker([32.15117209,44.32204485], {icon: wifi_icon}).bindPopup('موکب فاطمه الزهرا').addTo(wifi);//najaf
+L.marker([32.18816688,44.30900232], {icon: wifi_icon}).bindPopup('موکب موکب امام رضا ').addTo(wifi); //285
+L.marker([32.23855779,44.29175952], {icon: wifi_icon}).bindPopup('موکب احباب الرضا').addTo(wifi); //403
+L.marker([32.34500242,44.24412089], {icon: wifi_icon}).bindPopup('موکب بسیج شهرداری تهران').addTo(wifi); //657
+L.marker([32.52648538,44.11361659], {icon: wifi_icon}).bindPopup('موکب خدام الحسین').addTo(wifi); //1120////////////////////////////////////////////////////////////////////////////////////////////////		
 ////////////////////////////////////////////////////////////////////////////////////////////////		
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //مراکز درمانی///////////////////////////////////////////////////////////////////////////////////
@@ -972,6 +982,7 @@ L.marker([32.6104754,44.03110044], {icon: hotel_icon}).bindPopup('Zoyoof Rahman'
 		"Transportation": transport,
 		"Lost & Found":lost,
 		//"کنسولگری":console,
+		"wifi":wifi,
 	};
 
 	L.control.layers(baseLayers, overlays).addTo(map);

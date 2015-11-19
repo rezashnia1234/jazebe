@@ -286,7 +286,9 @@
 	var favorites_icon		= new icon_style({iconUrl: 'maps/map-icon/fav.png',iconRetinaUrl: 'maps/map-icon/fav@2x.png',});
 	var lost_icon			= new icon_style({iconUrl: 'maps/map-icon/gomshodeghan.png',iconRetinaUrl: 'maps/map-icon/gomshodeghan@2x.png',});
 	var hotel_icon			= new icon_style({iconUrl: 'maps/map-icon/hotel.png',iconRetinaUrl: 'maps/map-icon/hotel@2x.png',});
+	var wifi_icon			= new icon_style({iconUrl: 'maps/map-icon/wifi.png',iconRetinaUrl: 'maps/map-icon/wifi@2x.png',});
 	var console_icon		= new icon_style({iconUrl: 'maps/map-icon/konsulgari.png',iconRetinaUrl: 'maps/map-icon/konsulgari@2x.png',});
+	var edari_icon			= new icon_style({iconUrl: 'maps/map-icon/edari.png',iconRetinaUrl: 'maps/map-icon/edari@2x.png',});
 	var	user_location_icon	= new icon_style_user_location({iconUrl: 'maps/map-icon/user_location.png',iconRetinaUrl: 'maps/map-icon/user_location@2x.png',});
 	var	user_location_icon_friend	= new icon_style_user_location({iconUrl: 'maps/map-icon/user_location_friend.png',iconRetinaUrl: 'maps/map-icon/user_location_friend@2x.png',});
 
@@ -301,7 +303,9 @@
 	var favorites	= new L.LayerGroup();
 	var lost		= new L.LayerGroup();
 	var console		= new L.LayerGroup();
+	var edari		= new L.LayerGroup();
 	var hotel		= new L.LayerGroup();
+	var wifi		= new L.LayerGroup();
 ////////////////////////////////////////////////////////////////////////////////////////////////		
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //زیارتگاه ها///////////////////////////////////////////////////////////////////////////////////
@@ -330,6 +334,23 @@ L.marker([31.99969789780743,44.33634475707925], {icon: console_icon}).bindPopup(
 L.marker([32.60835727605914,44.02948021388499], {icon: console_icon}).bindPopup('کنسولگری جمهوری اسلامی ایران').addTo(console);//karbala
 ////////////////////////////////////////////////////////////////////////////////////////////////		
 ////////////////////////////////////////////////////////////////////////////////////////////////
+//ستادی ها///////////////////////////////////////////////////////////////////////////////////
+L.marker([31.99969789780743,44.33634475707925], {icon: console_icon}).bindPopup('کنسولگری جمهوری اسلامی ایران').addTo(edari);//najaf
+L.marker([32.60835727605914,44.02948021388499], {icon: console_icon}).bindPopup('کنسولگری جمهوری اسلامی ایران').addTo(edari);//karbala
+
+L.marker([32.6149711258429,44.0360628581014], {icon: edari_icon}).bindPopup('مقابل سوق الصفارين').addTo(edari);//karbala
+L.marker([32.994789274621,44.31209804663716], {icon: edari_icon}).bindPopup('هتل رسل').addTo(edari);//karbala
+L.marker([32.61476034906538,44.0283875149519], {icon: edari_icon}).bindPopup('هتل جواهر').addTo(edari);//karbala
+//L.marker([32.30891206701998,44.99742710314293], {icon: edari_icon}).bindPopup('خباطه').addTo(edari);//karbala
+////////////////////////////////////////////////////////////////////////////////////////////////		
+////////////////////////////////////////////////////////////////////////////////////////////////
+//WIFI//////////////////////////////////////////////////////////////////////////////////////////
+L.marker([32.15117209,44.32204485], {icon: wifi_icon}).bindPopup('موکب فاطمه الزهرا').addTo(wifi);//najaf
+L.marker([32.18816688,44.30900232], {icon: wifi_icon}).bindPopup('موکب موکب امام رضا ').addTo(wifi); //285
+L.marker([32.23855779,44.29175952], {icon: wifi_icon}).bindPopup('موکب احباب الرضا').addTo(wifi); //403
+L.marker([32.34500242,44.24412089], {icon: wifi_icon}).bindPopup('موکب بسیج شهرداری تهران').addTo(wifi); //657
+L.marker([32.52648538,44.11361659], {icon: wifi_icon}).bindPopup('موکب خدام الحسین').addTo(wifi); //1120////////////////////////////////////////////////////////////////////////////////////////////////		
+////////////////////////////////////////////////////////////////////////////////////////////////
 //مراکز درمانی///////////////////////////////////////////////////////////////////////////////////
 //L.marker([32.60985803,44.03081814], {icon: darmani_icon}).bindPopup('هتل ضیوف الرحمن').addTo(darmani);
 //L.marker([32.62536997,44.03313105], {icon: darmani_icon}).bindPopup('هتل هدی الوالی').addTo(darmani);
@@ -347,6 +368,12 @@ L.marker([32.60951606209149,44.03086738895918], {icon: darmani_icon}).bindPopup(
 L.marker([32.61673588651463,44.03127805094174], {icon: darmani_icon}).bindPopup('هتل سفیر').addTo(darmani);
 L.marker([32.6252571776183,44.03370455791725], {icon: darmani_icon}).bindPopup('درمانگاه هلال احمر- هتل هدی الوالی').addTo(darmani);
 L.marker([32.62959543633673,44.03861156301936], {icon: bimarestan_icon}).bindPopup('بیمارستان امام سجاد').addTo(darmani);
+
+
+L.marker([32.52192911314614,44.1177773439915], {icon: darmani_icon}).bindPopup('').addTo(darmani); //1293
+L.marker([32.51454791985185,44.12426249361236], {icon: darmani_icon}).bindPopup('').addTo(darmani); //1293
+L.marker([32.5976628637717,44.02866280538157], {icon: darmani_icon}).bindPopup('').addTo(darmani); //1293
+
 ////////////////////////////////////////////////////////////////////////////////////////////////		
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //سید جواد///////////////////////////////////////////////////////////////////////////////////
@@ -367,37 +394,58 @@ L.marker([32.56815115,44.0544717], {icon: darmani_icon}).bindPopup('').addTo(dar
 
 
 
+/*
 //موکب ایرانی
-L.marker([32.095100755,44.32180651], {icon: mukeb_irani_icon}).bindPopup('موکب مختار ثقفی').addTo(mukeb_irani);
-L.marker([32.15117209,44.32204485], {icon: darmani_icon}).bindPopup('موکب فاطمه الزهرا').addTo(mukeb_irani); //202
-L.marker([32.1642528,44.31721268], {icon: darmani_icon}).bindPopup('حج و زیارت').addTo(mukeb_irani); //228
-L.marker([32.18816688,44.30900232], {icon: darmani_icon}).bindPopup('موکب موکب امام رضا ').addTo(mukeb_irani); //285
-L.marker([32.18816688,44.30900232], {icon: darmani_icon}).bindPopup('موکب جابر بن عبدالله').addTo(mukeb_irani); //286
-L.marker([32.1950076,44.30660983], {icon: darmani_icon}).bindPopup('موکب دارالصدیقه الشهیده').addTo(mukeb_irani); //298
-L.marker([32.23855779,44.29175952], {icon: darmani_icon}).bindPopup('موکب ستاد بازسازی عتبات').addTo(mukeb_irani); //402
-L.marker([32.23855779,44.29175952], {icon: darmani_icon}).bindPopup('موکب احباب الرضا').addTo(mukeb_irani); //403
-L.marker([32.25171654,44.28727554], {icon: darmani_icon}).bindPopup('').addTo(mukeb_irani); //431
-L.marker([32.2561198,44.28575976], {icon: darmani_icon}).bindPopup('موکب شباب النجف الاشرف').addTo(mukeb_irani); //439
-L.marker([32.34330874,44.24587171], {icon: darmani_icon}).bindPopup('موکب هانی بن عروه').addTo(mukeb_irani); //655
-L.marker([32.34500242,44.24412089], {icon: darmani_icon}).bindPopup('موکب بسیج شهرداری تهران').addTo(mukeb_irani); //657
-L.marker([32.35640047,44.23550036], {icon: darmani_icon}).bindPopup('موکب حج و زیارت').addTo(mukeb_irani); //692
-L.marker([32.36425214,44.22984769], {icon: darmani_icon}).bindPopup('موکب حج و زیارت').addTo(mukeb_irani); //712
-L.marker([32.37389933,44.22304766], {icon: darmani_icon}).bindPopup('موکب بسیج شهرداری تهران').addTo(mukeb_irani); //728
-L.marker([32.37677686,44.22090975], {icon: darmani_icon}).bindPopup('موکب رایه الثقافی').addTo(mukeb_irani); //741
-L.marker([32.37965439,44.21877184], {icon: darmani_icon}).bindPopup('موکب هیئت رزمندگان').addTo(mukeb_irani); //753
-L.marker([32.38196561,44.21790943], {icon: darmani_icon}).bindPopup('موکب شباب الرضوی').addTo(mukeb_irani); //757
-L.marker([32.39120205,44.21050259], {icon: darmani_icon}).bindPopup('موکب بیعت حسینی مازندران').addTo(mukeb_irani); //777
-L.marker([32.39742109,44.20613394], {icon: darmani_icon}).bindPopup('').addTo(mukeb_irani); //795
-L.marker([32.410349,44.19667496], {icon: darmani_icon}).bindPopup('موکب بسیج شهرداری تهران').addTo(mukeb_irani); //828
-L.marker([32.41424868,44.19388002], {icon: darmani_icon}).bindPopup('موکب رزمندگان').addTo(mukeb_irani); //840
-L.marker([32.43400466,44.17997067], {icon: darmani_icon}).bindPopup('موکب حج و زیارت').addTo(mukeb_irani); //890
-L.marker([32.43400466,44.17997067], {icon: darmani_icon}).bindPopup('موکب شباب قاسم').addTo(mukeb_irani); //890
-L.marker([32.43750745,44.17765374], {icon: darmani_icon}).bindPopup('موکب شباب المقاومه').addTo(mukeb_irani); //903
-L.marker([32.489819,44.14609605], {icon: darmani_icon}).bindPopup('موکب شباب المنتظر').addTo(mukeb_irani); //1027
-L.marker([32.51249313,44.12637326], {icon: darmani_icon}).bindPopup('').addTo(mukeb_irani); //1092
-L.marker([32.52648538,44.11361659], {icon: darmani_icon}).bindPopup('موکب خدام الحسین').addTo(mukeb_irani); //1120
-L.marker([32.53638261,44.10289987], {icon: darmani_icon}).bindPopup('موکب رضوان').addTo(mukeb_irani); //1162
-L.marker([32.56815115,44.0544717], {icon: darmani_icon}).bindPopup('').addTo(mukeb_irani); //1293
+L.marker([32.095100755,44.32180651], {icon: mukeb_icon}).bindPopup('موکب مختار ثقفی').addTo(mukeb_irani);
+L.marker([32.15117209,44.32204485], {icon: mukeb_icon}).bindPopup('موکب فاطمه الزهرا').addTo(mukeb_irani); //202
+L.marker([32.1642528,44.31721268], {icon: mukeb_icon}).bindPopup('حج و زیارت').addTo(mukeb_irani); //228
+L.marker([32.18816688,44.30900232], {icon: mukeb_icon}).bindPopup('موکب موکب امام رضا ').addTo(mukeb_irani); //285
+L.marker([32.18816688,44.30900232], {icon: mukeb_icon}).bindPopup('موکب جابر بن عبدالله').addTo(mukeb_irani); //286
+L.marker([32.1950076,44.30660983], {icon: mukeb_icon}).bindPopup('موکب دارالصدیقه الشهیده').addTo(mukeb_irani); //298
+L.marker([32.23855779,44.29175952], {icon: mukeb_icon}).bindPopup('موکب ستاد بازسازی عتبات').addTo(mukeb_irani); //402
+L.marker([32.23855779,44.29175952], {icon: mukeb_icon}).bindPopup('موکب احباب الرضا').addTo(mukeb_irani); //403
+L.marker([32.25171654,44.28727554], {icon: mukeb_icon}).bindPopup('').addTo(mukeb_irani); //431
+L.marker([32.2561198,44.28575976], {icon: mukeb_icon}).bindPopup('موکب شباب النجف الاشرف').addTo(mukeb_irani); //439
+L.marker([32.34330874,44.24587171], {icon: mukeb_icon}).bindPopup('موکب هانی بن عروه').addTo(mukeb_irani); //655
+L.marker([32.34500242,44.24412089], {icon: mukeb_icon}).bindPopup('موکب بسیج شهرداری تهران').addTo(mukeb_irani); //657
+L.marker([32.35640047,44.23550036], {icon: mukeb_icon}).bindPopup('موکب حج و زیارت').addTo(mukeb_irani); //692
+L.marker([32.36425214,44.22984769], {icon: mukeb_icon}).bindPopup('موکب حج و زیارت').addTo(mukeb_irani); //712
+L.marker([32.37389933,44.22304766], {icon: mukeb_icon}).bindPopup('موکب بسیج شهرداری تهران').addTo(mukeb_irani); //728
+L.marker([32.37677686,44.22090975], {icon: mukeb_icon}).bindPopup('موکب رایه الثقافی').addTo(mukeb_irani); //741
+L.marker([32.37965439,44.21877184], {icon: mukeb_icon}).bindPopup('موکب هیئت رزمندگان').addTo(mukeb_irani); //753
+L.marker([32.38196561,44.21790943], {icon: mukeb_icon}).bindPopup('موکب شباب الرضوی').addTo(mukeb_irani); //757
+L.marker([32.39120205,44.21050259], {icon: mukeb_icon}).bindPopup('موکب بیعت حسینی مازندران').addTo(mukeb_irani); //777
+L.marker([32.39742109,44.20613394], {icon: mukeb_icon}).bindPopup('').addTo(mukeb_irani); //795
+L.marker([32.410349,44.19667496], {icon: mukeb_icon}).bindPopup('موکب بسیج شهرداری تهران').addTo(mukeb_irani); //828
+L.marker([32.41424868,44.19388002], {icon: mukeb_icon}).bindPopup('موکب رزمندگان').addTo(mukeb_irani); //840
+L.marker([32.43400466,44.17997067], {icon: mukeb_icon}).bindPopup('موکب حج و زیارت').addTo(mukeb_irani); //890
+L.marker([32.43400466,44.17997067], {icon: mukeb_icon}).bindPopup('موکب شباب قاسم').addTo(mukeb_irani); //890
+L.marker([32.43750745,44.17765374], {icon: mukeb_icon}).bindPopup('موکب شباب المقاومه').addTo(mukeb_irani); //903
+L.marker([32.489819,44.14609605], {icon: mukeb_icon}).bindPopup('موکب شباب المنتظر').addTo(mukeb_irani); //1027
+L.marker([32.51249313,44.12637326], {icon: mukeb_icon}).bindPopup('').addTo(mukeb_irani); //1092
+L.marker([32.52648538,44.11361659], {icon: mukeb_icon}).bindPopup('موکب خدام الحسین').addTo(mukeb_irani); //1120
+L.marker([32.53638261,44.10289987], {icon: mukeb_icon}).bindPopup('موکب رضوان').addTo(mukeb_irani); //1162
+L.marker([32.56815115,44.0544717], {icon: mukeb_icon}).bindPopup('').addTo(mukeb_irani); //1293
+*/
+
+
+L.marker([32.09553636,44.32264229], {icon: mukeb_icon}).bindPopup('مختار ثقفی ').addTo(mukeb_irani);
+L.marker([32.15205588,44.3220367], {icon: mukeb_icon}).bindPopup('ستاد بازسازی عتبات ').addTo(mukeb_irani);
+L.marker([32.18764503,44.30900859], {icon: mukeb_icon}).bindPopup('امام رضا ').addTo(mukeb_irani);
+L.marker([32.18793055,44.30898279], {icon: mukeb_icon}).bindPopup('جابر بن عبدالله ').addTo(mukeb_irani);
+L.marker([32.23928522,44.2918741], {icon: mukeb_icon}).bindPopup('هیئت رزمندگان قزوین ').addTo(mukeb_irani);
+L.marker([32.34393754,44.24559581], {icon: mukeb_icon}).bindPopup('علی بن موسی الرضا ').addTo(mukeb_irani);
+L.marker([32.37143616,44.22525655], {icon: mukeb_icon}).bindPopup('صاحب الزمان ').addTo(mukeb_irani);
+L.marker([32.38091489,44.2187713], {icon: mukeb_icon}).bindPopup('رزمندگان اسلام ').addTo(mukeb_irani);
+L.marker([32.38223656,44.21763088], {icon: mukeb_icon}).bindPopup('شباب رضوی ').addTo(mukeb_irani);
+L.marker([32.39062094,44.21135736], {icon: mukeb_icon}).bindPopup('دانشجویی مازندران ').addTo(mukeb_irani);
+L.marker([32.40978929,44.19762056], {icon: mukeb_icon}).bindPopup('خیرین تهران ').addTo(mukeb_irani);
+L.marker([32.41437167,44.19430872], {icon: mukeb_icon}).bindPopup('هیئت رزمندگان ورامین ').addTo(mukeb_irani);
+L.marker([32.42931588,44.18365317], {icon: mukeb_icon}).bindPopup('خیرین شیراز ').addTo(mukeb_irani);
+L.marker([32.43387941,44.18028427], {icon: mukeb_icon}).bindPopup('شباب قاسم-اهالی هرمزگان ').addTo(mukeb_irani);
+L.marker([32.49408667,44.14293766], {icon: mukeb_icon}).bindPopup('شباب امیرالمومنین ').addTo(mukeb_irani);
+L.marker([32.50905503,44.12976284], {icon: mukeb_icon}).bindPopup('مسجد جمکران ').addTo(mukeb_irani);
+L.marker([32.52195446,44.11770874], {icon: mukeb_icon}).bindPopup('خدام الحسین ').addTo(mukeb_irani);
 
 // ایست و بازرسی
 L.marker([32.095100755,44.32180651], {icon: bazresi_icon}).bindPopup('پست ایست و بازرسی').addTo(bazresi); //75
@@ -884,8 +932,7 @@ L.marker([32.61574293,44.03615909], {icon: hotel_icon}).bindPopup('Zoyof Zahra')
 L.marker([32.6104754,44.03110044], {icon: hotel_icon}).bindPopup('Zoyoof Rahman').addTo(hotel);
 ////////////////////////////////////////////////////////////////////////////////////////////////		
 ////////////////////////////////////////////////////////////////////////////////////////////////
-//-------------/////////////////////////////////////////////////////////////////////////////////
-		
+//-------------/////////////////////////////////////////////////////////////////////////////////		
 		
 		
 		
@@ -970,6 +1017,8 @@ L.marker([32.6104754,44.03110044], {icon: hotel_icon}).bindPopup('Zoyoof Rahman'
 		"حمل و نقل": transport,
 		"محل های گمشدگان":lost,
 		"کنسولگری":console,
+		"خدمات اداری به زائرین":edari,
+		"wifi":wifi,
 	};
 
 	L.control.layers(baseLayers, overlays).addTo(map);
