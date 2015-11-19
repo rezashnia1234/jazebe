@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    <title>بسم الله الرحمن الرحیم</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+    
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/console.log.js"></script>
+    <script src="phonegap.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script src="js/jquery.md5.js"></script>
+    <script src="js/back_btn.js"></script>
+    <script src="js/scale.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <script src="js/jquery.slides.min.js"></script>
+	
+	<script>
+		function isHighDensity(){
+			return ((window.matchMedia && (window.matchMedia('only screen and (min-resolution: 124dpi), only screen and (min-resolution: 1.3dppx), only screen and (min-resolution: 48.8dpcm)').matches || window.matchMedia('only screen and (-webkit-min-device-pixel-ratio: 1.3), only screen and (-o-min-device-pixel-ratio: 2.6/2), only screen and (min--moz-device-pixel-ratio: 1.3), only screen and (min-device-pixel-ratio: 1.3)').matches)) || (window.devicePixelRatio && window.devicePixelRatio > 1.3));
+		}
+		function isRetina(){
+			return ((window.matchMedia && (window.matchMedia('only screen and (min-resolution: 192dpi), only screen and (min-resolution: 2dppx), only screen and (min-resolution: 75.6dpcm)').matches || window.matchMedia('only screen and (-webkit-min-device-pixel-ratio: 2), only screen and (-o-min-device-pixel-ratio: 2/1), only screen and (min--moz-device-pixel-ratio: 2), only screen and (min-device-pixel-ratio: 2)').matches)) || (window.devicePixelRatio && window.devicePixelRatio >= 2)) && /(iPad|iPhone|iPod)/g.test(navigator.userAgent);
+		}
+		
+		function init() {		
+			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
+			document.addEventListener("deviceready", onDeviceReady, false);
+			//if(isHighDensity() || isRetina())
+			if(isRetina())
+			{
+				$('.silde_frame_image').each( function(i) {
+					$(this).attr('src', $(this).attr('retina')		);
+				});
+			}
+			$("#slides").slidesjs({
+				width: 400,
+				//height: 400,
+				navigation: {
+					active: true,
+					effect: "slide",//"slide"fade
+				},
+				pagination: {
+					active: true,
+					effect: "slide",//"slide"fade
+				},
+				effect: {
+					fade: {
+						speed: 800
+					}
+				},
+				play: { auto: false},
+				callback: {
+					loaded: function(number) {
+						// Do something awesome!
+						// Passes start slide number
+					},
+					start: function(number) {
+						// Do something awesome!
+						// Passes slide number at start of animation
+					},
+					complete: function(number) {
+						// Do something awesome!
+						// Passes slide number at end of animation
+					}
+				}
+			});
+			//onDeviceReady();
+		}
+
+		function onDeviceReady() {
+
+
+			/*
+			$("body").swipe({
+				swipe:function(event, direction, distance, duration, fingerCount){
+					//$(this).text("You swiped " + direction + " for " + distance + "px" );
+					//alert("You swiped " + direction + " for " + distance + "px" );
+					if(direction=="right")
+					{
+						if ( device.platform == 'iOS' )
+						{
+							go_back_index();
+						}
+					}
+				},
+				threshold:100
+			});
+			*/
+
+			//FastClick.attach(document.getElementById('container'));
+			FastClick.attach(document.body);
+			
+			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+				document.addEventListener("backbutton", go_back_to_map, false);
+			}
+
+		}
+		
+		function loadcompeleted() {
+			//$(".mypreload").html("");
+		}
+		$(window).load(function() {
+			//$(".mypreload").html("");
+		});
+		
+		$(document).ready(function() {
+			$(".slide_navigator").css("top",$(window).height() - 110);
+
+		});
+	</script>	
+	<style>
+		#container {
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			overflow: hidden;
+		}
+		html,body{
+			background-color: #dddddd;
+		}
+		.slider_back_page_btn{
+			width:70px;
+			position:fixed;
+			top:0;
+			left:0;
+			z-index:9999999;
+		}
+		.slides{
+			position:absolute;
+			top:0;
+			left:0;
+			right:0;
+			bottom:0;
+			margin:auto;
+		}
+	</style>
+</head>
+<body onload="init();" style="background-color:#cfcfcf;text-align:center;overflow:hidden;width:100%;">
+		<div class="container " id="container" >
+			<div id="ajax" class="mypreload">
+				<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
+				<div style="z-index: 1011; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 28%; left: 0%; text-align: center;border: medium none;overflow:visible;" class="blockUI blockMsg blockPage"><img src="images/preloader.gif"></div>
+				<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading.png" width="70%"></div>
+			</div>
+			
+			<div id="slides">
+				<img src="images/help/01_l.png" class="silde_frame_image" retina="images/help/01.png" style="width:100%;" />
+				<img src="images/help/02_l.png" class="silde_frame_image" retina="images/help/02.png" style="width:100%;" />
+				<img src="images/help/03_l.png" class="silde_frame_image" retina="images/help/03.png" style="width:100%;" />
+				<img src="images/help/04_l.png" class="silde_frame_image" retina="images/help/04.png" style="width:100%;" />
+				<img src="images/help/05_l.png" class="silde_frame_image" retina="images/help/05.png" style="width:100%;" />
+
+				<a href="#" class="slidesjs-previous slidesjs-navigation"><i class="icon-chevron-left icon-large"></i></a>
+				<a href="#" class="slidesjs-next slidesjs-navigation"><i class="icon-chevron-right icon-large"></i></a>
+			</div>
+			
+			<div class="slider_back_page_btn" onclick="window.location.href = 'map.html';"><img src="images/slider/back-btn.png" style="width:100%;" ></div>
+
+		</div>
+</body>
+</html>

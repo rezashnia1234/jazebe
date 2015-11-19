@@ -13,9 +13,13 @@
 			parent.history.back();
 		}
 	}
-	function go_back_to_dar_safar() {
+	function go_back_to_map() {
 		window.sessionStorage.setItem('go_to_first',"false");
-		window.location.href = "dar_safar.html";
+		window.location.href = "map.html";
+	}
+	function go_back_to_map_en() {
+		window.sessionStorage.setItem('go_to_first',"false");
+		window.location.href = "en_map.html";
 	}
 	function go_back_to_dar_safar_en() {
 		window.sessionStorage.setItem('go_to_first',"false");
