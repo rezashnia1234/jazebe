@@ -85,10 +85,10 @@
 //////share location//////////////////////////////
 	function share_location() {
 		navigator.notification.confirm(
-			'Please choose the option!', // message
+			'Please choose the option!\n Step 1: I want to send my location\n Step 2: My friend sent me his/her location', // message
 			 onConfirm,            // callback to invoke with index of button pressed
 			'Share Lockation',           // title
-			['I want to send my location','My friend sent me his/her location','Cancel']         // buttonLabels
+			['Step One','Step Two','Cancel']         // buttonLabels
 		);
 	}
 	function onConfirm(buttonIndex) {
