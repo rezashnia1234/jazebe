@@ -21,6 +21,10 @@
 		window.sessionStorage.setItem('go_to_first',"false");
 		window.location.href = "en_map.html";
 	}
+	function go_back_to_dar_safar() {
+		window.sessionStorage.setItem('go_to_first',"false");
+		window.location.href = "dar_safar.html";
+	}
 	function go_back_to_dar_safar_en() {
 		window.sessionStorage.setItem('go_to_first',"false");
 		window.location.href = "en_dar_safar.html";
