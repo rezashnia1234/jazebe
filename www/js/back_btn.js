@@ -67,6 +67,11 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ////Font Size///////////////////////////////////////////////////////////////////////////////////
 $(document).ready(function(){
+	if(window.localStorage.getItem('size') != null)
+	{
+		$("#controls_size #css_style").html(window.localStorage.getItem('size'));	
+	}
+	
 	$("#controls_size #small").click(function(event){
 		event.preventDefault();
 		$("#controls_size a").removeClass("selected");
@@ -78,6 +83,7 @@ $(document).ready(function(){
 			font_style = font_style + "#main h2{font-size:" + "14" + "px !important;}";
 			font_style = font_style + "#main *{font-size:" + "14" + "px !important;}";
 			font_style = font_style + "</style>";
+		window.localStorage.setItem('size',font_style)
 		$("#controls_size #css_style").html(font_style);
 	});	
 	$("#controls_size #medium").click(function(event){
@@ -92,6 +98,7 @@ $(document).ready(function(){
 			font_style = font_style + "#main h2{font-size:" + "16" + "px !important;}";
 			font_style = font_style + "#main *{font-size:" + "16" + "px !important;}";
 			font_style = font_style + "</style>";
+			window.localStorage.setItem('size',font_style)
 			$("#controls_size #css_style").html(font_style);
 		}
 		else
@@ -116,7 +123,8 @@ $(document).ready(function(){
 			font_style = font_style + "#main h2{font-size:" + "19" + "px !important;}";
 			font_style = font_style + "#main *{font-size:" + "19" + "px !important;}";
 			font_style = font_style + "</style>";
-		$("#controls_size #css_style").html(font_style);
+			window.localStorage.setItem('size',font_style)
+			$("#controls_size #css_style").html(font_style);
 	});	
 });
 ////Font Size///////////////////////////////////////////////////////////////////////////////////
