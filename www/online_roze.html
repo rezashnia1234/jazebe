@@ -449,6 +449,15 @@ ul.big_list li.need_download {
 			pausePos = slider_Timer.val();
 			formatTime(pausePos,audio_Timer);
 			pauseAudio();
+			formatTime(pausePos,audio_Timer);
+			audio.seekTo(pausePos*1000);
+			
+			setTimeout(function(){
+				pausePos = temp_pausePos;
+				audio.seekTo(pausePos*1000);
+				formatTime(pausePos,audio_Timer);
+				slider_Timer.val(pausePos);
+			}, 800);
 		});
 		
 		pause_btn.click(function(){	
