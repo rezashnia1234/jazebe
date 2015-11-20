@@ -228,6 +228,9 @@ $(document).ready(function() {
 	});
 */
 	var oTable_dataset_inner = $('.data_table').dataTable({
+		"oLanguage": {
+			"sSearch": "",
+		},
 		"iDisplayLength" : -1,
 		"aLengthMenu": [[10, 25, 50, -1], [10, 25, 50, "همه"]],
 		"sDom": 'fCl<"clear">rtip',
@@ -549,10 +552,10 @@ $(document).ready(function() {
 <tr><td>قدم</td><td>	Foot</td><td>	Qadam</td></tr>
 <tr><td>جِلد</td><td>	Skin</td><td>	Jild</td></tr>
 <tr><td>دَم</td><td>	Blood</td><td>	Damm</td></tr>
-<tr><td>ظَهر</td><td>	 Dorsal</td><td>/Back	Dhahr</td></tr>
+<tr><td>ظَهر</td><td>	 Dorsal/Back</td><td>	Dhahr</td></tr>
 <tr><td>صدر</td><td>	Chest</td><td>	Sadr</td></tr>
 <tr><td>بطن</td><td>	Belly</td><td>	Batn</td></tr>
-<tr><td>الطبیب</td><td>	Doctor</td><td>/Physician	A_Tabib</td></tr>
+<tr><td>الطبیب</td><td>	Doctor</td><td>	A_Tabib</td></tr>
 <tr><td>ضغط­الدّم</td><td>	Blood</td><td> Pressure	Dhaqtuddamm</td></tr>
 <tr><td>صیدلیة</td><td>	Pharmacy</td><td>	Seidalia</td></tr>
 <tr><td>ضمادة</td><td>	Bandage</td><td>	Dhomad</td></tr>
