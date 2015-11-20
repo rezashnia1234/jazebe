@@ -301,7 +301,7 @@
 	var transport	= new L.LayerGroup();
 	var favorites	= new L.LayerGroup();
 	var lost		= new L.LayerGroup();
-	var console		= new L.LayerGroup();
+	var consoles	= new L.LayerGroup();
 	var hotel		= new L.LayerGroup();
 	var wifi		= new L.LayerGroup();
 ////////////////////////////////////////////////////////////////////////////////////////////////		
@@ -328,8 +328,8 @@ L.marker([33.38026985,44.33819831], {icon: ziyarati_icon}).bindPopup('Holy Shrin
 ////////////////////////////////////////////////////////////////////////////////////////////////		
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //کنسولگری ها///////////////////////////////////////////////////////////////////////////////////
-L.marker([31.99969789780743,44.33634475707925], {icon: console_icon}).bindPopup('کنسولگری جمهوری اسلامی ایران').addTo(console);//najaf
-L.marker([32.60835727605914,44.02948021388499], {icon: console_icon}).bindPopup('کنسولگری جمهوری اسلامی ایران').addTo(console);//karbala
+L.marker([31.99969789780743,44.33634475707925], {icon: console_icon}).bindPopup('کنسولگری جمهوری اسلامی ایران').addTo(consoles);//najaf
+L.marker([32.60835727605914,44.02948021388499], {icon: console_icon}).bindPopup('کنسولگری جمهوری اسلامی ایران').addTo(consoles);//karbala
 ////////////////////////////////////////////////////////////////////////////////////////////////		
 ////////////////////////////////////////////////////////////////////////////////////////////////
 //WIFI//////////////////////////////////////////////////////////////////////////////////////////
@@ -981,7 +981,7 @@ L.marker([32.6104754,44.03110044], {icon: hotel_icon}).bindPopup('Zoyoof Rahman'
 		"Pillars": amud,
 		"Transportation": transport,
 		"Lost & Found":lost,
-		//"کنسولگری":console,
+		//"کنسولگری":consoles,
 		"wifi":wifi,
 	};
 

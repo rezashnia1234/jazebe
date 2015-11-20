@@ -85,10 +85,11 @@
 //////share location//////////////////////////////
 	function share_location() {
 		navigator.notification.confirm(
-			'لطفا گزینه مورد نظر را انتخاب نمایید', // message
+			//'لطفا گزینه مورد نظر را انتخاب نمایید', // message
+			'لطفا گزینه مورد نظر را انتخاب نمایید:\n مرحله 1: میخواهم موقعیت خود را ارسال کنم \n مرحله 2: دوستم موقعیت خود را برای من ارسال کرده است', // message
 			 onConfirm,            // callback to invoke with index of button pressed
 			'اشتراک گذاری موقعیت',           // title
-			['میخواهم موقعیت خود را ارسال کنم','دوستم موقعیت خود را برای من ارسال کرده است','لغو درخواست']         // buttonLabels
+			['مرحله یک','مرحله دو','لغو درخواست']         // buttonLabels
 		);
 	}
 	function onConfirm(buttonIndex) {
@@ -302,7 +303,7 @@
 	var transport	= new L.LayerGroup();
 	var favorites	= new L.LayerGroup();
 	var lost		= new L.LayerGroup();
-	var console		= new L.LayerGroup();
+	var consoles	= new L.LayerGroup();
 	var edari		= new L.LayerGroup();
 	var hotel		= new L.LayerGroup();
 	var wifi		= new L.LayerGroup();
