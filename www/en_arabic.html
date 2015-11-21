@@ -167,6 +167,9 @@ div#data_table_filter {
     box-sizing: border-box;
     margin-bottom: 16px;	
 }
+tr td:first-child {
+    direction: rtl;
+}
 </style>
 <!--footer-bg-center.png-->
 </head>
@@ -655,7 +658,7 @@ $(document).ready(function() {
 <tr><td>خُبْز</td><td>	Bread</td><td>	Khubz</td></tr>
 <tr><td>سَلَطَة</td><td>	Salad</td><td>	Salaata</td></tr>
 <tr><td>شوربة</td><td>	Soup</td><td>	Shurba</td></tr>
-<tr><td>ماءساخن</td><td>	Boild</td><td> water	Maa' sakhen</td></tr>
+<tr><td>ماءساخن</td><td> Boild water </td><td> 	Maa' sakhen</td></tr>
 <tr><td>مُرطَبات</td><td>	Drink</td><td>	Morattabat</td></tr>
 <tr><td>صَحن</td><td>	Plate</td><td>	Sahn</td></tr>
 <tr><td>مِلعَقَه</td><td>	Spoon</td><td>	Mila'aqa</td></tr>
@@ -745,9 +748,9 @@ $(document).ready(function() {
 
 
 <tr><td>جامع،مصلّی</td><td>	Mosque</td><td>	Mosala</td></tr>
-<tr><td>صلاة</td><td> قصر</td><td>	Shorten Prayer	Salat qasr</td></tr>
+<tr><td>صلاة قصر</td><td> Shorten Prayer </td><td> Salat qasr</td></tr>
 <tr><td>تِجاهَ­القبلة</td><td>	 Qibla</td><td> direction	Tejahal_qibla</td></tr>
-<tr><td>تُربَة</td><td>	Soil</td><td>/dust	Turba</td></tr>
+<tr><td>تُربَة</td><td> Soil/Dust</td><td> Turba</td></tr>
 <tr><td>مسبحه</td><td>	Rosary</td><td>	Musbaha</td></tr>
 <tr><td>سجّاده</td><td>	Prayer</td><td> rug	Sajjada</td></tr>
 <tr><td>کیشوانیه</td><td>	Shoe</td><td> storage	Kishwania</td></tr>
@@ -802,15 +805,15 @@ $(document).ready(function() {
 <tr><td>إبرة</td><td>	Needle</td><td>	Ibra</td></tr>
 <tr><td>أثاث</td><td>	Furniture</td><td>	Athath</td></tr>
 <tr><td>بساط</td><td>	Rug</td><td>	Bisat</td></tr>
-<tr><td>مِنشقَة</td><td> وَجه</td><td>	Towel	Minshaqa wajh</td></tr>
+<tr><td>مِنشقَةوَجه</td><td> Towel </td><td>		Minshaqa wajh</td></tr>
 <tr><td>سریر</td><td>	Bed</td><td>	Sarir</td></tr>
 <tr><td>مکنسة</td><td>	Broom</td><td>	Maknisa</td></tr>
 <tr><td>کهربائیة</td><td>	Electricity</td><td>	Kahrubania</td></tr>
 <tr><td>طاولة</td><td>	Table</td><td>	Tawala</td></tr>
 <tr><td>علاّقة</td><td>	Bag</td><td>	Allaqa</td></tr>
-<tr><td>فِرِن</td><td> غاز</td><td>	Gasburner	Feren Gaz</td></tr>
-<tr><td>فرشاة­اسنان</td><td>	Tooth</td><td> brush	Firshat asnan</td></tr>
-<tr><td>معجون</td><td> ­أسنان</td><td>	Toothpaste	Ma'jun asnan</td></tr>
+<tr><td>فِرِن غاز</td><td> Gasburner </td><td> Feren Gaz</td></tr>
+<tr><td>فرشاة­اسنان</td><td>Toothbrush</td><td> Firshat asnan</td></tr>
+<tr><td>معجون­أسنان</td><td> Toothpaste </td><td>	Ma'jun asnan</td></tr>
 <tr><td>مِدفأة</td><td>	Heater</td><td>	Midfa'a</td></tr>
 <tr><td>مِرأة</td><td>	Mirror</td><td>	Mira'a</td></tr>
 <tr><td>مِشط</td><td>	Comb</td><td>	Misht</td></tr>
@@ -841,7 +844,7 @@ $(document).ready(function() {
 
 
 
-<tr id="way" class="title"><td>On the Way</td><td></td><td></td></tr>
+<tr id="way" class="title" ><td style="padding-right: 33px; padding-left: 2px;">On the Way</td><td></td><td></td></tr>
 
 <tr><td>ذهاب</td><td>	Go</td><td>	Dhahab</td></tr>
 <tr><td>إیاب</td><td>	Return</td><td>	Iyab</td></tr>
@@ -849,7 +852,7 @@ $(document).ready(function() {
 <tr><td>سیّارات</td><td>	Cars</td><td>	Sayyarat</td></tr>
 <tr><td>باص</td><td>	Bus</td><td>	Bas</td></tr>
 <tr><td>قطار</td><td>	Train</td><td>	Qataar</td></tr>
-<tr><td>سُکک</td><td> ­حدیدیه</td><td>	Rail way	Sukuk Hadida</td></tr>
+<tr><td>سُکک­حدیدیه</td><td>Rail way</td><td>		Sukuk Hadida</td></tr>
 <tr><td>سائِق</td><td>	Driver</td><td>	Saa'iq</td></tr>
 <tr><td>طائرة</td><td>	 Plane</td><td>	Taa'ira</td></tr>
 <tr><td>مطار</td><td>	Airport</td><td>	Mataar</td></tr>
@@ -858,16 +861,16 @@ $(document).ready(function() {
 <tr><td>ساحة،دوَار</td><td>	Square</td><td>	Dawwaar</td></tr>
 
 <tr><td>طَریق</td><td>	Way</td><td>	Tariq</td></tr>
-<tr><td>طَریق</td><td> ­مُشاة</td><td>	Sidewalk	Tariq moshaa'</td></tr>
-<tr><td>طریق</td><td> ­مسدود</td><td>	Road Closed	Tariq masdud</td></tr>
+<tr><td>طَریق ­مُشاة</td><td>Sidewalk</td><td>		Tariq moshaa'</td></tr>
+<tr><td>طریق­مسدود</td><td> Road Closed	</td><td>	Tariq masdud</td></tr>
 <tr><td>خَریطة</td><td>	Map</td><td>	Kharita</td></tr>
 <tr><td>مَوقِف</td><td>	Station</td><td>	Mauqif</td></tr>
 <tr><td>مَحطَة</td><td>	Place</td><td>	Mahta</td></tr>
 <tr><td>جِسر</td><td>	Bridge</td><td>	Jisr</td></tr>
-<tr><td>سُلَم</td><td>-</td><td>درجه	Staircase	Sullam</td></tr>
+<tr><td>سُلَم -درجه</td><td> Staircase</td><td>Sullam daraja</td></tr>
 <tr><td>جوازسفر</td><td>	Passport</td><td>	Juwaz safar</td></tr>
 <tr><td>بطاقة،تذکرة</td><td>	Ticket</td><td>	Tazkira</td></tr>
-<tr><td>درجة­أولی</td><td>	First</td><td> class	Darajat Awla</td></tr>
+<tr><td>درجة­أولی</td><td>	First class</td><td> 	Darajat Awla</td></tr>
 <tr><td>درجة­ثانیة</td><td>	Economy</td><td>	Darajat Thania</td></tr>
 <tr><td>الأجرة</td><td>	Fee</td><td>	Al_ujra</td></tr>
 <tr><td>بطاقه</td><td>	Card</td><td>	Bitaqa</td></tr>
@@ -977,7 +980,7 @@ $(document).ready(function() {
 <tr><td>مجزرة</td><td>	Massacre</td><td>	Majzara</td></tr>
 <tr><td>مُرشَح</td><td>	Candidate</td><td>	Murshah</td></tr>
 <tr><td>قُنصُلیة</td><td>	Cunsulate</td><td>	Qunsulia</td></tr>
-<tr><td>قناة</td><td>	(</td><td>TV)Satellite	Qanat</td></tr>
+<tr><td>قناة</td><td>	(TV)Satellite</td><td>	Qanat</td></tr>
 <tr><td>قمرصناعی</td><td>	Satellite</td><td>	Qamar sinaa'i</td></tr>
 <tr><td>تَحَکّم ­مِن­ بَعید</td><td>	Remote control</td><td>	Tahakom min Baa'id</td></tr>
 <tr><td>السُّلطة­القَضائِیّة</td><td>	The Judiciary</td><td>	A_sultatul_qadhaia</td></tr>
