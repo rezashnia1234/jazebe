@@ -57,6 +57,14 @@
 				$(this).removeClass("need_download").addClass("downloaded");
 			}
 		});
+		$('.play_on_newxpage').each( function(i) {
+			//$(this).css("display","none");
+			var temp_array = JSON.parse(window.localStorage.getItem('downloaded_files'));
+			if($.inArray($.md5($(this).attr('online')),temp_array) != -1)
+			{
+				$(this).removeClass("need_download").addClass("downloaded");
+			}
+		});
 		$('.play_it').click( function(i) {
 			temp_element = $(this);
 			//alert($(this).attr('online'));
@@ -373,30 +381,30 @@ ul.big_list li.need_download {
 							<li class="play_it " online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/36.mp3" play_type="offline" >مرده بدم زنده شدم</li>
 							<li class="play_it " online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/37.mp3" play_type="offline" >میزند خواهر تو بوسه بر حنجر</li>
 							
-							<li class="need_download"><a href="hoseinie_01.html">کنار قدمهای جابر سوی نینوا رهسپاریم</a></li>
-							<li class="need_download"><a href="hoseinie_02.html">الأربعینُ مَوْعدی</a></li>
-							<li class="need_download"><a href="hoseinie_03.html">کربلا ای خاک اندوه و بلا</a></li>
-							<li class="need_download"><a href="hoseinie_04.html">بگذرم از جان در راه جانان</a></li>
-							<li class="need_download"><a href="hoseinie_05.html">ای امام بصیرت کشته جهل امت</a></li>
-							<li class="need_download"><a href="hoseinie_06.html">خلیل ‌آسا به همت بت شکستم</a></li>
-							<li class="need_download"><a href="hoseinie_07.html">علمدار تو یاور ثاراللهی</a></li>
-							<li class="need_download"><a href="hoseinie_08.html">یابنی قتلوک</a></li>
-							<li class="need_download"><a href="hoseinie_09.html">انا علی ابنُ ذبیح کربلا</a></li>
-							<li class="need_download"><a href="hoseinie_10.html">لحظه‌ها شد در اسارت لیلة‌الاسرای تو</a></li>
-							<li class="need_download"><a href="hoseinie_11.html">حسین جان کفنت کو</a></li>
-							<li class="need_download"><a href="hoseinie_12.html">چه زینبی که صبر ز صبر او خجل</a></li>
-							<li class="need_download"><a href="hoseinie_13.html">شدم در پی‌ات دیده گریان</a></li>
-							<li class="need_download"><a href="hoseinie_14.html">قرآن شنیدن داره از لبای مقدست</a></li>
-							<li class="need_download"><a href="hoseinie_15.html">خوشا آنانکه دائم با تو بودند</a></li>
-							<li class="need_download"><a href="hoseinie_16.html">یاد امام و شهدا</a></li>
-							<li class="need_download"><a href="hoseinie_17.html">من غروب سرخت را زیبا دیدم</a></li>
-							<li class="need_download"><a href="hoseinie_18.html">درمیدان میمانم تانفس آخرم</a></li>
-							<li class="need_download"><a href="hoseinie_19.html">سید و مولا حسین</a></li>
-							<li class="need_download"><a href="hoseinie_20.html">منو این همه غم ارباب ارباب</a></li>
-							<li class="need_download"><a href="hoseinie_21.html">زائر کوی حسین</a></li>
-							<li class="need_download"><a href="hoseinie_22.html">کربلا ای بهشت محبین اهل‌بیت</a></li>
-							<li class="need_download"><a href="hoseinie_23.html">ای امام شهیدان خمینی</a></li>
-							<li class="need_download"><a href="hoseinie_24.html">از خیمه برون چو رسول الله</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/01.mp3"><a href="hoseinie_01.html">کنار قدمهای جابر سوی نینوا رهسپاریم</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/02.mp3"><a href="hoseinie_02.html">الأربعینُ مَوْعدی</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/03.mp3"><a href="hoseinie_03.html">کربلا ای خاک اندوه و بلا</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/04.mp3"><a href="hoseinie_04.html">بگذرم از جان در راه جانان</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/05.mp3"><a href="hoseinie_05.html">ای امام بصیرت کشته جهل امت</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/06.mp3"><a href="hoseinie_06.html">خلیل ‌آسا به همت بت شکستم</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/07.mp3"><a href="hoseinie_07.html">علمدار تو یاور ثاراللهی</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/08.mp3"><a href="hoseinie_08.html">یابنی قتلوک</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/09.mp3"><a href="hoseinie_09.html">انا علی ابنُ ذبیح کربلا</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/10.mp3"><a href="hoseinie_10.html">لحظه‌ها شد در اسارت لیلة‌الاسرای تو</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/11.mp3"><a href="hoseinie_11.html">حسین جان کفنت کو</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/12.mp3"><a href="hoseinie_12.html">چه زینبی که صبر ز صبر او خجل</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/13.mp3"><a href="hoseinie_13.html">شدم در پی‌ات دیده گریان</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/14.mp3"><a href="hoseinie_14.html">قرآن شنیدن داره از لبای مقدست</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/15.mp3"><a href="hoseinie_15.html">خوشا آنانکه دائم با تو بودند</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/16.mp3"><a href="hoseinie_16.html">یاد امام و شهدا</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/17.mp3"><a href="hoseinie_17.html">من غروب سرخت را زیبا دیدم</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/18.mp3"><a href="hoseinie_18.html">درمیدان میمانم تانفس آخرم</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/19.mp3"><a href="hoseinie_19.html">سید و مولا حسین</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/20.mp3"><a href="hoseinie_20.html">منو این همه غم ارباب ارباب</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/21.mp3"><a href="hoseinie_21.html">زائر کوی حسین</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/22.mp3"><a href="hoseinie_22.html">کربلا ای بهشت محبین اهل‌بیت</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/23.mp3"><a href="hoseinie_23.html">ای امام شهیدان خمینی</a></li>
+							<li class="play_on_newxpage need_download" online="http://khamenei.mobi/app/jh/ios/audio/huseiniye/24.mp3"><a href="hoseinie_24.html">از خیمه برون چو رسول الله</a></li>
 						</ul>
 						<br/><br/><br/><br/>
 					</div>
