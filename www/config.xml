@@ -4,7 +4,7 @@
         id        = "ir.khamenei.arbaeen"
         version   = "2.0.0">
 		
-		
+	<!--khamenei///smgroup-->
     <name>جاذبه حسینی</name>
     <description>جاذبه حسینی</description>
     <author href="http://smgroup.ir" email="info@smgroup.ir">Sorush Mehr Rezvan</author>
