@@ -41,6 +41,9 @@
 			if ( device.platform == 'iOS' ){//Android,iOS,win7=WinCE,win8=Win32NT
 				$(".android").css("display","none");
 			}
+			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+				$(".iOS").css("display","none");
+			}
 		
 		}
 		function uniqueDeviceIDsuccess_index(uuid)
@@ -105,7 +108,7 @@
 				{
 					//$(this).attr("style","background-image:none;padding:0 5px;border-radius:3px;background-color:#f0f0f0 !important;");
 					$(this).attr("style","background-image: none;background-color: #f0f0f0 !important;padding-top: 2px;width: 100%;display: block;box-sizing: border-box;");
-					$(this).parent().attr("style","width: 100%;height: 34px;margin-bottom: 5px;line-height: 34px;");
+					$(this).parent().attr("style","width: 100%;height: auto;min-height:34px;margin-bottom: 5px;line-height: 34px;");
 				}
 				else
 				{
@@ -152,6 +155,7 @@
 					<li><a href="map_auto_help.html">راهنمای اشتراک گذاری موقعیت به صورت اتوماتیک</a></li>
 					<li class="android"><a href="map_auto_tel.html">لیست تلفن های مجاز برای ردیابی</a></li>
 					<li><a href="map_auto_send.html">درخواست ردیابی یک شماره تلفن</a></li>
+					<li class="iOS"><a href="map_auto_receive.html">ثبت مشخصات پیامک دریافت شده</a></li>
 					<li><a href="map_auto_his.html">تاریخچه ردیابی های انجام شده</a></li>
 				</ul>
 

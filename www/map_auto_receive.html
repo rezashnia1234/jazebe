@@ -87,29 +87,8 @@
 				//alert("2");
 			});
 */
-
-			max_width = 0;
-			win_width = $('.zirmenu li').width();
-			
-			$('.zirmenu li a').each( function(i) {
-				if(max_width<$(this).width())
-					max_width = $(this).width();
-			});
-				max_width_temp = max_width;
-				max_width = max_width + 55 + 50;
-			$('.zirmenu li a').each( function(i) {
-				if(max_width>win_width)
-				{
-					//$(this).attr("style","background-image:none;padding:0 5px;border-radius:3px;background-color:#f0f0f0 !important;");
-					$(this).attr("style","background-image: none;background-color: #f0f0f0 !important;padding-top: 2px;width: 100%;display: block;box-sizing: border-box;");
-					$(this).parent().attr("style","width: 100%;height: auto;min-height:34px;margin-bottom: 5px;line-height: 34px;");
-				}
-				else
-				{
-					$(this).attr("style","width:" + (max_width_temp + 10) + "px;display:block;padding:0 40px;");
-				}
-			});
-
+		
+		
 			setTimeout(function(){
 				$(".mypreload").html("");
 				$('#main').addClass("simplebar");
@@ -121,6 +100,13 @@
 
 	</script>	
 
+		
+		
+<style>
+
+
+</style>
+<!--footer-bg-center.png-->
 </head>
 <body class="tarjome_disable sound_disable" onload="init();" style="overflow:hidden;width:100%;">
 	<div id="bg-top"></div><div id="bg-bottom"></div>
@@ -132,7 +118,7 @@
 	<div id="warper" >
 			<div id="header">
 				<div id="back-btn" onclick="parent.history.back();"></div>
-				<div id="header-text-2th">شاعرانه</div>
+				<div id="header-text-2th">ثبت مشخصات پیامک دریافت شده</div>
 				<div class="center"></div>
 			</div>
 			<div id="footer">
@@ -143,23 +129,153 @@
 				</div>
 			</div>
 			<div id="container" >
-			<div id="main" >
-			
-				<ul class="zirmenu">
-					<li><a href="shaerane_01.html">قلم به دست گرفتم که ماجرا بنویسم</a></li>
-					<li><a href="shaerane_02.html">حسین بود و تو بودی، تو خواهری کردی</a></li>
-					<li><a href="shaerane_03.html">با اشک‌هاش دفتر خود را نمور کرد</a></li>
-					<li><a href="shaerane_04.html">هوای دخترکی را برادرش دارد</a></li>
-					<li><a href="shaerane_05.html">رباعی گفتی و تقدیم سلطان غزل کردی</a></li>
-					<li><a href="shaerane_06.html">بگو که یک شبه مردی شدی برای خودت</a></li>
-					<li><a href="shaerane_07.html">قلم اینک به تمنای تو در رقص آمد</a></li>
-				</ul>
+				<div id="main" >
+<script>
+function send_number()
+{
+	var number = $("#autocomplete").val().replace(" ","");
+	//latlng(32.1212,44.3250)
+	//alert(number);
+	function CheckLatLong(teststring)
+	{
+		var teststring = teststring.toLowerCase(); 
+		var re= new RegExp('^(latlng)[\(][0-9]+(\.)[0-9]+(\,)[0-9]+(\.)[0-9]+[\)]$');
+	   // Test string for existence of regular expression.
+	   var found = re.test(teststring)
 
-			</div>
+	   if (found)
+		  return(true);
+	   else
+		  return(false);
+	}
+	if(CheckLatLong(number))
+	{
+		number = "00000000000:" + number;
+		temp_array_number = number.split('\n');
+		window.localStorage.setItem('location_thistime',JSON.stringify(temp_array_number));
+		window.location.href = "map_iraq.html";
+	}
+	else
+	{
+		navigator.notification.alert(
+			'اطلاعات ورودی شما ، با الگوی مورد نظر نرم افزار همخوانی ندارد.',  // message
+			alertDismissed,         // callback
+			'اخطار',            // title
+			'لغو درخواست'                  // buttonName
+		);
+	}
+};
+function alertDismissed() {
+	// do something
+}
+</script>
+<style>
+.eshterak {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+.top_eshterak {
+    background-color: #039c84;
+    padding: 15px;
+    border-radius: 20px 20px 0 0;
+    color: white;
+	direction:rtl;
+}
+.down_eshterak {
+    background-color: #eeeeee !important;
+    float: left;
+    padding: 30px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    background: url(images/eshterak_right_bg.png),url(images/eshterak_left_bg.png);
+    background-repeat: no-repeat,repeat-x;
+    background-size: 71px,5px;
+    background-position: right top,top;
+}
+.down_eshterak input {
+    width: 100%;
+    clear: both;
+    margin-top: 10px;
+    box-sizing: border-box;
+    background: white;
+    border: 0;
+    height: 35px;
+    text-align: left;
+    padding: 0 10px
+}
+.down_eshterak label {
+    float: right;
+    margin-top: 14px;
+    color: #868686;
+}
+.down_eshterak button {
+    float: left;
+    margin-top: 10px;
+    background: #bbbbbb;
+    border: 0;
+    height: 27px;
+    line-height: 27px;
+    width: 70px;
+    color: #868686;
+        cursor: pointer;
 
+}
+ul.number {
+    text-align: left;
+    list-style-type: none
+}
+
+ul.number li {
+    width: 100%;
+    height: 26px;
+    line-height: 26px;
+    border-bottom: 1px solid white;
+    margin: 10px 0;
+    padding-left: 8px;
+    padding-right: 2px;
+    box-sizing: border-box;
+}
+span.delete_number {
+    text-align: right;
+    float: right;
+    color: #868686;
+    cursor: pointer;
+}
+#autocomplete{direction:ltr;}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+</style>
+<div class="justify doa_text" style="width:100%;">
+اگر دستگاه موبایل شما متعلق به شرکت اپل می باشد ، بعد از ثبت "درخواست ردیابی یک شماره تلفن" درصوتی که مخاطب مورد نظر، شماره تلفن شما را در "لیست تلفن های مجاز برای ردیابی" ثبت نموده باشد
+و GPS
+دستگاهش روشن باشد، یک پیامک از دستگاه وی برای شما ارسال خواهد شد.
+<br/>
+شما میتوانید با وارد کردن متن پیامک وارد شده در قسمت پایین، موقعیت مخاطب خود را بر روی نقشه مشاهده نمایید.
+<br/>
+</div>
+					<div class="eshterak">
+						<div class="top_eshterak">
+							<p>برای ردیابی، متن پیامکی که دریافت نموده اید را وارد نمایید.</p>
+						</div>
+						<div class="down_eshterak">
+							<ul class="number">
+	
+							</ul>
+							<input type="text" id="autocomplete"></input>
+							<button onclick="send_number();" >ثبت</button>
+							<button class="cancel" onclick="parent.history.back();" style="margin-left: 10px;width:auto;">لغو درخواست</button>
+						</div>
+					</div>
+					<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+				</div>
 			</div>
 	</div>
-
 	<div id="controls_size">
 		<div id="css_style"></div>
 		<div id="controls_over"></div>

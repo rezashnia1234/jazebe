@@ -79,14 +79,34 @@
 				$("button.submit_number").click(function() {
 					number = $("#number").val();
 					if(number==""){
-						alert("شماره را  با دقت وارد کنید");
+						navigator.notification.alert(
+							'شماره را  با دقت وارد کنید',  // message
+							alertDismissed,         // callback
+							'اخطار',            // title
+							'لغو درخواست'                  // buttonName
+						);
 					}else if(!$.isNumeric(number)){
-						alert("فقط عدد وارد کنید");
+						navigator.notification.alert(
+							'فقط عدد وارد کنید',  // message
+							alertDismissed,         // callback
+							'اخطار',            // title
+							'لغو درخواست'                  // buttonName
+						);
 					}else if(number.toString().length < 8){
-						alert("شماره را  با دقت وارد کنید");
+						navigator.notification.alert(
+							'شماره را  با دقت وارد کنید',  // message
+							alertDismissed,         // callback
+							'اخطار',            // title
+							'لغو درخواست'                  // buttonName
+						);
 					}
 					else if(jQuery.inArray( number, number_list) != -1){
-						alert("این شماره قبلا ثبت شده است");
+						navigator.notification.alert(
+							'این شماره قبلا ثبت شده است',  // message
+							alertDismissed,         // callback
+							'اخطار',            // title
+							'لغو درخواست'                  // buttonName
+						);
 					}else{
 						$("ul.number").prepend('<li>' + number + '<span class="delete_number">X</span></li>');
 						number_list.push(number);
@@ -108,7 +128,7 @@
 						var number_list_temp = number_list.join(",");
 						navigator.share("setWhiteList",number_list_temp,function(result)
 						{
-							alert(result);
+							//alert(result);
 						});
 					});
 			});
@@ -122,7 +142,7 @@
 					var number_list_temp = number_list.join(",");
 					navigator.share("setWhiteList",number_list_temp,function(result)
 					{
-						alert(result);
+						//alert(result);
 					});
 				});
 			
@@ -167,7 +187,9 @@
 			}, 300);
 		});
 
-
+function alertDismissed() {
+	// do something
+}
 
 
 

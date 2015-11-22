@@ -31,6 +31,43 @@
 		my_location_circle = L.circle([36.2879,59.6157], radius).addTo(map);
 		my_location_marker_friend = L.marker([36.2879,59.6157], {icon: user_location_icon_friend,zIndexOffset: 998}).addTo(map);
 		my_location_marker_friend.bindPopup("موقعیت دوست شما");
+		
+		///////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////
+		////Share Location Auto////////////////////////////////////////////////
+				//window.localStorage.setItem('location_thistime',JSON.stringify(['09151163416:latlng(32.1212,44.3250)']));
+
+				if(window.localStorage.getItem('location_thistime') == null){
+					window.localStorage.setItem('location_thistime',JSON.stringify([]));
+				}
+				temp_array_location = JSON.parse(window.localStorage.getItem('location_thistime'));
+				if (temp_array_location.length === 0) {
+
+				}
+				else
+				{
+					results = temp_array_location[0];
+					temp_array_location2 = results.split(':');
+					latlong = temp_array_location2[1].replace("LatLng(","").replace("latlng(","").replace(")","").split(",");
+					//latlong = results.input1.trim().replace(" ","").replace("LatLng(","").replace("latlng(","").replace(")","").split(",");
+					my_location_marker_friend.setLatLng([latlong[0],latlong[1]]);
+					my_location_marker_friend.bindPopup("موقعیت دوست شما<br/>" + temp_array_location2[0]);
+					my_location_marker_friend.openPopup();
+					
+					if(my_location_marker.getLatLng().lat != 36.2879)
+					{
+						navigator.notification.alert(
+							'موقعیت دوست شما در نقشه ثبت شد.\nفاصله تقریبی شما با دوستتان ' +  Math.round(distance(my_location_marker.getLatLng().lat, my_location_marker.getLatLng().lng, my_location_marker_friend.getLatLng().lat, my_location_marker_friend.getLatLng().lng, "M")) + " متر می باشد.",  // message
+							alertDismissed,         // callback
+							'اطلاعیه',            // title
+							'تائید'                  // buttonName
+						);
+					}
+					window.localStorage.setItem('location_thistime',JSON.stringify([]));
+				}
+		///////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////
+		///////////////////////////////////////////////////////////////////////
 	}
 
 	function onDeviceReady() {

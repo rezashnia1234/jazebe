@@ -38,7 +38,13 @@
 			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
 				document.addEventListener("backbutton", go_back, false);
 			}
-		
+			
+			if ( device.platform == 'iOS' ){//Android,iOS,win7=WinCE,win8=Win32NT
+				$(".android").css("display","none");
+			}
+			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+				$(".iOS").css("display","none");
+			}
 		}
 		function uniqueDeviceIDsuccess_index(uuid)
 		{
@@ -296,6 +302,16 @@ input::-webkit-inner-spin-button {
 	<br/>
 	د- بدیهی است ، افرادی که میخواهند اجازه اشتراک گذاری موقعیت خود را به دوستانشان دهند، می بایست GPS دستگاه موبایل خود را همیشه در حالت روشن قرار دهند ، در غیر این صورت ، سامانه امکان ارائه خدمات را نخواهد داشت.
 	<br/>
+	<span class="iOS">
+	ه- 
+		اگر دستگاه موبایل شما متعلق به شرکت اپل می باشد ، بعد از ثبت "درخواست ردیابی یک شماره تلفن" درصوتی که مخاطب مورد نظر، شماره تلفن شما را در "لیست تلفن های مجاز برای ردیابی" ثبت نموده باشد
+		و GPS
+		دستگاهش روشن باشد، یک پیامک از دستگاه وی برای شما ارسال خواهد شد.
+		<br/>
+		شما میتوانید با وارد کردن متن پیامک وارد شده در قسمت 
+		<a href="map_auto_receive.html">"ثبت مشخصات پیامک دریافت شده"</a>
+		،موقعیت مخاطب خود را بر روی نقشه مشاهده نمایید.
+	</span>
 </div>
 					<div class="eshterak">
 						<div class="top_eshterak">
