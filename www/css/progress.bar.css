@@ -51,7 +51,7 @@
 */
 	max-width:auto;
 }
-.progress-bar #status{color:#ffffff;min-height:19px;}
+.progress-bar #status{color:#ffffff;min-height:19px;direction:rtl;}
 .progress-bar #abort{
 	color:#fff;
 	font-weight:bold;
