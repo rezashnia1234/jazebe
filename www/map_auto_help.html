@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	
+    <title>بسم الله الرحمن الرحیم</title>
+	
+	<link rel="stylesheet" type="text/css" href="css/reset.css">
+	<link rel="stylesheet" type="text/css" href="css/font.css" />
+	<link rel="stylesheet" type="text/css" href="css/simplebar.css" />
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+
+	<script src="js/jquery-1.11.3.min.js"></script>
+	<script src="js/console.log.js"></script>
+    <script src="phonegap.js"></script>
+    <script src="js/fastclick.js"></script>
+    <script src="js/jquery.md5.js"></script>
+    <script src="js/back_btn.js"></script>
+    <script src="js/query-string.js"></script>
+    <script src="js/simplebar.min.js"></script>
+	
+	<script>
+		function init() {		
+			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
+			document.addEventListener("deviceready", onDeviceReady, false);
+			
+			//onDeviceReady();
+		}
+
+		function onDeviceReady() {
+			check_auto_location();
+
+			//FastClick.attach(document.getElementById('container'));
+			FastClick.attach(document.body);
+			
+			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+				document.addEventListener("backbutton", go_back, false);
+			}
+		
+		}
+		function uniqueDeviceIDsuccess_index(uuid)
+		{
+			window.localStorage.setItem('uuid',uuid);
+		};
+		function uniqueDeviceIDfail_index(uuid)
+		{
+			//alert("uniqueDeviceIDfail" + uuid);
+		};
+		
+		$(window).load(function() {
+			//alert($(window).height());
+			//alert($(window).height());
+			//alert($(document).height()); 
+			//alert($("#warper").height());
+			$("#main").height($(window).height() - $("#header").height() - $("#footer").height()-30);
+			//$("#container").height($("#warper").height()-$("#header").height());
+			//$(".mypreload").delay(100000).html("");
+		});
+		$(document).ready(function() {
+			$('.translate').on('click', function() {
+				$('.persian').toggle();
+				$(this).toggleClass('active');
+			});	
+			$('.fontsize').on('click', function() {
+				$("#controls_size").addClass('opened');
+				$("#controls_over").css('position','fixed');
+			});
+			$('.audio').on('click', function() {
+				$('#smgroup_audio_player').toggle();
+				$('#smgroup_audio_player').addClass('active');
+			});
+/*
+			$('#play').on('click', function() {
+				$('#play').hide();
+				$('#pause').css('display','block');
+				
+				
+				play_btn.css("display","none");
+				//play2_btn.css("display","block");
+				pause_btn.css("display","block");
+				$(this).prop("disabled",true);
+				play2_btn.prop("disabled",true);
+				pause_btn.prop("disabled",false);
+				
+				playAudio(my_file);
+				//alert("2");
+			});
+*/
+		
+		
+			setTimeout(function(){
+				$(".mypreload").html("");
+				$('#main').addClass("simplebar");
+				$('#main').simplebar({ autoHide: false });
+			}, 300);
+		});
+
+			
+
+	</script>	
+
+		
+		
+<style>
+
+
+</style>
+<!--footer-bg-center.png-->
+</head>
+<body class="tarjome_disable sound_disable" onload="init();" style="overflow:hidden;width:100%;">
+	<div id="bg-top"></div><div id="bg-bottom"></div>
+	<div id="ajax" class="mypreload">
+		<div style="z-index: 1000; border: medium none; margin: 0px; padding: 0px; width: 100%; height: 100%; top: 0px; left: 0px; background-color: #f0f0f0; opacity: 1; cursor: default; position: fixed;overflow:visible;" class="blockUI blockOverlay"></div>
+		<div style="z-index: 1011; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 28%; left: 0%; text-align: center;border: medium none;overflow:visible;" class="blockUI blockMsg blockPage"><img src="images/preloader.gif"></div>
+		<div style="z-index: 1012; position: fixed; padding: 0px; margin: 0px; width: 100%; top: 50%; left: 0%; text-align: center;border: medium none;overflow:visible;height:500px;" class="blockUI blockMsg blockPage"><img src="images/loading.png" width="70%"></div>
+	</div>
+	<div id="warper" >
+			<div id="header">
+				<div id="back-btn" onclick="parent.history.back();"></div>
+				<div id="header-text-2th">راهنمای اشتراک گذاری موقعیت به صورت اتوماتیک</div>
+				<div class="center"></div>
+			</div>
+			<div id="footer">
+				<div id="footer-bg">
+					<button class="dw_bottun fontsize">قلم</button>	
+					<button class="dw_bottun audio">0</button>	
+					<button class="dw_bottun translate">ترجمه</button>	
+				</div>
+			</div>
+			<div id="container" >
+				<div id="main" >
+<div class="justify doa_text">
+	<div style="color:#039c84;font-weight:bold;">راهنمای اشتراک گذاری موقعیت اتوماتیک :</div>
+	1- منوی " لیست شماره های مجاز برای ردیابی " : شما با استفاده از این منو میتوانید مشخص نمایید چه شماره تلفن هایی اجازه دسترسی به موقعیت مکانی شما را داشته باشند .
+	<br/>
+	به همین منظور میتوانید پس از باز نمودن این منو ، شماره های مورد نظر خود  را در لیست وارد نموده و کلید ثبت را فشار دهید .
+</div>
+<div class="justify doa_text" style="text-align:center;">
+	<img src="images/help/auto1.png" style="max-width:450px;width:100%;">
+</div>
+<div class="justify doa_text">
+	<span style="color:#039c84;">تذکر1 :</span>
+	 برای استفاده از "اشتراک گذاری موقعیت اتوماتیک " ، نرم افزار از قابلیت ارسال SMS گوشی شما استفاده خواهد نمود و سامانه برای هربار ردیابی پیامکی را برای شخص مورد نظر شما ارسال خواهد نمود .
+	<br/>
+	<span style="color:#039c84;">تذکر2 :</span>
+	سامانه اشتراک گذاری موقعیت اتوماتیک، فقط در شرایط زیر قادر به ارائه خدمات می باشد:
+	<br/>
+	الف- سامانه قابلیت ردیابی فقط دستگاه های اندرویدی ای که سیم کارت فعال و روشن بر روی خود دارند را خواهد داشت.
+	<br/>
+	ب- برای استفاده از سامانه ، دستگاهی که می‌خواهید آن را ردیابی نمایید ، می بایست آخرین نسخه برنامه جاذبه حسینی را به صورت نصب شده داشته باشد.
+	<br/>
+	ج- برای استفاده از سامانه ، مالک دستگاهی که می‌خواهید آن را ردیابی نمایید ،باید شماره ای که می‌خواهید از طریق آن درخواست ردیابی را ثبت نمایید ، در " لیست شماره های مجاز برای ردیابی " ثبت نموده باشد.
+	<br/>
+	د- بدیهی است ، افرادی که میخواهند اجازه اشتراک گذاری موقعیت خود را به دوستانشان دهند، می بایست GPS دستگاه موبایل خود را همیشه در حالت روشن قرار دهند ، در غیر این صورت ، سامانه امکان ارائه خدمات را نخواهد داشت.
+	<br/><br/>
+	2-	منوی " درخواست ردیابی یک شماره تلفن " : در این منو شما می‌بایست شماره تلفن فعال شخصی که نیاز به ردیابی وی را دارید درج نمایید . دقت فرمایید حتماً شماره را به صورت کامل ( اگر شماره مربوط به اپراتورهای خارج از کشور می‌باشد حتماً می‌بایست کد آن کشور درج گردد ) در مکان مشخص شده وارد نمایید .
+	<br/>
+</div>
+<div class="justify doa_text" style="text-align:center;">
+	<img src="images/help/auto3.png" style="max-width:450px;width:100%;">
+</div>
+<div class="justify doa_text">
+	شایان ذکر است این امکان صرفاً در زمانی فعال خواهد بود که شخص مورد نظر ، شماره تلفن همراه شما را در لیست شماره های مجاز در نرم‌افزار ثبت نموده باشد .
+<br/>
+</div>
+<div class="justify doa_text" style="text-align:center;">
+	<img src="images/help/auto2.png" style="max-width:450px;width:100%;">
+</div>
+<div class="justify doa_text">
+	<span style="color:#039c84;">تذکر1 :</span>
+	امکان ردیابی صرفاً برای دستگاه های دارای سیستم عامل اندروید فعال می‌باشد و دیگر سیستم عامل ها صرفاً می‌توانند کاربران دستگاه های اندروید را ردیابی نمایند .
+	<br/>
+	<span style="color:#039c84;">تذکر2 :</span>
+	برای استفاده از سیستم ردیابی نرم افزار از سامانه پیامکی شما استفاده خواهد شد و سامانه برای هر بار ردیابی پیامکی را برای شخص مورد نظر شما ارسال خواهد نمود - درنتیجه هزینه پیامک از اعتبار درخواست دهنده و دستگاه ردیابی شونده توسط اوپراتورها کسر خواهد شد.
+	<br/><br/>
+	3- منوی "تاریخچه ردیابی ها" : با این منو شما می‌توانید تاریخچه ای از ردیابی هایی که تاکنون انجام داده اید را مشاهده نمایید.
+	<br/><br/><br/>
+</div>
+				</div>
+			</div>
+	</div>
+	<div id="controls_size">
+		<div id="css_style"></div>
+		<div id="controls_over"></div>
+		<a href="#" id="large">قلم</a>
+		<a href="#" id="medium">قلم</a>
+		<a href="#" id="small" >قلم</a>
+		<div id="controls_bg"></div>
+	</div>
+</body>
+</html>

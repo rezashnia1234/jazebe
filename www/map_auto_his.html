@@ -24,8 +24,6 @@
 		function init() {		
 			console.log('SMGROUP ::::::::::::::::::::::::::::::::::::    start init()');
 			document.addEventListener("deviceready", onDeviceReady, false);
-			
-			//onDeviceReady();
 		}
 
 		function onDeviceReady() {
@@ -35,8 +33,13 @@
 			FastClick.attach(document.body);
 			
 			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
-				document.addEventListener("backbutton", go_back_to_dar_safar, false);
+				document.addEventListener("backbutton", go_back, false);
 			}
+
+
+
+
+
 		
 		}
 		function uniqueDeviceIDsuccess_index(uuid)
@@ -58,6 +61,38 @@
 			//$(".mypreload").delay(100000).html("");
 		});
 		$(document).ready(function() {
+		
+			//window.localStorage.setItem('location_history',JSON.stringify(['09151163416:latlng(32.1212,44.3250)']));
+			if(window.localStorage.getItem('location_history') == null){
+				var temp_array_location  = new Array();
+				window.localStorage.setItem('location_history',JSON.stringify(temp_array_location));
+				$("ol.number").prepend('<li style="text-align:center;">هنوز هیچ موردی ثبت نشده است</li>');
+			}
+			else
+			{
+				temp_array_location = JSON.parse(window.localStorage.getItem("location_history"));
+				temp_array_location = temp_array_location.filter(function(v){return v!==''});
+				if (temp_array_location.length === 0) {
+					$("ol.number").prepend('<li style="text-align:center;">هنوز هیچ موردی ثبت نشده است</li>');
+				}
+				$.each(temp_array_location, function(i,val) {
+					$("ol.number").prepend('<li class="goto_map_his" target="' + val + '">' +val+ '<span class="delete_number">مشاهده</span></li>');
+				});
+			}
+			
+
+			$("ol.number li.goto_map_his").click(function() {
+				//alert($(this).attr("target"));
+				temp_array = $(this).attr("target").split('\n');
+				window.localStorage.setItem('location_thistime',JSON.stringify(temp_array));
+				window.location.href = "map_iraq.html";
+			});
+			
+
+
+
+
+
 			$('.translate').on('click', function() {
 				$('.persian').toggle();
 				$(this).toggleClass('active');
@@ -87,28 +122,6 @@
 				//alert("2");
 			});
 */
-			max_width = 0;
-			win_width = $('.zirmenu li').width();
-			
-			$('.zirmenu li a').each( function(i) {
-				if(max_width<$(this).width())
-					max_width = $(this).width();
-			});
-				max_width_temp = max_width;
-				max_width = max_width + 55 + 50;
-			$('.zirmenu li a').each( function(i) {
-				if(max_width>win_width)
-				{
-					//$(this).attr("style","background-image:none;padding:0 5px;border-radius:3px;background-color:#f0f0f0 !important;");
-					$(this).attr("style","background-image: none;background-color: #f0f0f0 !important;padding-top: 2px;width: 100%;display: block;box-sizing: border-box;");
-					$(this).parent().attr("style","width: 100%;height: 34px;margin-bottom: 5px;line-height: 34px;");
-				}
-				else
-				{
-					$(this).attr("style","width:" + (max_width_temp + 10) + "px;display:block;padding:0 40px;");
-				}
-			});
-
 			setTimeout(function(){
 				$(".mypreload").html("");
 				$('#main').addClass("simplebar");
@@ -116,10 +129,101 @@
 			}, 300);
 		});
 
-			
+
+
+
+
 
 	</script>	
 
+		
+		
+<style>
+.eshterak {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+    box-sizing: border-box;
+}
+.top_eshterak {
+    background-color: #039c84;
+    padding: 15px;
+    border-radius: 20px 20px 0 0;
+    color: white;
+	direction:rtl;
+}
+.down_eshterak {
+    background-color: #eeeeee !important;
+    float: left;
+    padding: 30px 20px;
+    width: 100%;
+    box-sizing: border-box;
+    background: url(images/eshterak_right_bg.png),url(images/eshterak_left_bg.png);
+    background-repeat: no-repeat,repeat-x;
+    background-size: 71px,5px;
+    background-position: right top,top;
+}
+.down_eshterak input {
+    width: 100%;
+    clear: both;
+    margin-top: 10px;
+    box-sizing: border-box;
+    background: white;
+    border: 0;
+    height: 35px;
+    text-align: left;
+    padding: 0 10px;
+	direction:ltr;
+}
+.down_eshterak label {
+    float: right;
+    margin-top: 14px;
+    color: #868686;
+}
+.down_eshterak button {
+    float: left;
+    margin-top: 10px;
+    background: #bbbbbb;
+    border: 0;
+    height: 27px;
+    line-height: 27px;
+    width: 70px;
+    color: #868686;
+	cursor: pointer;
+
+}
+ol.number {
+    text-align: left;
+    
+}
+
+ol.number li {
+    width: 100%;
+    height: 26px;
+    line-height: 26px;
+    border-bottom: 1px solid white;
+    margin: 10px 0 20px 0;
+    padding-left: 0px;
+    padding-right: 0px;
+    box-sizing: border-box;
+	overflow:hidden;
+	list-style-position: inside;
+	word-break: break-all;
+}
+span.delete_number {
+    text-align: right;
+    float: right;
+    color: #039c84;
+    cursor: pointer;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+</style>
+<!--footer-bg-center.png-->
 </head>
 <body class="tarjome_disable sound_disable" onload="init();" style="overflow:hidden;width:100%;">
 	<div id="bg-top"></div><div id="bg-bottom"></div>
@@ -130,8 +234,8 @@
 	</div>
 	<div id="warper" >
 			<div id="header">
-				<div id="back-btn" onclick="go_back_to_dar_safar();"></div>
-				<div id="header-text-2th">نقشه</div>
+				<div id="back-btn" onclick="parent.history.back();"></div>
+				<div id="header-text-2th">تاریخچه ردیابی های انجام شده</div>
 				<div class="center"></div>
 			</div>
 			<div id="footer">
@@ -142,19 +246,18 @@
 				</div>
 			</div>
 			<div id="container" >
-			<div id="main" >
-			
-				<ul class="zirmenu">
-					<li><a href="map_help.html">راهنمای اشتراک گذاری موقعیت</a></li>
-					<li><a href="map_auto.html">اشتراک گذاری موقعیت اتوماتیک</a></li>
-					<li></li>
-					<li><a href="map_najaf.html">نقشه نجف</a></li>
-					<li><a href="map_karbala.html">نقشه کربلا</a></li>
-					<li><a href="map_iraq.html">نقشه نجف تا کربلا</a></li>
-				</ul>
-
-			
-			</div>
+				<div id="main" >
+					<div class="eshterak">
+						<div class="top_eshterak">
+							<p>تاریخچه ردیابی های انجام شده:</p>
+						</div>
+						<div class="down_eshterak">
+							<ol class="number">
+	
+							</ol>
+						</div>
+					</div>
+				</div>
 			</div>
 	</div>
 	<div id="controls_size">

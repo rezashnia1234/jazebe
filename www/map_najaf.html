@@ -151,7 +151,20 @@
 			latlong = results.input1.trim().replace(" ","").replace("LatLng(","").replace("latlng(","").replace(")","").split(",");
 			my_location_marker_friend.setLatLng([latlong[0],latlong[1]]);
 			my_location_marker_friend.openPopup();
-			
+			//////////////////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////////////////////////////////
+			////Add To History//////////////////////////////////////////////////////////////////////////
+			if(window.localStorage.getItem('location_history') == null){
+				window.localStorage.setItem('location_history',JSON.stringify([]));   
+			}
+			temp_array_location_history = JSON.parse(window.localStorage.getItem('location_history'));
+			temp_typed_location = "00000000000:" + results.input1.trim().replace(" ","");
+			temp_array3 = temp_typed_location.split('\n');
+			temp_array_location_history = $.merge(temp_array3, temp_array_location_history);
+			window.localStorage.setItem('location_history',JSON.stringify(temp_array_location_history));
+			////Add To History//////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////////////////////////////////
+			//////////////////////////////////////////////////////////////////////////////////////////
 			if(my_location_marker.getLatLng().lat != 36.2879)
 			{
 				navigator.notification.alert(
