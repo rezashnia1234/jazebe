@@ -75,6 +75,7 @@
 		}
 
 		function onDeviceReady() {
+			check_auto_location();
 				$('.translate').on('click', function() {
 					$('.persian').toggle();
 					$(this).toggleClass('active');

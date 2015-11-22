@@ -38,6 +38,7 @@
 		}
 
 		function onDeviceReady() {
+			check_auto_location();
 			init_audio();
 			console.log("onDeviceReady");
 			
@@ -160,7 +161,7 @@
 			FileTransfer_OBJ.onprogress = function(progressEvent) {
 				if (progressEvent.lengthComputable) {
 					var perc = Math.floor(progressEvent.loaded / progressEvent.total * 100);
-					$('#status').html(perc + "% loaded...");
+					$('#status').html(perc + "% بارگذاری شد...");
 					$('.progress-bar-percent').css('width',perc + "%");
 					//progress_bar_element.css('width',perc);
 				} else {
@@ -331,7 +332,7 @@ ul.big_list li.need_download {
 	<div class="progress-bar green glow">
 		<span class="progress-bar-percent" style="width: 2%"></span>
 		<div id="status"></div><br/>
-		<input type="button" id="abort" value="Cancel" />
+		<input type="button" id="abort" value="انصراف" />
 	</div>
 	
 </div>
