@@ -339,6 +339,10 @@ function formatTime(seconds,Timer) {
 ////Share Location Auto////////////////////////////////////////////////
 
 function check_auto_location() {
+	document.addEventListener("start_check_auto_location", onResume, false);
+	start_check_auto_location();
+}
+function start_check_auto_location() {
 			if(window.localStorage.getItem('location_history') == null){
 				window.localStorage.setItem('location_history',JSON.stringify([]));   
 			}
