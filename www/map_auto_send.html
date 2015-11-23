@@ -183,6 +183,7 @@ function send_number()
 			function onConfirm(buttonIndex) {
 				if(buttonIndex==1)
 				{
+					$("#autocomplete").val("");
 					window.location.href = "sms:" + number + "&body=شما کجایید؟";
 				}
 				else
