@@ -339,7 +339,7 @@ function formatTime(seconds,Timer) {
 ////Share Location Auto////////////////////////////////////////////////
 
 function check_auto_location() {
-	document.addEventListener("start_check_auto_location", onResume, false);
+	document.addEventListener("resume", start_check_auto_location, false);
 	start_check_auto_location();
 }
 function start_check_auto_location() {
