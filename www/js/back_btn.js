@@ -334,3 +334,67 @@ function formatTime(seconds,Timer) {
 ////////////////////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////
 
+///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+////Share Location Auto////////////////////////////////////////////////
+
+function check_auto_location() {
+			if(window.localStorage.getItem('location_history') == null){
+				window.localStorage.setItem('location_history',JSON.stringify([]));   
+			}
+			if(window.localStorage.getItem('location_thistime') == null){
+				window.localStorage.setItem('location_thistime',JSON.stringify([]));   
+			}
+			if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+				navigator.share("AppStart","",function(result)
+				{
+					if(result!="")
+					{
+						result = result.replace("result:", "");
+						if(result!="")
+						{
+							temp_array = JSON.parse(window.localStorage.getItem('location_history'));
+							//temp_array2 = JSON.parse(window.localStorage.getItem('location_thistime'));
+							temp_array3 = result.split('\n');
+							temp_array = $.merge(temp_array3, temp_array);
+							temp_array = temp_array.filter(function(v){return v!==''});
+							temp_array3 = temp_array.filter(function(v){return v!==''});
+							temp_array3 = temp_array3[0].split('\n');
+							//temp_array2 = $.merge(temp_array3, temp_array2);
+							//temp_array.push(number);
+							window.localStorage.setItem('location_history',JSON.stringify(temp_array));
+							window.localStorage.setItem('location_thistime',JSON.stringify(temp_array3));
+							navigator.notification.confirm(
+								'پروسه درخواست موقعیت شما با موفقیت پایان یافت،آیا تمایل دارید نتیجه آن را بر روی نقشه مشاهده نمایید؟', // message
+								 onConfirm,            // callback to invoke with index of button pressed
+								'توجه',           // title
+								['بله','خیر']         // buttonLabels
+							);
+							function onConfirm(buttonIndex) {
+								if(buttonIndex==1)
+								{
+									window.location.href = "map_iraq.html";
+								}
+								else
+								{
+									window.localStorage.setItem('location_thistime',JSON.stringify([])); 
+								}
+							}
+							navigator.share("clearLocationStorage","",function(result){});
+						}
+						else
+						{
+							window.localStorage.setItem('location_thistime',JSON.stringify([])); 
+						}
+					}
+					else
+					{
+						window.localStorage.setItem('location_thistime',JSON.stringify([])); 
+					}
+				});				
+			}
+}
+////Share Location Auto////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////
+
