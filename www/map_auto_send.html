@@ -171,6 +171,15 @@ function send_number()
 				//alert(result);
 			});
 			$("#autocomplete").val("");
+			navigator.notification.alert(
+				'درخواست شما ارسال شد.',  // message
+				alertDismissed,         // callback
+				'اطلاعیه',            // title
+				'تائید'                  // buttonName
+			);
+			function alertDismissed() {
+				// do something
+			}
 		}
 		else
 		{
