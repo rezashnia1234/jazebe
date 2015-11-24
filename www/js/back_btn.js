@@ -338,6 +338,36 @@ function formatTime(seconds,Timer) {
 ///////////////////////////////////////////////////////////////////////
 ////Share Location Auto////////////////////////////////////////////////
 
+function check_is_gps_enabled() {
+	if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
+		navigator.share("isGpsEnabled","",function(result)
+		{
+			result = result.replace("result:", "");
+			if(result=="false")
+			{
+				navigator.notification.confirm(
+					'شما برای استفاده از این سرویس ، نیاز به فعال سازی GPS دستگاه خود دارید.', // message
+					 onConfirm,            // callback to invoke with index of button pressed
+					'',           // title
+					['فعال سازی می کنم','مهم نیست']         // buttonLabels
+				);
+				function onConfirm(buttonIndex) {
+					if(buttonIndex==1)
+					{
+						navigator.share("openGpsSettings","",function(result)
+						{
+							//alert(result);
+						});
+					}
+					else
+					{
+						
+					}
+				}
+			}
+		});
+	}
+}
 function check_auto_location() {
 	document.addEventListener("resume", start_check_auto_location, false);
 	start_check_auto_location();

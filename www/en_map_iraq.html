@@ -88,7 +88,7 @@
 		navigator.notification.confirm(
 			'Please choose the option!\n Step 1: I want to send my location\n Step 2: My friend sent me his/her location', // message
 			 onConfirm,            // callback to invoke with index of button pressed
-			'Share Lockation',           // title
+			'Share Location',           // title
 			['Step One','Step Two','Cancel']         // buttonLabels
 		);
 	}
@@ -98,12 +98,12 @@
 			//alert("sms:?body=" + my_location_marker.getLatLng());
 			if(my_location_marker.getLatLng().lat != 36.2879)
 			{
-				if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
-					window.location.href = "sms:?body=" + my_location_marker.getLatLng();
+				if ( device.platform == 'iOS' ){//Android,iOS,win7=WinCE,win8=Win32NT
+					window.location.href = "sms:&body=" + my_location_marker.getLatLng();
 				}
 				else
 				{
-					window.location.href = "sms:&body=" + my_location_marker.getLatLng();
+					window.location.href = "sms:?body=" + my_location_marker.getLatLng();
 				}
 			}
 			else

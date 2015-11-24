@@ -139,22 +139,46 @@
 			//sms:+19725551212?body=hello	android
 			if(my_location_marker.getLatLng().lat != 36.2879)
 			{
-				if ( device.platform == 'Android' ){//Android,iOS,win7=WinCE,win8=Win32NT
-					window.location.href = "sms:?body=" + my_location_marker.getLatLng();
+				if ( device.platform == 'iOS' ){//Android,iOS,win7=WinCE,win8=Win32NT
+					window.location.href = "sms:&body=" + my_location_marker.getLatLng();
 				}
 				else
 				{
-					window.location.href = "sms:&body=" + my_location_marker.getLatLng();
+					window.location.href = "sms:?body=" + my_location_marker.getLatLng();
 				}
 			}
 			else
 			{
-				navigator.notification.alert(
-					'متاسفانه دستگاه موقعیت جغرافیایی شما پیدا نکرده است.\nلطفا از روشن بودن GPS اطمینان حاصل کنید و دقایقی دیگر ، مجددا تلاش نمایید.',  // message
-					alertDismissed,         // callback
-					'اخطار',            // title
-					'تائید'                  // buttonName
-				);
+				if ( device.platform == 'iOS' ){//Android,iOS,win7=WinCE,win8=Win32NT
+					navigator.notification.alert(
+						'متاسفانه دستگاه موقعیت جغرافیایی شما پیدا نکرده است.\nلطفا در فضای بدون سقف قرار گیرید و از روشن بودن GPS اطمینان حاصل کنید و دقایقی دیگر ، مجددا تلاش نمایید.', // message
+						alertDismissed,         // callback
+						'اخطار',            // title
+						'تائید'                  // buttonName
+					);
+				}
+				else
+				{
+					navigator.notification.confirm(
+						'متاسفانه دستگاه موقعیت جغرافیایی شما پیدا نکرده است.\nلطفا در فضای بدون سقف قرار گیرید و از روشن بودن GPS اطمینان حاصل کنید و دقایقی دیگر ، مجددا تلاش نمایید.', // message
+						 onConfirm,            // callback to invoke with index of button pressed
+						'',           // title
+						['بررسی روشن بودن GPS','لغو درخواست']         // buttonLabels
+					);
+					function onConfirm(buttonIndex) {
+						if(buttonIndex==1)
+						{
+							navigator.share("openGpsSettings","",function(result)
+							{
+								//alert(result);
+							});
+						}
+						else
+						{
+							
+						}
+					}
+				}
 			}
 		}
 		else if(buttonIndex==2)
